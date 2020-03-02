@@ -1,0 +1,34 @@
+{
+  "name": "tamariva",
+  "version": "1.0.0",
+  "main": "gulpfile.babel.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/tamariva/homepage.git"
+  },
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://gitlab.com/tamariva/homepage/issues"
+  },
+  "homepage": "https://tamariva.co.jp",
+  "devDependencies": {
+    "@babel/core": "7.8.6",
+    "@babel/preset-env": "7.8.6",
+    "@babel/register": "7.8.6",
+    "del": "5.1.0",
+    "gulp": "4.0.2",
+    "gulp-autoprefixer": "7.0.1",
+    "gulp-clean-css": "4.2.0",
+    "gulp-filter": "6.0.0",
+    "gulp-htmlmin": "5.0.1",
+    "gulp-imagemin": "7.1.0",
+    "gulp-load-plugins": "2.0.2",
+    "gulp-terser": "1.2.0",
+    "gulp-zip": "5.0.1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  }
+}
