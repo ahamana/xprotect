@@ -1,21 +1,21 @@
 window.addEventListener('load', function () {
 
-    console.log('Window loaded.');
+	console.log('Window loaded.');
 
-    var startApp = function () {
-        XPMobileSDK.onLoad = Application.initialize;
-        XPMobileSDK.isLoaded() && Application.initialize();
-    }
-	
+	var startApp = function () {
+		XPMobileSDK.onLoad = Application.initialize;
+		XPMobileSDK.isLoaded() && Application.initialize();
+	}
+
 	if ('XPMobileSDK' in window) {
-	    startApp();
+		startApp();
 	}
 	else {
-	    script = document.createElement('script');
-	    script.addEventListener('load', function () {
-	        startApp();
-	    });
-	    script.src = '../../XPMobileSDK.js';
-	    document.querySelector('head').appendChild(script);
+		script = document.createElement('script');
+		script.addEventListener('load', function () {
+			startApp();
+		});
+		script.src = '../../XPMobileSDK.js';
+		document.querySelector('head').appendChild(script);
 	}
 });
