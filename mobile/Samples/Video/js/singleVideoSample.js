@@ -208,3 +208,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		Application.login(username, password);
 	});
 });
+
+window.addEventListener('load', function () {
+	if (XPMobileSDK.isLoaded()) {
+		Application.initialize();
+	}
+});
