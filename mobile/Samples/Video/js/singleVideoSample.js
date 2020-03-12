@@ -8,7 +8,7 @@
 
 	function CustomEvent(event, params) {
 		params = params || { bubbles: false, cancelable: false, detail: undefined };
-		var evt = document.createEvent('CustomEvent');
+		const evt = document.createEvent('CustomEvent');
 		evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
 
 		return evt;
@@ -20,7 +20,7 @@
 })();
 
 
-var Application = new function () {
+const Application = new function () {
 	this.initialize = initialize;
 	this.login = login;
 
@@ -28,7 +28,7 @@ var Application = new function () {
 	 * Initialization. 
 	 */
 	function initialize() {
-		var connectParams = { ProcessingMessage: 'No' };
+		const connectParams = { ProcessingMessage: 'No' };
 		XPMobileSDK.Connect(connectParams, connectionDidConnect, connectionDidNotConnect);
 	}
 
@@ -44,8 +44,8 @@ var Application = new function () {
 	 */
 	function connectionDidConnect(parameters) {
 		if (sessionStorage.getItem('isLogIn') == String(true)) {
-			var username = sessionStorage.getItem('Username');
-			var password = sessionStorage.getItem('Password');
+			const username = sessionStorage.getItem('Username');
+			const password = sessionStorage.getItem('Password');
 
 			login(username, password);
 		}
@@ -58,7 +58,7 @@ var Application = new function () {
 	 * Executes login process.
 	 */
 	function login(username, password) {
-		var loginParams = {
+		const loginParams = {
 			'Username': username,
 			'Password': password
 		};
@@ -86,8 +86,8 @@ var Application = new function () {
 
 		sessionStorage.setItem('isLogIn', String(true));
 
-		var searchParams = new URLSearchParams(location.search);
-		var cameraId = searchParams.get('cid');
+		const searchParams = new URLSearchParams(location.search);
+		const cameraId = searchParams.get('cid');
 
 		if (cameraId === null) {
 			window.alert('クエリーにカメラ ID を指定してください。');
@@ -96,7 +96,7 @@ var Application = new function () {
 		}
 
 		XPMobileSDK.getAllViews(function (items) {
-			for (var item of items[0].Items[0].Items[0].Items) {
+			for (const item of items[0].Items[0].Items[0].Items) {
 				if (item.Id !== cameraId.toLowerCase()) {
 					continue;
 				}
@@ -122,15 +122,15 @@ var Application = new function () {
 	}
 
 	function Camera(cameraId) {
-		var canvas = document.querySelector('canvas');
-		var canvasContext = canvas.getContext('2d');
-		var image = document.createElement('img');
+		const canvas = document.querySelector('canvas');
+		const canvasContext = canvas.getContext('2d');
+		const image = document.createElement('img');
 		image.addEventListener('load', onImageLoad);
 		image.addEventListener('error', onImageError);
-		var imageURL, videoController;
-		var drawing = false;
+		let imageURL, videoController;
+		let drawing = false;
 
-		var videoConnectionObserver = {
+		const videoConnectionObserver = {
 			videoConnectionReceivedFrame: videoConnectionReceivedFrame
 		}
 
@@ -138,7 +138,7 @@ var Application = new function () {
 		/**
 		 * Requesting a video stream. 
 		 */
-		var streamRequest = XPMobileSDK.RequestStream(RequestStreamParams(cameraId, 'Live'), requestStreamCallback, function (error) { });
+		XPMobileSDK.RequestStream(RequestStreamParams(cameraId, 'Live'), requestStreamCallback, function (error) { });
 
 		/**
 		 * Video stream request callback 
@@ -157,7 +157,7 @@ var Application = new function () {
 				drawing = true;
 
 				if (frame.hasSizeInformation) {
-					var multiplier = (frame.sizeInfo.destinationSize.resampling * XPMobileSDK.getResamplingFactor()) || 1;
+					const multiplier = (frame.sizeInfo.destinationSize.resampling * XPMobileSDK.getResamplingFactor()) || 1;
 					image.width = multiplier * frame.sizeInfo.destinationSize.width;
 					image.height = multiplier * frame.sizeInfo.destinationSize.height;
 				}
@@ -202,8 +202,8 @@ var Application = new function () {
 document.addEventListener('DOMContentLoaded', function () {
 	// Add the event listener when the login button is clicked.
 	document.getElementById('login-button').addEventListener('click', function () {
-		var username = document.querySelector('#username').value;
-		var password = document.querySelector('#password').value;
+		const username = document.querySelector('#username').value;
+		const password = document.querySelector('#password').value;
 
 		Application.login(username, password);
 	});
