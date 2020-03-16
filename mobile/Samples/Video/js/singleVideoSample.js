@@ -153,23 +153,25 @@ const Application = new function () {
 		 * Executed on received frame. 
 		 */
 		function videoConnectionReceivedFrame(frame) {
-			if (!drawing && frame.dataSize > 0) {
-				drawing = true;
-
-				if (frame.hasSizeInformation) {
-					const multiplier = (frame.sizeInfo.destinationSize.resampling * XPMobileSDK.getResamplingFactor()) || 1;
-					image.width = multiplier * frame.sizeInfo.destinationSize.width;
-					image.height = multiplier * frame.sizeInfo.destinationSize.height;
-				}
-
-				if (imageURL) {
-					window.URL.revokeObjectURL(imageURL);
-				}
-
-				imageURL = window.URL.createObjectURL(frame.blob);
-
-				image.src = imageURL
+			if (drawing || frame.dataSize <= 0) {
+				return;
 			}
+
+			drawing = true;
+
+			if (frame.hasSizeInformation) {
+				const multiplier = (frame.sizeInfo.destinationSize.resampling * XPMobileSDK.getResamplingFactor()) || 1;
+				image.width = multiplier * frame.sizeInfo.destinationSize.width;
+				image.height = multiplier * frame.sizeInfo.destinationSize.height;
+			}
+
+			if (imageURL) {
+				window.URL.revokeObjectURL(imageURL);
+			}
+
+			imageURL = window.URL.createObjectURL(frame.blob);
+
+			image.src = imageURL
 		}
 
 		/**
