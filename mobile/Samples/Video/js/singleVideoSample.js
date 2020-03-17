@@ -8,6 +8,7 @@ const Application = new function () {
 	 */
 	function initialize() {
 		const connectParams = { ProcessingMessage: 'No' };
+
 		XPMobileSDK.Connect(connectParams, connectionDidConnect, connectionDidNotConnect);
 	}
 
@@ -114,6 +115,7 @@ const Application = new function () {
 		}
 
 		XPMobileSDK.library.Connection.webSocketBrowser = false;
+
 		/**
 		 * Requesting a video stream. 
 		 */
@@ -164,6 +166,9 @@ const Application = new function () {
 			drawing = false;
 		}
 
+		/**
+		 * Executed on image load error. 
+		 */
 		function onImageError(event) {
 			drawing = false;
 		}
