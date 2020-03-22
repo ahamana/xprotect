@@ -12,9 +12,9 @@
   },
   "homepage": "https://tamariva.co.jp",
   "devDependencies": {
-    "@babel/core": "7.8.7",
-    "@babel/preset-env": "7.8.7",
-    "@babel/register": "7.8.6",
+    "@babel/core": "7.9.0",
+    "@babel/preset-env": "7.9.0",
+    "@babel/register": "7.9.0",
     "del": "5.1.0",
     "gulp": "4.0.2",
     "gulp-autoprefixer": "7.0.1",
