@@ -75,7 +75,7 @@ const Application = new function () {
 			return;
 		}
 
-		XPMobileSDK.getAllViews(function (items) {
+		XPMobileSDK.getAllViews(items => {
 			for (const item of items[0].Items[0].Items[0].Items) {
 				if (item.Id !== cameraId.toLowerCase()) {
 					continue;
