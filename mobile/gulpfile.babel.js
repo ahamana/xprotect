@@ -38,6 +38,7 @@ export const build = () => {
 	const imageFilter = $.filter( config.filter.image.pattern, { restore: true } );
 	const htmlFilter = $.filter( config.filter.html.pattern, { restore: true } );
 	const cssFilter = $.filter( '**/*.css', { restore: true } );
+	const tsFilter = $.filter( '**/*.ts', { restore: true } );
 	const jsFilter = $.filter( '**/*.js', { restore: true } );
 
 	return gulp.src( config.src )
@@ -60,6 +61,9 @@ export const build = () => {
 			.pipe( $.autoprefixer() )
 			.pipe( $.cleanCss() )
 			.pipe( cssFilter.restore )
+			.pipe( tsFilter )
+			.pipe( $.typescript.createProject( config.tsconfigJson )() )
+			.pipe( tsFilter.restore )
 			.pipe( jsFilter )
 			.pipe( $.terser() )
 			.pipe( jsFilter.restore )

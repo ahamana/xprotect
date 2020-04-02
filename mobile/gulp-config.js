@@ -24,10 +24,16 @@ const IMAGE_FILE_PATTERN = [ '**/*.jpg', '**/*.png' ];
 // HTML ファイルのパターン
 const HTML_FILE_PATTERN = [ '**/*.html', '**/*.ssi' ];
 
+// tsconfig.json ファイルのパス
+const TSCONFIG_JSON_FILE_PATH = './tsconfig.json';
+
 //-----------------------------------------------------------------------------
 //    Build Settings
 //-----------------------------------------------------------------------------
 export default {
+	// tsconfig.json
+	tsconfigJson: TSCONFIG_JSON_FILE_PATH,
+
 	// ビルドディレクトリ
 	buildDir: BUILD_DIR,
 

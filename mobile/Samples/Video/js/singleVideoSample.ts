@@ -1,13 +1,12 @@
 
-const Application = new function () {
-	this.initialize = initialize;
-	this.login = login;
+declare const XPMobileSDK: any;
 
+const Application = new function () {
 	/**
 	 * Initialization. 
 	 */
-	function initialize() {
-		const connectParams = { ProcessingMessage: 'No' };
+	const initialize = (): void => {
+		const connectParams: object = { ProcessingMessage: 'No' };
 
 		XPMobileSDK.Connect(connectParams, connectionDidConnect, connectionDidNotConnect);
 	}
@@ -15,17 +14,17 @@ const Application = new function () {
 	/**
 	 * Connection state observing. 
 	 */
-	function connectionDidNotConnect(parameters) {
+	const connectionDidNotConnect = (): void => {
 		alert('Failed to Connect');
 	}
 
 	/**
 	 * Connection state observing. 
 	 */
-	function connectionDidConnect(parameters) {
+	const connectionDidConnect = (): void => {
 		if (sessionStorage.getItem('isLogIn') == String(true)) {
-			const username = sessionStorage.getItem('Username');
-			const password = sessionStorage.getItem('Password');
+			const username: string = sessionStorage.getItem('Username');
+			const password: string = sessionStorage.getItem('Password');
 
 			login(username, password);
 		}
@@ -37,8 +36,8 @@ const Application = new function () {
 	/**
 	 * Executes login process.
 	 */
-	function login(username, password) {
-		const loginParams = {
+	const login = (username: string, password: string): void => {
+		const loginParams: object = {
 			'Username': username,
 			'Password': password
 		};
@@ -52,7 +51,7 @@ const Application = new function () {
 	/**
 	 * Connection state observing. 
 	 */
-	function connectionDidNotLogIn() {
+	const connectionDidNotLogIn = (): void => {
 		document.querySelector('#alert').classList.remove('d-none');
 
 		XPMobileSDK.connect(null);
@@ -61,13 +60,13 @@ const Application = new function () {
 	/**
 	 * Connection state observing. 
 	 */
-	function connectionDidLogIn() {
+	const connectionDidLogIn = (): void => {
 		$('#login-modal').modal('hide');
 
 		sessionStorage.setItem('isLogIn', String(true));
 
-		const searchParams = new URLSearchParams(location.search);
-		const cameraId = searchParams.get('cid');
+		const searchParams: URLSearchParams = new URLSearchParams(location.search);
+		const cameraId: string = searchParams.get('cid');
 
 		if (cameraId === null) {
 			window.alert('クエリーにカメラ ID を指定してください。');
@@ -86,7 +85,7 @@ const Application = new function () {
 		});
 	}
 
-	function RequestStreamParams(cameraId, signalType) {
+	const RequestStreamParams = (cameraId: string, signalType: string): object => {
 		return {
 			CameraId: cameraId,
 			DestWidth: 400,
@@ -101,30 +100,17 @@ const Application = new function () {
 		};
 	}
 
-	function Camera(cameraId) {
-		const canvas = document.querySelector('canvas');
-		const canvasContext = canvas.getContext('2d');
-		const image = document.createElement('img');
-		image.addEventListener('load', onImageLoad);
-		image.addEventListener('error', onImageError);
-		let imageURL, videoController;
-		let drawing = false;
-
-		const videoConnectionObserver = {
-			videoConnectionReceivedFrame: videoConnectionReceivedFrame
-		}
-
-		XPMobileSDK.library.Connection.webSocketBrowser = false;
-
-		/**
-		 * Requesting a video stream. 
-		 */
-		XPMobileSDK.RequestStream(RequestStreamParams(cameraId, 'Live'), requestStreamCallback, function (error) { });
+	const Camera = (cameraId: string): void => {
+		const canvas: HTMLCanvasElement = document.querySelector('canvas');
+		const canvasContext: CanvasRenderingContext2D = canvas.getContext('2d');
+		const image: HTMLImageElement = document.createElement('img');
+		let imageURL: string, videoController: any;
+		let drawing: boolean = false;
 
 		/**
 		 * Video stream request callback 
 		 */
-		function requestStreamCallback(videoConnection) {
+		const requestStreamCallback = (videoConnection: any): void => {
 			videoController = videoConnection;
 			videoConnection.addObserver(videoConnectionObserver);
 			videoConnection.open();
@@ -133,7 +119,7 @@ const Application = new function () {
 		/**
 		 * Executed on received frame. 
 		 */
-		function videoConnectionReceivedFrame(frame) {
+		const videoConnectionReceivedFrame = (frame: any): void => {
 			if (drawing || frame.dataSize <= 0) {
 				return;
 			}
@@ -141,7 +127,7 @@ const Application = new function () {
 			drawing = true;
 
 			if (frame.hasSizeInformation) {
-				const multiplier = (frame.sizeInfo.destinationSize.resampling * XPMobileSDK.getResamplingFactor()) || 1;
+				const multiplier: number = (frame.sizeInfo.destinationSize.resampling * XPMobileSDK.getResamplingFactor()) || 1;
 				image.width = multiplier * frame.sizeInfo.destinationSize.width;
 				image.height = multiplier * frame.sizeInfo.destinationSize.height;
 			}
@@ -158,7 +144,7 @@ const Application = new function () {
 		/**
 		 * Executed on image load. 
 		 */
-		function onImageLoad(event) {
+		const onImageLoad = (): void => {
 			canvas.width = image.width;
 			canvas.height = image.height;
 			canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
@@ -169,33 +155,50 @@ const Application = new function () {
 		/**
 		 * Executed on image load error. 
 		 */
-		function onImageError(event) {
+		const onImageError = (): void => {
 			drawing = false;
 		}
+
+		const videoConnectionObserver = {
+			videoConnectionReceivedFrame: videoConnectionReceivedFrame
+		}
+
+		image.addEventListener('load', onImageLoad);
+		image.addEventListener('error', onImageError);
+
+		XPMobileSDK.library.Connection.webSocketBrowser = false;
+
+		/**
+		 * Requesting a video stream. 
+		 */
+		XPMobileSDK.RequestStream(RequestStreamParams(cameraId, 'Live'), requestStreamCallback, () => { });
 	};
 
 	/**
 	 * Builds camera element
 	 */
-	function buildCameraElement(item) {
+	const buildCameraElement = (item: any): void => {
 		document.querySelector('.card-header').innerHTML = item.Name;
 		document.querySelector('.card').classList.remove('d-none');
 
 		Camera(item.Id);
 	};
+
+	this.initialize = initialize;
+	this.login = login;
 };
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
 	// Add the event listener when the login button is clicked.
-	document.getElementById('login-button').addEventListener('click', function () {
-		const username = document.querySelector('#username').value;
-		const password = document.querySelector('#password').value;
+	document.getElementById('login-button').addEventListener('click', () => {
+		const username: string = (document.querySelector('#username') as HTMLInputElement).value;
+		const password: string = (document.querySelector('#password') as HTMLInputElement).value;
 
 		Application.login(username, password);
 	});
 });
 
-window.addEventListener('load', function () {
+window.addEventListener('load', () => {
 	if (XPMobileSDK.isLoaded()) {
 		Application.initialize();
 	}
