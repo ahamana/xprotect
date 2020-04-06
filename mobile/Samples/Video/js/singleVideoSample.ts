@@ -68,7 +68,7 @@ const Application = new function () {
 		const searchParams: URLSearchParams = new URLSearchParams(location.search);
 		const cameraId: string = searchParams.get('cid');
 
-		if (cameraId == null) {
+		if (cameraId === null) {
 			window.alert('クエリーにカメラ ID を指定してください。');
 
 			return;
@@ -77,7 +77,7 @@ const Application = new function () {
 		XPMobileSDK.getAllViews(items => {
 			const item: any = (items[0].Items[0].Items[0].Items as Array<any>).find(item => item.Id === cameraId.toLowerCase());
 
-			if (item != undefined) {
+			if (item !== undefined) {
 				buildCameraElement(item);
 			}
 		});
