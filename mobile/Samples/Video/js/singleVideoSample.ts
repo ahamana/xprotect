@@ -69,7 +69,7 @@ const Application = new function () {
 		const cameraId: string = searchParams.get('cid');
 
 		if (cameraId === null) {
-			window.alert('クエリーにカメラ ID を指定してください。');
+			alert('クエリーにカメラ ID を指定してください。');
 
 			return;
 		}
