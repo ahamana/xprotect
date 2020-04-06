@@ -9,14 +9,14 @@ const Application = new function () {
 		const connectParams: object = { ProcessingMessage: 'No' };
 
 		XPMobileSDK.Connect(connectParams, connectionDidConnect, connectionDidNotConnect);
-	}
+	};
 
 	/**
 	 * Connection state observing. 
 	 */
 	const connectionDidNotConnect = (): void => {
 		alert('Failed to Connect');
-	}
+	};
 
 	/**
 	 * Connection state observing. 
@@ -31,7 +31,7 @@ const Application = new function () {
 		else {
 			$('#login-modal').modal('show');
 		}
-	}
+	};
 
 	/**
 	 * Executes login process.
@@ -46,7 +46,7 @@ const Application = new function () {
 		sessionStorage.setItem('Password', password);
 
 		XPMobileSDK.Login(loginParams, connectionDidLogIn, connectionDidNotLogIn);
-	}
+	};
 
 	/**
 	 * Connection state observing. 
@@ -55,7 +55,7 @@ const Application = new function () {
 		document.querySelector('#alert').classList.remove('d-none');
 
 		XPMobileSDK.connect(null);
-	}
+	};
 
 	/**
 	 * Connection state observing. 
@@ -81,7 +81,7 @@ const Application = new function () {
 				buildCameraElement(item);
 			}
 		});
-	}
+	};
 
 	const RequestStreamParams = (cameraId: string, signalType: string): object => {
 		return {
@@ -96,7 +96,7 @@ const Application = new function () {
 			RequestSize: 'Yes',
 			StreamType: 'Transcoded'
 		};
-	}
+	};
 
 	const Camera = (cameraId: string): void => {
 		const canvas: HTMLCanvasElement = document.querySelector('canvas');
@@ -112,7 +112,7 @@ const Application = new function () {
 			videoController = videoConnection;
 			videoConnection.addObserver(videoConnectionObserver);
 			videoConnection.open();
-		}
+		};
 
 		/**
 		 * Executed on received frame. 
@@ -137,7 +137,7 @@ const Application = new function () {
 			imageURL = window.URL.createObjectURL(frame.blob);
 
 			image.src = imageURL
-		}
+		};
 
 		/**
 		 * Executed on image load. 
@@ -148,18 +148,18 @@ const Application = new function () {
 			canvasContext.drawImage(image, 0, 0, canvas.width, canvas.height);
 
 			drawing = false;
-		}
+		};
 
 		/**
 		 * Executed on image load error. 
 		 */
 		const onImageError = (): void => {
 			drawing = false;
-		}
+		};
 
 		const videoConnectionObserver = {
 			videoConnectionReceivedFrame: videoConnectionReceivedFrame
-		}
+		};
 
 		image.addEventListener('load', onImageLoad);
 		image.addEventListener('error', onImageError);
