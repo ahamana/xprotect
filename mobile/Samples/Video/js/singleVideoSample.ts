@@ -69,17 +69,15 @@ const Application = new function () {
 		const cameraId: string = searchParams.get('cid');
 
 		if (cameraId === null) {
-			window.alert('クエリーにカメラ ID を指定してください。');
+			alert('クエリーにカメラ ID を指定してください。');
 
 			return;
 		}
 
 		XPMobileSDK.getAllViews(items => {
-			for (const item of items[0].Items[0].Items[0].Items) {
-				if (item.Id !== cameraId.toLowerCase()) {
-					continue;
-				}
+			const item: any = (items[0].Items[0].Items[0].Items as Array<any>).find(item => item.Id === cameraId.toLowerCase());
 
+			if (item !== undefined) {
 				buildCameraElement(item);
 			}
 		});
