@@ -7,7 +7,7 @@
     "@babel/preset-env": "7.9.6",
     "@babel/register": "7.9.0",
     "@types/bootstrap": "4.3.2",
-    "@types/jquery": "3.3.36",
+    "@types/jquery": "3.3.38",
     "del": "5.1.0",
     "gulp": "4.0.2",
     "gulp-autoprefixer": "7.0.1",
@@ -19,7 +19,7 @@
     "gulp-terser": "1.2.0",
     "gulp-typescript": "6.0.0-alpha.1",
     "gulp-zip": "5.0.1",
-    "typescript": "3.8.3"
+    "typescript": "3.9.2"
   },
   "babel": {
     "presets": [
