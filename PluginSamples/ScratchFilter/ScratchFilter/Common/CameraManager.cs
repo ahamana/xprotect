@@ -24,7 +24,7 @@ namespace ScratchFilter.Common
 
         #endregion
 
-        #region Methods
+        #region Constructors
 
         /// <summary>
         /// コンストラクタです。
@@ -32,6 +32,10 @@ namespace ScratchFilter.Common
         private CameraManager()
         {
         }
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         /// カメラの一覧を取得します。

@@ -53,6 +53,18 @@ namespace ScratchFilter.Client.Toolbar
 
         #endregion
 
+        #region Constructors
+
+        /// <summary>
+        /// コンストラクタです。
+        /// </summary>
+        protected ToolbarPluginInstance()
+        {
+            Enabled = false;
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>
@@ -105,14 +117,6 @@ namespace ScratchFilter.Client.Toolbar
             }
 
             disposed = true;
-        }
-
-        /// <summary>
-        /// コンストラクタです。
-        /// </summary>
-        protected ToolbarPluginInstance()
-        {
-            Enabled = false;
         }
 
         /// <summary>
