@@ -24,6 +24,8 @@ namespace ScratchFilter.Common.ConfigurationItems
     /// </summary>
     internal static class GenericEventDataSourceTypeExtensions
     {
+        #region Fields
+
         /// <summary>
         /// ジェネリックイベントのデータソースの ID の一覧です。
         /// </summary>
@@ -35,6 +37,10 @@ namespace ScratchFilter.Common.ConfigurationItems
             { GenericEventDataSourceType.International, new Guid("8607bccc-2bb5-4b47-a7de-8225d14c4213") }
         };
 
+        #endregion
+
+        #region Methods
+
         /// <summary>
         /// ID を取得します。
         /// </summary>
@@ -44,5 +50,7 @@ namespace ScratchFilter.Common.ConfigurationItems
         {
             return GenericEventDataSourceIds[genericEventDataSourceType];
         }
+
+        #endregion
     }
 }
