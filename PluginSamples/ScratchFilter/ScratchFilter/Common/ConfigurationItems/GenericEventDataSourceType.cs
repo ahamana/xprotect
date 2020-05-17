@@ -36,11 +36,11 @@ namespace ScratchFilter.Common.ConfigurationItems
         /// <summary>
         /// ID を取得します。
         /// </summary>
-        /// <param name="dataSourceType">ジェネリックイベントのデータソース</param>
+        /// <param name="genericEventDataSourceType">ジェネリックイベントのデータソースのタイプ</param>
         /// <returns>ID</returns>
-        internal static Guid GetId(this GenericEventDataSourceType dataSourceType)
+        internal static Guid GetId(this GenericEventDataSourceType genericEventDataSourceType)
         {
-            return dataSourceType switch
+            return genericEventDataSourceType switch
             {
                 GenericEventDataSourceType.Compatible => GenericEventDataSourceCompatibleId,
                 GenericEventDataSourceType.International => GenericEventDataSourceInternationalId,
