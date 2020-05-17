@@ -133,9 +133,9 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>md "$(ProgramW6432)\Milestone\MIPPlugins\ScratchFilter" &gt; NUL 2&gt;&amp;1
-del /q /s "$(ProgramW6432)\Milestone\MIPPlugins\ScratchFilter"
-xcopy /e "$(TargetDir)*" "$(ProgramW6432)\Milestone\MIPPlugins\ScratchFilter"
+    <PostBuildEvent>md "$(ProgramW6432)\Milestone\MIPPlugins\$(ProjectName)" &gt; NUL 2&gt;&amp;1
+del /q /s "$(ProgramW6432)\Milestone\MIPPlugins\$(ProjectName)"
+xcopy /e "$(TargetDir)*" "$(ProgramW6432)\Milestone\MIPPlugins\$(ProjectName)"
 </PostBuildEvent>
   </PropertyGroup>
 </Project>

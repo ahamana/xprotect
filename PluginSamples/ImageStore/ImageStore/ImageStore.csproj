@@ -98,9 +98,9 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>if exist "$(ProgramW6432)\Milestone\MIPPlugins\ImageStore" (
-    del /q /s "$(ProgramW6432)\Milestone\MIPPlugins\ImageStore"
-    xcopy /e "$(TargetDir)*" "$(ProgramW6432)\Milestone\MIPPlugins\ImageStore"
+    <PostBuildEvent>if exist "$(ProgramW6432)\Milestone\MIPPlugins\$(ProjectName)" (
+    del /q /s "$(ProgramW6432)\Milestone\MIPPlugins\$(ProjectName)"
+    xcopy /e "$(TargetDir)*" "$(ProgramW6432)\Milestone\MIPPlugins\$(ProjectName)"
 )
 </PostBuildEvent>
   </PropertyGroup>
