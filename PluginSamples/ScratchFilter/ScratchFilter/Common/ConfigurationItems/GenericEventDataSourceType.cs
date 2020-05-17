@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ScratchFilter.Common.ConfigurationItems
 {
@@ -24,14 +25,15 @@ namespace ScratchFilter.Common.ConfigurationItems
     internal static class GenericEventDataSourceTypeExtensions
     {
         /// <summary>
-        /// ジェネリックイベントのデータソース「互換」の ID です。
+        /// ジェネリックイベントのデータソースの ID の一覧です。
         /// </summary>
-        private static readonly Guid GenericEventDataSourceCompatibleId = new Guid("b867db0c-be9e-422b-b934-6fc7fa98c5d8");
-
-        /// <summary>
-        /// ジェネリックイベントのデータソース「インターナショナル」の ID です。
-        /// </summary>
-        private static readonly Guid GenericEventDataSourceInternationalId = new Guid("8607bccc-2bb5-4b47-a7de-8225d14c4213");
+        private static readonly IReadOnlyDictionary<GenericEventDataSourceType, Guid> GenericEventDataSourceIds = new Dictionary<GenericEventDataSourceType, Guid>()
+        {
+            // ジェネリックイベントのデータソース「互換」の ID
+            { GenericEventDataSourceType.Compatible, new Guid("b867db0c-be9e-422b-b934-6fc7fa98c5d8") },
+            // ジェネリックイベントのデータソース「インターナショナル」の ID
+            { GenericEventDataSourceType.International, new Guid("8607bccc-2bb5-4b47-a7de-8225d14c4213") }
+        };
 
         /// <summary>
         /// ID を取得します。
@@ -40,12 +42,7 @@ namespace ScratchFilter.Common.ConfigurationItems
         /// <returns>ID</returns>
         internal static Guid GetId(this GenericEventDataSourceType genericEventDataSourceType)
         {
-            return genericEventDataSourceType switch
-            {
-                GenericEventDataSourceType.Compatible => GenericEventDataSourceCompatibleId,
-                GenericEventDataSourceType.International => GenericEventDataSourceInternationalId,
-                _ => default
-            };
+            return GenericEventDataSourceIds[genericEventDataSourceType];
         }
     }
 }

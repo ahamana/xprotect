@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using VideoOS.Platform;
@@ -15,19 +16,20 @@ namespace ScratchFilter.Client.Toolbar
         #region Fields
 
         /// <summary>
-        /// Smart Client のテーマが「暗」の場合のセパレータの色です。
-        /// </summary>
-        private static readonly Color SeparatorDarkColor = Color.FromArgb(84, 92, 95);
-
-        /// <summary>
-        /// Smart Client のテーマが「明」の場合のセパレータの色です。
-        /// </summary>
-        private static readonly Color SeparatorLightColor = Color.FromArgb(192, 192, 192);
-
-        /// <summary>
         /// セパレータのサイズ（px）です。
         /// </summary>
         private static readonly Size SeparatorSize = new Size(1, 16);
+
+        /// <summary>
+        /// セパレータの色の一覧です。
+        /// </summary>
+        private static readonly IReadOnlyDictionary<ThemeType, Color> SeparatorColors = new Dictionary<ThemeType, Color>()
+        {
+            // Smart Client のテーマが「暗」の場合のセパレータの色
+            { ThemeType.Dark, Color.FromArgb(84, 92, 95) },
+            // Smart Client のテーマが「明」の場合のセパレータの色
+            { ThemeType.Light, Color.FromArgb(192, 192, 192) }
+        };
 
         #endregion
 
@@ -39,16 +41,10 @@ namespace ScratchFilter.Client.Toolbar
         /// <returns>セパレータ用のアイコン</returns>
         private Image CreateSeparatorIcon()
         {
-            Brush brush = ClientControl.Instance.Theme.ThemeType switch
-            {
-                ThemeType.Dark => new SolidBrush(SeparatorDarkColor),
-                ThemeType.Light => new SolidBrush(SeparatorLightColor),
-                _ => throw new MIPException()
-            };
-
             Image icon = new Bitmap(SeparatorSize.Width, SeparatorSize.Height, PixelFormat.Format32bppArgb);
 
             using (Graphics graphics = Graphics.FromImage(icon))
+            using (Brush brush = new SolidBrush(SeparatorColors[ClientControl.Instance.Theme.ThemeType]))
             {
                 graphics.FillRectangle(brush, 0, 0, icon.Width, icon.Height);
             }
