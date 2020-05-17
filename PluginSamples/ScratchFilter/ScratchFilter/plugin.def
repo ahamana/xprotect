@@ -1,0 +1,4 @@
+<plugin>
+  <file name="ScratchFilter.dll" />
+  <load env="SmartClient" />
+</plugin>
