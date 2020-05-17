@@ -44,7 +44,7 @@ namespace ScratchFilter.Common.ConfigurationItems
             {
                 GenericEventDataSourceType.Compatible => GenericEventDataSourceCompatibleId,
                 GenericEventDataSourceType.International => GenericEventDataSourceInternationalId,
-                _ => default(Guid)
+                _ => default
             };
         }
     }
