@@ -25,6 +25,11 @@ namespace ImageStore
         #region Fields
 
         /// <summary>
+        /// バージョン情報です。
+        /// </summary>
+        private static readonly FileVersionInfo FileVersionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
+
+        /// <summary>
         /// プラグインの ID です。
         /// </summary>
         private static readonly Guid PluginId = new Guid("65accde7-fbac-4c56-b98b-9b4458627bda");
@@ -67,7 +72,7 @@ namespace ImageStore
         public override string Name
         {
             get;
-        } = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductName;
+        } = FileVersionInfo.ProductName;
 
         /// <summary>
         /// Your company name
@@ -75,7 +80,7 @@ namespace ImageStore
         public override string Manufacturer
         {
             get;
-        } = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).CompanyName;
+        } = FileVersionInfo.CompanyName;
 
         /// <summary>
         /// Version of this plugin.
@@ -83,7 +88,7 @@ namespace ImageStore
         public override string VersionString
         {
             get;
-        } = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
+        } = FileVersionInfo.ProductVersion;
 
         /// <summary>
         /// Icon to be used on top level - e.g. a product or company logo

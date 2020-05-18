@@ -27,6 +27,11 @@ namespace ScratchFilter
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         /// <summary>
+        /// バージョン情報です。
+        /// </summary>
+        private static readonly FileVersionInfo FileVersionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
+
+        /// <summary>
         /// プラグインの ID です。
         /// </summary>
         internal static readonly Guid PluginId = new Guid("8c9a02d0-dcb0-4460-8779-23ad282677a0");
@@ -54,7 +59,7 @@ namespace ScratchFilter
         public override string Name
         {
             get;
-        } = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductName;
+        } = FileVersionInfo.ProductName;
 
         /// <summary>
         /// Your company name
@@ -62,7 +67,7 @@ namespace ScratchFilter
         public override string Manufacturer
         {
             get;
-        } = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).CompanyName;
+        } = FileVersionInfo.CompanyName;
 
         /// <summary>
         /// Version of this plugin.
@@ -70,7 +75,7 @@ namespace ScratchFilter
         public override string VersionString
         {
             get;
-        } = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
+        } = FileVersionInfo.ProductVersion;
 
         /// <summary>
         /// Icon to be used on top level - e.g. a product or company logo
