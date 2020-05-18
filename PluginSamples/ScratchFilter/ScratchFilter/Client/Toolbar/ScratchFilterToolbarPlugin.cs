@@ -216,8 +216,8 @@ namespace ScratchFilter.Client.Toolbar
     /// <summary>
     /// ツールバーの傷フィルタ機能です。
     /// </summary>
-    /// <seealso cref="ToolbarPlugin{S}" />
-    internal class ScratchFilterToolbarPlugin : ToolbarPlugin<ScratchFilterToolbarPlugin>
+    /// <seealso cref="ToolbarPlugin" />
+    internal class ScratchFilterToolbarPlugin : ToolbarPlugin
     {
         #region Properties
 

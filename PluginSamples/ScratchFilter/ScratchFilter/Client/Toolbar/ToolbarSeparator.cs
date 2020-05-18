@@ -74,8 +74,8 @@ namespace ScratchFilter.Client.Toolbar
     /// <summary>
     /// ツールバーのセパレータです。
     /// </summary>
-    /// <seealso cref="ToolbarPlugin{S}" />
-    internal class ToolbarSeparator : ToolbarPlugin<ToolbarSeparator>
+    /// <seealso cref="ToolbarPlugin" />
+    internal class ToolbarSeparator : ToolbarPlugin
     {
         #region Properties
 

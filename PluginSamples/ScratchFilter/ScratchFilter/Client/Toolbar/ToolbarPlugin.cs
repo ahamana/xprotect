@@ -174,18 +174,18 @@ namespace ScratchFilter.Client.Toolbar
     /// <summary>
     /// ツールバー用プラグインのベースとなる抽象クラスです。
     /// </summary>
-    /// <typeparam name="S"><see cref="ToolbarPlugin{S}" /> のサブタイプ</typeparam>
-    internal abstract class ToolbarPlugin<S> : ViewItemToolbarPlugin where S : ToolbarPlugin<S>
+    internal abstract class ToolbarPlugin : ViewItemToolbarPlugin
     {
         #region Properties
 
         /// <summary>
         /// 名前です。
         /// </summary>
+        /// <remarks>Smart Client の UI のどこにも表示されず、使用されることはありません。</remarks>
         public override string Name
         {
             get;
-        } = typeof(S).Name;
+        }
 
         #endregion
 
