@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Imaging;
 using VideoOS.Platform;
 using VideoOS.Platform.Client;
 
@@ -41,7 +40,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <returns>セパレータ用のアイコン</returns>
         private Image CreateSeparatorIcon()
         {
-            Image icon = new Bitmap(SeparatorSize.Width, SeparatorSize.Height, PixelFormat.Format32bppArgb);
+            Image icon = new Bitmap(SeparatorSize.Width, SeparatorSize.Height);
 
             using (Graphics graphics = Graphics.FromImage(icon))
             using (Brush brush = new SolidBrush(SeparatorColors[ClientControl.Instance.Theme.ThemeType]))
