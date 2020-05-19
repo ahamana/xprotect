@@ -2,6 +2,7 @@ using ImageStore.Client.Data;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -93,7 +94,7 @@ namespace ImageStore
         /// <summary>
         /// Icon to be used on top level - e.g. a product or company logo
         /// </summary>
-        public override System.Drawing.Image Icon
+        public override Image Icon
         {
             get;
         }

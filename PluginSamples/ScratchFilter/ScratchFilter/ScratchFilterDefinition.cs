@@ -3,6 +3,7 @@ using ScratchFilter.Client.Toolbar;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Reflection;
 using VideoOS.Platform;
 using VideoOS.Platform.Client;
@@ -80,7 +81,7 @@ namespace ScratchFilter
         /// <summary>
         /// Icon to be used on top level - e.g. a product or company logo
         /// </summary>
-        public override System.Drawing.Image Icon
+        public override Image Icon
         {
             get;
         }
