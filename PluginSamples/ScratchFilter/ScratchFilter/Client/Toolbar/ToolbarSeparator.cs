@@ -81,6 +81,9 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// ID です。
         /// </summary>
+        /// <value>
+        /// ID
+        /// </value>
         public override Guid Id
         {
             get;

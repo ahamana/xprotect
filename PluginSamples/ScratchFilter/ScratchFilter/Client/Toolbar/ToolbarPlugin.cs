@@ -182,6 +182,9 @@ namespace ScratchFilter.Client.Toolbar
         /// 名前です。
         /// </summary>
         /// <remarks>Smart Client の UI のどこにも表示されず、使用されることはありません。</remarks>
+        /// <value>
+        /// 名前
+        /// </value>
         public override string Name
         {
             get;

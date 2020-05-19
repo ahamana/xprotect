@@ -47,48 +47,66 @@ namespace ScratchFilter
         #region Properties
 
         /// <summary>
-        /// Gets the unique id identifying this plugin component
+        /// ID です。
         /// </summary>
+        /// <value>
+        /// ID
+        /// </value>
         public override Guid Id
         {
             get;
         } = PluginId;
 
         /// <summary>
-        /// Define name of top level Tree node - e.g. A product name
+        /// 製品名です。
         /// </summary>
+        /// <value>
+        /// 製品名
+        /// </value>
         public override string Name
         {
             get;
         } = FileVersionInfo.ProductName;
 
         /// <summary>
-        /// Your company name
+        /// 会社名です。
         /// </summary>
+        /// <value>
+        /// 会社名
+        /// </value>
         public override string Manufacturer
         {
             get;
         } = FileVersionInfo.CompanyName;
 
         /// <summary>
-        /// Version of this plugin.
+        /// プラグインのバージョンです。
         /// </summary>
+        /// <value>
+        /// プラグインのバージョン
+        /// </value>
         public override string VersionString
         {
             get;
         } = FileVersionInfo.ProductVersion;
 
         /// <summary>
-        /// Icon to be used on top level - e.g. a product or company logo
+        /// トップレベルで使用するアイコンです。
         /// </summary>
+        /// <value>
+        /// トップレベルで使用するアイコン
+        /// </value>
         public override Image Icon
         {
             get;
         }
 
         /// <summary>
-        /// An extension plug-in to add to the view item toolbar in the Smart Client.
+        /// Smart Client のツールバー用プラグインの一覧です。
         /// </summary>
+        /// <value>
+        /// Smart Client のツールバー用プラグインの一覧
+        /// </value>
         public override List<ViewItemToolbarPlugin> ViewItemToolbarPlugins
         {
             get;
@@ -99,8 +117,7 @@ namespace ScratchFilter
         #region Methods
 
         /// <summary>
-        /// This method is called when the environment is up and running.
-        /// Registration of Messages via RegisterReceiver can be done at this point.
+        /// 初期化処理を行います。
         /// </summary>
         public override void Init()
         {
@@ -111,8 +128,7 @@ namespace ScratchFilter
         }
 
         /// <summary>
-        /// The main application is about to be in an undetermined state, either logging off or exiting.
-        /// You can release resources at this point, it should match what you acquired during Init, so additional call to Init() will work.
+        /// 終了処理を行います。
         /// </summary>
         public override void Close()
         {
