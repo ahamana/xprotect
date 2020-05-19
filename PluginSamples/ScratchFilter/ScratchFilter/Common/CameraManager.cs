@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using VideoOS.Platform;
 
 namespace ScratchFilter.Common
@@ -42,7 +41,7 @@ namespace ScratchFilter.Common
         /// </summary>
         /// <param name="items">項目の一覧</param>
         /// <returns>カメラの一覧</returns>
-        private ReadOnlyCollection<Item> GetCameras(List<Item> items)
+        private IReadOnlyCollection<Item> GetCameras(List<Item> items)
         {
             List<Item> cameras = new List<Item>();
 
@@ -65,7 +64,7 @@ namespace ScratchFilter.Common
         /// カメラの一覧を取得します。
         /// </summary>
         /// <returns>カメラの一覧</returns>
-        internal ReadOnlyCollection<Item> GetCameras()
+        internal IReadOnlyCollection<Item> GetCameras()
         {
             return GetCameras(Configuration.Instance.GetItemsByKind(Kind.Camera));
         }
