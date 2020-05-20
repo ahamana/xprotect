@@ -63,7 +63,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="VideoOS.Platform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bc60fba4a7969f89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(ProgramW6432)\Milestone\MIPSDK\Bin\VideoOS.Platform.dll</HintPath>
+      <HintPath>..\MIPSDK\VideoOS.Platform.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
