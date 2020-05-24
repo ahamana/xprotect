@@ -30,7 +30,7 @@
   <!--     Rules                                                          -->
   <!-- ================================================================== -->
   <rules>
-    <logger name="*" minlevel="Debug" writeTo="LogFile" />
+    <logger name="*" minlevel="Info" writeTo="LogFile" />
   </rules>
 
 </nlog>
