@@ -208,6 +208,8 @@ namespace ScratchFilter.Client.Toolbar
 
             Title = Description;
             Tooltip = Description;
+
+            ReloadIcon();
         }
 
         #endregion

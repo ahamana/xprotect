@@ -68,22 +68,6 @@ namespace ScratchFilter.Client.Toolbar
         #region Methods
 
         /// <summary>
-        /// アイコンを再読み込みします。
-        /// </summary>
-        private void ReloadIcon()
-        {
-            // アイコンが生成済みの場合
-            if (Icon != null)
-            {
-                // Dispose メソッドの実行のみとして、null 設定はしない。
-                // ※ null を設定すると、デフォルトアイコンが一瞬表示されてしまう。
-                Icon.Dispose();
-            }
-
-            LoadIcon();
-        }
-
-        /// <summary>
         /// テーマが変更された時に呼び出されます。
         /// </summary>
         /// <param name="message">テーマ変更の内容</param>
@@ -123,6 +107,22 @@ namespace ScratchFilter.Client.Toolbar
         /// アイコンを読み込みます。
         /// </summary>
         protected abstract void LoadIcon();
+
+        /// <summary>
+        /// アイコンを再読み込みします。
+        /// </summary>
+        protected void ReloadIcon()
+        {
+            // アイコンが生成済みの場合
+            if (Icon != null)
+            {
+                // Dispose メソッドの実行のみとして、null 設定はしない。
+                // ※ null を設定すると、デフォルトアイコンが一瞬表示されてしまう。
+                Icon.Dispose();
+            }
+
+            LoadIcon();
+        }
 
         /// <summary>
         /// ツールバー用プラグインのインスタンスが UI に追加された時に呼び出されます。
