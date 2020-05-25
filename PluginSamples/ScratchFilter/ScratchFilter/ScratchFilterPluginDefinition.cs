@@ -18,7 +18,7 @@ namespace ScratchFilter
     /// The class is an abstract class where all implemented methods and properties need to be declared with override.
     /// The class is constructed when the environment is loading the DLL.
     /// </summary>
-    public class ScratchFilterDefinition : PluginDefinition
+    public class ScratchFilterPluginDefinition : PluginDefinition
     {
         #region Fields
 

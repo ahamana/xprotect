@@ -232,7 +232,7 @@ namespace ScratchFilter.Client.Toolbar
         public override Guid Id
         {
             get;
-        } = ScratchFilterDefinition.ToolbarPluginId;
+        } = ScratchFilterPluginDefinition.ToolbarPluginId;
 
         #endregion
 

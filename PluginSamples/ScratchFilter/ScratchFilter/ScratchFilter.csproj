@@ -79,7 +79,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ScratchFilterDefinition.cs" />
+    <Compile Include="ScratchFilterPluginDefinition.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.ja-JP.resx" />
