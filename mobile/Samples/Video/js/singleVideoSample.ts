@@ -83,7 +83,7 @@ const Application = new function () {
 		});
 	};
 
-	const RequestStreamParams = (cameraId: string, signalType: string): object => {
+	const RequestStreamParams = (cameraId: string, signalType: 'Live' | 'Playback'): object => {
 		return {
 			CameraId: cameraId,
 			DestWidth: 400,
