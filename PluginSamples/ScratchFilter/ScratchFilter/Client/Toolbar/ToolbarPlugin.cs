@@ -116,7 +116,7 @@ namespace ScratchFilter.Client.Toolbar
             // アイコンが生成済みの場合
             if (Icon != null)
             {
-                // Dispose メソッドの実行のみとして、null 設定はしない。
+                // Dispose メソッドの実行のみとして、null は設定しない。
                 // ※ null を設定すると、デフォルトアイコンが一瞬表示されてしまう。
                 Icon.Dispose();
             }
