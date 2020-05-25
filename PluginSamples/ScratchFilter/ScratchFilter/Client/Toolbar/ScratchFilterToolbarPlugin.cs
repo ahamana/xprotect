@@ -13,6 +13,7 @@ namespace ScratchFilter.Client.Toolbar
     /// ツールバーの傷フィルタ機能用インスタンスです。
     /// </summary>
     /// <seealso cref="ToolbarPluginInstance" />
+    [ToString]
     internal class ScratchFilterToolbarPluginInstance : ToolbarPluginInstance
     {
         #region Fields
@@ -219,6 +220,7 @@ namespace ScratchFilter.Client.Toolbar
     /// ツールバーの傷フィルタ機能です。
     /// </summary>
     /// <seealso cref="ToolbarPlugin" />
+    [ToString]
     internal class ScratchFilterToolbarPlugin : ToolbarPlugin
     {
         #region Properties

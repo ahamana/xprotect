@@ -17,6 +17,7 @@ namespace ScratchFilter.Common.Messaging
     /// <summary>
     /// イベントに関する通信です。
     /// </summary>
+    [ToString]
     internal class EventCommunication
     {
         #region Fields

@@ -9,6 +9,7 @@ namespace ScratchFilter.Client.Toolbar
     /// <summary>
     /// ツールバー用プラグインのインスタンスのベースとなる抽象クラスです。
     /// </summary>
+    [ToString]
     internal abstract class ToolbarPluginInstance : ViewItemToolbarPluginInstance, IDisposable
     {
         #region Fields
@@ -174,6 +175,7 @@ namespace ScratchFilter.Client.Toolbar
     /// <summary>
     /// ツールバー用プラグインのベースとなる抽象クラスです。
     /// </summary>
+    [ToString]
     internal abstract class ToolbarPlugin : ViewItemToolbarPlugin
     {
         #region Properties

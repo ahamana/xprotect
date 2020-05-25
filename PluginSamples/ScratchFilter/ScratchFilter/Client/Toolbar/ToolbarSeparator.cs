@@ -10,6 +10,7 @@ namespace ScratchFilter.Client.Toolbar
     /// ツールバーのセパレータ用インスタンスです。
     /// </summary>
     /// <seealso cref="ToolbarPluginInstance" />
+    [ToString]
     internal class ToolbarSeparatorInstance : ToolbarPluginInstance
     {
         #region Fields
@@ -74,6 +75,7 @@ namespace ScratchFilter.Client.Toolbar
     /// ツールバーのセパレータです。
     /// </summary>
     /// <seealso cref="ToolbarPlugin" />
+    [ToString]
     internal class ToolbarSeparator : ToolbarPlugin
     {
         #region Properties
