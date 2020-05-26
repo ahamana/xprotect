@@ -2,6 +2,7 @@
 using System.Drawing;
 using VideoOS.Platform;
 using VideoOS.Platform.Client;
+using VideoOS.Platform.UI;
 
 namespace ScratchFilter.Client.Toolbar
 {
@@ -17,7 +18,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// セパレータのサイズ（px）です。
         /// </summary>
-        private static readonly Size SeparatorSize = new Size(1, 16);
+        private static readonly Size SeparatorSize = new Size(1, Util.ImageList.ImageSize.Height);
 
         #endregion
 
@@ -78,6 +79,17 @@ namespace ScratchFilter.Client.Toolbar
         {
             get;
         }
+
+        /// <summary>
+        /// 詳細項目への表示方法です。
+        /// </summary>
+        /// <value>
+        /// 詳細項目への表示方法
+        /// </value>
+        public override ToolbarPluginOverflowMode ToolbarPluginOverflowMode
+        {
+            get;
+        } = ToolbarPluginOverflowMode.NeverInOverflow;
 
         #endregion
 
