@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace ScratchFilter.Common.ConfigurationItems
 {
     /// <summary>
-    /// ジェネリックイベントのデータソースのタイプです。
+    /// ジェネリックイベントのデータソースの種類です。
     /// </summary>
     internal enum GenericEventDataSourceType
     {
