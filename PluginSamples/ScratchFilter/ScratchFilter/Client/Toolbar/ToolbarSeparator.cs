@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using VideoOS.Platform;
 using VideoOS.Platform.Client;
@@ -20,17 +19,6 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         private static readonly Size SeparatorSize = new Size(1, 16);
 
-        /// <summary>
-        /// セパレータの色の一覧です。
-        /// </summary>
-        private static readonly IReadOnlyDictionary<ThemeType, Color> SeparatorColors = new Dictionary<ThemeType, Color>()
-        {
-            // Smart Client のテーマが「暗」の場合のセパレータの色
-            { ThemeType.Dark, Color.FromArgb(84, 92, 95) },
-            // Smart Client のテーマが「明」の場合のセパレータの色
-            { ThemeType.Light, Color.FromArgb(192, 192, 192) }
-        };
-
         #endregion
 
         #region Methods
@@ -44,7 +32,7 @@ namespace ScratchFilter.Client.Toolbar
             Image icon = new Bitmap(SeparatorSize.Width, SeparatorSize.Height);
 
             using (Graphics graphics = Graphics.FromImage(icon))
-            using (Brush brush = new SolidBrush(SeparatorColors[ClientControl.Instance.Theme.ThemeType]))
+            using (Brush brush = new SolidBrush(ClientControl.Instance.Theme.SeparatorLinesColor))
             {
                 graphics.FillRectangle(brush, new Rectangle(Point.Empty, icon.Size));
             }
