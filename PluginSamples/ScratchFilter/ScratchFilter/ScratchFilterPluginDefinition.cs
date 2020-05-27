@@ -126,6 +126,7 @@ namespace ScratchFilter
 
             ViewItemToolbarPlugins.Add(new ToolbarSeparator());
             ViewItemToolbarPlugins.Add(new ScratchFilterToolbarPlugin());
+            ViewItemToolbarPlugins.Add(new ScratchFilterSettingsToolbarPlugin());
             ViewItemToolbarPlugins.Add(new ToolbarSeparator());
         }
 

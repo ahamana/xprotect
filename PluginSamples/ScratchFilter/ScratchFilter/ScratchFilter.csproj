@@ -58,10 +58,14 @@
       <HintPath>..\packages\OpenCvSharp4.4.3.0.20200421\lib\net461\OpenCvSharp.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
     <Reference Include="ToString, Version=1.11.0.0, Culture=neutral, PublicKeyToken=15432f00798e61a4, processorArchitecture=MSIL">
       <HintPath>..\packages\ToString.Fody.1.11.0\lib\net452\ToString.dll</HintPath>
     </Reference>
@@ -69,11 +73,16 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\MIPSDK\VideoOS.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client\Toolbar\ScratchFilterSettingsToolbarPlugin.cs" />
     <Compile Include="Client\Toolbar\ScratchFilterToolbarPlugin.cs" />
     <Compile Include="Client\Toolbar\ToolbarPlugin.cs" />
     <Compile Include="Client\Toolbar\ToolbarSeparator.cs" />
+    <Compile Include="Client\View\ScratchFilterSettingsWindow.xaml.cs">
+      <DependentUpon>ScratchFilterSettingsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Common\CameraManager.cs" />
     <Compile Include="Common\ConfigurationItems\GenericEventDataSourceType.cs" />
     <Compile Include="Common\Messaging\EventCommunication.cs" />
@@ -88,7 +97,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.ja-JP.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
@@ -97,8 +106,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="FodyWeavers.xml" />
+    <Content Include="Resources\Client\Dark\ScratchFilterSettings.png" />
+    <Content Include="Resources\Client\Light\ScratchFilterSettings.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="FodyWeavers.xsd">
       <SubType>Designer</SubType>
@@ -110,6 +120,12 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Client\View\ScratchFilterSettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

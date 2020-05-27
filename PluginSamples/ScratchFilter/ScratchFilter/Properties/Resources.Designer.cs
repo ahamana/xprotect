@@ -22,7 +22,7 @@ namespace ScratchFilter.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace ScratchFilter.Properties {
         ///   このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ScratchFilter.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace ScratchFilter.Properties {
         ///   現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,18 +63,110 @@ namespace ScratchFilter.Properties {
         /// <summary>
         ///   Stop scratch filter に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string ToolbarPlugin_Description_Active {
+        public static string ToolbarPlugin_ScratchFilter_Description_Active {
             get {
-                return ResourceManager.GetString("ToolbarPlugin.Description.Active", resourceCulture);
+                return ResourceManager.GetString("ToolbarPlugin.ScratchFilter.Description.Active", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Start scratch filter に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string ToolbarPlugin_Description_Inactive {
+        public static string ToolbarPlugin_ScratchFilter_Description_Inactive {
             get {
-                return ResourceManager.GetString("ToolbarPlugin.Description.Inactive", resourceCulture);
+                return ResourceManager.GetString("ToolbarPlugin.ScratchFilter.Description.Inactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Scratch filter settings に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ToolbarPlugin_ScratchFilterSettings_Description {
+            get {
+                return ResourceManager.GetString("ToolbarPlugin.ScratchFilterSettings.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        public static System.Drawing.Bitmap ToolbarPlugin_ScratchFilterSettings_Icon_Dark {
+            get {
+                object obj = ResourceManager.GetObject("ToolbarPlugin.ScratchFilterSettings.Icon.Dark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        public static System.Drawing.Bitmap ToolbarPlugin_ScratchFilterSettings_Icon_Light {
+            get {
+                object obj = ResourceManager.GetObject("ToolbarPlugin.ScratchFilterSettings.Icon.Light", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cancel に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ToolbarPlugin_ScratchFilterSettings_Label_Cancel {
+            get {
+                return ResourceManager.GetString("ToolbarPlugin.ScratchFilterSettings.Label.Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Image brightness (0-2) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ToolbarPlugin_ScratchFilterSettings_Label_ImageBrightness {
+            get {
+                return ResourceManager.GetString("ToolbarPlugin.ScratchFilterSettings.Label.ImageBrightness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Image contrast (0-2) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ToolbarPlugin_ScratchFilterSettings_Label_ImageContrast {
+            get {
+                return ResourceManager.GetString("ToolbarPlugin.ScratchFilterSettings.Label.ImageContrast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Image gamma (0-10) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ToolbarPlugin_ScratchFilterSettings_Label_ImageGamma {
+            get {
+                return ResourceManager.GetString("ToolbarPlugin.ScratchFilterSettings.Label.ImageGamma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Image hue (-180..180) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ToolbarPlugin_ScratchFilterSettings_Label_ImageHue {
+            get {
+                return ResourceManager.GetString("ToolbarPlugin.ScratchFilterSettings.Label.ImageHue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Image saturation (0-3) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ToolbarPlugin_ScratchFilterSettings_Label_ImageSaturation {
+            get {
+                return ResourceManager.GetString("ToolbarPlugin.ScratchFilterSettings.Label.ImageSaturation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   OK に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ToolbarPlugin_ScratchFilterSettings_Label_OK {
+            get {
+                return ResourceManager.GetString("ToolbarPlugin.ScratchFilterSettings.Label.OK", resourceCulture);
             }
         }
     }

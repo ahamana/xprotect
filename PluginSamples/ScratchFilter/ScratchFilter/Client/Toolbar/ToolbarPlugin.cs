@@ -52,6 +52,17 @@ namespace ScratchFilter.Client.Toolbar
             private set;
         }
 
+        /// <summary>
+        /// プラグインの説明です。
+        /// </summary>
+        /// <value>
+        /// プラグインの説明
+        /// </value>
+        protected virtual string Description
+        {
+            get;
+        }
+
         #endregion
 
         #region Constructors
@@ -140,6 +151,8 @@ namespace ScratchFilter.Client.Toolbar
 
             Window = window;
             Monitor = viewItemInstance;
+            Title = Description;
+            Tooltip = Description;
 
             LoadIcon();
 
@@ -179,6 +192,17 @@ namespace ScratchFilter.Client.Toolbar
     internal abstract class ToolbarPlugin : ViewItemToolbarPlugin
     {
         #region Properties
+
+        /// <summary>
+        /// ID です。
+        /// </summary>
+        /// <value>
+        /// ID
+        /// </value>
+        public override Guid Id
+        {
+            get;
+        } = ScratchFilterPluginDefinition.ToolbarPluginId;
 
         /// <summary>
         /// 名前です。

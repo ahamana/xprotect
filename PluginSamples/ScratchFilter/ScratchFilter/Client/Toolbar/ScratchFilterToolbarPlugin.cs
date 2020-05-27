@@ -38,17 +38,17 @@ namespace ScratchFilter.Client.Toolbar
         /// <value>
         /// プラグインの説明
         /// </value>
-        private string Description
+        protected override string Description
         {
             get
             {
                 if (isActive)
                 {
-                    return Resources.ToolbarPlugin_Description_Active;
+                    return Resources.ToolbarPlugin_ScratchFilter_Description_Active;
                 }
                 else
                 {
-                    return Resources.ToolbarPlugin_Description_Inactive;
+                    return Resources.ToolbarPlugin_ScratchFilter_Description_Inactive;
                 }
             }
         }
@@ -176,11 +176,9 @@ namespace ScratchFilter.Client.Toolbar
 
             base.Init(viewItemInstance, window);
 
-            Title = Description;
-            Tooltip = Description;
-            Enabled = true;
-
             ClientControl.Instance.NewImageViewerControlEvent += NewImageViewerControlEventHandler;
+
+            Enabled = true;
         }
 
         /// <summary>
@@ -221,21 +219,6 @@ namespace ScratchFilter.Client.Toolbar
     [ToString]
     internal class ScratchFilterToolbarPlugin : ToolbarPlugin
     {
-        #region Properties
-
-        /// <summary>
-        /// ID です。
-        /// </summary>
-        /// <value>
-        /// ID
-        /// </value>
-        public override Guid Id
-        {
-            get;
-        } = ScratchFilterPluginDefinition.ToolbarPluginId;
-
-        #endregion
-
         #region Methods
 
         /// <summary>

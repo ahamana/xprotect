@@ -117,10 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ToolbarPlugin.Description.Active" xml:space="preserve">
+  <data name="ToolbarPlugin.ScratchFilter.Description.Active" xml:space="preserve">
     <value>傷強調処理の停止</value>
   </data>
-  <data name="ToolbarPlugin.Description.Inactive" xml:space="preserve">
+  <data name="ToolbarPlugin.ScratchFilter.Description.Inactive" xml:space="preserve">
     <value>傷強調処理の開始</value>
+  </data>
+  <data name="ToolbarPlugin.ScratchFilterSettings.Description" xml:space="preserve">
+    <value>傷強調処理の設定</value>
+  </data>
+  <data name="ToolbarPlugin.ScratchFilterSettings.Label.Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="ToolbarPlugin.ScratchFilterSettings.Label.ImageBrightness" xml:space="preserve">
+    <value>画像の明るさ（0 ～ 2）</value>
+  </data>
+  <data name="ToolbarPlugin.ScratchFilterSettings.Label.ImageContrast" xml:space="preserve">
+    <value>画像のコントラスト（0 ～ 2）</value>
+  </data>
+  <data name="ToolbarPlugin.ScratchFilterSettings.Label.ImageGamma" xml:space="preserve">
+    <value>画像のガンマ（0 ～ 10）</value>
+  </data>
+  <data name="ToolbarPlugin.ScratchFilterSettings.Label.ImageHue" xml:space="preserve">
+    <value>画像の色相（-180 ～ 180）</value>
+  </data>
+  <data name="ToolbarPlugin.ScratchFilterSettings.Label.ImageSaturation" xml:space="preserve">
+    <value>画像の彩度（0 ～ 3）</value>
+  </data>
+  <data name="ToolbarPlugin.ScratchFilterSettings.Label.OK" xml:space="preserve">
+    <value>OK</value>
   </data>
 </root>
