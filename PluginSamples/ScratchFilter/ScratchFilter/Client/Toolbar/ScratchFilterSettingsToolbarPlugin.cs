@@ -1,5 +1,6 @@
 ﻿using ScratchFilter.Client.View;
 using ScratchFilter.Properties;
+using System;
 using System.Windows;
 using VideoOS.Platform;
 using VideoOS.Platform.Client;
@@ -81,6 +82,30 @@ namespace ScratchFilter.Client.Toolbar
     [ToString]
     internal class ScratchFilterSettingsToolbarPlugin : ToolbarPlugin
     {
+        #region Fields
+
+        /// <summary>
+        /// プラグインの ID です。
+        /// </summary>
+        private static readonly Guid PluginId = new Guid("27d96417-e33c-4f71-b231-bd692f4af61b");
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// ID です。
+        /// </summary>
+        /// <value>
+        /// ID
+        /// </value>
+        public override Guid Id
+        {
+            get;
+        } = PluginId;
+
+        #endregion
+
         #region Methods
 
         /// <summary>

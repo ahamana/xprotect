@@ -24,6 +24,11 @@ namespace ScratchFilter
         #region Fields
 
         /// <summary>
+        /// プラグインの ID です。
+        /// </summary>
+        private static readonly Guid PluginId = new Guid("8c9a02d0-dcb0-4460-8779-23ad282677a0");
+
+        /// <summary>
         /// ロガーです。
         /// </summary>
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
@@ -32,16 +37,6 @@ namespace ScratchFilter
         /// バージョン情報です。
         /// </summary>
         private static readonly FileVersionInfo FileVersionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
-
-        /// <summary>
-        /// プラグインの ID です。
-        /// </summary>
-        internal static readonly Guid PluginId = new Guid("8c9a02d0-dcb0-4460-8779-23ad282677a0");
-
-        /// <summary>
-        /// Smart Client のツールバー用プラグインの ID です。
-        /// </summary>
-        internal static readonly Guid ToolbarPluginId = new Guid("655154aa-af1d-47af-b23a-09ea79eb1b9d");
 
         #endregion
 

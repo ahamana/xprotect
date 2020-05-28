@@ -219,6 +219,30 @@ namespace ScratchFilter.Client.Toolbar
     [ToString]
     internal class ScratchFilterToolbarPlugin : ToolbarPlugin
     {
+        #region Fields
+
+        /// <summary>
+        /// プラグインの ID です。
+        /// </summary>
+        private static readonly Guid PluginId = new Guid("655154aa-af1d-47af-b23a-09ea79eb1b9d");
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// ID です。
+        /// </summary>
+        /// <value>
+        /// ID
+        /// </value>
+        public override Guid Id
+        {
+            get;
+        } = PluginId;
+
+        #endregion
+
         #region Methods
 
         /// <summary>

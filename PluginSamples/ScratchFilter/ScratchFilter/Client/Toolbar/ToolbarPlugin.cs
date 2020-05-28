@@ -194,17 +194,6 @@ namespace ScratchFilter.Client.Toolbar
         #region Properties
 
         /// <summary>
-        /// ID です。
-        /// </summary>
-        /// <value>
-        /// ID
-        /// </value>
-        public override Guid Id
-        {
-            get;
-        } = ScratchFilterPluginDefinition.ToolbarPluginId;
-
-        /// <summary>
         /// 名前です。
         /// </summary>
         /// <remarks>Smart Client の UI のどこにも表示されず、使用されることはありません。</remarks>
