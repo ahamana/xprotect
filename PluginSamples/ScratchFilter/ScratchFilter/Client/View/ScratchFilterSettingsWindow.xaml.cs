@@ -7,10 +7,19 @@ namespace ScratchFilter.Client.View
     /// </summary>
     public partial class ScratchFilterSettingsWindow : Window
     {
+        #region Constructors
+
+        /// <summary>
+        /// コンストラクタです。
+        /// </summary>
         public ScratchFilterSettingsWindow()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         /// OK ボタンが押下された時に呼び出されます。
@@ -27,10 +36,11 @@ namespace ScratchFilter.Client.View
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        /// <param name="e">イベント引数</param>
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
+
+        #endregion
     }
 }
