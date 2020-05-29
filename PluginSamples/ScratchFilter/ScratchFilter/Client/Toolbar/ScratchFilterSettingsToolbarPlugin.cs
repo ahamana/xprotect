@@ -10,9 +10,9 @@ namespace ScratchFilter.Client.Toolbar
     /// <summary>
     /// ツールバーの傷フィルタ機能の設定用インスタンスです。
     /// </summary>
-    /// <seealso cref="ToolbarPluginInstance" />
+    /// <seealso cref="ImageViewerToolbarPluginInstance" />
     [ToString]
-    internal class ScratchFilterSettingsToolbarPluginInstance : ToolbarPluginInstance
+    internal class ScratchFilterSettingsToolbarPluginInstance : ImageViewerToolbarPluginInstance
     {
         #region Properties
 
@@ -45,24 +45,6 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// ツールバーのインスタンスが UI に追加されたときに呼ばれます。
-        /// </summary>
-        /// <param name="viewItemInstance">ツールバーのアイテムに関連したビューアイテムのインスタンス</param>
-        /// <param name="window">ツールバーの表示先のウィンドウ</param>
-        public override void Init(Item viewItemInstance, Item window)
-        {
-            // ※「再生タブ → エクスポート → カメラ選択」を行うと、window が null の状態で呼ばれる。
-            if (window == null)
-            {
-                return;
-            }
-
-            base.Init(viewItemInstance, window);
-
-            Enabled = true;
-        }
-
-        /// <summary>
         /// ツールバー用プラグインのメニューが押下された時に呼び出されます。
         /// </summary>
         public override void Activate()
@@ -78,9 +60,9 @@ namespace ScratchFilter.Client.Toolbar
     /// <summary>
     /// ツールバーの傷フィルタ機能の設定です。
     /// </summary>
-    /// <seealso cref="ToolbarPlugin" />
+    /// <seealso cref="ImageViewerToolbarPlugin" />
     [ToString]
-    internal class ScratchFilterSettingsToolbarPlugin : ToolbarPlugin
+    internal class ScratchFilterSettingsToolbarPlugin : ImageViewerToolbarPlugin
     {
         #region Fields
 

@@ -76,6 +76,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client\Toolbar\ImageViewerToolbarPlugin.cs" />
     <Compile Include="Client\Toolbar\ScratchFilterSettingsToolbarPlugin.cs" />
     <Compile Include="Client\Toolbar\ScratchFilterToolbarPlugin.cs" />
     <Compile Include="Client\Toolbar\ToolbarPlugin.cs" />
