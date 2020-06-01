@@ -77,10 +77,9 @@ namespace ScratchFilter.Client.Data
 
             JsonSerializer serializer = new JsonSerializer();
 
-            using (TextReader textReader = new StreamReader(SettingFilePath, Encoding.UTF8))
-            using (JsonReader jsonReader = new JsonTextReader(textReader))
+            using (TextReader reader = new StreamReader(SettingFilePath, Encoding.UTF8))
             {
-                serializer.Populate(jsonReader, settings);
+                serializer.Populate(reader, settings);
             }
         }
 
@@ -128,10 +127,9 @@ namespace ScratchFilter.Client.Data
                 Formatting = Formatting.Indented
             };
 
-            using (TextWriter textWriter = new StreamWriter(SettingFilePath, false, Encoding.UTF8))
-            using (JsonWriter jsonWriter = new JsonTextWriter(textWriter))
+            using (TextWriter writer = new StreamWriter(SettingFilePath, false, Encoding.UTF8))
             {
-                serializer.Serialize(jsonWriter, settings);
+                serializer.Serialize(writer, settings);
             }
         }
 

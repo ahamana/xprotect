@@ -42,18 +42,6 @@ namespace ScratchFilter.Client.Data
         {
             get;
             set;
-        } = 1;
-
-        /// <summary>
-        /// 画像の色相です。
-        /// </summary>
-        /// <value>
-        /// 画像の色相
-        /// </value>
-        public float ImageHue
-        {
-            get;
-            set;
         }
 
         /// <summary>

@@ -117,7 +117,7 @@ namespace ScratchFilter.Properties {
         }
         
         /// <summary>
-        ///   Image brightness (0-2) に類似しているローカライズされた文字列を検索します。
+        ///   Image brightness (-100..100) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ToolbarPlugin_ScratchFilterSetting_Label_ImageBrightness {
             get {
@@ -126,7 +126,7 @@ namespace ScratchFilter.Properties {
         }
         
         /// <summary>
-        ///   Image contrast (0-2) に類似しているローカライズされた文字列を検索します。
+        ///   Image contrast (0-10) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ToolbarPlugin_ScratchFilterSetting_Label_ImageContrast {
             get {
@@ -135,7 +135,7 @@ namespace ScratchFilter.Properties {
         }
         
         /// <summary>
-        ///   Image gamma (0-10) に類似しているローカライズされた文字列を検索します。
+        ///   Image gamma (0-1) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ToolbarPlugin_ScratchFilterSetting_Label_ImageGamma {
             get {
@@ -144,16 +144,7 @@ namespace ScratchFilter.Properties {
         }
         
         /// <summary>
-        ///   Image hue (-180..180) に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string ToolbarPlugin_ScratchFilterSetting_Label_ImageHue {
-            get {
-                return ResourceManager.GetString("ToolbarPlugin.ScratchFilterSetting.Label.ImageHue", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Image saturation (0-3) に類似しているローカライズされた文字列を検索します。
+        ///   Image saturation (0-1) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ToolbarPlugin_ScratchFilterSetting_Label_ImageSaturation {
             get {

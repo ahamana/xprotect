@@ -137,19 +137,16 @@
     <value>Cancel</value>
   </data>
   <data name="ToolbarPlugin.ScratchFilterSetting.Label.ImageBrightness" xml:space="preserve">
-    <value>Image brightness (0-2)</value>
+    <value>Image brightness (-100..100)</value>
   </data>
   <data name="ToolbarPlugin.ScratchFilterSetting.Label.ImageContrast" xml:space="preserve">
-    <value>Image contrast (0-2)</value>
+    <value>Image contrast (0-10)</value>
   </data>
   <data name="ToolbarPlugin.ScratchFilterSetting.Label.ImageGamma" xml:space="preserve">
-    <value>Image gamma (0-10)</value>
-  </data>
-  <data name="ToolbarPlugin.ScratchFilterSetting.Label.ImageHue" xml:space="preserve">
-    <value>Image hue (-180..180)</value>
+    <value>Image gamma (0-1)</value>
   </data>
   <data name="ToolbarPlugin.ScratchFilterSetting.Label.ImageSaturation" xml:space="preserve">
-    <value>Image saturation (0-3)</value>
+    <value>Image saturation (0-1)</value>
   </data>
   <data name="ToolbarPlugin.ScratchFilterSetting.Label.OK" xml:space="preserve">
     <value>OK</value>

@@ -1,7 +1,6 @@
 ﻿using ScratchFilter.Client.View;
 using ScratchFilter.Properties;
 using System;
-using System.Windows;
 using VideoOS.Platform;
 using VideoOS.Platform.Client;
 
@@ -49,9 +48,10 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         public override void Activate()
         {
-            Window window = new ScratchFilterSettingWindow();
-
-            window.ShowDialog();
+            using (ScratchFilterSettingWindow window = new ScratchFilterSettingWindow(ImageViewerAddOn))
+            {
+                window.ShowDialog();
+            }
         }
 
         #endregion

@@ -1,5 +1,6 @@
 ﻿using OpenCvSharp;
 using OpenCvSharp.Extensions;
+using ScratchFilter.Client.Data;
 using ScratchFilter.Properties;
 using System;
 using System.Drawing;
@@ -52,6 +53,88 @@ namespace ScratchFilter.Client.Toolbar
         #region Methods
 
         /// <summary>
+        /// 画像のコントラストを変更します。
+        /// </summary>
+        /// <param name="mat">画像</param>
+        /// <param name="contrast">コントラストの変更に使用する値</param>
+        private void ChangeContrast(Mat mat, float contrast)
+        {
+            if (mat == null)
+            {
+                throw new ArgumentNullException(nameof(mat));
+            }
+
+            using (Mat dst = mat * contrast)
+            {
+                dst.CopyTo(mat);
+            }
+        }
+
+        /// <summary>
+        /// 画像の明るさを変更します。
+        /// </summary>
+        /// <param name="mat">画像</param>
+        /// <param name="brightness">明るさの変更に使用する値</param>
+        private void ChangeBrightness(Mat mat, float brightness)
+        {
+            if (mat == null)
+            {
+                throw new ArgumentNullException(nameof(mat));
+            }
+
+            using (Mat dst = mat + brightness)
+            {
+                dst.CopyTo(mat);
+            }
+        }
+
+        /// <summary>
+        /// 画像の彩度を変更します。
+        /// </summary>
+        /// <param name="mat">画像</param>
+        /// <param name="brightness">彩度の変更に使用する値</param>
+        private void ChangeSaturation(Mat mat, float saturation)
+        {
+            if (mat == null)
+            {
+                throw new ArgumentNullException(nameof(mat));
+            }
+
+            Cv2.CvtColor(mat, mat, ColorConversionCodes.BGR2HSV);
+
+            Cv2.Split(mat, out Mat[] channels);
+            Cv2.Split(mat, out channels);
+
+            channels[2] = channels[2] * saturation;
+
+            Cv2.Merge(channels, mat);
+
+            Cv2.CvtColor(mat, mat, ColorConversionCodes.HSV2BGR);
+        }
+
+        /// <summary>
+        /// 画像のガンマを変更します。
+        /// </summary>
+        /// <param name="mat">画像</param>
+        /// <param name="brightness">ガンマの変更に使用する値</param>
+        private void ChangeGamma(Mat mat, float gamma)
+        {
+            if (mat == null)
+            {
+                throw new ArgumentNullException(nameof(mat));
+            }
+
+            byte[] lut = new byte[256];
+
+            for (int i = 0; i < lut.Length; i++)
+            {
+                lut[i] = (byte)(Math.Pow(i / 255.0, 1.0 / gamma) * 255.0);
+            }
+
+            Cv2.LUT(mat, lut, mat);
+        }
+
+        /// <summary>
         /// イメージビューワの表示画像を処理します。
         /// </summary>
         private void HandleDisplayedImage()
@@ -70,9 +153,14 @@ namespace ScratchFilter.Client.Toolbar
                     return;
                 }
 
+                ScratchFilterSetting setting = ScratchFilterSettingManager.Instance.GetSetting(ImageViewerAddOn.CameraFQID.ObjectId);
+
                 using (Mat mat = original.ToMat())
                 {
-                    Cv2.CvtColor(mat, mat, ColorConversionCodes.RGB2GRAY);
+                    ChangeContrast(mat, setting.ImageContrast);
+                    ChangeBrightness(mat, setting.ImageBrightness);
+                    ChangeSaturation(mat, setting.ImageSaturation);
+                    ChangeGamma(mat, setting.ImageGamma);
 
                     using (Bitmap overlay = mat.ToBitmap())
                     {

@@ -130,19 +130,16 @@
     <value>キャンセル</value>
   </data>
   <data name="ToolbarPlugin.ScratchFilterSetting.Label.ImageBrightness" xml:space="preserve">
-    <value>画像の明るさ（0 ～ 2）</value>
+    <value>画像の明るさ（-100 ～ 100）</value>
   </data>
   <data name="ToolbarPlugin.ScratchFilterSetting.Label.ImageContrast" xml:space="preserve">
-    <value>画像のコントラスト（0 ～ 2）</value>
+    <value>画像のコントラスト（0 ～ 10）</value>
   </data>
   <data name="ToolbarPlugin.ScratchFilterSetting.Label.ImageGamma" xml:space="preserve">
-    <value>画像のガンマ（0 ～ 10）</value>
-  </data>
-  <data name="ToolbarPlugin.ScratchFilterSetting.Label.ImageHue" xml:space="preserve">
-    <value>画像の色相（-180 ～ 180）</value>
+    <value>画像のガンマ（0 ～ 1）</value>
   </data>
   <data name="ToolbarPlugin.ScratchFilterSetting.Label.ImageSaturation" xml:space="preserve">
-    <value>画像の彩度（0 ～ 3）</value>
+    <value>画像の彩度（0 ～ 1）</value>
   </data>
   <data name="ToolbarPlugin.ScratchFilterSetting.Label.OK" xml:space="preserve">
     <value>OK</value>
