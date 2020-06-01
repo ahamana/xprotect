@@ -5,14 +5,14 @@ namespace ScratchFilter.Client.View
     /// <summary>
     /// ScratchFilterSettingsWindow.xaml の相互作用ロジック
     /// </summary>
-    public partial class ScratchFilterSettingsWindow : Window
+    public partial class ScratchFilterSettingWindow : Window
     {
         #region Constructors
 
         /// <summary>
         /// コンストラクタです。
         /// </summary>
-        public ScratchFilterSettingsWindow()
+        public ScratchFilterSettingWindow()
         {
             InitializeComponent();
         }

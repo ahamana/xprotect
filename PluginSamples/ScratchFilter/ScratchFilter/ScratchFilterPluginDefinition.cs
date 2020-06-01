@@ -1,4 +1,5 @@
 using NLog;
+using ScratchFilter.Client.Data;
 using ScratchFilter.Client.Toolbar;
 using System;
 using System.Collections.Generic;
@@ -121,8 +122,10 @@ namespace ScratchFilter
 
             ViewItemToolbarPlugins.Add(new ToolbarSeparator());
             ViewItemToolbarPlugins.Add(new ScratchFilterToolbarPlugin());
-            ViewItemToolbarPlugins.Add(new ScratchFilterSettingsToolbarPlugin());
+            ViewItemToolbarPlugins.Add(new ScratchFilterSettingToolbarPlugin());
             ViewItemToolbarPlugins.Add(new ToolbarSeparator());
+
+            ScratchFilterSettingManager.Instance.Load();
         }
 
         /// <summary>

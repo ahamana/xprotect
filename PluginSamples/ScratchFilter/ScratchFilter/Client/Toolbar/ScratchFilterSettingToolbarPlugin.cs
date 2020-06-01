@@ -12,7 +12,7 @@ namespace ScratchFilter.Client.Toolbar
     /// </summary>
     /// <seealso cref="ImageViewerToolbarPluginInstance" />
     [ToString]
-    internal class ScratchFilterSettingsToolbarPluginInstance : ImageViewerToolbarPluginInstance
+    internal class ScratchFilterSettingToolbarPluginInstance : ImageViewerToolbarPluginInstance
     {
         #region Properties
 
@@ -25,7 +25,7 @@ namespace ScratchFilter.Client.Toolbar
         protected override string Description
         {
             get;
-        } = Resources.ToolbarPlugin_ScratchFilterSettings_Description;
+        } = Resources.ToolbarPlugin_ScratchFilterSetting_Description;
 
         #endregion
 
@@ -38,8 +38,8 @@ namespace ScratchFilter.Client.Toolbar
         {
             Icon = ClientControl.Instance.Theme.ThemeType switch
             {
-                ThemeType.Dark => Resources.ToolbarPlugin_ScratchFilterSettings_Icon_Dark,
-                ThemeType.Light => Resources.ToolbarPlugin_ScratchFilterSettings_Icon_Light,
+                ThemeType.Dark => Resources.ToolbarPlugin_ScratchFilterSetting_Icon_Dark,
+                ThemeType.Light => Resources.ToolbarPlugin_ScratchFilterSetting_Icon_Light,
                 _ => default
             };
         }
@@ -49,7 +49,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         public override void Activate()
         {
-            Window window = new ScratchFilterSettingsWindow();
+            Window window = new ScratchFilterSettingWindow();
 
             window.ShowDialog();
         }
@@ -62,7 +62,7 @@ namespace ScratchFilter.Client.Toolbar
     /// </summary>
     /// <seealso cref="ImageViewerToolbarPlugin" />
     [ToString]
-    internal class ScratchFilterSettingsToolbarPlugin : ImageViewerToolbarPlugin
+    internal class ScratchFilterSettingToolbarPlugin : ImageViewerToolbarPlugin
     {
         #region Fields
 
@@ -96,7 +96,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <returns>ツールバーの傷フィルタ機能の設定用インスタンス</returns>
         public override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance()
         {
-            return new ScratchFilterSettingsToolbarPluginInstance();
+            return new ScratchFilterSettingToolbarPluginInstance();
         }
 
         #endregion
