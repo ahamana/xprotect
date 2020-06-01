@@ -103,7 +103,6 @@ namespace ScratchFilter.Client.Toolbar
             Cv2.CvtColor(mat, mat, ColorConversionCodes.BGR2HSV);
 
             Cv2.Split(mat, out Mat[] channels);
-            Cv2.Split(mat, out channels);
 
             channels[2] = channels[2] * saturation;
 
