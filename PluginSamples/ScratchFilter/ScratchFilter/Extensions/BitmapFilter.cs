@@ -19,9 +19,9 @@ namespace ScratchFilter.Extensions
         /// <param name="contrast">コントラストの調整に使用する値</param>
         private static void AdjustContrast(Mat mat, float contrast)
         {
-            using (Mat dst = mat * contrast)
+            using (Mat result = contrast * mat)
             {
-                dst.CopyTo(mat);
+                result.CopyTo(mat);
             }
         }
 
@@ -32,9 +32,9 @@ namespace ScratchFilter.Extensions
         /// <param name="brightness">明るさの調整に使用する値</param>
         private static void AdjustBrightness(Mat mat, float brightness)
         {
-            using (Mat dst = mat + brightness)
+            using (Mat result = mat + brightness)
             {
-                dst.CopyTo(mat);
+                result.CopyTo(mat);
             }
         }
 
