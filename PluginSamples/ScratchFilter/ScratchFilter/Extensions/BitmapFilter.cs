@@ -98,6 +98,9 @@ namespace ScratchFilter.Extensions
         /// <param name="saturation">彩度の調整に使用する値</param>
         /// <param name="gamma">ガンマの調整に使用する値</param>
         /// <returns>調整した画像</returns>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="src" /> が <c>null</c> の場合にスローされます。
+        /// </exception>
         internal static Bitmap Adjust(this Bitmap src, float contrast, float brightness, float saturation, float gamma)
         {
             if (src == null)
@@ -122,6 +125,9 @@ namespace ScratchFilter.Extensions
         /// <param name="brightness">明るさの調整に使用する値</param>
         /// <param name="saturation">彩度の調整に使用する値</param>
         /// <param name="gamma">ガンマの調整に使用する値</param>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="src" /> もしくは <paramref name="dst" /> が <c>null</c> の場合にスローされます。
+        /// </exception>
         internal static void Adjust(this Bitmap src, Bitmap dst, float contrast, float brightness, float saturation, float gamma)
         {
             if (src == null)

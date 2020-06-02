@@ -8,6 +8,8 @@ namespace ScratchFilter.Client.Data
     [ToString]
     public class ScratchFilterSetting
     {
+        #region Properties
+
         /// <summary>
         /// カメラの ID です。
         /// </summary>
@@ -67,5 +69,7 @@ namespace ScratchFilter.Client.Data
             get;
             set;
         } = 1;
+
+        #endregion
     }
 }

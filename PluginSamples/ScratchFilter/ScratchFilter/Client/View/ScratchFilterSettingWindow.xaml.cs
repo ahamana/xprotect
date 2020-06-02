@@ -60,6 +60,9 @@ namespace ScratchFilter.Client.View
         /// コンストラクタです。
         /// </summary>
         /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="imageViewerAddOn" /> が <c>null</c> の場合にスローされます。
+        /// </exception>
         internal ScratchFilterSettingWindow(ImageViewerAddOn imageViewerAddOn)
         {
             if (imageViewerAddOn == null)
@@ -87,7 +90,7 @@ namespace ScratchFilter.Client.View
         /// <param name="e">イベント引数</param>
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
-            ScratchFilterSettingManager.Instance.Save();
+            ScratchFilterSettingManager.Instance.Save(ScratchFilterSetting);
 
             Close();
         }
