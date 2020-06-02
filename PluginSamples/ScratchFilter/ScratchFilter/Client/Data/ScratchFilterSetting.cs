@@ -8,6 +8,30 @@ namespace ScratchFilter.Client.Data
     [ToString]
     public class ScratchFilterSetting
     {
+        #region Fields
+
+        /// <summary>
+        /// デフォルトの画像のコントラストです。
+        /// </summary>
+        private static readonly float DefaultImageContrast = 1;
+
+        /// <summary>
+        /// デフォルトの画像の明るさです。
+        /// </summary>
+        private static readonly float DefaultImageBrightness = 0;
+
+        /// <summary>
+        /// デフォルトの画像の彩度です。
+        /// </summary>
+        private static readonly float DefaultImageSaturation = 1;
+
+        /// <summary>
+        /// デフォルトの画像のガンマです。
+        /// </summary>
+        private static readonly float DefaultImageGamma = 1;
+
+        #endregion
+
         #region Properties
 
         /// <summary>
@@ -32,7 +56,7 @@ namespace ScratchFilter.Client.Data
         {
             get;
             set;
-        } = 1;
+        } = DefaultImageContrast;
 
         /// <summary>
         /// 画像の明るさです。
@@ -44,7 +68,7 @@ namespace ScratchFilter.Client.Data
         {
             get;
             set;
-        }
+        } = DefaultImageBrightness;
 
         /// <summary>
         /// 画像の彩度です。
@@ -56,7 +80,7 @@ namespace ScratchFilter.Client.Data
         {
             get;
             set;
-        } = 1;
+        } = DefaultImageSaturation;
 
         /// <summary>
         /// 画像のガンマです。
@@ -68,7 +92,7 @@ namespace ScratchFilter.Client.Data
         {
             get;
             set;
-        } = 1;
+        } = DefaultImageGamma;
 
         #endregion
     }
