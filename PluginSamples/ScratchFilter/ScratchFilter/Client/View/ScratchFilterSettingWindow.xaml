@@ -36,76 +36,85 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <!-- 画像のコントラスト -->
+                    <!-- ラベル -->
+                    <RowDefinition Height="Auto" MinHeight="24" />
+                    <!-- スライダー -->
                     <RowDefinition Height="Auto" MinHeight="24" />
                     <RowDefinition Height="6" />
                     <!-- 画像の明るさ -->
+                    <!-- ラベル -->
+                    <RowDefinition Height="Auto" MinHeight="24" />
+                    <!-- スライダー -->
                     <RowDefinition Height="Auto" MinHeight="24" />
                     <RowDefinition Height="6" />
                     <!-- 画像の彩度 -->
+                    <!-- ラベル -->
+                    <RowDefinition Height="Auto" MinHeight="24" />
+                    <!-- スライダー -->
                     <RowDefinition Height="Auto" MinHeight="24" />
                     <RowDefinition Height="6" />
                     <!-- 画像のガンマ -->
+                    <!-- ラベル -->
+                    <RowDefinition Height="Auto" MinHeight="24" />
+                    <!-- スライダー -->
                     <RowDefinition Height="Auto" MinHeight="24" />
                     <RowDefinition Height="6" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2" />
-                    <!-- ラベル -->
+                    <!-- 項目 -->
                     <ColumnDefinition Width="Auto" MinWidth="150" />
-                    <ColumnDefinition Width="2" />
-                    <!-- 値 -->
-                    <ColumnDefinition Width="100" />
                     <ColumnDefinition Width="2" />
                 </Grid.ColumnDefinitions>
 
                 <!-- 画像のコントラスト -->
                 <!-- ラベル -->
-                <TextBlock Grid.Row="0"
-                           Grid.Column="1"
-                           VerticalAlignment="Center"
-                           Text="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_ImageContrast}" />
-                <!-- 値 -->
-                <TextBox Grid.Row="0"
-                         Grid.Column="3"
-                         VerticalAlignment="Center"
-                         HorizontalAlignment="Right"
-                         Text="{Binding ScratchFilterSetting.ImageContrast}" />
+                <Label Grid.Row="0"
+                       Grid.Column="1"
+                       Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_ImageContrast}" />
+                <!-- スライダー -->
+                <Slider Grid.Row="1"
+                        Grid.Column="1"
+                        Name="imageContrastSlider" 
+                        Minimum="0" 
+                        Maximum="10"
+                        Value="{Binding ScratchFilterSetting.ImageContrast}" />
                 <!-- 画像の明るさ -->
                 <!-- ラベル -->
-                <TextBlock Grid.Row="2"
-                           Grid.Column="1"
-                           VerticalAlignment="Center"
-                           Text="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_ImageBrightness}" />
-                <!-- 値 -->
-                <TextBox Grid.Row="2"
-                         Grid.Column="3"
-                         VerticalAlignment="Center"
-                         HorizontalAlignment="Right"
-                         Text="{Binding ScratchFilterSetting.ImageBrightness}" />
+                <Label Grid.Row="3"
+                       Grid.Column="1"
+                       Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_ImageBrightness}" />
+                <!-- スライダー -->
+                <Slider Grid.Row="4"
+                        Grid.Column="1"
+                        Name="imageBrightnessSlider" 
+                        Minimum="-100" 
+                        Maximum="100"
+                        Value="{Binding ScratchFilterSetting.ImageBrightness}" />
                 <!-- 画像の彩度 -->
                 <!-- ラベル -->
-                <TextBlock Grid.Row="4"
-                           Grid.Column="1"
-                           VerticalAlignment="Center"
-                           Text="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_ImageSaturation}" />
-                <!-- 値 -->
-                <TextBox Grid.Row="4"
-                         Grid.Column="3"
-                         VerticalAlignment="Center"
-                         HorizontalAlignment="Right"
-                         Text="{Binding ScratchFilterSetting.ImageSaturation}" />
+                <Label Grid.Row="6"
+                       Grid.Column="1"
+                       Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_ImageSaturation}" />
+                <!-- スライダー -->
+                <Slider Grid.Row="7"
+                        Grid.Column="1"
+                        Name="imageSaturationSlider" 
+                        Minimum="0" 
+                        Maximum="1" 
+                        Value="{Binding ScratchFilterSetting.ImageSaturation}" />
                 <!-- 画像のガンマ -->
                 <!-- ラベル -->
-                <TextBlock Grid.Row="6"
-                           Grid.Column="1"
-                           VerticalAlignment="Center"
-                           Text="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_ImageGamma}" />
-                <!-- 値 -->
-                <TextBox Grid.Row="6"
-                         Grid.Column="3"
-                         VerticalAlignment="Center"
-                         HorizontalAlignment="Right"
-                         Text="{Binding ScratchFilterSetting.ImageGamma}" />
+                <Label Grid.Row="9"
+                       Grid.Column="1"
+                       Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_ImageGamma}" />
+                <!-- スライダー -->
+                <Slider Grid.Row="10"
+                        Grid.Column="1"
+                        Name="imageGammaSlider" 
+                        Minimum="0" 
+                        Maximum="1"
+                        Value="{Binding ScratchFilterSetting.ImageGamma}" />
             </Grid>
         </DockPanel>
 
