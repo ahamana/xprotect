@@ -84,6 +84,46 @@ namespace ScratchFilter.Client.View
         #region Methods
 
         /// <summary>
+        /// 画像のコントラストのスライダーの値が変更された時に呼び出されます。
+        /// </summary>
+        /// <param name="sender">通知元</param>
+        /// <param name="e">イベント引数</param>
+        private void ImageContrastSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        /// <summary>
+        /// 画像の明るさのスライダーの値が変更された時に呼び出されます。
+        /// </summary>
+        /// <param name="sender">通知元</param>
+        /// <param name="e">イベント引数</param>
+        private void ImageBrightnessSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        /// <summary>
+        /// 画像の彩度のスライダーの値が変更された時に呼び出されます。
+        /// </summary>
+        /// <param name="sender">通知元</param>
+        /// <param name="e">イベント引数</param>
+        private void ImageSaturationSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        /// <summary>
+        /// 画像のガンマのスライダーの値が変更された時に呼び出されます。
+        /// </summary>
+        /// <param name="sender">通知元</param>
+        /// <param name="e">イベント引数</param>
+        private void ImageGammaSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        /// <summary>
         /// OK ボタンが押下された時に呼び出されます。
         /// </summary>
         /// <param name="sender">通知元</param>

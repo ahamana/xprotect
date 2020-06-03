@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:properties="clr-namespace:ScratchFilter.Properties"
         mc:Ignorable="d"
-        d:DesignHeight="260" d:DesignWidth="300"
+        d:DesignHeight="330" d:DesignWidth="300"
         ResizeMode="NoResize"
         SizeToContent="WidthAndHeight"
         Title="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Description}">
@@ -73,13 +73,15 @@
                 <!-- ラベル -->
                 <Label Grid.Row="0"
                        Grid.Column="1"
+                       Name="imageContrastLabel"
                        Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_ImageContrast}" />
                 <!-- スライダー -->
                 <Slider Grid.Row="1"
                         Grid.Column="1"
+                        Name="imageContrastSlider"
                         Minimum="0"
                         Maximum="10"
-                        Value="{Binding ScratchFilterSetting.ImageContrast}" />
+                        Value="{Binding ScratchFilterSetting.ImageContrast}" ValueChanged="imageContrastSlider_ValueChanged" />
                 <!-- スライダーの値 -->
                 <TextBlock Grid.Row="1"
                            Grid.Column="3"
@@ -88,13 +90,15 @@
                 <!-- ラベル -->
                 <Label Grid.Row="3"
                        Grid.Column="1"
+                       Name="imageBrightnessLabel"
                        Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_ImageBrightness}" />
                 <!-- スライダー -->
                 <Slider Grid.Row="4"
                         Grid.Column="1"
+                        Name="imageBrightnessSlider"
                         Minimum="-100"
                         Maximum="100"
-                        Value="{Binding ScratchFilterSetting.ImageBrightness}" />
+                        Value="{Binding ScratchFilterSetting.ImageBrightness}" ValueChanged="imageBrightnessSlider_ValueChanged" />
                 <!-- スライダーの値 -->
                 <TextBlock Grid.Row="4"
                            Grid.Column="3"
@@ -103,13 +107,15 @@
                 <!-- ラベル -->
                 <Label Grid.Row="6"
                        Grid.Column="1"
+                       Name="imageSaturationLabel"
                        Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_ImageSaturation}" />
                 <!-- スライダー -->
                 <Slider Grid.Row="7"
                         Grid.Column="1"
+                        Name="imageSaturationSlider"
                         Minimum="0"
                         Maximum="1"
-                        Value="{Binding ScratchFilterSetting.ImageSaturation}" />
+                        Value="{Binding ScratchFilterSetting.ImageSaturation}" ValueChanged="imageSaturationSlider_ValueChanged" />
                 <!-- スライダーの値 -->
                 <TextBlock Grid.Row="7"
                            Grid.Column="3"
@@ -118,13 +124,15 @@
                 <!-- ラベル -->
                 <Label Grid.Row="9"
                        Grid.Column="1"
+                       Name="imageGammaLabel"
                        Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_ImageGamma}" />
                 <!-- スライダー -->
                 <Slider Grid.Row="10"
                         Grid.Column="1"
+                        Name="imageGammaSlider"
                         Minimum="0"
                         Maximum="1"
-                        Value="{Binding ScratchFilterSetting.ImageGamma}" />
+                        Value="{Binding ScratchFilterSetting.ImageGamma}" ValueChanged="imageGammaSlider_ValueChanged" />
                 <!-- スライダーの値 -->
                 <TextBlock Grid.Row="10"
                            Grid.Column="3"
@@ -158,13 +166,15 @@
                 <!-- OK ボタン -->
                 <Button Grid.Row="0"
                         Grid.Column="3"
-                        Click="OkButton_Click"
-                        Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_OK}" />
+                        Name="okButton"
+                        Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_OK}"
+                        Click="OkButton_Click" />
                 <!-- キャンセルボタン -->
                 <Button Grid.Row="0"
                         Grid.Column="5"
-                        Click="CancelButton_Click"
-                        Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_Cancel}" />
+                        Name="cancelButton"
+                        Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_Cancel}"
+                        Click="CancelButton_Click" />
             </Grid>
         </DockPanel>
     </Grid>
