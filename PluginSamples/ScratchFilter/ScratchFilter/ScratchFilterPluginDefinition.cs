@@ -121,8 +121,8 @@ namespace ScratchFilter
             Logger.Info("Start plug-in");
 
             ViewItemToolbarPlugins.Add(new ToolbarSeparator());
-            ViewItemToolbarPlugins.Add(new ScratchFilterToolbarPlugin());
-            ViewItemToolbarPlugins.Add(new ScratchFilterSettingToolbarPlugin());
+            ViewItemToolbarPlugins.Add(new ToolbarScratchFilter());
+            ViewItemToolbarPlugins.Add(new ToolbarScratchFilterSetting());
             ViewItemToolbarPlugins.Add(new ToolbarSeparator());
 
             ScratchFilterSettingManager.Instance.Load();

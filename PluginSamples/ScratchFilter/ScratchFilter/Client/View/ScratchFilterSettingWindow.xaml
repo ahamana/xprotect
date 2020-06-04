@@ -10,7 +10,7 @@
         ResizeMode="NoResize"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
-        Title="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Description}">
+        Title="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Description}">
 
     <Grid Grid.IsSharedSizeScope="True">
         <Grid.RowDefinitions>
@@ -83,7 +83,7 @@
                 <Label Grid.Row="0"
                        Grid.Column="1"
                        Name="imageContrastLabel"
-                       Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_ImageContrast}" />
+                       Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_ImageContrast}" />
                 <!-- スライダー -->
                 <Slider Grid.Row="1"
                         Grid.Column="1"
@@ -102,7 +102,7 @@
                 <Label Grid.Row="3"
                        Grid.Column="1"
                        Name="imageBrightnessLabel"
-                       Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_ImageBrightness}" />
+                       Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_ImageBrightness}" />
                 <!-- スライダー -->
                 <Slider Grid.Row="4"
                         Grid.Column="1"
@@ -121,7 +121,7 @@
                 <Label Grid.Row="6"
                        Grid.Column="1"
                        Name="imageSaturationLabel"
-                       Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_ImageSaturation}" />
+                       Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_ImageSaturation}" />
                 <!-- スライダー -->
                 <Slider Grid.Row="7"
                         Grid.Column="1"
@@ -140,7 +140,7 @@
                 <Label Grid.Row="9"
                        Grid.Column="1"
                        Name="imageGammaLabel"
-                       Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_ImageGamma}" />
+                       Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_ImageGamma}" />
                 <!-- スライダー -->
                 <Slider Grid.Row="10"
                         Grid.Column="1"
@@ -183,14 +183,14 @@
                 <Button Grid.Row="0"
                         Grid.Column="3"
                         Name="okButton"
-                        Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_OK}"
+                        Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_OK}"
                         Click="OkButton_Click" />
 
                 <!-- キャンセルボタン -->
                 <Button Grid.Row="0"
                         Grid.Column="5"
                         Name="cancelButton"
-                        Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_Cancel}"
+                        Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_Cancel}"
                         Click="CancelButton_Click" />
             </Grid>
         </DockPanel>

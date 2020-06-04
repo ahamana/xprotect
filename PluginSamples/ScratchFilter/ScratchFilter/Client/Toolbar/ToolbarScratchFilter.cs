@@ -13,7 +13,7 @@ namespace ScratchFilter.Client.Toolbar
     /// </summary>
     /// <seealso cref="ImageViewerToolbarPluginInstance" />
     [ToString]
-    internal class ScratchFilterToolbarPluginInstance : ImageViewerToolbarPluginInstance
+    internal class ToolbarScratchFilterInstance : ImageViewerToolbarPluginInstance
     {
         #region Fields
 
@@ -38,11 +38,11 @@ namespace ScratchFilter.Client.Toolbar
             {
                 if (isActive)
                 {
-                    return Resources.ToolbarPlugin_ScratchFilter_Description_Active;
+                    return Resources.Toolbar_ScratchFilter_Description_Active;
                 }
                 else
                 {
-                    return Resources.ToolbarPlugin_ScratchFilter_Description_Inactive;
+                    return Resources.Toolbar_ScratchFilter_Description_Inactive;
                 }
             }
         }
@@ -128,7 +128,7 @@ namespace ScratchFilter.Client.Toolbar
     /// </summary>
     /// <seealso cref="ImageViewerToolbarPlugin" />
     [ToString]
-    internal class ScratchFilterToolbarPlugin : ImageViewerToolbarPlugin
+    internal class ToolbarScratchFilter : ImageViewerToolbarPlugin
     {
         #region Fields
 
@@ -162,7 +162,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <returns>ツールバーの傷フィルタ機能用インスタンス</returns>
         public override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance()
         {
-            return new ScratchFilterToolbarPluginInstance();
+            return new ToolbarScratchFilterInstance();
         }
 
         #endregion

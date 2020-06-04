@@ -79,8 +79,8 @@
     <Compile Include="Client\Data\ScratchFilterSetting.cs" />
     <Compile Include="Client\Data\ScratchFilterSettingManager.cs" />
     <Compile Include="Client\Toolbar\ImageViewerToolbarPlugin.cs" />
-    <Compile Include="Client\Toolbar\ScratchFilterSettingToolbarPlugin.cs" />
-    <Compile Include="Client\Toolbar\ScratchFilterToolbarPlugin.cs" />
+    <Compile Include="Client\Toolbar\ToolbarScratchFilterSetting.cs" />
+    <Compile Include="Client\Toolbar\ToolbarScratchFilter.cs" />
     <Compile Include="Client\Toolbar\ToolbarPlugin.cs" />
     <Compile Include="Client\Toolbar\ToolbarSeparator.cs" />
     <Compile Include="Client\View\ScratchFilterSettingWindow.xaml.cs">
