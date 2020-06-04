@@ -26,12 +26,12 @@ namespace ScratchFilter.Client.View
         /// <summary>
         /// 傷フィルタの設定です。
         /// </summary>
-        private ScratchFilterSetting setting;
+        private readonly ScratchFilterSetting setting;
 
         /// <summary>
         /// オリジナル画像です。
         /// </summary>
-        private Bitmap originalImage;
+        private readonly Bitmap originalImage;
 
         #endregion
 
