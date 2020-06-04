@@ -14,7 +14,7 @@ namespace ScratchFilter.Client.Data
     /// 傷フィルタの設定のマネージャです。
     /// </summary>
     [ToString]
-    public class ScratchFilterSettingManager
+    internal sealed class ScratchFilterSettingManager
     {
         #region Fields
 

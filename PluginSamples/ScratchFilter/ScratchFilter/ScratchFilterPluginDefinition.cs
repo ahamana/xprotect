@@ -20,7 +20,7 @@ namespace ScratchFilter
     /// The class is constructed when the environment is loading the DLL.
     /// </summary>
     [ToString]
-    public class ScratchFilterPluginDefinition : PluginDefinition
+    public sealed class ScratchFilterPluginDefinition : PluginDefinition
     {
         #region Fields
 

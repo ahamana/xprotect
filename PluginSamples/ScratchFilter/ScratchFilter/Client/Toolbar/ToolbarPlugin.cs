@@ -193,7 +193,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <value>
         /// 名前
         /// </value>
-        public override string Name
+        public sealed override string Name
         {
             get;
         }

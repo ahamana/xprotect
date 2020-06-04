@@ -11,7 +11,7 @@ namespace ScratchFilter.Client.Toolbar
     /// </summary>
     /// <seealso cref="ToolbarPluginInstance" />
     [ToString]
-    internal class ToolbarSeparatorInstance : ToolbarPluginInstance
+    internal sealed class ToolbarSeparatorInstance : ToolbarPluginInstance
     {
         #region Fields
 
@@ -65,7 +65,7 @@ namespace ScratchFilter.Client.Toolbar
     /// </summary>
     /// <seealso cref="ToolbarPlugin" />
     [ToString]
-    internal class ToolbarSeparator : ToolbarPlugin
+    internal sealed class ToolbarSeparator : ToolbarPlugin
     {
         #region Properties
 

@@ -7,7 +7,7 @@ namespace ScratchFilter.Common
     /// カメラのマネージャです。
     /// </summary>
     [ToString]
-    internal class CameraManager
+    internal sealed class CameraManager
     {
         #region Properties
 

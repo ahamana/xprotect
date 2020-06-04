@@ -11,7 +11,7 @@ namespace ScratchFilter.Client.Toolbar
     /// </summary>
     /// <seealso cref="ImageViewerToolbarPluginInstance" />
     [ToString]
-    internal class ToolbarScratchFilterSettingInstance : ImageViewerToolbarPluginInstance
+    internal sealed class ToolbarScratchFilterSettingInstance : ImageViewerToolbarPluginInstance
     {
         #region Properties
 
@@ -62,7 +62,7 @@ namespace ScratchFilter.Client.Toolbar
     /// </summary>
     /// <seealso cref="ImageViewerToolbarPlugin" />
     [ToString]
-    internal class ToolbarScratchFilterSetting : ImageViewerToolbarPlugin
+    internal sealed class ToolbarScratchFilterSetting : ImageViewerToolbarPlugin
     {
         #region Fields
 

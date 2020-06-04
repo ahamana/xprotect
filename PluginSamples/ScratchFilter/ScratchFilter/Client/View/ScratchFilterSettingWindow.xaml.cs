@@ -14,7 +14,7 @@ namespace ScratchFilter.Client.View
     /// ScratchFilterSettingWindow.xaml の相互作用ロジック
     /// </summary>
     [ToString]
-    internal partial class ScratchFilterSettingWindow : Window, IDisposable
+    internal sealed partial class ScratchFilterSettingWindow : Window, IDisposable
     {
         #region Fields
 
