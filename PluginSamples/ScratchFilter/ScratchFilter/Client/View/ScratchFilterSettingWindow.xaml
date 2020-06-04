@@ -30,19 +30,18 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="12" />
-            <ColumnDefinition Width="322.833" />
-            <ColumnDefinition Width="157.167"/>
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="12" />
         </Grid.ColumnDefinitions>
 
         <Image Grid.Row="1"
                Grid.Column="1"
                Name="previewImage"
-               Width="480" Grid.ColumnSpan="2" Margin="0,0,0,12" Grid.RowSpan="2" />
+               Width="480" />
 
         <!-- 設定項目 -->
         <DockPanel Grid.Row="3"
-                   Grid.Column="1" Grid.ColumnSpan="2">
+                   Grid.Column="1">
             <Grid>
                 <Grid.RowDefinitions>
                     <!-- 画像のコントラスト -->
@@ -159,11 +158,11 @@
 
         <!-- 境界線 -->
         <Separator Grid.Row="5"
-                   Grid.Column="1" Grid.ColumnSpan="2" Margin="0,2,0,2.333" />
+                   Grid.Column="1" />
 
         <!-- ボタンエリア -->
-        <DockPanel Grid.Row="6"
-                   Grid.Column="1" Grid.ColumnSpan="2" Margin="0,11.667,0,0.333" Grid.RowSpan="2">
+        <DockPanel Grid.Row="7"
+                   Grid.Column="1">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" MinHeight="24" />
