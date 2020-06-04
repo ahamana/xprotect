@@ -67,7 +67,7 @@ namespace ScratchFilter.Extensions
 
             for (int i = 0; i < lut.Length; i++)
             {
-                lut[i] = (byte)(Math.Pow(i / (double)Byte.MaxValue, 1.0 / gamma) * Byte.MaxValue);
+                lut[i] = (byte)(Math.Pow(i / (double)byte.MaxValue, 1.0 / gamma) * byte.MaxValue);
             }
 
             Cv2.LUT(mat, lut, mat);
