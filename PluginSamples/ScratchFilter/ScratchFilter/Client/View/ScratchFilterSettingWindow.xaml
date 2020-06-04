@@ -72,7 +72,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2" />
                     <!-- 項目 -->
-                    <ColumnDefinition Width="Auto" MinWidth="400" />
+                    <ColumnDefinition Width="Auto" MinWidth="430" />
                     <ColumnDefinition Width="8" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="2" />
@@ -90,6 +90,8 @@
                         Name="imageContrastSlider"
                         Minimum="0"
                         Maximum="10"
+                        TickFrequency="0.01"
+                        IsSnapToTickEnabled="True"
                         Value="{Binding ImageContrast}"
                         ValueChanged="ImageContrastSlider_ValueChanged" />
                 <!-- スライダーの値 -->
@@ -109,6 +111,8 @@
                         Name="imageBrightnessSlider"
                         Minimum="-100"
                         Maximum="100"
+                        TickFrequency="0.01"
+                        IsSnapToTickEnabled="True"
                         Value="{Binding ImageBrightness}"
                         ValueChanged="ImageBrightnessSlider_ValueChanged" />
                 <!-- スライダーの値 -->
@@ -128,6 +132,8 @@
                         Name="imageSaturationSlider"
                         Minimum="0"
                         Maximum="1"
+                        TickFrequency="0.01"
+                        IsSnapToTickEnabled="True"
                         Value="{Binding ImageSaturation}"
                         ValueChanged="ImageSaturationSlider_ValueChanged" />
                 <!-- スライダーの値 -->
@@ -147,6 +153,8 @@
                         Name="imageGammaSlider"
                         Minimum="0"
                         Maximum="1"
+                        TickFrequency="0.01"
+                        IsSnapToTickEnabled="True"
                         Value="{Binding ImageGamma}"
                         ValueChanged="ImageGammaSlider_ValueChanged" />
                 <!-- スライダーの値 -->
