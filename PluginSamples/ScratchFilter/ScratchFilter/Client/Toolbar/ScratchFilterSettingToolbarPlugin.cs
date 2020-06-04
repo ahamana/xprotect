@@ -44,7 +44,7 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// ツールバー用プラグインのメニューが押下された時に呼び出されます。
+        /// ツールバー用プラグインのメニューが押下された時に発生します。
         /// </summary>
         public override void Activate()
         {

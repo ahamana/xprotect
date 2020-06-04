@@ -72,7 +72,8 @@ namespace ScratchFilter.Client.Toolbar
 
                 ScratchFilterSetting setting = ScratchFilterSettingManager.Instance.GetSetting(ImageViewerAddOn.CameraFQID.ObjectId);
 
-                using (Bitmap overlay = original.Adjust(setting.ImageContrast, setting.ImageBrightness, setting.ImageSaturation, setting.ImageGamma))
+                using (Bitmap overlay = original.Adjust(setting.ImageContrast, setting.ImageBrightness,
+                                                        setting.ImageSaturation, setting.ImageGamma))
                 {
                     ImageViewerAddOn.SetOverlay(overlay, default, true, true, true, 1, DockStyle.None, DockStyle.None, 0, 0);
                 }
@@ -80,7 +81,7 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// イメージビューワにライブ映像の画像が表示された時に呼び出されます。
+        /// イメージビューワにライブ映像の画像が表示された時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
@@ -90,7 +91,7 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// イメージビューワに録画映像の画像が表示された時に呼び出されます。
+        /// イメージビューワに録画映像の画像が表示された時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
@@ -107,7 +108,7 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// ツールバー用プラグインのメニューが押下された時に呼び出されます。
+        /// ツールバー用プラグインのメニューが押下された時に発生します。
         /// </summary>
         public override void Activate()
         {

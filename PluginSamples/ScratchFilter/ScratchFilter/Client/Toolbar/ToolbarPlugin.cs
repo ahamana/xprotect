@@ -80,7 +80,7 @@ namespace ScratchFilter.Client.Toolbar
         #region Methods
 
         /// <summary>
-        /// テーマが変更された時に呼び出されます。
+        /// テーマが変更された時に発生します。
         /// </summary>
         /// <param name="message">テーマ変更の内容</param>
         /// <param name="destination">通知先</param>
@@ -106,10 +106,7 @@ namespace ScratchFilter.Client.Toolbar
 
             if (disposing)
             {
-                if (Icon != null)
-                {
-                    Icon.Dispose();
-                }
+                Icon?.Dispose();
             }
 
             disposed = true;
@@ -125,19 +122,15 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         protected void ReloadIcon()
         {
-            // アイコンが生成済みの場合
-            if (Icon != null)
-            {
-                // Dispose メソッドの実行のみとして、null は設定しない。
-                // ※ null を設定すると、デフォルトアイコンが一瞬表示されてしまう。
-                Icon.Dispose();
-            }
+            // Dispose メソッドの実行のみとして、null は設定しない。
+            // ※ null を設定すると、デフォルトアイコンが一瞬表示されてしまう。
+            Icon?.Dispose();
 
             LoadIcon();
         }
 
         /// <summary>
-        /// ツールバー用プラグインのインスタンスが UI に追加された時に呼び出されます。
+        /// ツールバー用プラグインのインスタンスが UI に追加された時に発生します。
         /// </summary>
         /// <param name="viewItemInstance">ツールバー用プラグインの表示先のモニター</param>
         /// <param name="window">ツールバー用プラグインの表示先のウィンドウ</param>

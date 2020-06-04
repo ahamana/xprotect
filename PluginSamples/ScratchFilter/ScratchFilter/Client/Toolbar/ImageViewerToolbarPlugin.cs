@@ -90,7 +90,7 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// イメージビューワが追加された時に呼び出されます。
+        /// イメージビューワが追加された時に発生します。
         /// </summary>
         /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
         private void NewImageViewerControlEventHandler(ImageViewerAddOn imageViewerAddOn)
@@ -111,7 +111,7 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// イメージビューワが破棄された時に呼び出されます。
+        /// イメージビューワが破棄された時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
@@ -121,7 +121,7 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// イメージビューワのサイズ、表示位置が変更された時に呼び出されます。
+        /// イメージビューワのサイズ、表示位置が変更された時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
@@ -130,7 +130,7 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// イメージビューワのライブストリームの XML の情報が利用可能になった時に呼び出されます。
+        /// イメージビューワのライブストリームの XML の情報が利用可能になった時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
@@ -139,7 +139,7 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// イメージビューワの表示モードが「ライブ」に変更された時に呼び出されます。
+        /// イメージビューワの表示モードが「ライブ」に変更された時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
@@ -148,7 +148,7 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// イメージビューワの表示モードが「再生」もしくは「設定」に変更された時に呼び出されます。
+        /// イメージビューワの表示モードが「再生」もしくは「設定」に変更された時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
@@ -157,7 +157,7 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// イメージビューワのプロパティが変更された時に呼び出されます。
+        /// イメージビューワのプロパティが変更された時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
@@ -166,7 +166,7 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// イメージビューワにライブ映像の画像が表示された時に呼び出されます。
+        /// イメージビューワにライブ映像の画像が表示された時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
@@ -175,7 +175,7 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// イメージビューワに録画映像の画像が表示された時に呼び出されます。
+        /// イメージビューワに録画映像の画像が表示された時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
@@ -184,7 +184,7 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// イメージビューワ上でマウスがクリックされた時に呼び出されます。
+        /// イメージビューワ上でマウスがクリックされた時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
@@ -193,7 +193,7 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// イメージビューワ上でマウスがダブルクリックされた時に呼び出されます。
+        /// イメージビューワ上でマウスがダブルクリックされた時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
@@ -202,7 +202,7 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// イメージビューワ上でマウスが動かされた時に呼び出されます。
+        /// イメージビューワ上でマウスが動かされた時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
@@ -211,7 +211,7 @@ namespace ScratchFilter.Client.Toolbar
         }
 
         /// <summary>
-        /// イメージビューワ上でマウスが右クリックされた時に呼び出されます。
+        /// イメージビューワ上でマウスが右クリックされた時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>

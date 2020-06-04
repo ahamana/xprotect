@@ -6,13 +6,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:properties="clr-namespace:ScratchFilter.Properties"
         mc:Ignorable="d"
-        d:DesignHeight="330" d:DesignWidth="300"
+        d:DesignHeight="340" d:DesignWidth="500"
         ResizeMode="NoResize"
         SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
         Title="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Description}">
 
     <Grid Grid.IsSharedSizeScope="True">
         <Grid.RowDefinitions>
+            <RowDefinition Height="12" />
+            <!-- プレビュー画像 -->
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="12" />
             <!-- 設定項目 -->
             <RowDefinition Height="Auto" />
@@ -26,13 +30,19 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="12" />
-            <ColumnDefinition Width="Auto" MinWidth="250" />
+            <ColumnDefinition Width="322.833" />
+            <ColumnDefinition Width="157.167"/>
             <ColumnDefinition Width="12" />
         </Grid.ColumnDefinitions>
 
+        <Image Grid.Row="1"
+               Grid.Column="1"
+               Name="previewImage"
+               Width="480" Grid.ColumnSpan="2" Margin="0,0,0,12" Grid.RowSpan="2" />
+
         <!-- 設定項目 -->
-        <DockPanel Grid.Row="1"
-                   Grid.Column="1">
+        <DockPanel Grid.Row="3"
+                   Grid.Column="1" Grid.ColumnSpan="2">
             <Grid>
                 <Grid.RowDefinitions>
                     <!-- 画像のコントラスト -->
@@ -63,9 +73,9 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2" />
                     <!-- 項目 -->
-                    <ColumnDefinition Width="Auto" MinWidth="150" />
+                    <ColumnDefinition Width="Auto" MinWidth="410" />
                     <ColumnDefinition Width="2" />
-                    <ColumnDefinition Width="Auto" MinWidth="100" />
+                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="2" />
                 </Grid.ColumnDefinitions>
 
@@ -81,11 +91,13 @@
                         Name="imageContrastSlider"
                         Minimum="0"
                         Maximum="10"
-                        Value="{Binding ScratchFilterSetting.ImageContrast}" ValueChanged="imageContrastSlider_ValueChanged" />
+                        Value="{Binding ImageContrast}"
+                        ValueChanged="ImageContrastSlider_ValueChanged" />
                 <!-- スライダーの値 -->
                 <TextBlock Grid.Row="1"
                            Grid.Column="3"
-                           Text="{Binding ScratchFilterSetting.ImageContrast}" />
+                           Text="{Binding ImageContrast}" />
+
                 <!-- 画像の明るさ -->
                 <!-- ラベル -->
                 <Label Grid.Row="3"
@@ -98,11 +110,13 @@
                         Name="imageBrightnessSlider"
                         Minimum="-100"
                         Maximum="100"
-                        Value="{Binding ScratchFilterSetting.ImageBrightness}" ValueChanged="imageBrightnessSlider_ValueChanged" />
+                        Value="{Binding ImageBrightness}"
+                        ValueChanged="ImageBrightnessSlider_ValueChanged" />
                 <!-- スライダーの値 -->
                 <TextBlock Grid.Row="4"
                            Grid.Column="3"
-                           Text="{Binding ScratchFilterSetting.ImageBrightness}" />
+                           Text="{Binding ImageBrightness}" />
+
                 <!-- 画像の彩度 -->
                 <!-- ラベル -->
                 <Label Grid.Row="6"
@@ -115,11 +129,13 @@
                         Name="imageSaturationSlider"
                         Minimum="0"
                         Maximum="1"
-                        Value="{Binding ScratchFilterSetting.ImageSaturation}" ValueChanged="imageSaturationSlider_ValueChanged" />
+                        Value="{Binding ImageSaturation}"
+                        ValueChanged="ImageSaturationSlider_ValueChanged" />
                 <!-- スライダーの値 -->
                 <TextBlock Grid.Row="7"
                            Grid.Column="3"
-                           Text="{Binding ScratchFilterSetting.ImageSaturation}" />
+                           Text="{Binding ImageSaturation}" />
+
                 <!-- 画像のガンマ -->
                 <!-- ラベル -->
                 <Label Grid.Row="9"
@@ -132,21 +148,22 @@
                         Name="imageGammaSlider"
                         Minimum="0"
                         Maximum="1"
-                        Value="{Binding ScratchFilterSetting.ImageGamma}" ValueChanged="imageGammaSlider_ValueChanged" />
+                        Value="{Binding ImageGamma}"
+                        ValueChanged="ImageGammaSlider_ValueChanged" />
                 <!-- スライダーの値 -->
                 <TextBlock Grid.Row="10"
                            Grid.Column="3"
-                           Text="{Binding ScratchFilterSetting.ImageGamma}" />
+                           Text="{Binding ImageGamma}" />
             </Grid>
         </DockPanel>
 
         <!-- 境界線 -->
-        <Separator Grid.Row="3"
-                   Grid.Column="1" />
+        <Separator Grid.Row="5"
+                   Grid.Column="1" Grid.ColumnSpan="2" Margin="0,2,0,2.333" />
 
         <!-- ボタンエリア -->
-        <DockPanel Grid.Row="5"
-                   Grid.Column="1">
+        <DockPanel Grid.Row="6"
+                   Grid.Column="1" Grid.ColumnSpan="2" Margin="0,11.667,0,0.333" Grid.RowSpan="2">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" MinHeight="24" />
@@ -169,6 +186,7 @@
                         Name="okButton"
                         Content="{x:Static properties:Resources.ToolbarPlugin_ScratchFilterSetting_Label_OK}"
                         Click="OkButton_Click" />
+
                 <!-- キャンセルボタン -->
                 <Button Grid.Row="0"
                         Grid.Column="5"

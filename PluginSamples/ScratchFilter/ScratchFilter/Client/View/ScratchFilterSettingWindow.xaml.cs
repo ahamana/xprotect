@@ -1,8 +1,12 @@
-﻿using ScratchFilter.Client.Data;
+﻿using OpenCvSharp;
+using OpenCvSharp.Extensions;
+using ScratchFilter.Client.Data;
+using ScratchFilter.Extensions;
 using System;
 using System.Drawing;
 using System.Windows;
 using VideoOS.Platform.Client;
+using Window = System.Windows.Window;
 
 namespace ScratchFilter.Client.View
 {
@@ -20,37 +24,14 @@ namespace ScratchFilter.Client.View
         private bool disposed;
 
         /// <summary>
-        /// オリジナル画像です。
-        /// </summary>
-        private Image originalImage;
-
-        #endregion
-
-        #region Properties
-
-        /// <summary>
-        /// 表示画像です。
-        /// </summary>
-        /// <value>
-        /// 表示画像
-        /// </value>
-        public Image Image
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
         /// 傷フィルタの設定です。
         /// </summary>
-        /// <value>
-        /// 傷フィルタの設定
-        /// </value>
-        public ScratchFilterSetting ScratchFilterSetting
-        {
-            get;
-            private set;
-        }
+        private ScratchFilterSetting setting;
+
+        /// <summary>
+        /// オリジナル画像です。
+        /// </summary>
+        private Bitmap originalImage;
 
         #endregion
 
@@ -72,11 +53,13 @@ namespace ScratchFilter.Client.View
 
             InitializeComponent();
 
+            setting = ScratchFilterSettingManager.Instance.GetSetting(imageViewerAddOn.CameraFQID.ObjectId);
+
+            DataContext = setting;
+
             originalImage = imageViewerAddOn.GetCurrentDisplayedImageAsBitmap();
 
-            ScratchFilterSetting = ScratchFilterSettingManager.Instance.GetSetting(imageViewerAddOn.CameraFQID.ObjectId);
-
-            DataContext = this;
+            ChangePreviewImage();
         }
 
         #endregion
@@ -84,59 +67,73 @@ namespace ScratchFilter.Client.View
         #region Methods
 
         /// <summary>
-        /// 画像のコントラストのスライダーの値が変更された時に呼び出されます。
+        /// プレビュー画像を変更します。
+        /// </summary>
+        private void ChangePreviewImage()
+        {
+            using (Bitmap bitmap = originalImage.Adjust(setting.ImageContrast, setting.ImageBrightness,
+                                                        setting.ImageSaturation, setting.ImageGamma))
+            using (Mat mat = bitmap.ToMat())
+            {
+                previewImage.Source = mat.ToBitmapSource();
+            }
+        }
+
+        /// <summary>
+        /// 画像のコントラストのスライダーの値が変更された時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
         private void ImageContrastSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-
+            ChangePreviewImage();
         }
 
+
         /// <summary>
-        /// 画像の明るさのスライダーの値が変更された時に呼び出されます。
+        /// 画像の明るさのスライダーの値が変更された時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
         private void ImageBrightnessSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-
+            ChangePreviewImage();
         }
 
         /// <summary>
-        /// 画像の彩度のスライダーの値が変更された時に呼び出されます。
+        /// 画像の彩度のスライダーの値が変更された時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
         private void ImageSaturationSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-
+            ChangePreviewImage();
         }
 
         /// <summary>
-        /// 画像のガンマのスライダーの値が変更された時に呼び出されます。
+        /// 画像のガンマのスライダーの値が変更された時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
         private void ImageGammaSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-
+            ChangePreviewImage();
         }
 
         /// <summary>
-        /// OK ボタンが押下された時に呼び出されます。
+        /// OK ボタンが押下された時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
-            ScratchFilterSettingManager.Instance.Save(ScratchFilterSetting);
+            ScratchFilterSettingManager.Instance.Save(setting);
 
             Close();
         }
 
         /// <summary>
-        /// キャンセルボタンが押下された時に呼び出されます。
+        /// キャンセルボタンが押下された時に発生します。
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
@@ -158,15 +155,7 @@ namespace ScratchFilter.Client.View
 
             if (disposing)
             {
-                if (originalImage != null)
-                {
-                    originalImage.Dispose();
-                }
-
-                if (Image != null)
-                {
-                    Image.Dispose();
-                }
+                originalImage?.Dispose();
             }
 
             disposed = true;
