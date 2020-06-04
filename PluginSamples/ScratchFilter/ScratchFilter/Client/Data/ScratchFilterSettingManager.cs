@@ -181,14 +181,8 @@ namespace ScratchFilter.Client.Data
 
             settings.ToList().ForEach(setting =>
             {
-                if (this.settings.ContainsKey(setting.CameraId))
-                {
-                    this.settings[setting.CameraId] = setting;
-                }
-                else
-                {
-                    this.settings.Add(setting.CameraId, setting);
-                }
+                this.settings.Remove(setting.CameraId);
+                this.settings.Add(setting.CameraId, setting);
             });
 
             Save();
