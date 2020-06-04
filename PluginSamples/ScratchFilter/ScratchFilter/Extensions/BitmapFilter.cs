@@ -49,7 +49,7 @@ namespace ScratchFilter.Extensions
 
             Cv2.Split(mat, out Mat[] channels);
 
-            channels[2] = channels[2] * saturation;
+            channels[2] *= saturation;
 
             Cv2.Merge(channels, mat);
 
