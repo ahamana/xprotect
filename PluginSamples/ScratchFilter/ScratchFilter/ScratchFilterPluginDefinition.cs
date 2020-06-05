@@ -27,7 +27,7 @@ namespace ScratchFilter
         /// <summary>
         /// プラグインの ID です。
         /// </summary>
-        private static readonly Guid PluginId = new Guid("8c9a02d0-dcb0-4460-8779-23ad282677a0");
+        private static readonly Guid PluginId = Guid.Parse("8c9a02d0-dcb0-4460-8779-23ad282677a0");
 
         /// <summary>
         /// ロガーです。

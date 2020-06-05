@@ -135,7 +135,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// プラグインの ID です。
         /// </summary>
-        private static readonly Guid PluginId = new Guid("655154aa-af1d-47af-b23a-09ea79eb1b9d");
+        private static readonly Guid PluginId = Guid.Parse("655154aa-af1d-47af-b23a-09ea79eb1b9d");
 
         #endregion
 

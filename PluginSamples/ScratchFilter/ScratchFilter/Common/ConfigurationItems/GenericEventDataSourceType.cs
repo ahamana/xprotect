@@ -32,9 +32,9 @@ namespace ScratchFilter.Common.ConfigurationItems
         private static readonly IReadOnlyDictionary<GenericEventDataSourceType, Guid> GenericEventDataSourceIds = new Dictionary<GenericEventDataSourceType, Guid>()
         {
             // ジェネリックイベントのデータソース「互換」の ID
-            { GenericEventDataSourceType.Compatible, new Guid("b867db0c-be9e-422b-b934-6fc7fa98c5d8") },
+            { GenericEventDataSourceType.Compatible, Guid.Parse("b867db0c-be9e-422b-b934-6fc7fa98c5d8") },
             // ジェネリックイベントのデータソース「インターナショナル」の ID
-            { GenericEventDataSourceType.International, new Guid("8607bccc-2bb5-4b47-a7de-8225d14c4213") }
+            { GenericEventDataSourceType.International, Guid.Parse("8607bccc-2bb5-4b47-a7de-8225d14c4213") }
         };
 
         #endregion
