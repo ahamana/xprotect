@@ -34,6 +34,7 @@
             <ColumnDefinition Width="12" />
         </Grid.ColumnDefinitions>
 
+        <!-- プレビュー画像 -->
         <Image Grid.Row="1"
                Grid.Column="1"
                Name="previewImage"
