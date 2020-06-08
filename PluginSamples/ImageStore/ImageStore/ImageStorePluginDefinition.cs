@@ -140,7 +140,7 @@ namespace ImageStore
         /// </summary>s
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        private void JpegLiveContentEvent(object sender, EventArgs e)
+        private void JpegLiveContentEventHandler(object sender, EventArgs e)
         {
             JPEGLiveSource liveSource = sender as JPEGLiveSource;
             LiveContentEventArgs args = e as LiveContentEventArgs;
@@ -211,7 +211,7 @@ namespace ImageStore
                             liveSource.Compression = settings.Compression;
                         }
 
-                        liveSource.LiveContentEvent += JpegLiveContentEvent;
+                        liveSource.LiveContentEvent += JpegLiveContentEventHandler;
 
                         liveSource.Init();
 
