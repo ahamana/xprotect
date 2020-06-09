@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using VideoOS.Platform;
 
 namespace ScratchFilter.Common
@@ -63,26 +61,6 @@ namespace ScratchFilter.Common
             });
 
             return cameras.AsReadOnly();
-        }
-
-        /// <summary>
-        /// カメラを取得します。
-        /// </summary>
-        /// <param name="cameraId">カメラの ID</param>
-        /// <returns>
-        /// カメラ
-        /// </returns>
-        /// <exception cref="ArgumentException">
-        /// <paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。
-        /// </exception>
-        internal Item GetCamera(Guid cameraId)
-        {
-            if (cameraId == Guid.Empty)
-            {
-                throw new ArgumentException(nameof(cameraId));
-            }
-
-            return GetCameras().FirstOrDefault(camera => cameraId == camera.FQID.ObjectId);
         }
 
         /// <summary>

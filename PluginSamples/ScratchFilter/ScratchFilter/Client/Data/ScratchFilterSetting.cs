@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using ScratchFilter.Common;
 using System;
 using VideoOS.Platform;
 
@@ -60,7 +59,7 @@ namespace ScratchFilter.Client.Data
         {
             get
             {
-                Item camera = CameraManager.Instance.GetCamera(CameraId);
+                Item camera = Configuration.Instance.GetItem(CameraId, Kind.Camera);
 
                 return camera?.Name;
             }
