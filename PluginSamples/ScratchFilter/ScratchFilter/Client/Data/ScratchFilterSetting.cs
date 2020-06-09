@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using ScratchFilter.Common;
+using System;
+using VideoOS.Platform;
 
 namespace ScratchFilter.Client.Data
 {
@@ -44,6 +47,23 @@ namespace ScratchFilter.Client.Data
         {
             get;
             set;
+        }
+
+        /// <summary>
+        /// カメラ名です。
+        /// </summary>
+        /// <value>
+        /// カメラ名
+        /// </value>
+        [JsonIgnore]
+        public string CameraName
+        {
+            get
+            {
+                Item camera = CameraManager.Instance.GetCamera(CameraId);
+
+                return camera?.Name;
+            }
         }
 
         /// <summary>
