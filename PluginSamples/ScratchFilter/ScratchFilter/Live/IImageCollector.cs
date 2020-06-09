@@ -14,7 +14,9 @@ namespace ScratchFilter.Live
         /// <summary>
         /// 画像を取得します。
         /// </summary>
-        /// <returns>画像</returns>
+        /// <returns>
+        /// 画像
+        /// </returns>
         Bitmap GetImage();
 
         #endregion

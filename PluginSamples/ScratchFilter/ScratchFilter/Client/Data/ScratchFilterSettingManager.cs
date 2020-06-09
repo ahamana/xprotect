@@ -116,7 +116,9 @@ namespace ScratchFilter.Client.Data
         /// 傷フィルタの設定を取得します。
         /// </summary>
         /// <param name="cameraId">カメラの ID</param>
-        /// <returns>傷フィルタの設定</returns>
+        /// <returns>
+        /// 傷フィルタの設定
+        /// </returns>
         /// <exception cref="ArgumentException">
         /// <paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。
         /// </exception>

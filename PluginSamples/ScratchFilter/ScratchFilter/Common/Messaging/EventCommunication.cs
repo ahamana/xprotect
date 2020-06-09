@@ -34,7 +34,9 @@ namespace ScratchFilter.Common.Messaging
         /// <summary>
         /// イベントサーバのホスト名を取得します。
         /// </summary>
-        /// <returns>イベントサーバのホスト名</returns>
+        /// <returns>
+        /// イベントサーバのホスト名
+        /// </returns>
         private string GetEventServerHostname()
         {
             // イベントサーバのサービス URL の情報を取得

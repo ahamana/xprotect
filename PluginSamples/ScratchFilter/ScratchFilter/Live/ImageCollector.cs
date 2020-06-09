@@ -77,7 +77,9 @@ namespace ScratchFilter.Live
         /// カメラの解像度を取得します。
         /// </summary>
         /// <param name="cameraFQID">カメラの完全修飾 ID</param>
-        /// <returns>カメラの解像度</returns>
+        /// <returns>
+        /// カメラの解像度
+        /// </returns>
         private Size GetCameraResolution(FQID cameraFQID)
         {
             Camera camera = new Camera(cameraFQID);
@@ -145,20 +147,26 @@ namespace ScratchFilter.Live
         /// ライブ映像のソースを生成します。
         /// </summary>
         /// <param name="camera">カメラ</param>
-        /// <returns>ライブ映像のソース</returns>
+        /// <returns>
+        /// ライブ映像のソース
+        /// </returns>
         protected abstract TVideoLiveSource GenerateVideoLiveSource(Item camera);
 
         /// <summary>
         /// 画像のストリームを生成します。
         /// </summary>
         /// <param name="liveContent">ライブ映像の内容</param>
-        /// <returns>画像のストリーム</returns>
+        /// <returns>
+        /// 画像のストリーム
+        /// </returns>
         protected abstract Stream GenerateImageStream(TLiveSourceContent liveContent);
 
         /// <summary>
         /// 画像を取得します。
         /// </summary>
-        /// <returns>画像</returns>
+        /// <returns>
+        /// 画像
+        /// </returns>
         public Bitmap GetImage()
         {
             while (imageStream == null)

@@ -43,7 +43,9 @@ namespace ScratchFilter.Common
         /// カメラの一覧を取得します。
         /// </summary>
         /// <param name="items">項目の一覧</param>
-        /// <returns>カメラの一覧</returns>
+        /// <returns>
+        /// カメラの一覧
+        /// </returns>
         private IReadOnlyCollection<Item> GetCameras(List<Item> items)
         {
             List<Item> cameras = new List<Item>();
@@ -67,7 +69,9 @@ namespace ScratchFilter.Common
         /// カメラを取得します。
         /// </summary>
         /// <param name="cameraId">カメラの ID</param>
-        /// <returns>カメラ</returns>
+        /// <returns>
+        /// カメラ
+        /// </returns>
         /// <exception cref="ArgumentException">
         /// <paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。
         /// </exception>
@@ -84,7 +88,9 @@ namespace ScratchFilter.Common
         /// <summary>
         /// カメラの一覧を取得します。
         /// </summary>
-        /// <returns>カメラの一覧</returns>
+        /// <returns>
+        /// カメラの一覧
+        /// </returns>
         internal IReadOnlyCollection<Item> GetCameras()
         {
             return GetCameras(Configuration.Instance.GetItemsByKind(Kind.Camera));

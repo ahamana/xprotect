@@ -27,7 +27,9 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// セパレータ用のアイコンを生成します。
         /// </summary>
-        /// <returns>セパレータ用のアイコン</returns>
+        /// <returns>
+        /// セパレータ用のアイコン
+        /// </returns>
         private Image CreateSeparatorIcon()
         {
             Image icon = new Bitmap(SeparatorSize.Width, SeparatorSize.Height);
@@ -98,7 +100,9 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// ツールバーのセパレータ用インスタンスを生成します。
         /// </summary>
-        /// <returns>ツールバーのセパレータ用インスタンス</returns>
+        /// <returns>
+        /// ツールバーのセパレータ用インスタンス
+        /// </returns>
         public override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance()
         {
             return new ToolbarSeparatorInstance();

@@ -33,7 +33,9 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// 映像が表示されているカメラの ID を取得します。
         /// </summary>
-        /// <returns>映像が表示されているカメラの ID</returns>
+        /// <returns>
+        /// 映像が表示されているカメラの ID
+        /// </returns>
         private Guid GetCurrentCameraId()
         {
             Guid.TryParse(Monitor.Properties["CurrentCameraId"], out Guid cameraId);

@@ -93,7 +93,9 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// ツールバーの傷フィルタ機能の設定用インスタンスを生成します。
         /// </summary>
-        /// <returns>ツールバーの傷フィルタ機能の設定用インスタンス</returns>
+        /// <returns>
+        /// ツールバーの傷フィルタ機能の設定用インスタンス
+        /// </returns>
         public override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance()
         {
             return new ToolbarScratchFilterSettingInstance();

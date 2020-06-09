@@ -71,7 +71,9 @@ namespace ScratchFilter.Client.View
         /// オリジナル画像を取得します。
         /// </summary>
         /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
-        /// <returns>オリジナル画像</returns>
+        /// <returns>
+        /// オリジナル画像
+        /// </returns>
         private Bitmap GetOriginalImage(ImageViewerAddOn imageViewerAddOn)
         {
             Bitmap image = imageViewerAddOn.GetCurrentDisplayedImageAsBitmap();

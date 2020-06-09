@@ -97,7 +97,9 @@ namespace ScratchFilter.Extensions
         /// <param name="brightness">明るさの調整に使用する値</param>
         /// <param name="saturation">彩度の調整に使用する値</param>
         /// <param name="gamma">ガンマの調整に使用する値</param>
-        /// <returns>調整した画像</returns>
+        /// <returns>
+        /// 調整した画像
+        /// </returns>
         /// <exception cref="ArgumentNullException">
         /// <paramref name="src" /> が <c>null</c> の場合にスローされます。
         /// </exception>

@@ -85,7 +85,9 @@ namespace ScratchFilter.Client.Toolbar
         /// <param name="message">テーマ変更の内容</param>
         /// <param name="destination">通知先</param>
         /// <param name="sender">通知元</param>
-        /// <returns><c>null</c></returns>
+        /// <returns>
+        /// <c>null</c>
+        /// </returns>
         private object ThemeChangedIndicationReceiver(Message message, FQID destination, FQID sender)
         {
             ReloadIcon();
@@ -189,7 +191,9 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// 名前です。
         /// </summary>
-        /// <remarks>Smart Client の UI のどこにも表示されず、使用されることはありません。</remarks>
+        /// <remarks>
+        /// Smart Client の UI のどこにも表示されず、使用されることはありません。
+        /// </remarks>
         /// <value>
         /// 名前
         /// </value>
