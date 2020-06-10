@@ -107,7 +107,7 @@ namespace ScratchFilter.Live
         /// </summary>s
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        private void LiveContentEventHandler(object sender, EventArgs e)
+        private void OnLiveSourceLiveContentEvent(object sender, EventArgs e)
         {
             LiveContentEventArgs args = e as LiveContentEventArgs;
 
@@ -151,7 +151,7 @@ namespace ScratchFilter.Live
             liveSource.SingleFrameQueue = true;
             liveSource.LiveModeStart = true;
 
-            liveSource.LiveContentEvent += LiveContentEventHandler;
+            liveSource.LiveContentEvent += OnLiveSourceLiveContentEvent;
 
             liveSource.Init();
         }

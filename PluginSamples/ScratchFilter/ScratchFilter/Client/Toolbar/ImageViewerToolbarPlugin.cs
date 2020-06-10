@@ -53,18 +53,18 @@ namespace ScratchFilter.Client.Toolbar
                 return;
             }
 
-            ImageViewerAddOn.CloseEvent += ImageViewerCloseEventHandler;
-            ImageViewerAddOn.UserControlSizeOrLocationChangedEvent += ImageViewerUserControlSizeOrLocationChangedEventHandler;
-            ImageViewerAddOn.LiveStreamInformationEvent += ImageViewerLiveStreamInformationEventHandler;
-            ImageViewerAddOn.StartLiveEvent += ImageViewerStartLiveEventHandler;
-            ImageViewerAddOn.StopLiveEvent += ImageViewerStopLiveEventHandler;
-            ImageViewerAddOn.PropertyChangedEvent += ImageViewerPropertyChangedEventHandler;
-            ImageViewerAddOn.ImageDisplayedEvent += ImageViewerImageDisplayedEventHandler;
-            ImageViewerAddOn.RecordedImageReceivedEvent += ImageViewerRecordedImageReceivedEventHandler;
-            ImageViewerAddOn.MouseClickEvent += ImageViewerMouseClickEventHandler;
-            ImageViewerAddOn.MouseDoubleClickEvent += ImageViewerMouseDoubleClickEventHandler;
-            ImageViewerAddOn.MouseMoveEvent += ImageViewerMouseMoveEventHandler;
-            ImageViewerAddOn.MouseRightClickEvent += ImageViewerMouseRightClickEventHandler;
+            ImageViewerAddOn.CloseEvent += OnImageViewerClose;
+            ImageViewerAddOn.UserControlSizeOrLocationChangedEvent += OnImageViewerUserControlSizeOrLocationChanged;
+            ImageViewerAddOn.LiveStreamInformationEvent += OnImageViewerLiveStreamInformation;
+            ImageViewerAddOn.StartLiveEvent += OnImageViewerStartLive;
+            ImageViewerAddOn.StopLiveEvent += OnImageViewerStopLive;
+            ImageViewerAddOn.PropertyChangedEvent += OnImageViewerPropertyChanged;
+            ImageViewerAddOn.ImageDisplayedEvent += OnImageViewerImageDisplayed;
+            ImageViewerAddOn.RecordedImageReceivedEvent += OnImageViewerRecordedImageReceived;
+            ImageViewerAddOn.MouseClickEvent += OnImageViewerMouseClick;
+            ImageViewerAddOn.MouseDoubleClickEvent += OnImageViewerMouseDoubleClick;
+            ImageViewerAddOn.MouseMoveEvent += OnImageViewerMouseMove;
+            ImageViewerAddOn.MouseRightClickEvent += OnImageViewerMouseRightClick;
         }
 
         /// <summary>
@@ -77,25 +77,25 @@ namespace ScratchFilter.Client.Toolbar
                 return;
             }
 
-            ImageViewerAddOn.CloseEvent -= ImageViewerCloseEventHandler;
-            ImageViewerAddOn.UserControlSizeOrLocationChangedEvent -= ImageViewerUserControlSizeOrLocationChangedEventHandler;
-            ImageViewerAddOn.LiveStreamInformationEvent -= ImageViewerLiveStreamInformationEventHandler;
-            ImageViewerAddOn.StartLiveEvent -= ImageViewerStartLiveEventHandler;
-            ImageViewerAddOn.StopLiveEvent -= ImageViewerStopLiveEventHandler;
-            ImageViewerAddOn.PropertyChangedEvent -= ImageViewerPropertyChangedEventHandler;
-            ImageViewerAddOn.ImageDisplayedEvent -= ImageViewerImageDisplayedEventHandler;
-            ImageViewerAddOn.RecordedImageReceivedEvent -= ImageViewerRecordedImageReceivedEventHandler;
-            ImageViewerAddOn.MouseClickEvent -= ImageViewerMouseClickEventHandler;
-            ImageViewerAddOn.MouseDoubleClickEvent -= ImageViewerMouseDoubleClickEventHandler;
-            ImageViewerAddOn.MouseMoveEvent -= ImageViewerMouseMoveEventHandler;
-            ImageViewerAddOn.MouseRightClickEvent -= ImageViewerMouseRightClickEventHandler;
+            ImageViewerAddOn.CloseEvent -= OnImageViewerClose;
+            ImageViewerAddOn.UserControlSizeOrLocationChangedEvent -= OnImageViewerUserControlSizeOrLocationChanged;
+            ImageViewerAddOn.LiveStreamInformationEvent -= OnImageViewerLiveStreamInformation;
+            ImageViewerAddOn.StartLiveEvent -= OnImageViewerStartLive;
+            ImageViewerAddOn.StopLiveEvent -= OnImageViewerStopLive;
+            ImageViewerAddOn.PropertyChangedEvent -= OnImageViewerPropertyChanged;
+            ImageViewerAddOn.ImageDisplayedEvent -= OnImageViewerImageDisplayed;
+            ImageViewerAddOn.RecordedImageReceivedEvent -= OnImageViewerRecordedImageReceived;
+            ImageViewerAddOn.MouseClickEvent -= OnImageViewerMouseClick;
+            ImageViewerAddOn.MouseDoubleClickEvent -= OnImageViewerMouseDoubleClick;
+            ImageViewerAddOn.MouseMoveEvent -= OnImageViewerMouseMove;
+            ImageViewerAddOn.MouseRightClickEvent -= OnImageViewerMouseRightClick;
         }
 
         /// <summary>
         /// イメージビューワが追加された時に発生します。
         /// </summary>
         /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
-        private void NewImageViewerControlEventHandler(ImageViewerAddOn imageViewerAddOn)
+        private void OnNewImageViewerControl(ImageViewerAddOn imageViewerAddOn)
         {
             if (ImageViewerAddOn != null)
             {
@@ -117,7 +117,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        private void ImageViewerCloseEventHandler(object sender, EventArgs e)
+        private void OnImageViewerClose(object sender, EventArgs e)
         {
             UnregisterImageViewerEvents();
         }
@@ -127,7 +127,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        protected virtual void ImageViewerUserControlSizeOrLocationChangedEventHandler(object sender, EventArgs e)
+        protected virtual void OnImageViewerUserControlSizeOrLocationChanged(object sender, EventArgs e)
         {
         }
 
@@ -136,7 +136,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        protected virtual void ImageViewerLiveStreamInformationEventHandler(object sender, LiveStreamInformationEventArgs e)
+        protected virtual void OnImageViewerLiveStreamInformation(object sender, LiveStreamInformationEventArgs e)
         {
         }
 
@@ -145,7 +145,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        protected virtual void ImageViewerStartLiveEventHandler(object sender, PassRequestEventArgs e)
+        protected virtual void OnImageViewerStartLive(object sender, PassRequestEventArgs e)
         {
         }
 
@@ -154,7 +154,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        protected virtual void ImageViewerStopLiveEventHandler(object sender, PassRequestEventArgs e)
+        protected virtual void OnImageViewerStopLive(object sender, PassRequestEventArgs e)
         {
         }
 
@@ -163,7 +163,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        protected virtual void ImageViewerPropertyChangedEventHandler(object sender, EventArgs e)
+        protected virtual void OnImageViewerPropertyChanged(object sender, EventArgs e)
         {
         }
 
@@ -172,7 +172,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        protected virtual void ImageViewerImageDisplayedEventHandler(object sender, ImageDisplayedEventArgs e)
+        protected virtual void OnImageViewerImageDisplayed(object sender, ImageDisplayedEventArgs e)
         {
         }
 
@@ -181,7 +181,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        protected virtual void ImageViewerRecordedImageReceivedEventHandler(object sender, RecordedImageReceivedEventArgs e)
+        protected virtual void OnImageViewerRecordedImageReceived(object sender, RecordedImageReceivedEventArgs e)
         {
         }
 
@@ -190,7 +190,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        protected virtual void ImageViewerMouseClickEventHandler(object sender, MouseEventArgs e)
+        protected virtual void OnImageViewerMouseClick(object sender, MouseEventArgs e)
         {
         }
 
@@ -199,7 +199,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        protected virtual void ImageViewerMouseDoubleClickEventHandler(object sender, MouseEventArgs e)
+        protected virtual void OnImageViewerMouseDoubleClick(object sender, MouseEventArgs e)
         {
         }
 
@@ -208,7 +208,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        protected virtual void ImageViewerMouseMoveEventHandler(object sender, MouseEventArgs e)
+        protected virtual void OnImageViewerMouseMove(object sender, MouseEventArgs e)
         {
         }
 
@@ -217,7 +217,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        protected virtual void ImageViewerMouseRightClickEventHandler(object sender, MouseEventArgs e)
+        protected virtual void OnImageViewerMouseRightClick(object sender, MouseEventArgs e)
         {
         }
 
@@ -236,7 +236,7 @@ namespace ScratchFilter.Client.Toolbar
 
             base.Init(viewItemInstance, window);
 
-            ClientControl.Instance.NewImageViewerControlEvent += NewImageViewerControlEventHandler;
+            ClientControl.Instance.NewImageViewerControlEvent += OnNewImageViewerControl;
 
             Enabled = true;
         }
@@ -253,7 +253,7 @@ namespace ScratchFilter.Client.Toolbar
 
             base.Close();
 
-            ClientControl.Instance.NewImageViewerControlEvent -= NewImageViewerControlEventHandler;
+            ClientControl.Instance.NewImageViewerControlEvent -= OnNewImageViewerControl;
         }
 
         #endregion

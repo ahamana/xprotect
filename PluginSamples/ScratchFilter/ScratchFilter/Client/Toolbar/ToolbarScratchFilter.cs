@@ -85,7 +85,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        protected override void ImageViewerImageDisplayedEventHandler(object sender, ImageDisplayedEventArgs e)
+        protected override void OnImageViewerImageDisplayed(object sender, ImageDisplayedEventArgs e)
         {
             HandleDisplayedImage();
         }
@@ -95,7 +95,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        protected override void ImageViewerRecordedImageReceivedEventHandler(object sender, RecordedImageReceivedEventArgs e)
+        protected override void OnImageViewerRecordedImageReceived(object sender, RecordedImageReceivedEventArgs e)
         {
             HandleDisplayedImage();
         }
