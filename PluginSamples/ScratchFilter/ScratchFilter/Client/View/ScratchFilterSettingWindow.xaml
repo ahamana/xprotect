@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:properties="clr-namespace:ScratchFilter.Properties"
         mc:Ignorable="d"
-        d:DesignHeight="340" d:DesignWidth="500"
+        d:DesignHeight="364" d:DesignWidth="500"
         ResizeMode="NoResize"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
@@ -15,7 +15,7 @@
     <Grid Grid.IsSharedSizeScope="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="12" />
-            <!-- プレビュー画像 -->
+            <!-- プレビュー -->
             <RowDefinition Height="Auto" />
             <RowDefinition Height="12" />
             <!-- 設定項目 -->
@@ -34,11 +34,32 @@
             <ColumnDefinition Width="12" />
         </Grid.ColumnDefinitions>
 
-        <!-- プレビュー画像 -->
-        <Image Grid.Row="1"
-               Grid.Column="1"
-               Name="previewImage"
-               Width="480" />
+        <!-- プレビュー -->
+        <DockPanel Grid.Row="1"
+                   Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <!-- カメラ名 -->
+                    <RowDefinition Height="Auto" MinHeight="24" />
+                    <!-- 画像 -->
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="480" />
+                </Grid.ColumnDefinitions>
+
+                <!-- カメラ名 -->
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Name="cameraNameTextBlock"
+                           Text="{Binding CameraName}" />
+
+                <!-- 画像 -->
+                <Image Grid.Row="1"
+                       Grid.Column="0"
+                       Name="previewImage" />
+            </Grid>
+        </DockPanel>
 
         <!-- 設定項目 -->
         <DockPanel Grid.Row="3"
