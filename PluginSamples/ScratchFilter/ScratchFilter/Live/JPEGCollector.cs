@@ -9,6 +9,7 @@ namespace ScratchFilter.Live
     /// JPEG 画像を収集するためのクラスです。
     /// </summary>
     /// <seealso cref="ImageCollector{JPEGLiveSource, LiveSourceContent}" />
+    [ToString]
     internal sealed class JPEGCollector : ImageCollector<JPEGLiveSource, LiveSourceContent>
     {
         #region Constructors

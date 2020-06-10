@@ -11,6 +11,7 @@ namespace ScratchFilter.Live
     /// Bitmap 画像を収集するためのクラスです。
     /// </summary>
     /// <seealso cref="ImageCollector{BitmapLiveSource, LiveSourceBitmapContent}" />
+    [ToString]
     internal sealed class BitmapCollector : ImageCollector<BitmapLiveSource, LiveSourceBitmapContent>
     {
         #region Constructors

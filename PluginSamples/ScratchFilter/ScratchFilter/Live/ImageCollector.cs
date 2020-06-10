@@ -15,6 +15,7 @@ namespace ScratchFilter.Live
     /// <typeparam name="TVideoLiveSource"><see cref="VideoLiveSource" /> のサブタイプ</typeparam>
     /// <typeparam name="TLiveSourceContent"><see cref="LiveSourceContent" /> のサブタイプ</typeparam>
     /// <seealso cref="IImageCollector" />
+    [ToString]
     internal abstract class ImageCollector<TVideoLiveSource, TLiveSourceContent> : IImageCollector
         where TVideoLiveSource : VideoLiveSource
         where TLiveSourceContent : LiveSourceContent
