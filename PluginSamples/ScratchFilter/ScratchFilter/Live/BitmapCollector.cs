@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using VideoOS.Platform;
@@ -19,6 +20,14 @@ namespace ScratchFilter.Live
         /// </summary>
         /// <param name="cameraFQID">カメラの完全修飾 ID</param>
         internal BitmapCollector(FQID cameraFQID) : base(cameraFQID)
+        {
+        }
+
+        /// <summary>
+        /// コンストラクタです。
+        /// </summary>
+        /// <param name="cameraId">カメラの ID</param>
+        internal BitmapCollector(Guid cameraId) : base(cameraId)
         {
         }
 

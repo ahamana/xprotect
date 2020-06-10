@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using VideoOS.Platform;
 using VideoOS.Platform.Live;
 
@@ -17,6 +18,14 @@ namespace ScratchFilter.Live
         /// </summary>
         /// <param name="cameraFQID">カメラの完全修飾 ID</param>
         internal JPEGCollector(FQID cameraFQID) : base(cameraFQID)
+        {
+        }
+
+        /// <summary>
+        /// コンストラクタです。
+        /// </summary>
+        /// <param name="cameraId">カメラの ID</param>
+        internal JPEGCollector(Guid cameraId) : base(cameraId)
         {
         }
 

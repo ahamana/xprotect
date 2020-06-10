@@ -27,14 +27,14 @@ namespace ScratchFilter.Live
         private bool disposed;
 
         /// <summary>
+        /// ライブ映像のソースです。
+        /// </summary>
+        private TVideoLiveSource liveSource;
+
+        /// <summary>
         /// 画像のストリームです。
         /// </summary>
         private Stream imageStream;
-
-        /// <summary>
-        /// ライブ映像のソースです。
-        /// </summary>
-        protected readonly TVideoLiveSource liveSource;
 
         #endregion
 
@@ -44,7 +44,7 @@ namespace ScratchFilter.Live
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraFQID">カメラの完全修飾 ID</param>
-        /// <exception cref="ArgumentNullException"
+        /// <exception cref="ArgumentNullException">
         /// <paramref name="cameraFQID" /> が <c>null</c> の場合にスローされます。
         /// </exception>
         protected ImageCollector(FQID cameraFQID)
@@ -54,19 +54,24 @@ namespace ScratchFilter.Live
                 throw new ArgumentNullException(nameof(cameraFQID));
             }
 
-            Size resolution = GetCameraResolution(cameraFQID);
+            Init(Configuration.Instance.GetItem(cameraFQID));
+        }
 
-            liveSource = GenerateVideoLiveSource(Configuration.Instance.GetItem(cameraFQID));
+        /// <summary>
+        /// コンストラクタです。
+        /// </summary>
+        /// <param name="cameraId">カメラの ID</param>
+        /// <exception cref="ArgumentException">
+        /// <paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。
+        /// </exception>
+        protected ImageCollector(Guid cameraId)
+        {
+            if (cameraId == Guid.Empty)
+            {
+                throw new ArgumentException(nameof(cameraId));
+            }
 
-            liveSource.Width = resolution.Width;
-            liveSource.Height = resolution.Height;
-            liveSource.SetKeepAspectRatio(true, true);
-            liveSource.SingleFrameQueue = true;
-            liveSource.LiveModeStart = true;
-
-            liveSource.LiveContentEvent += LiveContentEventHandler;
-
-            liveSource.Init();
+            Init(Configuration.Instance.GetItem(cameraId, Kind.Camera));
         }
 
         #endregion
@@ -120,6 +125,35 @@ namespace ScratchFilter.Live
                     imageStream = GenerateImageStream(liveContent);
                 }
             }
+        }
+
+        /// <summary>
+        /// 初期化処理を行います。
+        /// </summary>
+        /// <param name="camera">カメラ</param>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="camera" /> が <c>null</c> の場合にスローされます。
+        /// </exception>
+        private void Init(Item camera)
+        {
+            if (camera == null)
+            {
+                throw new ArgumentNullException(nameof(camera));
+            }
+
+            Size resolution = GetCameraResolution(camera.FQID);
+
+            liveSource = GenerateVideoLiveSource(camera);
+
+            liveSource.Width = resolution.Width;
+            liveSource.Height = resolution.Height;
+            liveSource.SetKeepAspectRatio(true, true);
+            liveSource.SingleFrameQueue = true;
+            liveSource.LiveModeStart = true;
+
+            liveSource.LiveContentEvent += LiveContentEventHandler;
+
+            liveSource.Init();
         }
 
         /// <summary>
