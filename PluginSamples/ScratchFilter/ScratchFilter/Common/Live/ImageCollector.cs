@@ -7,7 +7,7 @@ using VideoOS.Platform;
 using VideoOS.Platform.ConfigurationItems;
 using VideoOS.Platform.Live;
 
-namespace ScratchFilter.Live
+namespace ScratchFilter.Common.Live
 {
     /// <summary>
     /// 画像を収集するための抽象クラスです。

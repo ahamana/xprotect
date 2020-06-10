@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace ScratchFilter.Live
+namespace ScratchFilter.Common.Live
 {
     /// <summary>
     /// 画像を収集するためのインターフェースです。

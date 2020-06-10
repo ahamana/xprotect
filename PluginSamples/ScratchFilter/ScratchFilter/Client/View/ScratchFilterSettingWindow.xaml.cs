@@ -1,8 +1,8 @@
 ﻿using OpenCvSharp;
 using OpenCvSharp.Extensions;
 using ScratchFilter.Client.Data;
+using ScratchFilter.Common.Live;
 using ScratchFilter.Extensions;
-using ScratchFilter.Live;
 using System;
 using System.Drawing;
 using System.Windows;

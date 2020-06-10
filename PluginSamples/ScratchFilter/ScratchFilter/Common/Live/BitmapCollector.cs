@@ -5,7 +5,7 @@ using System.IO;
 using VideoOS.Platform;
 using VideoOS.Platform.Live;
 
-namespace ScratchFilter.Live
+namespace ScratchFilter.Common.Live
 {
     /// <summary>
     /// Bitmap 画像を収集するためのクラスです。
