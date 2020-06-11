@@ -44,7 +44,7 @@ namespace ScratchFilter.Common.ConfigurationItems
         /// <summary>
         /// ID を取得します。
         /// </summary>
-        /// <param name="genericEventDataSourceType">ジェネリックイベントのデータソースのタイプ</param>
+        /// <param name="genericEventDataSourceType">ジェネリックイベントのデータソースの種類</param>
         /// <returns>
         /// ID
         /// </returns>
