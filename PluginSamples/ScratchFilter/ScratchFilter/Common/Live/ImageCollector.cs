@@ -152,6 +152,7 @@ namespace ScratchFilter.Common.Live
 
             liveSource = GenerateVideoLiveSource(camera);
 
+            liveSource.Compression = 100;
             liveSource.Width = resolution.Width;
             liveSource.Height = resolution.Height;
             liveSource.SetKeepAspectRatio(true, false);
