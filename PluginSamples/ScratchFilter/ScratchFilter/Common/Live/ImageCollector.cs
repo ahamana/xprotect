@@ -154,7 +154,7 @@ namespace ScratchFilter.Common.Live
 
             liveSource.Width = resolution.Width;
             liveSource.Height = resolution.Height;
-            liveSource.SetKeepAspectRatio(true, true);
+            liveSource.SetKeepAspectRatio(true, false);
             liveSource.SingleFrameQueue = true;
             liveSource.LiveModeStart = true;
 
