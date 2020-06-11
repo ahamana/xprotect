@@ -212,14 +212,9 @@ namespace ScratchFilter.Common.Live
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
 
-            while (imageStream == null)
+            while (imageStream == null && stopwatch.Elapsed < VideoSourceTimeout)
             {
                 Thread.Sleep(TimeSpan.FromTicks(TimeSpan.TicksPerMillisecond));
-
-                if (stopwatch.Elapsed > VideoSourceTimeout)
-                {
-                    break;
-                }
             }
 
             if (imageStream == null)
