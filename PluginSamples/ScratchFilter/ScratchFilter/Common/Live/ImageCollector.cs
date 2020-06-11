@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -21,6 +22,11 @@ namespace ScratchFilter.Common.Live
         where TLiveSourceContent : LiveSourceContent
     {
         #region Fields
+
+        /// <summary>
+        /// 映像を取得する際のタイムアウト期間です。
+        /// </summary>
+        private static readonly TimeSpan VideoSourceTimeout = TimeSpan.FromSeconds(5);
 
         /// <summary>
         /// アンマネージリソースが解放されたかどうかです。
@@ -204,9 +210,21 @@ namespace ScratchFilter.Common.Live
         /// </returns>
         public Bitmap GetImage()
         {
+            Stopwatch stopwatch = Stopwatch.StartNew();
+
             while (imageStream == null)
             {
                 Thread.Sleep(TimeSpan.FromTicks(TimeSpan.TicksPerMillisecond));
+
+                if (stopwatch.Elapsed > VideoSourceTimeout)
+                {
+                    break;
+                }
+            }
+
+            if (imageStream == null)
+            {
+                return null;
             }
 
             lock (this)
