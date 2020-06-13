@@ -1,5 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
+using VideoOS.Platform;
+using VideoOS.Platform.ConfigurationItems;
 
 namespace ScratchFilter.Common.ConfigurationItems
 {
@@ -24,33 +26,22 @@ namespace ScratchFilter.Common.ConfigurationItems
     /// </summary>
     internal static class GenericEventDataSourceTypeExtensions
     {
-        #region Fields
-
-        /// <summary>
-        /// ジェネリックイベントのデータソースの ID の一覧です。
-        /// </summary>
-        private static readonly IReadOnlyDictionary<GenericEventDataSourceType, Guid> GenericEventDataSourceIds = new Dictionary<GenericEventDataSourceType, Guid>()
-        {
-            // ジェネリックイベントのデータソース「互換」の ID
-            { GenericEventDataSourceType.Compatible, Guid.Parse("b867db0c-be9e-422b-b934-6fc7fa98c5d8") },
-            // ジェネリックイベントのデータソース「インターナショナル」の ID
-            { GenericEventDataSourceType.International, Guid.Parse("8607bccc-2bb5-4b47-a7de-8225d14c4213") }
-        };
-
-        #endregion
-
         #region Methods
 
         /// <summary>
-        /// ID を取得します。
+        /// ジェネリックイベントのデータソースを取得します。
         /// </summary>
         /// <param name="genericEventDataSourceType">ジェネリックイベントのデータソースの種類</param>
         /// <returns>
-        /// ID
+        /// ジェネリックイベントのデータソース
         /// </returns>
-        internal static Guid GetId(this GenericEventDataSourceType genericEventDataSourceType)
+        internal static GenericEventDataSource GetGenericEventDataSource(this GenericEventDataSourceType genericEventDataSourceType)
         {
-            return GenericEventDataSourceIds[genericEventDataSourceType];
+            ManagementServer managementServer = new ManagementServer(EnvironmentManager.Instance.MasterSite);
+
+            ICollection<GenericEventDataSource> genericEventDataSources = managementServer.GenericEventDataSourceFolder.GenericEventDataSources;
+
+            return genericEventDataSources.First(genericEventDataSource => genericEventDataSourceType.ToString() == genericEventDataSource.Name);
         }
 
         #endregion
