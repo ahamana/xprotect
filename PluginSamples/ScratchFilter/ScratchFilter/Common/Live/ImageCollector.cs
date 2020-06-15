@@ -127,7 +127,7 @@ namespace ScratchFilter.Common.Live
             {
                 imageStream?.Dispose();
 
-                using (TLiveSourceContent liveContent = args.LiveContent as TLiveSourceContent)
+                using (TLiveSourceContent liveContent = (TLiveSourceContent)args.LiveContent)
                 {
                     imageStream = GenerateImageStream(liveContent);
                 }
