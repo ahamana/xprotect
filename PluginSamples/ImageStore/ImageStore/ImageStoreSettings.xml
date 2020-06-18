@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Settings>
+<ImageStoreSettings>
   <OutputDir>C:\ImageDatabase</OutputDir>
-  <Width>1920</Width>
-  <Height>1080</Height>
   <Compression>100</Compression>
-</Settings>
+</ImageStoreSettings>

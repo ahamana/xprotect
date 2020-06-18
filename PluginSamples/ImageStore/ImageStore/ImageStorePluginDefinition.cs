@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using VideoOS.Platform;
+using VideoOS.Platform.ConfigurationItems;
 using VideoOS.Platform.Data;
 using VideoOS.Platform.Live;
 using VideoOS.Platform.Messaging;
@@ -48,7 +49,7 @@ namespace ImageStore
         /// <summary>
         /// 設定です。
         /// </summary>
-        private Settings settings;
+        private ImageStoreSettings settings;
 
         /// <summary>
         /// ライブ映像のソースです。
@@ -136,11 +137,11 @@ namespace ImageStore
         }
 
         /// <summary>
-        /// JPEG が利用可能な場合、または何らかの例外が発生した場合に呼び出されます。
+        /// ライブ映像の新しいフレームを取得した時に発生します。
         /// </summary>s
         /// <param name="sender">通知元</param>
         /// <param name="e">イベント引数</param>
-        private void JpegLiveContentEventHandler(object sender, EventArgs e)
+        private void OnLiveSourceLiveContentEvent(object sender, EventArgs e)
         {
             JPEGLiveSource liveSource = sender as JPEGLiveSource;
             LiveContentEventArgs args = e as LiveContentEventArgs;
@@ -175,6 +176,30 @@ namespace ImageStore
         }
 
         /// <summary>
+        /// カメラの解像度を取得します。
+        /// </summary>
+        /// <param name="cameraFQID">カメラの完全修飾 ID</param>
+        /// <returns>
+        /// カメラの解像度
+        /// </returns>
+        private Size GetCameraResolution(FQID cameraFQID)
+        {
+            Camera camera = new Camera(cameraFQID);
+
+            DeviceDriverSettings settings = camera.DeviceDriverSettingsFolder.DeviceDriverSettings.First();
+
+            StreamChildItem stream = settings.StreamChildItems.First();
+
+            string key = stream.Properties.Keys.First(key => key.Contains("/Resolution/"));
+
+            string value = stream.Properties.GetValue(key);
+
+            string[] resolution = value.Split('x');
+
+            return new Size(int.Parse(resolution[0]), int.Parse(resolution[1]));
+        }
+
+        /// <summary>
         /// 新規イベントが発生した場合に呼び出されます。
         /// </summary>
         /// <param name="message">新規イベントの内容</param>
@@ -197,21 +222,23 @@ namespace ImageStore
                 case "Recording Started":
                     if (!liveSources.ContainsKey(eventSource.FQID))
                     {
-                        JPEGLiveSource liveSource = new JPEGLiveSource(new Item(eventSource.FQID, eventSource.Name))
-                        {
-                            LiveModeStart = true
-                        };
+                        Item camera = new Item(eventSource.FQID, eventSource.Name);
 
-                        liveSource.Width = settings.Width;
-                        liveSource.Height = settings.Height;
-                        liveSource.SetWidthHeight();
+                        Size resolution = GetCameraResolution(camera.FQID);
+
+                        VideoLiveSource liveSource = new JPEGLiveSource(camera)
+                        {
+                            LiveModeStart = true,
+                            Width = resolution.Width,
+                            Height = resolution.Height
+                        };
 
                         if (Enumerable.Range(1, 100).Contains(settings.Compression))
                         {
                             liveSource.Compression = settings.Compression;
                         }
 
-                        liveSource.LiveContentEvent += JpegLiveContentEventHandler;
+                        liveSource.LiveContentEvent += OnLiveSourceLiveContentEvent;
 
                         liveSource.Init();
 
@@ -247,7 +274,7 @@ namespace ImageStore
             messageCommunicationFilters.Add(messageCommunication.RegisterCommunicationFilter(NewEventIndicationReceiver,
                                                                                              new CommunicationIdFilter(MessageId.Server.NewEventIndication)));
 
-            settings = Settings.Load();
+            settings = ImageStoreSettings.Load();
         }
 
         /// <summary>

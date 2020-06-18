@@ -8,7 +8,7 @@ namespace ImageStore.Client.Data
     /// <summary>
     /// 設定です。
     /// </summary>
-    public class Settings
+    public sealed class ImageStoreSettings
     {
         #region Fields
 
@@ -34,30 +34,6 @@ namespace ImageStore.Client.Data
         }
 
         /// <summary>
-        /// 出力する JPEG ファイルの幅です。
-        /// </summary>
-        /// <value>
-        /// 出力する JPEG ファイルの幅
-        /// </value>
-        public ushort Width
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// 出力する JPEG ファイルの高さです。
-        /// </summary>
-        /// <value>
-        /// 出力する JPEG ファイルの高さ
-        /// </value>
-        public ushort Height
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// 出力する JPEG ファイルの圧縮です。
         /// </summary>
         /// <value>
@@ -77,17 +53,17 @@ namespace ImageStore.Client.Data
         /// 設定を読み込みます。
         /// </summary>
         /// <returns>設定</returns>
-        public static Settings Load()
+        internal static ImageStoreSettings Load()
         {
             string directoryPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-            string filePath = Path.Combine(directoryPath, "settings.xml");
+            string filePath = Path.Combine(directoryPath, $"{nameof(ImageStoreSettings)}.xml");
 
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(Settings));
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ImageStoreSettings));
 
-            using (StreamReader reader = new StreamReader(filePath, new UTF8Encoding(true)))
+            using (TextReader reader = new StreamReader(filePath, Encoding.UTF8))
             {
-                Settings settings = (Settings)xmlSerializer.Deserialize(reader);
+                ImageStoreSettings settings = (ImageStoreSettings)xmlSerializer.Deserialize(reader);
                 settings.filePath = filePath;
 
                 return settings;
@@ -97,15 +73,15 @@ namespace ImageStore.Client.Data
         /// <summary>
         /// 設定を保存します。
         /// </summary>
-        public void Save()
+        internal void Save()
         {
             // デフォルトの名前空間の出力制御
             XmlSerializerNamespaces namespaces = new XmlSerializerNamespaces();
             namespaces.Add(string.Empty, string.Empty);
 
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(Settings));
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ImageStoreSettings));
 
-            using (StreamWriter writer = new StreamWriter(filePath, false, new UTF8Encoding(true)))
+            using (TextWriter writer = new StreamWriter(filePath, false, Encoding.UTF8))
             {
                 xmlSerializer.Serialize(writer, this, namespaces);
             }
