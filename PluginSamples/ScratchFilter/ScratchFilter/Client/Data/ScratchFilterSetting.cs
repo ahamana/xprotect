@@ -8,7 +8,7 @@ namespace ScratchFilter.Client.Data
     /// 傷フィルタの設定です。
     /// </summary>
     [ToString]
-    public sealed class ScratchFilterSetting
+    internal sealed class ScratchFilterSetting
     {
         #region Fields
 
