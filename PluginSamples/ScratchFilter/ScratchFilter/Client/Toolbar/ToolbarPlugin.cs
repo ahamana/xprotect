@@ -9,6 +9,8 @@ namespace ScratchFilter.Client.Toolbar
     /// <summary>
     /// ツールバー用プラグインのインスタンスのベースとなる抽象クラスです。
     /// </summary>
+    /// <seealso cref="ViewItemToolbarPluginInstance" />
+    /// <seealso cref="IDisposable" />
     [ToString]
     internal abstract class ToolbarPluginInstance : ViewItemToolbarPluginInstance, IDisposable
     {
@@ -183,6 +185,7 @@ namespace ScratchFilter.Client.Toolbar
     /// <summary>
     /// ツールバー用プラグインのベースとなる抽象クラスです。
     /// </summary>
+    /// <seealso cref="ViewItemToolbarPlugin" />
     [ToString]
     internal abstract class ToolbarPlugin : ViewItemToolbarPlugin
     {
