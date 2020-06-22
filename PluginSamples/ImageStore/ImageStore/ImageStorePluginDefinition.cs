@@ -7,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using VideoOS.Platform;
-using VideoOS.Platform.ConfigurationItems;
 using VideoOS.Platform.Data;
 using VideoOS.Platform.Live;
 using VideoOS.Platform.Messaging;
@@ -176,30 +175,6 @@ namespace ImageStore
         }
 
         /// <summary>
-        /// カメラの解像度を取得します。
-        /// </summary>
-        /// <param name="cameraFQID">カメラの完全修飾 ID</param>
-        /// <returns>
-        /// カメラの解像度
-        /// </returns>
-        private Size GetCameraResolution(FQID cameraFQID)
-        {
-            Camera camera = new Camera(cameraFQID);
-
-            DeviceDriverSettings settings = camera.DeviceDriverSettingsFolder.DeviceDriverSettings.First();
-
-            StreamChildItem stream = settings.StreamChildItems.First();
-
-            string key = stream.Properties.Keys.First(key => key.Contains("/Resolution/"));
-
-            string value = stream.Properties.GetValue(key);
-
-            string[] resolution = value.Split('x');
-
-            return new Size(int.Parse(resolution[0]), int.Parse(resolution[1]));
-        }
-
-        /// <summary>
         /// 新規イベントが発生した場合に呼び出されます。
         /// </summary>
         /// <param name="message">新規イベントの内容</param>
@@ -224,13 +199,12 @@ namespace ImageStore
                     {
                         Item camera = new Item(eventSource.FQID, eventSource.Name);
 
-                        Size resolution = GetCameraResolution(camera.FQID);
-
                         VideoLiveSource liveSource = new JPEGLiveSource(camera)
                         {
                             LiveModeStart = true,
-                            Width = resolution.Width,
-                            Height = resolution.Height
+                            // 幅と高さに 0 を指定して、実際の解像度の画像を取得
+                            Width = 0,
+                            Height = 0
                         };
 
                         if (Enumerable.Range(1, 100).Contains(settings.Compression))
