@@ -149,6 +149,7 @@ namespace ScratchFilter.Common.Live
 
             if (disposing)
             {
+                liveSource?.Close();
                 imageStream?.Dispose();
             }
 
