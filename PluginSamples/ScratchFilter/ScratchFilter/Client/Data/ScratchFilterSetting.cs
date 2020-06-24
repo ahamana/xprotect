@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.Json.Serialization;
 using VideoOS.Platform;
 
 namespace ScratchFilter.Client.Data
@@ -54,7 +53,6 @@ namespace ScratchFilter.Client.Data
         /// <value>
         /// カメラ名
         /// </value>
-        [JsonIgnore]
         public string CameraName
         {
             get
