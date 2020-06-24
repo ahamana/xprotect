@@ -1,5 +1,4 @@
 ﻿using Mapster;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.Json;
 
 namespace ScratchFilter.Client.Data
 {
@@ -78,15 +78,15 @@ namespace ScratchFilter.Client.Data
                 Directory.CreateDirectory(dirPath);
             }
 
-            JsonSerializer serializer = new JsonSerializer()
+            JsonWriterOptions options = new JsonWriterOptions()
             {
-                Formatting = Formatting.Indented
+                Indented = true
             };
 
-            using (TextWriter textWriter = new StreamWriter(SettingFilePath, false, Encoding.UTF8))
-            using (JsonWriter jsonWriter = new JsonTextWriter(textWriter))
+            using (Stream stream = new FileStream(SettingFilePath, FileMode.Create))
+            using (Utf8JsonWriter writer = new Utf8JsonWriter(stream, options))
             {
-                serializer.Serialize(jsonWriter, settings.Values);
+                JsonSerializer.Serialize(writer, settings.Values, settings.Values.GetType());
             }
         }
 
@@ -100,12 +100,9 @@ namespace ScratchFilter.Client.Data
                 return;
             }
 
-            JsonSerializer serializer = new JsonSerializer();
-
-            using (TextReader textReader = new StreamReader(SettingFilePath, Encoding.UTF8))
-            using (JsonReader jsonReader = new JsonTextReader(textReader))
+            using (TextReader reader = new StreamReader(SettingFilePath, Encoding.UTF8))
             {
-                serializer.Deserialize<List<ScratchFilterSetting>>(jsonReader).ForEach(setting =>
+                JsonSerializer.Deserialize<List<ScratchFilterSetting>>(reader.ReadToEnd()).ForEach(setting =>
                 {
                     settings.Add(setting.CameraId, setting);
                 });
