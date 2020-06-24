@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:properties="clr-namespace:ScratchFilter.Properties"
         mc:Ignorable="d"
-        d:DesignHeight="364" d:DesignWidth="500"
+        d:DesignHeight="364" d:DesignWidth="660"
         ResizeMode="NoResize"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
@@ -45,7 +45,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="480" />
+                    <ColumnDefinition Width="640" />
                 </Grid.ColumnDefinitions>
 
                 <!-- カメラ名 -->
@@ -94,7 +94,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2" />
                     <!-- 項目 -->
-                    <ColumnDefinition Width="Auto" MinWidth="430" />
+                    <ColumnDefinition Width="Auto" MinWidth="590" />
                     <ColumnDefinition Width="8" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="2" />
