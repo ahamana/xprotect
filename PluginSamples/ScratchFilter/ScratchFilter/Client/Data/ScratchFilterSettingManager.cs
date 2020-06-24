@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Text.Json;
 
 namespace ScratchFilter.Client.Data
@@ -100,7 +99,7 @@ namespace ScratchFilter.Client.Data
                 return;
             }
 
-            using (TextReader reader = new StreamReader(SettingFilePath, Encoding.UTF8))
+            using (TextReader reader = new StreamReader(SettingFilePath))
             {
                 JsonSerializer.Deserialize<List<ScratchFilterSetting>>(reader.ReadToEnd()).ForEach(setting =>
                 {
