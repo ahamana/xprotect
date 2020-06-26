@@ -61,7 +61,7 @@ namespace ScratchFilter.Properties {
         }
         
         /// <summary>
-        ///   Stop scratch filter に類似しているローカライズされた文字列を検索します。
+        ///   Disable scratch filter に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Toolbar_ScratchFilter_Description_Active {
             get {
@@ -70,7 +70,7 @@ namespace ScratchFilter.Properties {
         }
         
         /// <summary>
-        ///   Start scratch filter に類似しているローカライズされた文字列を検索します。
+        ///   Enable scratch filter に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Toolbar_ScratchFilter_Description_Inactive {
             get {

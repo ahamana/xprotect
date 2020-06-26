@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Toolbar.ScratchFilter.Description.Active" xml:space="preserve">
-    <value>傷強調処理の停止</value>
+    <value>傷強調処理の無効化</value>
   </data>
   <data name="Toolbar.ScratchFilter.Description.Inactive" xml:space="preserve">
-    <value>傷強調処理の開始</value>
+    <value>傷強調処理の有効化</value>
   </data>
   <data name="Toolbar.ScratchFilterSetting.Description" xml:space="preserve">
     <value>傷強調処理の設定</value>

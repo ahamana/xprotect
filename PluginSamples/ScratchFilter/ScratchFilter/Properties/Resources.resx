@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Toolbar.ScratchFilter.Description.Active" xml:space="preserve">
-    <value>Stop scratch filter</value>
+    <value>Disable scratch filter</value>
   </data>
   <data name="Toolbar.ScratchFilter.Description.Inactive" xml:space="preserve">
-    <value>Start scratch filter</value>
+    <value>Enable scratch filter</value>
   </data>
   <data name="Toolbar.ScratchFilterSetting.Description" xml:space="preserve">
     <value>Scratch filter settings</value>
