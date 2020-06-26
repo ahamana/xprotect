@@ -4,6 +4,7 @@ using ScratchFilter.Properties;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using VideoOS.Platform;
 using VideoOS.Platform.Client;
 
 namespace ScratchFilter.Client.Toolbar
@@ -105,6 +106,14 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         protected override void LoadIcon()
         {
+            Icon = (ClientControl.Instance.Theme.ThemeType, isActive) switch
+            {
+                (ThemeType.Dark, true) => Resources.Toolbar_ScratchFilter_Icon_Dark_Active,
+                (ThemeType.Dark, false) => Resources.Toolbar_ScratchFilter_Icon_Dark_Inactive,
+                (ThemeType.Light, true) => Resources.Toolbar_ScratchFilter_Icon_Light_Active,
+                (ThemeType.Light, false) => Resources.Toolbar_ScratchFilter_Icon_Light_Inactive,
+                _ => default
+            };
         }
 
         /// <summary>

@@ -129,7 +129,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.ja-JP.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
+      <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
@@ -138,8 +138,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="FodyWeavers.xml" />
+    <None Include="Resources\Client\Dark\ScratchFilterActive.png" />
+    <None Include="Resources\Client\Dark\ScratchFilterInactive.png" />
     <Content Include="Resources\Client\Dark\ScratchFilterSettings.png" />
+    <None Include="Resources\Client\Light\ScratchFilterActive.png" />
+    <None Include="Resources\Client\Light\ScratchFilterInactive.png" />
     <Content Include="Resources\Client\Light\ScratchFilterSettings.png" />
+    <None Include="Resources\Toolbar.ScratchFilter.Icon.Dark.Active.bmp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
