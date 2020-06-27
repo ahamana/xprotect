@@ -86,8 +86,8 @@ namespace ScratchFilter.Common.Live
         /// <summary>
         /// ライブ映像の新しいフレームを取得した時に発生します。
         /// </summary>s
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         private void OnLiveSourceLiveContentEvent(object sender, EventArgs e)
         {
             LiveContentEventArgs args = e as LiveContentEventArgs;

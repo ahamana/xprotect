@@ -105,8 +105,8 @@ namespace ScratchFilter.Client.View
         /// <summary>
         /// 画像のコントラストのスライダーの値が変更された時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         private void ImageContrastSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             ChangePreviewImage();
@@ -116,8 +116,8 @@ namespace ScratchFilter.Client.View
         /// <summary>
         /// 画像の明るさのスライダーの値が変更された時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         private void ImageBrightnessSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             ChangePreviewImage();
@@ -126,8 +126,8 @@ namespace ScratchFilter.Client.View
         /// <summary>
         /// 画像の彩度のスライダーの値が変更された時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         private void ImageSaturationSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             ChangePreviewImage();
@@ -136,8 +136,8 @@ namespace ScratchFilter.Client.View
         /// <summary>
         /// 画像のガンマのスライダーの値が変更された時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         private void ImageGammaSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             ChangePreviewImage();
@@ -146,8 +146,8 @@ namespace ScratchFilter.Client.View
         /// <summary>
         /// OK ボタンが押下された時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
             ScratchFilterSettingManager.Instance.Save(setting);
@@ -158,8 +158,8 @@ namespace ScratchFilter.Client.View
         /// <summary>
         /// キャンセルボタンが押下された時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             Close();

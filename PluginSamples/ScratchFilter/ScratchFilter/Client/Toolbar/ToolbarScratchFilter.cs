@@ -84,8 +84,8 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワにライブ映像の画像が表示された時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         protected override void OnImageViewerImageDisplayed(object sender, ImageDisplayedEventArgs e)
         {
             HandleDisplayedImage();
@@ -94,8 +94,8 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワに録画映像の画像が表示された時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         protected override void OnImageViewerRecordedImageReceived(object sender, RecordedImageReceivedEventArgs e)
         {
             HandleDisplayedImage();

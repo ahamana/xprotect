@@ -115,8 +115,8 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワが破棄された時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         private void OnImageViewerClose(object sender, EventArgs e)
         {
             UnregisterImageViewerEvents();
@@ -125,8 +125,8 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワのサイズ、表示位置が変更された時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         protected virtual void OnImageViewerUserControlSizeOrLocationChanged(object sender, EventArgs e)
         {
         }
@@ -134,8 +134,8 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワのライブストリームの XML の情報が利用可能になった時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         protected virtual void OnImageViewerLiveStreamInformation(object sender, LiveStreamInformationEventArgs e)
         {
         }
@@ -143,8 +143,8 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワの表示モードが「ライブ」に変更された時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         protected virtual void OnImageViewerStartLive(object sender, PassRequestEventArgs e)
         {
         }
@@ -152,8 +152,8 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワの表示モードが「再生」もしくは「設定」に変更された時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         protected virtual void OnImageViewerStopLive(object sender, PassRequestEventArgs e)
         {
         }
@@ -161,8 +161,8 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワのプロパティが変更された時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         protected virtual void OnImageViewerPropertyChanged(object sender, EventArgs e)
         {
         }
@@ -170,8 +170,8 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワにライブ映像の画像が表示された時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         protected virtual void OnImageViewerImageDisplayed(object sender, ImageDisplayedEventArgs e)
         {
         }
@@ -179,8 +179,8 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワに録画映像の画像が表示された時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         protected virtual void OnImageViewerRecordedImageReceived(object sender, RecordedImageReceivedEventArgs e)
         {
         }
@@ -188,8 +188,8 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワ上でマウスがクリックされた時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         protected virtual void OnImageViewerMouseClick(object sender, MouseEventArgs e)
         {
         }
@@ -197,8 +197,8 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワ上でマウスがダブルクリックされた時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         protected virtual void OnImageViewerMouseDoubleClick(object sender, MouseEventArgs e)
         {
         }
@@ -206,8 +206,8 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワ上でマウスが動かされた時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         protected virtual void OnImageViewerMouseMove(object sender, MouseEventArgs e)
         {
         }
@@ -215,8 +215,8 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワ上でマウスが右クリックされた時に発生します。
         /// </summary>
-        /// <param name="sender">通知元</param>
-        /// <param name="e">イベント引数</param>
+        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="e">イベントのデータ</param>
         protected virtual void OnImageViewerMouseRightClick(object sender, MouseEventArgs e)
         {
         }
