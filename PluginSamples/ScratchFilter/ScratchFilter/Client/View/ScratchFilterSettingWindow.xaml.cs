@@ -58,8 +58,6 @@ namespace ScratchFilter.Client.View
             DataContext = setting;
 
             originalImage = GetOriginalImage(imageViewerAddOn);
-
-            ChangePreviewImage();
         }
 
         #endregion
