@@ -200,5 +200,14 @@ namespace ScratchFilter.Properties {
                 return ResourceManager.GetString("Toolbar.ScratchFilterSetting.Label.OK", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Failed to capture the image. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Toolbar_ScratchFilterSetting_Message_ImageCaptureFailure {
+            get {
+                return ResourceManager.GetString("Toolbar.ScratchFilterSetting.Message.ImageCaptureFailure", resourceCulture);
+            }
+        }
     }
 }

@@ -5,7 +5,10 @@ using ScratchFilter.Extensions;
 using System;
 using System.Drawing;
 using System.Windows;
+using System.Windows.Media;
 using VideoOS.Platform.Client;
+using Brushes = System.Drawing.Brushes;
+using Size = System.Drawing.Size;
 using Window = System.Windows.Window;
 
 namespace ScratchFilter.Client.View
@@ -17,6 +20,11 @@ namespace ScratchFilter.Client.View
     internal sealed partial class ScratchFilterSettingWindow : Window, IDisposable
     {
         #region Fields
+
+        /// <summary>
+        /// プレビュー画像のデフォルトのサイズです。
+        /// </summary>
+        private static readonly Size DefaultPreviewImageSize = new Size(640, 360);
 
         /// <summary>
         /// アンマネージリソースが解放されたかどうかです。
@@ -58,6 +66,18 @@ namespace ScratchFilter.Client.View
             DataContext = setting;
 
             originalImage = GetOriginalImage(imageViewerAddOn);
+
+            if (originalImage == null)
+            {
+                previewImage.Source = CreateMessageImage(Properties.Resources.Toolbar_ScratchFilterSetting_Message_ImageCaptureFailure,
+                                                         DefaultPreviewImageSize);
+
+                imageContrastSlider.IsEnabled = false;
+                imageBrightnessSlider.IsEnabled = false;
+                imageSaturationSlider.IsEnabled = false;
+                imageGammaSlider.IsEnabled = false;
+                okButton.IsEnabled = false;
+            }
         }
 
         #endregion
@@ -87,12 +107,43 @@ namespace ScratchFilter.Client.View
         }
 
         /// <summary>
+        /// メッセージ画像を生成します。
+        /// </summary>
+        /// <param name="message">メッセージ</param>
+        /// <param name="size">画像のサイズ</param>
+        /// <returns>
+        /// メッセージ画像
+        /// </returns>
+        private ImageSource CreateMessageImage(string message, Size size)
+        {
+            using (Bitmap image = new Bitmap(size.Width, size.Height))
+            using (Graphics graphics = Graphics.FromImage(image))
+            using (Font font = new Font(FontFamily.Source, (float)FontSize, GraphicsUnit.Pixel))
+            {
+                StringFormat format = new StringFormat()
+                {
+                    Alignment = StringAlignment.Center,
+                    LineAlignment = StringAlignment.Center
+                };
+
+                graphics.DrawString(message, font, Brushes.White, new RectangleF(PointF.Empty, image.Size), format);
+
+                return image.ToBitmapSource();
+            }
+        }
+
+        /// <summary>
         /// プレビュー画像を変更します。
         /// </summary>
         private void ChangePreviewImage()
         {
+            if (originalImage == null)
+            {
+                return;
+            }
+
             using (Bitmap image = originalImage.Adjust(setting.ImageContrast, setting.ImageBrightness,
-                                                        setting.ImageSaturation, setting.ImageGamma))
+                                                       setting.ImageSaturation, setting.ImageGamma))
             {
                 previewImage.Source = image.ToBitmapSource();
             }

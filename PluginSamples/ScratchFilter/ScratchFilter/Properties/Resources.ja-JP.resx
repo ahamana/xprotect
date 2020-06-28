@@ -144,4 +144,7 @@
   <data name="Toolbar.ScratchFilterSetting.Label.OK" xml:space="preserve">
     <value>OK</value>
   </data>
+  <data name="Toolbar.ScratchFilterSetting.Message.ImageCaptureFailure" xml:space="preserve">
+    <value>画像の取得に失敗しました。</value>
+  </data>
 </root>

@@ -163,4 +163,7 @@
   <data name="Toolbar.ScratchFilterSetting.Label.OK" xml:space="preserve">
     <value>OK</value>
   </data>
+  <data name="Toolbar.ScratchFilterSetting.Message.ImageCaptureFailure" xml:space="preserve">
+    <value>Failed to capture the image.</value>
+  </data>
 </root>
