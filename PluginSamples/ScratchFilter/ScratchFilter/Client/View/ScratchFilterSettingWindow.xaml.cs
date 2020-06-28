@@ -1,5 +1,4 @@
-﻿using OpenCvSharp;
-using OpenCvSharp.Extensions;
+﻿using OpenCvSharp.Extensions;
 using ScratchFilter.Client.Data;
 using ScratchFilter.Common.Live;
 using ScratchFilter.Extensions;
@@ -94,11 +93,10 @@ namespace ScratchFilter.Client.View
         /// </summary>
         private void ChangePreviewImage()
         {
-            using (Bitmap bitmap = originalImage.Adjust(setting.ImageContrast, setting.ImageBrightness,
+            using (Bitmap image = originalImage.Adjust(setting.ImageContrast, setting.ImageBrightness,
                                                         setting.ImageSaturation, setting.ImageGamma))
-            using (Mat mat = bitmap.ToMat())
             {
-                previewImage.Source = mat.ToBitmapSource();
+                previewImage.Source = image.ToBitmapSource();
             }
         }
 
