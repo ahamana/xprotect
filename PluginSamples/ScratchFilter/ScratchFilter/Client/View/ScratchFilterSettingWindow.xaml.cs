@@ -23,11 +23,6 @@ namespace ScratchFilter.Client.View
         #region Fields
 
         /// <summary>
-        /// プレビュー画像のデフォルトのサイズです。
-        /// </summary>
-        private static readonly Size DefaultPreviewImageSize = new Size(640, 360);
-
-        /// <summary>
         /// アンマネージリソースが解放されたかどうかです。
         /// </summary>
         private bool disposed;
@@ -71,7 +66,7 @@ namespace ScratchFilter.Client.View
             if (originalImage == null)
             {
                 previewImage.Source = CreateTextImage(Properties.Resources.Toolbar_ScratchFilterSetting_Message_ImageCaptureFailure,
-                                                      DefaultPreviewImageSize);
+                                                      new Size((int)previewImage.Width, (int)(imageViewerAddOn.Size.Height * previewImage.Width / imageViewerAddOn.Size.Width)));
 
                 imageContrastSlider.IsEnabled = false;
                 imageBrightnessSlider.IsEnabled = false;

@@ -44,9 +44,6 @@
                     <!-- 画像 -->
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="640" />
-                </Grid.ColumnDefinitions>
 
                 <!-- カメラ名 -->
                 <TextBlock Grid.Row="0"
@@ -57,7 +54,8 @@
                 <!-- 画像 -->
                 <Image Grid.Row="1"
                        Grid.Column="0"
-                       Name="previewImage" />
+                       Name="previewImage"
+                       Width="640" />
             </Grid>
         </DockPanel>
 
