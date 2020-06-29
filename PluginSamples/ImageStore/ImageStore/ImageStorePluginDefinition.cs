@@ -21,6 +21,7 @@ namespace ImageStore
     /// The class is an abstract class where all implemented methods and properties need to be declared with override.
     /// The class is constructed when the environment is loading the DLL.
     /// </summary>
+    /// <seealso cref="VideoOS.Platform.PluginDefinition" />
     public class ImageStorePluginDefinition : PluginDefinition
     {
         #region Fields
@@ -162,10 +163,8 @@ namespace ImageStore
             try
             {
                 using (LiveSourceContent liveContent = args.LiveContent)
-                using (MemoryStream memoryStream = new MemoryStream(liveContent.Content))
-                using (FileStream fileStream = new FileStream(filePath, FileMode.CreateNew))
                 {
-                    memoryStream.WriteTo(fileStream);
+                    File.WriteAllBytes(filePath, liveContent.Content);
                 }
             }
             catch

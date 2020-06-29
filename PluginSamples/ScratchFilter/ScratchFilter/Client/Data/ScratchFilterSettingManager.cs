@@ -77,7 +77,7 @@ namespace ScratchFilter.Client.Data
                 Directory.CreateDirectory(dirPath);
             }
 
-            using (Stream stream = new FileStream(SettingFilePath, FileMode.Create))
+            using (Stream stream = File.Create(SettingFilePath))
             {
                 JsonSerializerOptions options = new JsonSerializerOptions()
                 {
@@ -99,13 +99,10 @@ namespace ScratchFilter.Client.Data
                 return;
             }
 
-            using (TextReader reader = new StreamReader(SettingFilePath))
+            JsonSerializer.Deserialize<List<ScratchFilterSetting>>(File.ReadAllText(SettingFilePath)).ForEach(setting =>
             {
-                JsonSerializer.Deserialize<List<ScratchFilterSetting>>(reader.ReadToEnd()).ForEach(setting =>
-                {
-                    settings.Add(setting.CameraId, setting);
-                });
-            }
+                settings.Add(setting.CameraId, setting);
+            });
         }
 
         /// <summary>
