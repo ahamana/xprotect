@@ -37,7 +37,12 @@ namespace ScratchFilter.Client.Toolbar
             using (Graphics graphics = Graphics.FromImage(icon))
             using (Brush brush = new SolidBrush(ClientControl.Instance.Theme.SeparatorLinesColor))
             {
-                graphics.FillRectangle(brush, new Rectangle(Point.Empty, icon.Size));
+                Rectangle rectangle = new Rectangle()
+                {
+                    Size = icon.Size
+                };
+
+                graphics.FillRectangle(brush, rectangle);
             }
 
             return icon;

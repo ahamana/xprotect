@@ -6,8 +6,9 @@ using System;
 using System.Drawing;
 using System.Windows;
 using System.Windows.Media;
+using VideoOS.Platform;
 using VideoOS.Platform.Client;
-using Brushes = System.Drawing.Brushes;
+using Brush = System.Drawing.Brush;
 using Size = System.Drawing.Size;
 using Window = System.Windows.Window;
 
@@ -69,8 +70,8 @@ namespace ScratchFilter.Client.View
 
             if (originalImage == null)
             {
-                previewImage.Source = CreateMessageImage(Properties.Resources.Toolbar_ScratchFilterSetting_Message_ImageCaptureFailure,
-                                                         DefaultPreviewImageSize);
+                previewImage.Source = CreateTextImage(Properties.Resources.Toolbar_ScratchFilterSetting_Message_ImageCaptureFailure,
+                                                      DefaultPreviewImageSize);
 
                 imageContrastSlider.IsEnabled = false;
                 imageBrightnessSlider.IsEnabled = false;
@@ -107,26 +108,32 @@ namespace ScratchFilter.Client.View
         }
 
         /// <summary>
-        /// メッセージ画像を生成します。
+        /// テキスト画像を生成します。
         /// </summary>
-        /// <param name="message">メッセージ</param>
+        /// <param name="text">テキスト</param>
         /// <param name="size">画像のサイズ</param>
         /// <returns>
-        /// メッセージ画像
+        /// テキスト画像
         /// </returns>
-        private ImageSource CreateMessageImage(string message, Size size)
+        private ImageSource CreateTextImage(string text, Size size)
         {
             using (Bitmap image = new Bitmap(size.Width, size.Height))
             using (Graphics graphics = Graphics.FromImage(image))
             using (Font font = new Font(FontFamily.Source, (float)FontSize, GraphicsUnit.Pixel))
+            using (Brush brush = new SolidBrush(ClientControl.Instance.Theme.TextColor))
             {
+                RectangleF rectangle = new RectangleF()
+                {
+                    Size = image.Size
+                };
+
                 StringFormat format = new StringFormat()
                 {
                     Alignment = StringAlignment.Center,
                     LineAlignment = StringAlignment.Center
                 };
 
-                graphics.DrawString(message, font, Brushes.White, new RectangleF(PointF.Empty, image.Size), format);
+                graphics.DrawString(text, font, brush, rectangle, format);
 
                 return image.ToBitmapSource();
             }
