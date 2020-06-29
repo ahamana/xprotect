@@ -122,9 +122,9 @@ namespace ScratchFilter.Client.View
             using (Font font = new Font(FontFamily.Source, (float)FontSize, GraphicsUnit.Pixel))
             using (Brush brush = new SolidBrush(ClientControl.Instance.Theme.TextColor))
             {
-                graphics.Clear(ClientControl.Instance.Theme.BackgroundColor);
+                graphics.Clear(ClientControl.Instance.Theme.BorderColor);
 
-                RectangleF rectangle = new RectangleF()
+                Rectangle rectangle = new Rectangle()
                 {
                     Size = image.Size
                 };
