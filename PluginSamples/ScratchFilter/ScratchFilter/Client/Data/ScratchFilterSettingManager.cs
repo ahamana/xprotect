@@ -99,7 +99,9 @@ namespace ScratchFilter.Client.Data
                 return;
             }
 
-            JsonSerializer.Deserialize<List<ScratchFilterSetting>>(File.ReadAllText(SettingFilePath)).ForEach(setting =>
+            string json = File.ReadAllText(SettingFilePath);
+
+            JsonSerializer.Deserialize<List<ScratchFilterSetting>>(json).ForEach(setting =>
             {
                 settings.Add(setting.CameraId, setting);
             });
