@@ -1,7 +1,7 @@
-﻿using OpenCvSharp.Extensions;
+﻿using ImageProcessor;
+using OpenCvSharp.Extensions;
 using ScratchFilter.Client.Data;
 using ScratchFilter.Common.Live;
-using ScratchFilter.Extensions;
 using System;
 using System.Drawing;
 using System.Windows;
@@ -146,10 +146,18 @@ namespace ScratchFilter.Client.View
                 return;
             }
 
-            using (Bitmap image = originalImage.Adjust(setting.ImageContrast, setting.ImageBrightness,
-                                                       setting.ImageSaturation, setting.ImageGamma))
+            using (ImageFactory imageFactory = new ImageFactory())
             {
-                previewImage.Source = image.ToBitmapSource();
+                imageFactory.Load(originalImage)
+                            .Contrast(setting.ImageContrast)
+                            .Brightness(setting.ImageBrightness)
+                            .Saturation(setting.ImageSaturation)
+                            .Gamma(setting.ImageGamma);
+
+                using (Bitmap image = new Bitmap(imageFactory.Image))
+                {
+                    previewImage.Source = image.ToBitmapSource();
+                }
             }
         }
 

@@ -1,5 +1,5 @@
-﻿using ScratchFilter.Client.Data;
-using ScratchFilter.Extensions;
+﻿using ImageProcessor;
+using ScratchFilter.Client.Data;
 using ScratchFilter.Properties;
 using System;
 using System.Drawing;
@@ -73,10 +73,18 @@ namespace ScratchFilter.Client.Toolbar
 
                 ScratchFilterSetting setting = ScratchFilterSettingManager.Instance.GetSetting(ImageViewerAddOn.CameraFQID.ObjectId);
 
-                using (Bitmap overlay = original.Adjust(setting.ImageContrast, setting.ImageBrightness,
-                                                        setting.ImageSaturation, setting.ImageGamma))
+                using (ImageFactory imageFactory = new ImageFactory())
                 {
-                    ImageViewerAddOn.SetOverlay(overlay, default, true, true, true, 1, DockStyle.None, DockStyle.None, 0, 0);
+                    imageFactory.Load(original)
+                                .Contrast(setting.ImageContrast)
+                                .Brightness(setting.ImageBrightness)
+                                .Saturation(setting.ImageSaturation)
+                                .Gamma(setting.ImageGamma);
+
+                    using (Bitmap overlay = new Bitmap(imageFactory.Image))
+                    {
+                        ImageViewerAddOn.SetOverlay(overlay, default, true, true, true, 1, DockStyle.None, DockStyle.None, 0, 0);
+                    }
                 }
             }
         }
