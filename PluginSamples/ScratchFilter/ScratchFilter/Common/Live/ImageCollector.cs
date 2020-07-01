@@ -188,13 +188,13 @@ namespace ScratchFilter.Common.Live
                 Thread.Sleep(TimeSpan.FromTicks(TimeSpan.TicksPerMillisecond));
             }
 
-            if (imageStream == null)
-            {
-                return null;
-            }
-
             lock (this)
             {
+                if (imageStream == null)
+                {
+                    return null;
+                }
+
                 using Image image = Image.FromStream(imageStream);
 
                 return new Bitmap(image);
