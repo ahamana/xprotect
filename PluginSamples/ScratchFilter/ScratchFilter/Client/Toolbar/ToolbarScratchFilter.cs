@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using VideoOS.Platform;
 using VideoOS.Platform.Client;
+using Point = System.Drawing.Point;
 
 namespace ScratchFilter.Client.Toolbar
 {
@@ -83,7 +84,7 @@ namespace ScratchFilter.Client.Toolbar
 
             using Bitmap overlay = new Bitmap(imageFactory.Image);
 
-            ImageViewerAddOn.SetOverlay(overlay, default, true, true, true, 1, DockStyle.None, DockStyle.None, 0, 0);
+            ImageViewerAddOn.SetOverlay(overlay, default, true, true, true, 1, DockStyle.None, DockStyle.None, Point.Empty.X, Point.Empty.Y);
         }
 
         /// <summary>
