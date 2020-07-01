@@ -79,13 +79,15 @@ namespace ScratchFilter.Client.Data
 
             using Stream stream = File.Create(SettingFilePath);
 
+            object value = settings.Values;
+
             JsonSerializerOptions options = new JsonSerializerOptions()
             {
                 IgnoreReadOnlyProperties = true,
                 WriteIndented = true
             };
 
-            JsonSerializer.SerializeAsync(stream, settings.Values, settings.Values.GetType(), options);
+            JsonSerializer.SerializeAsync(stream, value, value.GetType(), options);
         }
 
         /// <summary>
