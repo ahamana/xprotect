@@ -195,7 +195,9 @@ namespace ScratchFilter.Common.Live
 
             lock (this)
             {
-                return new Bitmap(imageStream);
+                using Image image = Image.FromStream(imageStream);
+
+                return new Bitmap(image);
             }
         }
 
