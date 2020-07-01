@@ -59,12 +59,11 @@ namespace ScratchFilter.Common.Live
         {
             Stream stream = new MemoryStream();
 
-            using (Image image = new Bitmap(liveContent.GetPlaneWidth(0), liveContent.GetPlaneHeight(0),
-                                            liveContent.GetPlaneStride(0), PixelFormat.Format24bppRgb,
-                                            liveContent.GetPlanePointer(0)))
-            {
-                image.Save(stream, ImageFormat.Bmp);
-            }
+            using Image image = new Bitmap(liveContent.GetPlaneWidth(0), liveContent.GetPlaneHeight(0),
+                                           liveContent.GetPlaneStride(0), PixelFormat.Format24bppRgb,
+                                           liveContent.GetPlanePointer(0));
+
+            image.Save(stream, ImageFormat.Bmp);
 
             return stream;
         }

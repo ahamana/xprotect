@@ -93,10 +93,9 @@ namespace ScratchFilter.Client.View
 
             if (image == null)
             {
-                using (IImageCollector imageCollector = new BitmapCollector(imageViewerAddOn.CameraFQID))
-                {
-                    image = imageCollector.GetImage();
-                }
+                using IImageCollector imageCollector = new BitmapCollector(imageViewerAddOn.CameraFQID);
+
+                image = imageCollector.GetImage();
             }
 
             return image;
@@ -112,28 +111,27 @@ namespace ScratchFilter.Client.View
         /// </returns>
         private ImageSource CreateTextImage(string text, Size size)
         {
-            using (Bitmap image = new Bitmap(size.Width, size.Height))
-            using (Graphics graphics = Graphics.FromImage(image))
-            using (Font font = new Font(FontFamily.Source, (float)FontSize, GraphicsUnit.Pixel))
-            using (Brush brush = new SolidBrush(ClientControl.Instance.Theme.TextColor))
+            using Bitmap image = new Bitmap(size.Width, size.Height);
+            using Graphics graphics = Graphics.FromImage(image);
+            using Font font = new Font(FontFamily.Source, (float)FontSize, GraphicsUnit.Pixel);
+            using Brush brush = new SolidBrush(ClientControl.Instance.Theme.TextColor);
+
+            graphics.Clear(ClientControl.Instance.Theme.BorderColor);
+
+            Rectangle rectangle = new Rectangle()
             {
-                graphics.Clear(ClientControl.Instance.Theme.BorderColor);
+                Size = image.Size
+            };
 
-                Rectangle rectangle = new Rectangle()
-                {
-                    Size = image.Size
-                };
+            StringFormat format = new StringFormat()
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
 
-                StringFormat format = new StringFormat()
-                {
-                    Alignment = StringAlignment.Center,
-                    LineAlignment = StringAlignment.Center
-                };
+            graphics.DrawString(text, font, brush, rectangle, format);
 
-                graphics.DrawString(text, font, brush, rectangle, format);
-
-                return image.ToBitmapSource();
-            }
+            return image.ToBitmapSource();
         }
 
         /// <summary>
@@ -146,19 +144,17 @@ namespace ScratchFilter.Client.View
                 return;
             }
 
-            using (ImageFactory imageFactory = new ImageFactory())
-            {
-                imageFactory.Load(originalImage)
-                            .Contrast(setting.ImageContrast)
-                            .Brightness(setting.ImageBrightness)
-                            .Saturation(setting.ImageSaturation)
-                            .Gamma(setting.ImageGamma);
+            using ImageFactory imageFactory = new ImageFactory();
 
-                using (Bitmap image = new Bitmap(imageFactory.Image))
-                {
-                    previewImage.Source = image.ToBitmapSource();
-                }
-            }
+            imageFactory.Load(originalImage)
+                        .Contrast(setting.ImageContrast)
+                        .Brightness(setting.ImageBrightness)
+                        .Saturation(setting.ImageSaturation)
+                        .Gamma(setting.ImageGamma);
+
+            using Bitmap image = new Bitmap(imageFactory.Image);
+
+            previewImage.Source = image.ToBitmapSource();
         }
 
         /// <summary>

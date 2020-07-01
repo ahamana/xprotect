@@ -34,16 +34,15 @@ namespace ScratchFilter.Client.Toolbar
         {
             Image icon = new Bitmap(SeparatorSize.Width, SeparatorSize.Height);
 
-            using (Graphics graphics = Graphics.FromImage(icon))
-            using (Brush brush = new SolidBrush(ClientControl.Instance.Theme.SeparatorLinesColor))
-            {
-                Rectangle rectangle = new Rectangle()
-                {
-                    Size = icon.Size
-                };
+            using Graphics graphics = Graphics.FromImage(icon);
+            using Brush brush = new SolidBrush(ClientControl.Instance.Theme.SeparatorLinesColor);
 
-                graphics.FillRectangle(brush, rectangle);
-            }
+            Rectangle rectangle = new Rectangle()
+            {
+                Size = icon.Size
+            };
+
+            graphics.FillRectangle(brush, rectangle);
 
             return icon;
         }

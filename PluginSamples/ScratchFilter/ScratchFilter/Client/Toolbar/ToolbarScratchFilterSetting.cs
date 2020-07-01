@@ -48,10 +48,9 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         public override void Activate()
         {
-            using (ScratchFilterSettingWindow window = new ScratchFilterSettingWindow(ImageViewerAddOn))
-            {
-                window.ShowDialog();
-            }
+            using ScratchFilterSettingWindow window = new ScratchFilterSettingWindow(ImageViewerAddOn);
+
+            window.ShowDialog();
         }
 
         #endregion

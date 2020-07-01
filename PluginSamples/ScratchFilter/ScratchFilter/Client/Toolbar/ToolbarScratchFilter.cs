@@ -64,29 +64,26 @@ namespace ScratchFilter.Client.Toolbar
                 return;
             }
 
-            using (Bitmap original = ImageViewerAddOn.GetCurrentDisplayedImageAsBitmap())
+            using Bitmap original = ImageViewerAddOn.GetCurrentDisplayedImageAsBitmap();
+
+            if (original == null)
             {
-                if (original == null)
-                {
-                    return;
-                }
-
-                ScratchFilterSetting setting = ScratchFilterSettingManager.Instance.GetSetting(ImageViewerAddOn.CameraFQID.ObjectId);
-
-                using (ImageFactory imageFactory = new ImageFactory())
-                {
-                    imageFactory.Load(original)
-                                .Contrast(setting.ImageContrast)
-                                .Brightness(setting.ImageBrightness)
-                                .Saturation(setting.ImageSaturation)
-                                .Gamma(setting.ImageGamma);
-
-                    using (Bitmap overlay = new Bitmap(imageFactory.Image))
-                    {
-                        ImageViewerAddOn.SetOverlay(overlay, default, true, true, true, 1, DockStyle.None, DockStyle.None, 0, 0);
-                    }
-                }
+                return;
             }
+
+            ScratchFilterSetting setting = ScratchFilterSettingManager.Instance.GetSetting(ImageViewerAddOn.CameraFQID.ObjectId);
+
+            using ImageFactory imageFactory = new ImageFactory();
+
+            imageFactory.Load(original)
+                        .Contrast(setting.ImageContrast)
+                        .Brightness(setting.ImageBrightness)
+                        .Saturation(setting.ImageSaturation)
+                        .Gamma(setting.ImageGamma);
+
+            using Bitmap overlay = new Bitmap(imageFactory.Image);
+
+            ImageViewerAddOn.SetOverlay(overlay, default, true, true, true, 1, DockStyle.None, DockStyle.None, 0, 0);
         }
 
         /// <summary>

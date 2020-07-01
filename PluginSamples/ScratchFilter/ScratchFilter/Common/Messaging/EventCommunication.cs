@@ -141,13 +141,12 @@ namespace ScratchFilter.Common.Messaging
                 return;
             }
 
-            using (TcpClient client = new TcpClient(GetEventServerHostname(), dataSource.DataSourcePort))
-            using (Stream stream = client.GetStream())
-            {
-                byte[] buffer = Encoding.UTF8.GetBytes(text);
+            using TcpClient client = new TcpClient(GetEventServerHostname(), dataSource.DataSourcePort);
+            using Stream stream = client.GetStream();
 
-                stream.Write(buffer, 0, buffer.Length);
-            }
+            byte[] buffer = Encoding.UTF8.GetBytes(text);
+
+            stream.Write(buffer, 0, buffer.Length);
         }
 
         /// <summary>
