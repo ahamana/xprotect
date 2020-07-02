@@ -99,10 +99,9 @@ namespace ScratchFilter.Common.Live
 
             lock (this)
             {
-                imageStream?.Dispose();
-
                 using TLiveSourceContent liveContent = (TLiveSourceContent)args.LiveContent;
 
+                imageStream?.Dispose();
                 imageStream = GenerateImageStream(liveContent);
             }
         }
