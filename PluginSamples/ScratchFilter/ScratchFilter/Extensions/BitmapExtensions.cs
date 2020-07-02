@@ -12,6 +12,8 @@ namespace ScratchFilter.Extensions
     /// </summary>
     internal static class BitmapExtensions
     {
+        #region Methods
+
         [DllImport("gdi32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool DeleteObject(IntPtr hObject);
@@ -46,5 +48,7 @@ namespace ScratchFilter.Extensions
                 DeleteObject(hBitmap);
             }
         }
+
+        #endregion
     }
 }
