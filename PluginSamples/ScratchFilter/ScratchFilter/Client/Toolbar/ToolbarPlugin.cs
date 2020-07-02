@@ -157,6 +157,8 @@ namespace ScratchFilter.Client.Toolbar
             }
 
             messageReceivers.ForEach(EnvironmentManager.Instance.UnRegisterReceiver);
+
+            Dispose();
         }
 
         /// <summary>
