@@ -123,99 +123,77 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        protected virtual void OnImageViewerUserControlSizeOrLocationChanged(object sender, EventArgs e)
-        {
-        }
+        protected virtual void OnImageViewerUserControlSizeOrLocationChanged(object sender, EventArgs e) { }
 
         /// <summary>
         /// イメージビューワのライブストリームの XML の情報が利用可能になった時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        protected virtual void OnImageViewerLiveStreamInformation(object sender, LiveStreamInformationEventArgs e)
-        {
-        }
+        protected virtual void OnImageViewerLiveStreamInformation(object sender, LiveStreamInformationEventArgs e) { }
 
         /// <summary>
         /// イメージビューワの表示モードが「ライブ」に変更された時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        protected virtual void OnImageViewerStartLive(object sender, PassRequestEventArgs e)
-        {
-        }
+        protected virtual void OnImageViewerStartLive(object sender, PassRequestEventArgs e) { }
 
         /// <summary>
         /// イメージビューワの表示モードが「再生」もしくは「設定」に変更された時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        protected virtual void OnImageViewerStopLive(object sender, PassRequestEventArgs e)
-        {
-        }
+        protected virtual void OnImageViewerStopLive(object sender, PassRequestEventArgs e) { }
 
         /// <summary>
         /// イメージビューワのプロパティが変更された時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        protected virtual void OnImageViewerPropertyChanged(object sender, EventArgs e)
-        {
-        }
+        protected virtual void OnImageViewerPropertyChanged(object sender, EventArgs e) { }
 
         /// <summary>
         /// イメージビューワにライブ映像の画像が表示された時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        protected virtual void OnImageViewerImageDisplayed(object sender, ImageDisplayedEventArgs e)
-        {
-        }
+        protected virtual void OnImageViewerImageDisplayed(object sender, ImageDisplayedEventArgs e) { }
 
         /// <summary>
         /// イメージビューワに録画映像の画像が表示された時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        protected virtual void OnImageViewerRecordedImageReceived(object sender, RecordedImageReceivedEventArgs e)
-        {
-        }
+        protected virtual void OnImageViewerRecordedImageReceived(object sender, RecordedImageReceivedEventArgs e) { }
 
         /// <summary>
         /// イメージビューワ上でマウスがクリックされた時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        protected virtual void OnImageViewerMouseClick(object sender, MouseEventArgs e)
-        {
-        }
+        protected virtual void OnImageViewerMouseClick(object sender, MouseEventArgs e) { }
 
         /// <summary>
         /// イメージビューワ上でマウスがダブルクリックされた時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        protected virtual void OnImageViewerMouseDoubleClick(object sender, MouseEventArgs e)
-        {
-        }
+        protected virtual void OnImageViewerMouseDoubleClick(object sender, MouseEventArgs e) { }
 
         /// <summary>
         /// イメージビューワ上でマウスが動かされた時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        protected virtual void OnImageViewerMouseMove(object sender, MouseEventArgs e)
-        {
-        }
+        protected virtual void OnImageViewerMouseMove(object sender, MouseEventArgs e) { }
 
         /// <summary>
         /// イメージビューワ上でマウスが右クリックされた時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        protected virtual void OnImageViewerMouseRightClick(object sender, MouseEventArgs e)
-        {
-        }
+        protected virtual void OnImageViewerMouseRightClick(object sender, MouseEventArgs e) { }
 
         /// <summary>
         /// ツールバーのインスタンスが UI に追加されたときに呼ばれます。
@@ -260,7 +238,5 @@ namespace ScratchFilter.Client.Toolbar
     /// </summary>
     /// <seealso cref="ToolbarPlugin" />
     [ToString]
-    internal abstract class ImageViewerToolbarPlugin : ToolbarPlugin
-    {
-    }
+    internal abstract class ImageViewerToolbarPlugin : ToolbarPlugin { }
 }

@@ -220,10 +220,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// 終了処理を行います。
         /// </summary>
-        public override void Close()
-        {
-            // Do nothing.
-        }
+        public override void Close() { }
 
         #endregion
     }
