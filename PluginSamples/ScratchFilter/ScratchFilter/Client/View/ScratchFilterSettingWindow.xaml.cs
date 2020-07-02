@@ -61,7 +61,9 @@ namespace ScratchFilter.Client.View
 
             DataContext = setting;
 
-            originalImage = GetOriginalImage(imageViewerAddOn);
+            using IImageCollector imageCollector = new BitmapCollector(imageViewerAddOn.CameraFQID);
+
+            originalImage = imageCollector.GetImage();
 
             if (originalImage == null)
             {
@@ -79,27 +81,6 @@ namespace ScratchFilter.Client.View
         #endregion
 
         #region Methods
-
-        /// <summary>
-        /// オリジナル画像を取得します。
-        /// </summary>
-        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
-        /// <returns>
-        /// オリジナル画像
-        /// </returns>
-        private Bitmap GetOriginalImage(ImageViewerAddOn imageViewerAddOn)
-        {
-            Bitmap image = imageViewerAddOn.GetCurrentDisplayedImageAsBitmap();
-
-            if (image == null)
-            {
-                using IImageCollector imageCollector = new BitmapCollector(imageViewerAddOn.CameraFQID);
-
-                image = imageCollector.GetImage();
-            }
-
-            return image;
-        }
 
         /// <summary>
         /// テキスト画像を生成します。
