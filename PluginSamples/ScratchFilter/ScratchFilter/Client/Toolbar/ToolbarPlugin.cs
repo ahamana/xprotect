@@ -36,11 +36,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <value>
         /// 表示先のウィンドウ
         /// </value>
-        protected Item Window
-        {
-            get;
-            private set;
-        }
+        protected Item Window { get; private set; }
 
         /// <summary>
         /// 表示先のモニターです。
@@ -48,11 +44,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <value>
         /// 表示先のモニター
         /// </value>
-        protected Item Monitor
-        {
-            get;
-            private set;
-        }
+        protected Item Monitor { get; private set; }
 
         /// <summary>
         /// プラグインの説明です。
@@ -60,10 +52,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <value>
         /// プラグインの説明
         /// </value>
-        protected virtual string Description
-        {
-            get;
-        }
+        protected virtual string Description { get; }
 
         #endregion
 
@@ -200,10 +189,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <value>
         /// 名前
         /// </value>
-        public sealed override string Name
-        {
-            get;
-        }
+        public sealed override string Name { get; }
 
         #endregion
 

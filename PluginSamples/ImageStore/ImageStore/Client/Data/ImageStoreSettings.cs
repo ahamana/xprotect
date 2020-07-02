@@ -8,7 +8,7 @@ namespace ImageStore.Client.Data
     /// <summary>
     /// 設定です。
     /// </summary>
-    public sealed class ImageStoreSettings
+    internal sealed class ImageStoreSettings
     {
         #region Fields
 
@@ -27,11 +27,7 @@ namespace ImageStore.Client.Data
         /// <value>
         /// JPEG ファイルを出力するディレクトリ
         /// </value>
-        public string OutputDir
-        {
-            get;
-            set;
-        }
+        public string OutputDir { get; set; }
 
         /// <summary>
         /// 出力する JPEG ファイルの圧縮です。
@@ -39,11 +35,7 @@ namespace ImageStore.Client.Data
         /// <value>
         /// 出力する JPEG ファイルの圧縮
         /// </value>
-        public ushort Compression
-        {
-            get;
-            set;
-        }
+        public ushort Compression { get; set; }
 
         #endregion
 
@@ -61,13 +53,12 @@ namespace ImageStore.Client.Data
 
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(ImageStoreSettings));
 
-            using (TextReader reader = new StreamReader(filePath, Encoding.UTF8))
-            {
-                ImageStoreSettings settings = (ImageStoreSettings)xmlSerializer.Deserialize(reader);
-                settings.filePath = filePath;
+            using TextReader reader = new StreamReader(filePath, Encoding.UTF8);
 
-                return settings;
-            }
+            ImageStoreSettings settings = (ImageStoreSettings)xmlSerializer.Deserialize(reader);
+            settings.filePath = filePath;
+
+            return settings;
         }
 
         /// <summary>
@@ -81,10 +72,9 @@ namespace ImageStore.Client.Data
 
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(ImageStoreSettings));
 
-            using (TextWriter writer = new StreamWriter(filePath, false, Encoding.UTF8))
-            {
-                xmlSerializer.Serialize(writer, this, namespaces);
-            }
+            using TextWriter writer = new StreamWriter(filePath, false, Encoding.UTF8);
+
+            xmlSerializer.Serialize(writer, this, namespaces);
         }
 
         #endregion

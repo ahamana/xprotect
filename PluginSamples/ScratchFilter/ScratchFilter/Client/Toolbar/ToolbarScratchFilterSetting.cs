@@ -21,10 +21,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <value>
         /// プラグインの説明
         /// </value>
-        protected override string Description
-        {
-            get;
-        } = Resources.Toolbar_ScratchFilterSetting_Description;
+        protected override string Description { get; } = Resources.Toolbar_ScratchFilterSetting_Description;
 
         #endregion
 
@@ -80,10 +77,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <value>
         /// ID
         /// </value>
-        public override Guid Id
-        {
-            get;
-        } = PluginId;
+        public override Guid Id { get; } = PluginId;
 
         #endregion
 

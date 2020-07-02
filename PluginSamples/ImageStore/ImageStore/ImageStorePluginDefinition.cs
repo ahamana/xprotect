@@ -66,10 +66,7 @@ namespace ImageStore
         /// <value>
         /// ID
         /// </value>
-        public override Guid Id
-        {
-            get;
-        } = PluginId;
+        public override Guid Id { get; } = PluginId;
 
         /// <summary>
         /// 製品名です。
@@ -77,10 +74,7 @@ namespace ImageStore
         /// <value>
         /// 製品名
         /// </value>
-        public override string Name
-        {
-            get;
-        } = FileVersionInfo.ProductName;
+        public override string Name { get; } = FileVersionInfo.ProductName;
 
         /// <summary>
         /// 会社名です。
@@ -88,10 +82,7 @@ namespace ImageStore
         /// <value>
         /// 会社名
         /// </value>
-        public override string Manufacturer
-        {
-            get;
-        } = FileVersionInfo.CompanyName;
+        public override string Manufacturer { get; } = FileVersionInfo.CompanyName;
 
         /// <summary>
         /// プラグインのバージョンです。
@@ -99,10 +90,7 @@ namespace ImageStore
         /// <value>
         /// プラグインのバージョン
         /// </value>
-        public override string VersionString
-        {
-            get;
-        } = FileVersionInfo.ProductVersion;
+        public override string VersionString { get; } = FileVersionInfo.ProductVersion;
 
         /// <summary>
         /// トップレベルで使用するアイコンです。
@@ -110,10 +98,7 @@ namespace ImageStore
         /// <value>
         /// トップレベルで使用するアイコン
         /// </value>
-        public override Image Icon
-        {
-            get;
-        }
+        public override Image Icon { get; }
 
         #endregion
 

@@ -50,10 +50,7 @@ namespace ScratchFilter
         /// <value>
         /// ID
         /// </value>
-        public override Guid Id
-        {
-            get;
-        } = PluginId;
+        public override Guid Id { get; } = PluginId;
 
         /// <summary>
         /// 製品名です。
@@ -61,10 +58,7 @@ namespace ScratchFilter
         /// <value>
         /// 製品名
         /// </value>
-        public override string Name
-        {
-            get;
-        } = FileVersionInfo.ProductName;
+        public override string Name { get; } = FileVersionInfo.ProductName;
 
         /// <summary>
         /// 会社名です。
@@ -72,10 +66,7 @@ namespace ScratchFilter
         /// <value>
         /// 会社名
         /// </value>
-        public override string Manufacturer
-        {
-            get;
-        } = FileVersionInfo.CompanyName;
+        public override string Manufacturer { get; } = FileVersionInfo.CompanyName;
 
         /// <summary>
         /// プラグインのバージョンです。
@@ -83,10 +74,7 @@ namespace ScratchFilter
         /// <value>
         /// プラグインのバージョン
         /// </value>
-        public override string VersionString
-        {
-            get;
-        } = FileVersionInfo.ProductVersion;
+        public override string VersionString { get; } = FileVersionInfo.ProductVersion;
 
         /// <summary>
         /// トップレベルで使用するアイコンです。
@@ -94,10 +82,7 @@ namespace ScratchFilter
         /// <value>
         /// トップレベルで使用するアイコン
         /// </value>
-        public override Image Icon
-        {
-            get;
-        }
+        public override Image Icon { get; }
 
         /// <summary>
         /// Smart Client のツールバー用プラグインの一覧です。
@@ -105,10 +90,7 @@ namespace ScratchFilter
         /// <value>
         /// Smart Client のツールバー用プラグインの一覧
         /// </value>
-        public override List<ViewItemToolbarPlugin> ViewItemToolbarPlugins
-        {
-            get;
-        } = new List<ViewItemToolbarPlugin>();
+        public override List<ViewItemToolbarPlugin> ViewItemToolbarPlugins { get; } = new List<ViewItemToolbarPlugin>();
 
         #endregion
 

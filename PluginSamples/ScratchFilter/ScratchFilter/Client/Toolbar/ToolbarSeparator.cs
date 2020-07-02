@@ -81,10 +81,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <value>
         /// ID
         /// </value>
-        public override Guid Id
-        {
-            get;
-        }
+        public override Guid Id { get; }
 
         /// <summary>
         /// 詳細項目への表示方法です。
@@ -92,10 +89,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <value>
         /// 詳細項目への表示方法
         /// </value>
-        public override ToolbarPluginOverflowMode ToolbarPluginOverflowMode
-        {
-            get;
-        } = ToolbarPluginOverflowMode.NeverInOverflow;
+        public override ToolbarPluginOverflowMode ToolbarPluginOverflowMode { get; } = ToolbarPluginOverflowMode.NeverInOverflow;
 
         #endregion
 

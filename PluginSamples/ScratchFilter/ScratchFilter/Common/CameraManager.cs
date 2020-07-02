@@ -17,10 +17,7 @@ namespace ScratchFilter.Common
         /// <value>
         /// インスタンス
         /// </value>
-        internal static CameraManager Instance
-        {
-            get;
-        } = new CameraManager();
+        internal static CameraManager Instance { get; } = new CameraManager();
 
         #endregion
 
@@ -29,9 +26,7 @@ namespace ScratchFilter.Common
         /// <summary>
         /// コンストラクタです。
         /// </summary>
-        private CameraManager()
-        {
-        }
+        private CameraManager() { }
 
         #endregion
 

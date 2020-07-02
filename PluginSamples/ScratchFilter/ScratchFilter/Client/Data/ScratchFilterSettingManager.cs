@@ -45,10 +45,7 @@ namespace ScratchFilter.Client.Data
         /// <value>
         /// インスタンス
         /// </value>
-        internal static ScratchFilterSettingManager Instance
-        {
-            get;
-        } = new ScratchFilterSettingManager();
+        internal static ScratchFilterSettingManager Instance { get; } = new ScratchFilterSettingManager();
 
         #endregion
 
@@ -57,9 +54,7 @@ namespace ScratchFilter.Client.Data
         /// <summary>
         /// コンストラクタです。
         /// </summary>
-        private ScratchFilterSettingManager()
-        {
-        }
+        private ScratchFilterSettingManager() { }
 
         #endregion
 

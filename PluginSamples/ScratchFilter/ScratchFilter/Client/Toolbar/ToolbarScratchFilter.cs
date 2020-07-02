@@ -162,10 +162,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <value>
         /// ID
         /// </value>
-        public override Guid Id
-        {
-            get;
-        } = PluginId;
+        public override Guid Id { get; } = PluginId;
 
         #endregion
 

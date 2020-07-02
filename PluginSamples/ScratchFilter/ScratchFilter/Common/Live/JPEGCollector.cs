@@ -18,17 +18,13 @@ namespace ScratchFilter.Common.Live
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraFQID">カメラの完全修飾 ID</param>
-        internal JPEGCollector(FQID cameraFQID) : base(cameraFQID)
-        {
-        }
+        internal JPEGCollector(FQID cameraFQID) : base(cameraFQID) { }
 
         /// <summary>
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraId">カメラの ID</param>
-        internal JPEGCollector(Guid cameraId) : base(cameraId)
-        {
-        }
+        internal JPEGCollector(Guid cameraId) : base(cameraId) { }
 
         #endregion
 

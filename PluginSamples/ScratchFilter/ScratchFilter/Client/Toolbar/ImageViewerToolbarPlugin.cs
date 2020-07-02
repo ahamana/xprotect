@@ -20,11 +20,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <value>
         /// イメージビューワのアドオン
         /// </value>
-        protected ImageViewerAddOn ImageViewerAddOn
-        {
-            get;
-            private set;
-        }
+        protected ImageViewerAddOn ImageViewerAddOn { get; private set; }
 
         #endregion
 
