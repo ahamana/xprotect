@@ -39,7 +39,11 @@ namespace ScratchFilter.Common.Live
         /// </returns>
         protected override JPEGLiveSource GenerateVideoLiveSource(Item camera)
         {
-            return new JPEGLiveSource(camera);
+            return new JPEGLiveSource(camera)
+            {
+                // 無圧縮の画像を取得
+                Compression = 100
+            };
         }
 
         /// <summary>

@@ -123,8 +123,6 @@ namespace ScratchFilter.Common.Live
             liveSource = GenerateVideoLiveSource(camera);
 
             liveSource.LiveModeStart = true;
-            // 無圧縮の画像を取得
-            liveSource.Compression = 100;
             // 幅と高さに 0 を指定して、実際の解像度の画像を取得
             liveSource.Width = 0;
             liveSource.Height = 0;
