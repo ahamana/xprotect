@@ -23,12 +23,12 @@ namespace ScratchFilter.Client.Data
         private static readonly FileVersionInfo FileVersionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
 
         /// <summary>
-        /// 傷フィルタの設定ファイルのパスです。
+        /// 傷フィルタの設定ファイルです。
         /// </summary>
-        private static readonly string SettingFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-                                                                      @"Canon\WebView",
-                                                                      FileVersionInfo.ProductName,
-                                                                      $"{nameof(ScratchFilterSetting)}.json");
+        private static readonly string SettingFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+                                                                  @"Canon\WebView",
+                                                                  FileVersionInfo.ProductName,
+                                                                  $"{nameof(ScratchFilterSetting)}.json");
 
         /// <summary>
         /// 傷フィルタの設定の一覧です。
@@ -65,14 +65,14 @@ namespace ScratchFilter.Client.Data
         /// </summary>
         private void Save()
         {
-            string dirPath = Path.GetDirectoryName(SettingFilePath);
+            string dir = Path.GetDirectoryName(SettingFile);
 
-            if (!Directory.Exists(dirPath))
+            if (!Directory.Exists(dir))
             {
-                Directory.CreateDirectory(dirPath);
+                Directory.CreateDirectory(dir);
             }
 
-            using Stream stream = File.Create(SettingFilePath);
+            using Stream stream = File.Create(SettingFile);
 
             object value = settings.Values;
 
@@ -90,12 +90,12 @@ namespace ScratchFilter.Client.Data
         /// </summary>
         internal void Load()
         {
-            if (!File.Exists(SettingFilePath))
+            if (!File.Exists(SettingFile))
             {
                 return;
             }
 
-            string json = File.ReadAllText(SettingFilePath);
+            string json = File.ReadAllText(SettingFile);
 
             JsonSerializer.Deserialize<List<ScratchFilterSetting>>(json).ForEach(setting =>
             {
