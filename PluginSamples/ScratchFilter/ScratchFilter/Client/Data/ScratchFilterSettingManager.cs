@@ -82,7 +82,7 @@ namespace ScratchFilter.Client.Data
                 WriteIndented = true
             };
 
-            JsonSerializer.SerializeAsync(stream, value, value.GetType(), options);
+            JsonSerializer.SerializeAsync(stream, value, value.GetType(), options).Wait();
         }
 
         /// <summary>
