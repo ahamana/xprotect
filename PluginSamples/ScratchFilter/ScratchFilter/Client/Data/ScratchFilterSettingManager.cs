@@ -67,10 +67,7 @@ namespace ScratchFilter.Client.Data
         {
             string dir = Path.GetDirectoryName(SettingFile);
 
-            if (!Directory.Exists(dir))
-            {
-                Directory.CreateDirectory(dir);
-            }
+            Directory.CreateDirectory(dir);
 
             using Stream stream = File.Create(SettingFile);
 
