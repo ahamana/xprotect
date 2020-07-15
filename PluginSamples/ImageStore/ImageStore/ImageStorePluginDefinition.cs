@@ -140,10 +140,7 @@ namespace ImageStore
 
             string dirPath = Path.GetDirectoryName(filePath);
 
-            if (!Directory.Exists(dirPath))
-            {
-                Directory.CreateDirectory(dirPath);
-            }
+            Directory.CreateDirectory(dirPath);
 
             try
             {
