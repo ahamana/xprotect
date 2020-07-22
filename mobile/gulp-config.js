@@ -43,7 +43,6 @@ export default {
 	// フィルタ
 	filter: {
 		// 画像
-		// HTML
 		image: {
 			pattern: IMAGE_FILE_PATTERN
 		},
