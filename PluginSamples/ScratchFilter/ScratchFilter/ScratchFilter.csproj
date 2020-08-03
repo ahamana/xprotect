@@ -47,15 +47,15 @@
     <Reference Include="ImageProcessor, Version=2.9.1.225, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ImageProcessor.2.9.1\lib\net452\ImageProcessor.dll</HintPath>
     </Reference>
-    <Reference Include="Mapster, Version=6.0.0.0, Culture=neutral, PublicKeyToken=2f39883af23c29a8, processorArchitecture=MSIL">
-      <HintPath>..\packages\Mapster.6.0.0\lib\net45\Mapster.dll</HintPath>
+    <Reference Include="Mapster, Version=6.1.0.0, Culture=neutral, PublicKeyToken=2f39883af23c29a8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mapster.6.1.0\lib\net45\Mapster.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.4.7.2\lib\net45\NLog.dll</HintPath>
+      <HintPath>..\packages\NLog.4.7.3\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -136,6 +136,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="FodyWeavers.xml" />
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Resources\Client\Dark\ScratchFilterActive.png" />
     <None Include="Resources\Client\Dark\ScratchFilterInactive.png" />
     <Content Include="Resources\Client\Dark\ScratchFilterSettings.png" />
@@ -150,9 +153,6 @@
     </None>
     <None Include="NLog.dll.nlog">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="NLog.xsd">
-      <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -176,5 +176,5 @@ del /q /s "$(ProgramW6432)\Milestone\MIPPlugins\$(ProjectName)"
 xcopy /e "$(TargetDir)*" "$(ProgramW6432)\Milestone\MIPPlugins\$(ProjectName)"
 </PostBuildEvent>
   </PropertyGroup>
-  <Import Project="..\packages\Fody.6.2.1\build\Fody.targets" Condition="Exists('..\packages\Fody.6.2.1\build\Fody.targets')" />
+  <Import Project="..\packages\Fody.6.2.4\build\Fody.targets" Condition="Exists('..\packages\Fody.6.2.4\build\Fody.targets')" />
 </Project>
