@@ -1,0 +1,282 @@
+﻿using ImageProcessor;
+using Prism.Commands;
+using Prism.Mvvm;
+using Reactive.Bindings;
+using Reactive.Bindings.Extensions;
+using ScratchFilter.Client.Data;
+using ScratchFilter.Common.Live;
+using ScratchFilter.Extensions;
+using ScratchFilter.Properties;
+using System;
+using System.Drawing;
+using System.Reactive.Disposables;
+using System.Windows;
+using System.Windows.Input;
+using System.Windows.Media;
+using VideoOS.Platform;
+using VideoOS.Platform.Client;
+using VideoOS.UI.Common.WPF.Utils.FormIntegration;
+using Brush = System.Drawing.Brush;
+using Size = System.Drawing.Size;
+
+namespace ScratchFilter.Client.ViewModels
+{
+    /// <summary>
+    /// <see cref="ScratchFilterSettingWindow" /> の View Model です。
+    /// </summary>
+    /// <seealso cref="BindableBase" />
+    /// <seealso cref="IDisposable" />
+    [ToString]
+    internal sealed class ScratchFilterSettingWindowViewModel : BindableBase, IDisposable
+    {
+        #region Fields
+
+        /// <summary>
+        /// 開放するリソースのグループです。
+        /// </summary>
+        private readonly CompositeDisposable disposable = new CompositeDisposable();
+
+        /// <summary>
+        /// 傷フィルタの設定です。
+        /// </summary>
+        private readonly ScratchFilterSetting setting;
+
+        /// <summary>
+        /// オリジナル画像です。
+        /// </summary>
+        private readonly Bitmap originalImage;
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// プレビュー画像の幅です。
+        /// </summary>
+        /// <value>
+        /// プレビュー画像の幅
+        /// </value>
+        public double PreviewImageWidth { get; } = 640;
+
+        /// <summary>
+        /// 設定可能であるかどうかです。
+        /// </summary>
+        /// <value>
+        /// 設定可能であるかどうか
+        /// </value>
+        public IReactiveProperty<bool> IsSettable { get; }
+
+        /// <summary>
+        /// プレビュー画像です。
+        /// </summary>
+        /// <value>
+        /// プレビュー画像
+        /// </value>
+        public IReactiveProperty<ImageSource> PreviewImage { get; }
+
+        /// <summary>
+        /// カメラ名です。
+        /// </summary>
+        /// <value>
+        /// カメラ名
+        /// </value>
+        public IReadOnlyReactiveProperty<string> CameraName { get; }
+
+        /// <summary>
+        /// 画像のコントラストです。
+        /// </summary>
+        /// <value>
+        /// 画像のコントラスト
+        /// </value>
+        public IReactiveProperty<int> ImageContrast { get; }
+
+        /// <summary>
+        /// 画像の明るさです。
+        /// </summary>
+        /// <value>
+        /// 画像の明るさ
+        /// </value>
+        public IReactiveProperty<int> ImageBrightness { get; }
+
+        /// <summary>
+        /// 画像の彩度です。
+        /// </summary>
+        /// <value>
+        /// 画像の彩度
+        /// </value>
+        public IReactiveProperty<int> ImageSaturation { get; }
+
+        /// <summary>
+        /// 画像のガンマです。
+        /// </summary>
+        /// <value>
+        /// 画像のガンマ
+        /// </value>
+        public IReactiveProperty<float> ImageGamma { get; }
+
+        /// <summary>
+        /// 設定を保存するためのコマンドです。
+        /// </summary>
+        /// <value>
+        /// 設定を保存するためのコマンド
+        /// </value>
+        public ICommand SaveCommand { get; }
+
+        /// <summary>
+        /// キャンセルするためのコマンドです。
+        /// </summary>
+        /// <value>
+        /// キャンセルするためのコマンド
+        /// </value>
+        public ICommand CancelCommand { get; }
+
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// コンストラクタです。
+        /// </summary>
+        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
+        /// <exception cref="ArgumentNullException">
+        /// <paramref name="imageViewerAddOn" /> が <c>null</c> の場合にスローされます。
+        /// </exception>
+        internal ScratchFilterSettingWindowViewModel(ImageViewerAddOn imageViewerAddOn)
+        {
+            if (imageViewerAddOn == null)
+            {
+                throw new ArgumentNullException(nameof(imageViewerAddOn));
+            }
+
+            IsSettable = new ReactivePropertySlim<bool>(true).AddTo(disposable);
+
+            PreviewImage = new ReactivePropertySlim<ImageSource>().AddTo(disposable);
+
+            setting = ScratchFilterSettingManager.Instance.GetSetting(imageViewerAddOn.CameraFQID.ObjectId);
+
+            CameraName = setting.ObserveProperty(setting => setting.CameraName).ToReadOnlyReactivePropertySlim().AddTo(disposable);
+
+            ImageContrast = ReactiveProperty.FromObject(setting, setting => setting.ImageContrast).AddTo(disposable);
+            ImageContrast.Subscribe(_ => ChangePreviewImage());
+
+            ImageBrightness = ReactiveProperty.FromObject(setting, setting => setting.ImageBrightness).AddTo(disposable);
+            ImageBrightness.Subscribe(_ => ChangePreviewImage());
+
+            ImageSaturation = ReactiveProperty.FromObject(setting, setting => setting.ImageSaturation).AddTo(disposable);
+            ImageSaturation.Subscribe(_ => ChangePreviewImage());
+
+            ImageGamma = ReactiveProperty.FromObject(setting, setting => setting.ImageGamma).AddTo(disposable);
+            ImageGamma.Subscribe(_ => ChangePreviewImage());
+
+            using IImageCollector imageCollector = new BitmapCollector(imageViewerAddOn.CameraFQID);
+
+            originalImage = imageCollector.GetImage()?.AddTo(disposable);
+
+            if (originalImage == null)
+            {
+                int width = (int)PreviewImageWidth;
+                int height = (int)(imageViewerAddOn.Size.Height * PreviewImageWidth / imageViewerAddOn.Size.Width);
+
+                PreviewImage.Value = CreateTextImage(Resources.Toolbar_ScratchFilterSetting_Message_ImageCaptureFailure, new Size(width, height));
+
+                IsSettable.Value = false;
+            }
+
+            SaveCommand = IsSettable.ToReactiveCommand<Window>().WithSubscribe(SaveSettings).AddTo(disposable);
+
+            CancelCommand = new DelegateCommand<Window>(Exit);
+
+            ChangePreviewImage();
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// テキスト画像を生成します。
+        /// </summary>
+        /// <param name="text">テキスト</param>
+        /// <param name="size">画像のサイズ</param>
+        /// <returns>
+        /// テキスト画像
+        /// </returns>
+        private ImageSource CreateTextImage(string text, Size size)
+        {
+            using Bitmap image = new Bitmap(size.Width, size.Height);
+            using Graphics graphics = Graphics.FromImage(image);
+            using Font font = new Font(WindowsFormsHostConstants.FontFamily, (float)WindowsFormsHostConstants.FontSize, GraphicsUnit.Pixel);
+            using Brush brush = new SolidBrush(ClientControl.Instance.Theme.TextColor);
+
+            graphics.Clear(ClientControl.Instance.Theme.BorderColor);
+
+            Rectangle rectangle = new Rectangle()
+            {
+                Size = image.Size
+            };
+
+            StringFormat format = new StringFormat()
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
+
+            graphics.DrawString(text, font, brush, rectangle, format);
+
+            return image.ToBitmapSource();
+        }
+
+        /// <summary>
+        /// プレビュー画像を変更します。
+        /// </summary>
+        private void ChangePreviewImage()
+        {
+            if (originalImage == null)
+            {
+                return;
+            }
+
+            using ImageFactory imageFactory = new ImageFactory();
+
+            imageFactory.Load(originalImage)
+                        .Contrast(setting.ImageContrast)
+                        .Brightness(setting.ImageBrightness)
+                        .Saturation(setting.ImageSaturation)
+                        .Gamma(setting.ImageGamma);
+
+            using Bitmap image = new Bitmap(imageFactory.Image);
+
+            PreviewImage.Value = image.ToBitmapSource();
+        }
+
+        /// <summary>
+        /// 設定を保存します。
+        /// </summary>
+        /// <param name="window">ウィンドウ</param>
+        private void SaveSettings(Window window)
+        {
+            ScratchFilterSettingManager.Instance.Save(setting);
+
+            window?.Close();
+        }
+
+        /// <summary>
+        /// 処理を終了します。
+        /// </summary>
+        /// <param name="window">ウィンドウ</param>
+        private void Exit(Window window)
+        {
+            window?.Close();
+        }
+
+        /// <summary>
+        /// アンマネージリソースの解放またはリセットに関連付けられているアプリケーション定義のタスクを実行します。
+        /// </summary>
+        public void Dispose()
+        {
+            disposable.Dispose();
+        }
+
+        #endregion
+    }
+}

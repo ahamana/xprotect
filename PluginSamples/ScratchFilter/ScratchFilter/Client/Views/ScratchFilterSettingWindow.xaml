@@ -1,9 +1,11 @@
-﻿<Window x:Class="ScratchFilter.Client.View.ScratchFilterSettingWindow"
+﻿<Window x:Class="ScratchFilter.Client.Views.ScratchFilterSettingWindow"
         x:ClassModifier="internal"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:b="clr-namespace:ScratchFilter.Client.Views.Behavior"
         xmlns:properties="clr-namespace:ScratchFilter.Properties"
         mc:Ignorable="d"
         d:DesignHeight="364" d:DesignWidth="660"
@@ -11,6 +13,10 @@
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
         Title="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Description}">
+
+    <i:Interaction.Behaviors>
+        <b:WindowCloseBehavior />
+    </i:Interaction.Behaviors>
 
     <Grid Grid.IsSharedSizeScope="True">
         <Grid.RowDefinitions>
@@ -48,14 +54,13 @@
                 <!-- カメラ名 -->
                 <TextBlock Grid.Row="0"
                            Grid.Column="0"
-                           Name="cameraNameTextBlock"
-                           Text="{Binding CameraName}" />
+                           Text="{Binding CameraName.Value}" />
 
                 <!-- 画像 -->
                 <Image Grid.Row="1"
                        Grid.Column="0"
-                       Name="previewImage"
-                       Width="640" />
+                       Width="{Binding PreviewImageWidth}"
+                       Source="{Binding PreviewImage.Value}" />
             </Grid>
         </DockPanel>
 
@@ -102,85 +107,77 @@
                 <!-- ラベル -->
                 <Label Grid.Row="0"
                        Grid.Column="1"
-                       Name="imageContrastLabel"
                        Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_ImageContrast}" />
                 <!-- スライダー -->
                 <Slider Grid.Row="1"
                         Grid.Column="1"
-                        Name="imageContrastSlider"
                         Minimum="-100"
                         Maximum="100"
                         TickFrequency="1"
                         IsSnapToTickEnabled="True"
-                        Value="{Binding ImageContrast}"
-                        ValueChanged="ImageContrastSlider_ValueChanged" />
+                        IsEnabled="{Binding IsSettable.Value}"
+                        Value="{Binding ImageContrast.Value}" />
                 <!-- スライダーの値 -->
                 <TextBlock Grid.Row="1"
                            Grid.Column="3"
-                           Text="{Binding ImageContrast}" />
+                           Text="{Binding ImageContrast.Value}" />
 
                 <!-- 画像の明るさ -->
                 <!-- ラベル -->
                 <Label Grid.Row="3"
                        Grid.Column="1"
-                       Name="imageBrightnessLabel"
                        Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_ImageBrightness}" />
                 <!-- スライダー -->
                 <Slider Grid.Row="4"
                         Grid.Column="1"
-                        Name="imageBrightnessSlider"
                         Minimum="-100"
                         Maximum="100"
                         TickFrequency="1"
                         IsSnapToTickEnabled="True"
-                        Value="{Binding ImageBrightness}"
-                        ValueChanged="ImageBrightnessSlider_ValueChanged" />
+                        IsEnabled="{Binding IsSettable.Value}"
+                        Value="{Binding ImageBrightness.Value}" />
                 <!-- スライダーの値 -->
                 <TextBlock Grid.Row="4"
                            Grid.Column="3"
-                           Text="{Binding ImageBrightness}" />
+                           Text="{Binding ImageBrightness.Value}" />
 
                 <!-- 画像の彩度 -->
                 <!-- ラベル -->
                 <Label Grid.Row="6"
                        Grid.Column="1"
-                       Name="imageSaturationLabel"
                        Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_ImageSaturation}" />
                 <!-- スライダー -->
                 <Slider Grid.Row="7"
                         Grid.Column="1"
-                        Name="imageSaturationSlider"
                         Minimum="-100"
                         Maximum="100"
                         TickFrequency="1"
                         IsSnapToTickEnabled="True"
-                        Value="{Binding ImageSaturation}"
-                        ValueChanged="ImageSaturationSlider_ValueChanged" />
+                        IsEnabled="{Binding IsSettable.Value}"
+                        Value="{Binding ImageSaturation.Value}" />
                 <!-- スライダーの値 -->
                 <TextBlock Grid.Row="7"
                            Grid.Column="3"
-                           Text="{Binding ImageSaturation}" />
+                           Text="{Binding ImageSaturation.Value}" />
 
                 <!-- 画像のガンマ -->
                 <!-- ラベル -->
                 <Label Grid.Row="9"
                        Grid.Column="1"
-                       Name="imageGammaLabel"
                        Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_ImageGamma}" />
                 <!-- スライダー -->
                 <Slider Grid.Row="10"
                         Grid.Column="1"
-                        Name="imageGammaSlider"
                         Minimum="0.1"
                         Maximum="5"
                         TickFrequency="0.01"
                         IsSnapToTickEnabled="True"
-                        Value="{Binding ImageGamma}"
-                        ValueChanged="ImageGammaSlider_ValueChanged" />
+                        IsEnabled="{Binding IsSettable.Value}"
+                        Value="{Binding ImageGamma.Value}" />
                 <!-- スライダーの値 -->
                 <TextBlock Grid.Row="10"
                            Grid.Column="3"
-                           Text="{Binding ImageGamma}" />
+                           Text="{Binding ImageGamma.Value}" />
             </Grid>
         </DockPanel>
 
@@ -210,16 +207,17 @@
                 <!-- OK ボタン -->
                 <Button Grid.Row="0"
                         Grid.Column="3"
-                        Name="okButton"
                         Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_OK}"
-                        Click="OkButton_Click" />
+                        Command="{Binding SaveCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                        IsEnabled="{Binding IsSettable.Value}" />
 
                 <!-- キャンセルボタン -->
                 <Button Grid.Row="0"
                         Grid.Column="5"
-                        Name="cancelButton"
                         Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_Cancel}"
-                        Click="CancelButton_Click" />
+                        Command="{Binding CancelCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
             </Grid>
         </DockPanel>
     </Grid>

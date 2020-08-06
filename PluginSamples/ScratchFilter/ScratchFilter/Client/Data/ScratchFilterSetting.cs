@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prism.Mvvm;
+using System;
 using VideoOS.Platform;
 
 namespace ScratchFilter.Client.Data
@@ -6,8 +7,9 @@ namespace ScratchFilter.Client.Data
     /// <summary>
     /// 傷フィルタの設定です。
     /// </summary>
+    /// <seealso cref="BindableBase" />
     [ToString]
-    internal sealed class ScratchFilterSetting
+    internal sealed class ScratchFilterSetting : BindableBase
     {
         #region Fields
 
@@ -30,6 +32,26 @@ namespace ScratchFilter.Client.Data
         /// デフォルトの画像のガンマです。
         /// </summary>
         private static readonly float DefaultImageGamma = 1;
+
+        /// <summary>
+        /// 画像のコントラストです。
+        /// </summary>
+        private int imageContrast = DefaultImageContrast;
+
+        /// <summary>
+        /// 画像の明るさです。
+        /// </summary>
+        private int imageBrightness = DefaultImageBrightness;
+
+        /// <summary>
+        /// 画像の彩度です。
+        /// </summary>
+        private int imageSaturation = DefaultImageSaturation;
+
+        /// <summary>
+        /// 画像のガンマです。
+        /// </summary>
+        private float imageGamma = DefaultImageGamma;
 
         #endregion
 
@@ -65,7 +87,11 @@ namespace ScratchFilter.Client.Data
         /// <value>
         /// 画像のコントラスト
         /// </value>
-        public int ImageContrast { get; set; } = DefaultImageContrast;
+        public int ImageContrast
+        {
+            get => imageContrast;
+            set => SetProperty(ref imageContrast, value);
+        }
 
         /// <summary>
         /// 画像の明るさです。
@@ -73,7 +99,11 @@ namespace ScratchFilter.Client.Data
         /// <value>
         /// 画像の明るさ
         /// </value>
-        public int ImageBrightness { get; set; } = DefaultImageBrightness;
+        public int ImageBrightness
+        {
+            get => imageBrightness;
+            set => SetProperty(ref imageBrightness, value);
+        }
 
         /// <summary>
         /// 画像の彩度です。
@@ -81,7 +111,11 @@ namespace ScratchFilter.Client.Data
         /// <value>
         /// 画像の彩度
         /// </value>
-        public int ImageSaturation { get; set; } = DefaultImageSaturation;
+        public int ImageSaturation
+        {
+            get => imageSaturation;
+            set => SetProperty(ref imageSaturation, value);
+        }
 
         /// <summary>
         /// 画像のガンマです。
@@ -89,7 +123,11 @@ namespace ScratchFilter.Client.Data
         /// <value>
         /// 画像のガンマ
         /// </value>
-        public float ImageGamma { get; set; } = DefaultImageGamma;
+        public float ImageGamma
+        {
+            get => imageGamma;
+            set => SetProperty(ref imageGamma, value);
+        }
 
         #endregion
     }
