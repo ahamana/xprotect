@@ -3,6 +3,7 @@ using Prism.Commands;
 using Prism.Mvvm;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
+using Reactive.Bindings.Notifiers;
 using ScratchFilter.Client.Data;
 using ScratchFilter.Common.Live;
 using ScratchFilter.Extensions;
@@ -64,7 +65,7 @@ namespace ScratchFilter.Client.ViewModels
         /// <value>
         /// 設定可能であるかどうか
         /// </value>
-        public IReactiveProperty<bool> IsSettable { get; }
+        public BooleanNotifier IsSettable { get; }
 
         /// <summary>
         /// プレビュー画像です。
@@ -148,7 +149,7 @@ namespace ScratchFilter.Client.ViewModels
                 throw new ArgumentNullException(nameof(imageViewerAddOn));
             }
 
-            IsSettable = new ReactivePropertySlim<bool>(true).AddTo(disposable);
+            IsSettable = new BooleanNotifier(true);
 
             PreviewImage = new ReactivePropertySlim<ImageSource>().AddTo(disposable);
 
@@ -179,7 +180,7 @@ namespace ScratchFilter.Client.ViewModels
 
                 PreviewImage.Value = CreateTextImage(Resources.Toolbar_ScratchFilterSetting_Message_ImageCaptureFailure, new Size(width, height));
 
-                IsSettable.Value = false;
+                IsSettable.TurnOff();
             }
 
             SaveCommand = IsSettable.ToReactiveCommand<Window>().WithSubscribe(SaveSettings).AddTo(disposable);
