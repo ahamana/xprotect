@@ -26,17 +26,17 @@ namespace ScratchFilter
         #region Fields
 
         /// <summary>
-        /// ƒvƒ‰ƒOƒCƒ“‚Ì ID ‚Å‚·B
+        /// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã® ID ã§ã™ã€‚
         /// </summary>
         private static readonly Guid PluginId = Guid.Parse("8c9a02d0-dcb0-4460-8779-23ad282677a0");
 
         /// <summary>
-        /// ƒƒK[‚Å‚·B
+        /// ãƒ­ã‚¬ãƒ¼ã§ã™ã€‚
         /// </summary>
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         /// <summary>
-        /// ƒo[ƒWƒ‡ƒ“î•ñ‚Å‚·B
+        /// ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã§ã™ã€‚
         /// </summary>
         private static readonly FileVersionInfo FileVersionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
 
@@ -45,7 +45,7 @@ namespace ScratchFilter
         #region Properties
 
         /// <summary>
-        /// ID ‚Å‚·B
+        /// ID ã§ã™ã€‚
         /// </summary>
         /// <value>
         /// ID
@@ -53,42 +53,42 @@ namespace ScratchFilter
         public override Guid Id { get; } = PluginId;
 
         /// <summary>
-        /// »•i–¼‚Å‚·B
+        /// è£½å“åã§ã™ã€‚
         /// </summary>
         /// <value>
-        /// »•i–¼
+        /// è£½å“å
         /// </value>
         public override string Name { get; } = FileVersionInfo.ProductName;
 
         /// <summary>
-        /// ‰ïĞ–¼‚Å‚·B
+        /// ä¼šç¤¾åã§ã™ã€‚
         /// </summary>
         /// <value>
-        /// ‰ïĞ–¼
+        /// ä¼šç¤¾å
         /// </value>
         public override string Manufacturer { get; } = FileVersionInfo.CompanyName;
 
         /// <summary>
-        /// ƒvƒ‰ƒOƒCƒ“‚Ìƒo[ƒWƒ‡ƒ“‚Å‚·B
+        /// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã§ã™ã€‚
         /// </summary>
         /// <value>
-        /// ƒvƒ‰ƒOƒCƒ“‚Ìƒo[ƒWƒ‡ƒ“
+        /// ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³
         /// </value>
         public override string VersionString { get; } = FileVersionInfo.ProductVersion;
 
         /// <summary>
-        /// ƒgƒbƒvƒŒƒxƒ‹‚Åg—p‚·‚éƒAƒCƒRƒ“‚Å‚·B
+        /// ãƒˆãƒƒãƒ—ãƒ¬ãƒ™ãƒ«ã§ä½¿ç”¨ã™ã‚‹ã‚¢ã‚¤ã‚³ãƒ³ã§ã™ã€‚
         /// </summary>
         /// <value>
-        /// ƒgƒbƒvƒŒƒxƒ‹‚Åg—p‚·‚éƒAƒCƒRƒ“
+        /// ãƒˆãƒƒãƒ—ãƒ¬ãƒ™ãƒ«ã§ä½¿ç”¨ã™ã‚‹ã‚¢ã‚¤ã‚³ãƒ³
         /// </value>
         public override Image Icon { get; }
 
         /// <summary>
-        /// Smart Client ‚Ìƒc[ƒ‹ƒo[—pƒvƒ‰ƒOƒCƒ“‚Ìˆê——‚Å‚·B
+        /// Smart Client ã®ãƒ„ãƒ¼ãƒ«ãƒãƒ¼ç”¨ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ä¸€è¦§ã§ã™ã€‚
         /// </summary>
         /// <value>
-        /// Smart Client ‚Ìƒc[ƒ‹ƒo[—pƒvƒ‰ƒOƒCƒ“‚Ìˆê——
+        /// Smart Client ã®ãƒ„ãƒ¼ãƒ«ãƒãƒ¼ç”¨ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ä¸€è¦§
         /// </value>
         public override List<ViewItemToolbarPlugin> ViewItemToolbarPlugins { get; } = new List<ViewItemToolbarPlugin>();
 
@@ -97,7 +97,7 @@ namespace ScratchFilter
         #region Methods
 
         /// <summary>
-        /// ‰Šú‰»ˆ—‚ğs‚¢‚Ü‚·B
+        /// åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã„ã¾ã™ã€‚
         /// </summary>
         public override void Init()
         {
@@ -112,7 +112,7 @@ namespace ScratchFilter
         }
 
         /// <summary>
-        /// I—¹ˆ—‚ğs‚¢‚Ü‚·B
+        /// çµ‚äº†å‡¦ç†ã‚’è¡Œã„ã¾ã™ã€‚
         /// </summary>
         public override void Close()
         {
