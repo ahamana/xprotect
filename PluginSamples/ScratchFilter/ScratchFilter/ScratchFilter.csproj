@@ -206,5 +206,5 @@ del /q /s "$(ProgramW6432)\Milestone\MIPPlugins\$(ProjectName)"
 xcopy /e "$(TargetDir)*" "$(ProgramW6432)\Milestone\MIPPlugins\$(ProjectName)"
 </PostBuildEvent>
   </PropertyGroup>
-  <Import Project="..\packages\Fody.6.2.4\build\Fody.targets" Condition="Exists('..\packages\Fody.6.2.4\build\Fody.targets')" />
+  <Import Project="..\packages\Fody.6.2.5\build\Fody.targets" Condition="Exists('..\packages\Fody.6.2.5\build\Fody.targets')" />
 </Project>
