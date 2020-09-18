@@ -19,7 +19,7 @@ namespace ScratchFilter.Common
         /// </value>
         internal static CameraManager Instance { get; } = new CameraManager();
 
-        #endregion
+        #endregion Properties
 
         #region Constructors
 
@@ -28,7 +28,7 @@ namespace ScratchFilter.Common
         /// </summary>
         private CameraManager() { }
 
-        #endregion
+        #endregion Constructors
 
         #region Methods
 
@@ -69,6 +69,6 @@ namespace ScratchFilter.Common
             return GetCameras(Configuration.Instance.GetItemsByKind(Kind.Camera));
         }
 
-        #endregion
+        #endregion Methods
     }
 }

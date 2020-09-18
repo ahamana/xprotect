@@ -56,7 +56,7 @@ namespace ImageStore
         /// </summary>
         private readonly IDictionary<FQID, LiveSource> liveSources = new Dictionary<FQID, LiveSource>();
 
-        #endregion
+        #endregion Fields
 
         #region Properties
 
@@ -100,7 +100,7 @@ namespace ImageStore
         /// </value>
         public override Image Icon { get; }
 
-        #endregion
+        #endregion Properties
 
         #region Methods
 
@@ -201,6 +201,7 @@ namespace ImageStore
                     }
 
                     break;
+
                 case "Recording Stopped":
                     if (liveSources.ContainsKey(eventSource.FQID))
                     {
@@ -242,6 +243,6 @@ namespace ImageStore
             MessageCommunicationManager.Stop(EnvironmentManager.Instance.MasterSite.ServerId);
         }
 
-        #endregion
+        #endregion Methods
     }
 }

@@ -41,6 +41,6 @@ namespace ScratchFilter.Client.Views.Behavior
             AssociatedObject.Closed -= OnWindowClosed;
         }
 
-        #endregion
+        #endregion Methods
     }
 }

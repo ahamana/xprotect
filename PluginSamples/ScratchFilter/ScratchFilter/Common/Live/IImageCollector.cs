@@ -19,6 +19,6 @@ namespace ScratchFilter.Common.Live
         /// </returns>
         Bitmap GetImage();
 
-        #endregion
+        #endregion Methods
     }
 }

@@ -41,7 +41,7 @@ namespace ScratchFilter.Common.Live
         /// </summary>
         private Stream imageStream;
 
-        #endregion
+        #endregion Fields
 
         #region Constructors
 
@@ -79,7 +79,7 @@ namespace ScratchFilter.Common.Live
             Init(Configuration.Instance.GetItem(cameraId, Kind.Camera));
         }
 
-        #endregion
+        #endregion Constructors
 
         #region Methods
 
@@ -207,6 +207,6 @@ namespace ScratchFilter.Common.Live
             GC.SuppressFinalize(this);
         }
 
-        #endregion
+        #endregion Methods
     }
 }

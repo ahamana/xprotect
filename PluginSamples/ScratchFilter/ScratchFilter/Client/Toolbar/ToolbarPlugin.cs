@@ -26,7 +26,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         private readonly List<object> messageReceivers = new List<object>();
 
-        #endregion
+        #endregion Fields
 
         #region Properties
 
@@ -54,7 +54,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </value>
         protected virtual string Description { get; }
 
-        #endregion
+        #endregion Properties
 
         #region Constructors
 
@@ -66,7 +66,7 @@ namespace ScratchFilter.Client.Toolbar
             Enabled = false;
         }
 
-        #endregion
+        #endregion Constructors
 
         #region Methods
 
@@ -170,7 +170,7 @@ namespace ScratchFilter.Client.Toolbar
             GC.SuppressFinalize(this);
         }
 
-        #endregion
+        #endregion Methods
     }
 
     /// <summary>
@@ -193,7 +193,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </value>
         public sealed override string Name { get; }
 
-        #endregion
+        #endregion Properties
 
         #region Methods
 
@@ -224,6 +224,6 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         public override void Close() { }
 
-        #endregion
+        #endregion Methods
     }
 }

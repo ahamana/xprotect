@@ -22,7 +22,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </value>
         protected ImageViewerAddOn ImageViewerAddOn { get; private set; }
 
-        #endregion
+        #endregion Properties
 
         #region Methods
 
@@ -230,7 +230,7 @@ namespace ScratchFilter.Client.Toolbar
             ClientControl.Instance.NewImageViewerControlEvent -= OnNewImageViewerControl;
         }
 
-        #endregion
+        #endregion Methods
     }
 
     /// <summary>

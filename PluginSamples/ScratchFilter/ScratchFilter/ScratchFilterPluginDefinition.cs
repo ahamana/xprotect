@@ -40,7 +40,7 @@ namespace ScratchFilter
         /// </summary>
         private static readonly FileVersionInfo FileVersionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
 
-        #endregion
+        #endregion Fields
 
         #region Properties
 
@@ -92,7 +92,7 @@ namespace ScratchFilter
         /// </value>
         public override List<ViewItemToolbarPlugin> ViewItemToolbarPlugins { get; } = new List<ViewItemToolbarPlugin>();
 
-        #endregion
+        #endregion Properties
 
         #region Methods
 
@@ -121,6 +121,6 @@ namespace ScratchFilter
             Logger.Info("End plug-in");
         }
 
-        #endregion
+        #endregion Methods
     }
 }

@@ -44,6 +44,6 @@ namespace ScratchFilter.Common.ConfigurationItems
             return genericEventDataSources.First(genericEventDataSource => genericEventDataSourceType.ToString() == genericEventDataSource.Name);
         }
 
-        #endregion
+        #endregion Methods
     }
 }

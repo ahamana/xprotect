@@ -53,7 +53,7 @@ namespace ScratchFilter.Client.Data
         /// </summary>
         private float imageGamma = DefaultImageGamma;
 
-        #endregion
+        #endregion Fields
 
         #region Properties
 
@@ -129,6 +129,6 @@ namespace ScratchFilter.Client.Data
             set => SetProperty(ref imageGamma, value);
         }
 
-        #endregion
+        #endregion Properties
     }
 }

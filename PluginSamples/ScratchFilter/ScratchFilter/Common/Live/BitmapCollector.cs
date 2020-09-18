@@ -28,7 +28,7 @@ namespace ScratchFilter.Common.Live
         /// <param name="cameraId">カメラの ID</param>
         internal BitmapCollector(Guid cameraId) : base(cameraId) { }
 
-        #endregion
+        #endregion Constructors
 
         #region Methods
 
@@ -64,6 +64,6 @@ namespace ScratchFilter.Common.Live
             return stream;
         }
 
-        #endregion
+        #endregion Methods
     }
 }

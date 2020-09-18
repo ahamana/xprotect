@@ -27,7 +27,7 @@ namespace ScratchFilter.Common.Messaging
         /// </summary>
         private static readonly string VendorName = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).CompanyName;
 
-        #endregion
+        #endregion Fields
 
         #region Methods
 
@@ -204,6 +204,6 @@ namespace ScratchFilter.Common.Messaging
             EnvironmentManager.Instance.SendMessage(message);
         }
 
-        #endregion
+        #endregion Methods
     }
 }

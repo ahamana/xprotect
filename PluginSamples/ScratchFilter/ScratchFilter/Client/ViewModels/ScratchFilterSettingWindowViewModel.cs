@@ -47,7 +47,7 @@ namespace ScratchFilter.Client.ViewModels
         /// </summary>
         private readonly Bitmap originalImage;
 
-        #endregion
+        #endregion Fields
 
         #region Properties
 
@@ -131,7 +131,7 @@ namespace ScratchFilter.Client.ViewModels
         /// </value>
         public ICommand CancelCommand { get; }
 
-        #endregion
+        #endregion Properties
 
         #region Constructors
 
@@ -190,7 +190,7 @@ namespace ScratchFilter.Client.ViewModels
             ChangePreviewImage();
         }
 
-        #endregion
+        #endregion Constructors
 
         #region Methods
 
@@ -278,6 +278,6 @@ namespace ScratchFilter.Client.ViewModels
             disposable.Dispose();
         }
 
-        #endregion
+        #endregion Methods
     }
 }

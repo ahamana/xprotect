@@ -31,6 +31,6 @@ namespace ScratchFilter.Client.Views
             DataContext = new ScratchFilterSettingWindowViewModel(imageViewerAddOn);
         }
 
-        #endregion
+        #endregion Constructors
     }
 }

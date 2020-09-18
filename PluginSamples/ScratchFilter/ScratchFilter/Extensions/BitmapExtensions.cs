@@ -41,7 +41,6 @@ namespace ScratchFilter.Extensions
             {
                 return Imaging.CreateBitmapSourceFromHBitmap(hBitmap, IntPtr.Zero, Int32Rect.Empty,
                                                              BitmapSizeOptions.FromEmptyOptions());
-
             }
             finally
             {
@@ -49,6 +48,6 @@ namespace ScratchFilter.Extensions
             }
         }
 
-        #endregion
+        #endregion Methods
     }
 }

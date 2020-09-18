@@ -35,7 +35,7 @@ namespace ScratchFilter.Client.Data
         /// </summary>
         private readonly IDictionary<Guid, ScratchFilterSetting> settings = new Dictionary<Guid, ScratchFilterSetting>();
 
-        #endregion
+        #endregion Fields
 
         #region Properties
 
@@ -47,7 +47,7 @@ namespace ScratchFilter.Client.Data
         /// </value>
         internal static ScratchFilterSettingManager Instance { get; } = new ScratchFilterSettingManager();
 
-        #endregion
+        #endregion Properties
 
         #region Constructors
 
@@ -56,7 +56,7 @@ namespace ScratchFilter.Client.Data
         /// </summary>
         private ScratchFilterSettingManager() { }
 
-        #endregion
+        #endregion Constructors
 
         #region Methods
 
@@ -178,6 +178,6 @@ namespace ScratchFilter.Client.Data
             Save();
         }
 
-        #endregion
+        #endregion Methods
     }
 }

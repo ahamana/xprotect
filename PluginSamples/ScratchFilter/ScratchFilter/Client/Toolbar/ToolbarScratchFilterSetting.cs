@@ -24,7 +24,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </value>
         protected override string Description { get; } = Resources.Toolbar_ScratchFilterSetting_Description;
 
-        #endregion
+        #endregion Properties
 
         #region Methods
 
@@ -51,7 +51,7 @@ namespace ScratchFilter.Client.Toolbar
             window.ShowDialog();
         }
 
-        #endregion
+        #endregion Methods
     }
 
     /// <summary>
@@ -68,7 +68,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         private static readonly Guid PluginId = Guid.Parse("27d96417-e33c-4f71-b231-bd692f4af61b");
 
-        #endregion
+        #endregion Fields
 
         #region Properties
 
@@ -80,7 +80,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </value>
         public override Guid Id { get; } = PluginId;
 
-        #endregion
+        #endregion Properties
 
         #region Methods
 
@@ -95,6 +95,6 @@ namespace ScratchFilter.Client.Toolbar
             return new ToolbarScratchFilterSettingInstance();
         }
 
-        #endregion
+        #endregion Methods
     }
 }

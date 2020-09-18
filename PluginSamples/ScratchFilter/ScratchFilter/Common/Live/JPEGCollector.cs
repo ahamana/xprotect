@@ -26,7 +26,7 @@ namespace ScratchFilter.Common.Live
         /// <param name="cameraId">カメラの ID</param>
         internal JPEGCollector(Guid cameraId) : base(cameraId) { }
 
-        #endregion
+        #endregion Constructors
 
         #region Methods
 
@@ -58,6 +58,6 @@ namespace ScratchFilter.Common.Live
             return new MemoryStream(liveContent.Content);
         }
 
-        #endregion
+        #endregion Methods
     }
 }

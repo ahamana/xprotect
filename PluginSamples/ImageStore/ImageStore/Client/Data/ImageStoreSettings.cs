@@ -17,7 +17,7 @@ namespace ImageStore.Client.Data
         /// </summary>
         private string filePath;
 
-        #endregion
+        #endregion Fields
 
         #region Properties
 
@@ -37,7 +37,7 @@ namespace ImageStore.Client.Data
         /// </value>
         public ushort Compression { get; set; }
 
-        #endregion
+        #endregion Properties
 
         #region Methods
 
@@ -77,6 +77,6 @@ namespace ImageStore.Client.Data
             xmlSerializer.Serialize(writer, this, namespaces);
         }
 
-        #endregion
+        #endregion Methods
     }
 }

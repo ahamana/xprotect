@@ -20,7 +20,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         private static readonly Size SeparatorSize = new Size(1, Util.ImageList.ImageSize.Height);
 
-        #endregion
+        #endregion Fields
 
         #region Methods
 
@@ -63,7 +63,7 @@ namespace ScratchFilter.Client.Toolbar
             // Do nothing.
         }
 
-        #endregion
+        #endregion Methods
     }
 
     /// <summary>
@@ -91,7 +91,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </value>
         public override ToolbarPluginOverflowMode ToolbarPluginOverflowMode { get; } = ToolbarPluginOverflowMode.NeverInOverflow;
 
-        #endregion
+        #endregion Properties
 
         #region Methods
 
@@ -106,6 +106,6 @@ namespace ScratchFilter.Client.Toolbar
             return new ToolbarSeparatorInstance();
         }
 
-        #endregion
+        #endregion Methods
     }
 }
