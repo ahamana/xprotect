@@ -134,7 +134,7 @@
     <Compile Include="Client\Toolbar\ToolbarPlugin.cs" />
     <Compile Include="Client\Toolbar\ToolbarSeparator.cs" />
     <Compile Include="Client\ViewModels\ScratchFilterSettingWindowViewModel.cs" />
-    <Compile Include="Client\Views\Behavior\WindowCloseBehavior.cs" />
+    <Compile Include="Client\Views\Behaviors\WindowCloseBehavior.cs" />
     <Compile Include="Client\Views\ScratchFilterSettingWindow.xaml.cs">
       <DependentUpon>ScratchFilterSettingWindow.xaml</DependentUpon>
     </Compile>

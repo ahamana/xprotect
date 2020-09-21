@@ -2,7 +2,7 @@
 using System;
 using System.Windows;
 
-namespace ScratchFilter.Client.Views.Behavior
+namespace ScratchFilter.Client.Views.Behaviors
 {
     /// <summary>
     /// ウィンドウを閉じる時のビヘイビアです。
