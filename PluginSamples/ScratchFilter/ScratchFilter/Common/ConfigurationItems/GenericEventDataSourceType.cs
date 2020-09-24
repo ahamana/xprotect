@@ -32,9 +32,7 @@ namespace ScratchFilter.Common.ConfigurationItems
         /// ジェネリックイベントのデータソースを取得します。
         /// </summary>
         /// <param name="genericEventDataSourceType">ジェネリックイベントのデータソースの種類</param>
-        /// <returns>
-        /// ジェネリックイベントのデータソース
-        /// </returns>
+        /// <returns>ジェネリックイベントのデータソース</returns>
         internal static GenericEventDataSource GetGenericEventDataSource(this GenericEventDataSourceType genericEventDataSourceType)
         {
             ManagementServer managementServer = new ManagementServer(EnvironmentManager.Instance.MasterSite);

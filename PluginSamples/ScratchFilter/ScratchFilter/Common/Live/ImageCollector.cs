@@ -49,9 +49,7 @@ namespace ScratchFilter.Common.Live
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraFQID">カメラの完全修飾 ID</param>
-        /// <exception cref="ArgumentNullException">
-        /// <paramref name="cameraFQID" /> が <c>null</c> の場合にスローされます。
-        /// </exception>
+        /// <exception cref="ArgumentNullException"><paramref name="cameraFQID" /> が <c>null</c> の場合にスローされます。</exception>
         protected ImageCollector(FQID cameraFQID)
         {
             if (cameraFQID == null)
@@ -66,9 +64,7 @@ namespace ScratchFilter.Common.Live
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraId">カメラの ID</param>
-        /// <exception cref="ArgumentException">
-        /// <paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。
-        /// </exception>
+        /// <exception cref="ArgumentException"><paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。</exception>
         protected ImageCollector(Guid cameraId)
         {
             if (cameraId == Guid.Empty)
@@ -85,7 +81,7 @@ namespace ScratchFilter.Common.Live
 
         /// <summary>
         /// ライブ映像の新しいフレームを取得した時に発生します。
-        /// </summary>s
+        /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
         private void OnLiveSourceLiveContentEvent(object sender, EventArgs e)
@@ -110,9 +106,7 @@ namespace ScratchFilter.Common.Live
         /// 初期化処理を行います。
         /// </summary>
         /// <param name="camera">カメラ</param>
-        /// <exception cref="ArgumentNullException">
-        /// <paramref name="camera" /> が <c>null</c> の場合にスローされます。
-        /// </exception>
+        /// <exception cref="ArgumentNullException"><paramref name="camera" /> が <c>null</c> の場合にスローされます。</exception>
         private void Init(Item camera)
         {
             if (camera == null)
@@ -156,26 +150,20 @@ namespace ScratchFilter.Common.Live
         /// ライブ映像のソースを生成します。
         /// </summary>
         /// <param name="camera">カメラ</param>
-        /// <returns>
-        /// ライブ映像のソース
-        /// </returns>
+        /// <returns>ライブ映像のソース</returns>
         protected abstract TVideoLiveSource GenerateVideoLiveSource(Item camera);
 
         /// <summary>
         /// 画像のストリームを生成します。
         /// </summary>
         /// <param name="liveContent">ライブ映像の内容</param>
-        /// <returns>
-        /// 画像のストリーム
-        /// </returns>
+        /// <returns>画像のストリーム</returns>
         protected abstract Stream GenerateImageStream(TLiveSourceContent liveContent);
 
         /// <summary>
         /// 画像を取得します。
         /// </summary>
-        /// <returns>
-        /// 画像
-        /// </returns>
+        /// <returns>画像</returns>
         public Bitmap GetImage()
         {
             Stopwatch stopwatch = Stopwatch.StartNew();

@@ -60,17 +60,13 @@ namespace ScratchFilter.Client.Data
         /// <summary>
         /// カメラの ID です。
         /// </summary>
-        /// <value>
-        /// カメラの ID
-        /// </value>
+        /// <value>カメラの ID</value>
         public Guid CameraId { get; set; }
 
         /// <summary>
         /// カメラ名です。
         /// </summary>
-        /// <value>
-        /// カメラ名
-        /// </value>
+        /// <value>カメラ名</value>
         public string CameraName
         {
             get
@@ -84,9 +80,7 @@ namespace ScratchFilter.Client.Data
         /// <summary>
         /// 画像のコントラストです。
         /// </summary>
-        /// <value>
-        /// 画像のコントラスト
-        /// </value>
+        /// <value>画像のコントラスト</value>
         public int ImageContrast
         {
             get => imageContrast;
@@ -96,9 +90,7 @@ namespace ScratchFilter.Client.Data
         /// <summary>
         /// 画像の明るさです。
         /// </summary>
-        /// <value>
-        /// 画像の明るさ
-        /// </value>
+        /// <value>画像の明るさ</value>
         public int ImageBrightness
         {
             get => imageBrightness;
@@ -108,9 +100,7 @@ namespace ScratchFilter.Client.Data
         /// <summary>
         /// 画像の彩度です。
         /// </summary>
-        /// <value>
-        /// 画像の彩度
-        /// </value>
+        /// <value>画像の彩度</value>
         public int ImageSaturation
         {
             get => imageSaturation;
@@ -120,9 +110,7 @@ namespace ScratchFilter.Client.Data
         /// <summary>
         /// 画像のガンマです。
         /// </summary>
-        /// <value>
-        /// 画像のガンマ
-        /// </value>
+        /// <value>画像のガンマ</value>
         public float ImageGamma
         {
             get => imageGamma;

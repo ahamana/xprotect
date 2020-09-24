@@ -37,18 +37,6 @@ namespace ScratchFilter.Client.Data
 
         #endregion Fields
 
-        #region Properties
-
-        /// <summary>
-        /// インスタンスです。
-        /// </summary>
-        /// <value>
-        /// インスタンス
-        /// </value>
-        internal static ScratchFilterSettingManager Instance { get; } = new ScratchFilterSettingManager();
-
-        #endregion Properties
-
         #region Constructors
 
         /// <summary>
@@ -57,6 +45,16 @@ namespace ScratchFilter.Client.Data
         private ScratchFilterSettingManager() { }
 
         #endregion Constructors
+
+        #region Properties
+
+        /// <summary>
+        /// インスタンスです。
+        /// </summary>
+        /// <value>インスタンス</value>
+        internal static ScratchFilterSettingManager Instance { get; } = new ScratchFilterSettingManager();
+
+        #endregion Properties
 
         #region Methods
 
@@ -104,12 +102,8 @@ namespace ScratchFilter.Client.Data
         /// 傷フィルタの設定を取得します。
         /// </summary>
         /// <param name="cameraId">カメラの ID</param>
-        /// <returns>
-        /// 傷フィルタの設定
-        /// </returns>
-        /// <exception cref="ArgumentException">
-        /// <paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。
-        /// </exception>
+        /// <returns>傷フィルタの設定</returns>
+        /// <exception cref="ArgumentException"><paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。</exception>
         internal ScratchFilterSetting GetSetting(Guid cameraId)
         {
             if (cameraId == Guid.Empty)
@@ -134,9 +128,7 @@ namespace ScratchFilter.Client.Data
         /// 傷フィルタの設定を保存します。
         /// </summary>
         /// <param name="setting">更新対象の傷フィルタの設定</param>
-        /// <exception cref="ArgumentNullException">
-        /// <paramref name="setting" /> が <c>null</c> の場合にスローされます。
-        /// </exception>
+        /// <exception cref="ArgumentNullException"><paramref name="setting" /> が <c>null</c> の場合にスローされます。</exception>
         internal void Save(ScratchFilterSetting setting)
         {
             if (setting == null)
@@ -151,12 +143,8 @@ namespace ScratchFilter.Client.Data
         /// 傷フィルタの設定を保存します。
         /// </summary>
         /// <param name="settings">更新対象の傷フィルタの設定の一覧</param>
-        /// <exception cref="ArgumentNullException">
-        /// <paramref name="settings" /> が <c>null</c> の場合にスローされます。
-        /// </exception>
-        /// <exception cref="ArgumentException">
-        /// <paramref name="settings" /> が空の場合にスローされます。
-        /// </exception>
+        /// <exception cref="ArgumentNullException"><paramref name="settings" /> が <c>null</c> の場合にスローされます。</exception>
+        /// <exception cref="ArgumentException"><paramref name="settings" /> が空の場合にスローされます。</exception>
         internal void Save(IEnumerable<ScratchFilterSetting> settings)
         {
             if (settings == null)

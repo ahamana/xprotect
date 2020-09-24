@@ -16,9 +16,7 @@ namespace ScratchFilter.Client.Views
         /// コンストラクタです。
         /// </summary>
         /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
-        /// <exception cref="ArgumentNullException">
-        /// <paramref name="imageViewerAddOn" /> が <c>null</c> の場合にスローされます。
-        /// </exception>
+        /// <exception cref="ArgumentNullException"><paramref name="imageViewerAddOn" /> が <c>null</c> の場合にスローされます。</exception>
         internal ScratchFilterSettingWindow(ImageViewerAddOn imageViewerAddOn)
         {
             if (imageViewerAddOn == null)

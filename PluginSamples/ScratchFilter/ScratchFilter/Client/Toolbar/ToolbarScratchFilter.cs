@@ -31,9 +31,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// プラグインの説明です。
         /// </summary>
-        /// <value>
-        /// プラグインの説明
-        /// </value>
+        /// <value>プラグインの説明</value>
         protected override string Description
         {
             get
@@ -159,9 +157,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// ID です。
         /// </summary>
-        /// <value>
-        /// ID
-        /// </value>
+        /// <value>ID</value>
         public override Guid Id { get; } = PluginId;
 
         #endregion Properties
@@ -171,9 +167,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// ツールバーの傷フィルタ機能用インスタンスを生成します。
         /// </summary>
-        /// <returns>
-        /// ツールバーの傷フィルタ機能用インスタンス
-        /// </returns>
+        /// <returns>ツールバーの傷フィルタ機能用インスタンス</returns>
         public override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance()
         {
             return new ToolbarScratchFilterInstance();

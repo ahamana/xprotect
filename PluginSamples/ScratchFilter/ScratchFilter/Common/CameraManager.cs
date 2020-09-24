@@ -9,18 +9,6 @@ namespace ScratchFilter.Common
     [ToString]
     internal sealed class CameraManager
     {
-        #region Properties
-
-        /// <summary>
-        /// インスタンスです。
-        /// </summary>
-        /// <value>
-        /// インスタンス
-        /// </value>
-        internal static CameraManager Instance { get; } = new CameraManager();
-
-        #endregion Properties
-
         #region Constructors
 
         /// <summary>
@@ -30,15 +18,23 @@ namespace ScratchFilter.Common
 
         #endregion Constructors
 
+        #region Properties
+
+        /// <summary>
+        /// インスタンスです。
+        /// </summary>
+        /// <value>インスタンス</value>
+        internal static CameraManager Instance { get; } = new CameraManager();
+
+        #endregion Properties
+
         #region Methods
 
         /// <summary>
         /// カメラの一覧を取得します。
         /// </summary>
         /// <param name="items">項目の一覧</param>
-        /// <returns>
-        /// カメラの一覧
-        /// </returns>
+        /// <returns>カメラの一覧</returns>
         private IReadOnlyCollection<Item> GetCameras(List<Item> items)
         {
             List<Item> cameras = new List<Item>();
@@ -61,9 +57,7 @@ namespace ScratchFilter.Common
         /// <summary>
         /// カメラの一覧を取得します。
         /// </summary>
-        /// <returns>
-        /// カメラの一覧
-        /// </returns>
+        /// <returns>カメラの一覧</returns>
         internal IReadOnlyCollection<Item> GetCameras()
         {
             return GetCameras(Configuration.Instance.GetItemsByKind(Kind.Camera));

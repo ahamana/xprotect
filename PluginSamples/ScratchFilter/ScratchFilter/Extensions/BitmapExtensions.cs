@@ -22,12 +22,8 @@ namespace ScratchFilter.Extensions
         /// <see cref="Bitmap" /> を <see cref="BitmapSource" /> に変換します。
         /// </summary>
         /// <param name="bitmap">変換する <see cref="Bitmap" /></param>
-        /// <returns>
-        /// 変換した <see cref="BitmapSource" />
-        /// </returns>
-        /// <exception cref="ArgumentNullException">
-        /// <paramref name="bitmap" /> が <c>null</c> の場合にスローされます。
-        /// </exception>
+        /// <returns>変換した <see cref="BitmapSource" /></returns>
+        /// <exception cref="ArgumentNullException"><paramref name="bitmap" /> が <c>null</c> の場合にスローされます。</exception>
         internal static BitmapSource ToBitmapSource(this Bitmap bitmap)
         {
             if (bitmap == null)

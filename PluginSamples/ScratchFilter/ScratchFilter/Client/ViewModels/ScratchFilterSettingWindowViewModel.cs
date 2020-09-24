@@ -49,99 +49,13 @@ namespace ScratchFilter.Client.ViewModels
 
         #endregion Fields
 
-        #region Properties
-
-        /// <summary>
-        /// プレビュー画像の幅です。
-        /// </summary>
-        /// <value>
-        /// プレビュー画像の幅
-        /// </value>
-        public double PreviewImageWidth { get; } = 640;
-
-        /// <summary>
-        /// 設定可能であるかどうかです。
-        /// </summary>
-        /// <value>
-        /// 設定可能であるかどうか
-        /// </value>
-        public BooleanNotifier IsSettable { get; }
-
-        /// <summary>
-        /// プレビュー画像です。
-        /// </summary>
-        /// <value>
-        /// プレビュー画像
-        /// </value>
-        public IReactiveProperty<ImageSource> PreviewImage { get; }
-
-        /// <summary>
-        /// カメラ名です。
-        /// </summary>
-        /// <value>
-        /// カメラ名
-        /// </value>
-        public IReadOnlyReactiveProperty<string> CameraName { get; }
-
-        /// <summary>
-        /// 画像のコントラストです。
-        /// </summary>
-        /// <value>
-        /// 画像のコントラスト
-        /// </value>
-        public IReactiveProperty<int> ImageContrast { get; }
-
-        /// <summary>
-        /// 画像の明るさです。
-        /// </summary>
-        /// <value>
-        /// 画像の明るさ
-        /// </value>
-        public IReactiveProperty<int> ImageBrightness { get; }
-
-        /// <summary>
-        /// 画像の彩度です。
-        /// </summary>
-        /// <value>
-        /// 画像の彩度
-        /// </value>
-        public IReactiveProperty<int> ImageSaturation { get; }
-
-        /// <summary>
-        /// 画像のガンマです。
-        /// </summary>
-        /// <value>
-        /// 画像のガンマ
-        /// </value>
-        public IReactiveProperty<float> ImageGamma { get; }
-
-        /// <summary>
-        /// 設定を保存するためのコマンドです。
-        /// </summary>
-        /// <value>
-        /// 設定を保存するためのコマンド
-        /// </value>
-        public ICommand SaveCommand { get; }
-
-        /// <summary>
-        /// キャンセルするためのコマンドです。
-        /// </summary>
-        /// <value>
-        /// キャンセルするためのコマンド
-        /// </value>
-        public ICommand CancelCommand { get; }
-
-        #endregion Properties
-
         #region Constructors
 
         /// <summary>
         /// コンストラクタです。
         /// </summary>
         /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
-        /// <exception cref="ArgumentNullException">
-        /// <paramref name="imageViewerAddOn" /> が <c>null</c> の場合にスローされます。
-        /// </exception>
+        /// <exception cref="ArgumentNullException"><paramref name="imageViewerAddOn" /> が <c>null</c> の場合にスローされます。</exception>
         internal ScratchFilterSettingWindowViewModel(ImageViewerAddOn imageViewerAddOn)
         {
             if (imageViewerAddOn == null)
@@ -192,6 +106,70 @@ namespace ScratchFilter.Client.ViewModels
 
         #endregion Constructors
 
+        #region Properties
+
+        /// <summary>
+        /// プレビュー画像の幅です。
+        /// </summary>
+        /// <value>プレビュー画像の幅</value>
+        public double PreviewImageWidth { get; } = 640;
+
+        /// <summary>
+        /// 設定可能であるかどうかです。
+        /// </summary>
+        /// <value>設定可能であるかどうか</value>
+        public BooleanNotifier IsSettable { get; }
+
+        /// <summary>
+        /// プレビュー画像です。
+        /// </summary>
+        /// <value>プレビュー画像</value>
+        public IReactiveProperty<ImageSource> PreviewImage { get; }
+
+        /// <summary>
+        /// カメラ名です。
+        /// </summary>
+        /// <value>カメラ名</value>
+        public IReadOnlyReactiveProperty<string> CameraName { get; }
+
+        /// <summary>
+        /// 画像のコントラストです。
+        /// </summary>
+        /// <value>画像のコントラスト</value>
+        public IReactiveProperty<int> ImageContrast { get; }
+
+        /// <summary>
+        /// 画像の明るさです。
+        /// </summary>
+        /// <value>画像の明るさ</value>
+        public IReactiveProperty<int> ImageBrightness { get; }
+
+        /// <summary>
+        /// 画像の彩度です。
+        /// </summary>
+        /// <value>画像の彩度</value>
+        public IReactiveProperty<int> ImageSaturation { get; }
+
+        /// <summary>
+        /// 画像のガンマです。
+        /// </summary>
+        /// <value>画像のガンマ</value>
+        public IReactiveProperty<float> ImageGamma { get; }
+
+        /// <summary>
+        /// 設定を保存するためのコマンドです。
+        /// </summary>
+        /// <value>設定を保存するためのコマンド</value>
+        public ICommand SaveCommand { get; }
+
+        /// <summary>
+        /// キャンセルするためのコマンドです。
+        /// </summary>
+        /// <value>キャンセルするためのコマンド</value>
+        public ICommand CancelCommand { get; }
+
+        #endregion Properties
+
         #region Methods
 
         /// <summary>
@@ -199,9 +177,7 @@ namespace ScratchFilter.Client.ViewModels
         /// </summary>
         /// <param name="text">テキスト</param>
         /// <param name="size">画像のサイズ</param>
-        /// <returns>
-        /// テキスト画像
-        /// </returns>
+        /// <returns>テキスト画像</returns>
         private ImageSource CreateTextImage(string text, Size size)
         {
             using Bitmap image = new Bitmap(size.Width, size.Height);

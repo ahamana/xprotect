@@ -34,9 +34,7 @@ namespace ScratchFilter.Common.Messaging
         /// <summary>
         /// イベントサーバのホスト名を取得します。
         /// </summary>
-        /// <returns>
-        /// イベントサーバのホスト名
-        /// </returns>
+        /// <returns>イベントサーバのホスト名</returns>
         private string GetEventServerHostname()
         {
             // イベントサーバのサービス URL の情報を取得
@@ -90,10 +88,10 @@ namespace ScratchFilter.Common.Messaging
 
             EventSource eventSource = new EventSource()
             {
-                // Send empty - it is possible to send without an eventsource, but the intended design is that there should be a source
-                // the FQID is primamry used to match up the ObjectId with the camera.
+                // Send empty - it is possible to send without an eventsource, but the intended design is that there should be a source.
+                // The FQID is primamry used to match up the ObjectId with the camera.
                 FQID = device.FQID,
-                // If FQID is null, then the Name can be an IP address, and the event server will make a lookup to find the camera
+                // If FQID is null, then the Name can be an IP address, and the event server will make a lookup to find the camera.
                 Name = device.Name
             };
 
@@ -169,10 +167,10 @@ namespace ScratchFilter.Common.Messaging
 
             EventSource eventSource = new EventSource()
             {
-                // Send empty - it is possible to send without an eventsource, but the intended design is that there should be a source
-                // the FQID is primamry used to match up the ObjectId with the camera.
+                // Send empty - it is possible to send without an eventsource, but the intended design is that there should be a source.
+                // The FQID is primamry used to match up the ObjectId with the camera.
                 FQID = device.FQID,
-                // If FQID is null, then the Name can be an IP address, and the event server will make a lookup to find the camera
+                // If FQID is null, then the Name can be an IP address, and the event server will make a lookup to find the camera.
                 Name = device.Name
             };
 

@@ -37,24 +37,24 @@ namespace ImageStore
         private static readonly Guid PluginId = new Guid("65accde7-fbac-4c56-b98b-9b4458627bda");
 
         /// <summary>
-        /// メッセージに関する通信です。
-        /// </summary>
-        private MessageCommunication messageCommunication;
-
-        /// <summary>
         /// メッセージを受信するためのフィルタです。
         /// </summary>
         private readonly List<object> messageCommunicationFilters = new List<object>();
 
         /// <summary>
-        /// 設定です。
-        /// </summary>
-        private ImageStoreSettings settings;
-
-        /// <summary>
         /// ライブ映像のソースです。
         /// </summary>
         private readonly IDictionary<FQID, LiveSource> liveSources = new Dictionary<FQID, LiveSource>();
+
+        /// <summary>
+        /// メッセージに関する通信です。
+        /// </summary>
+        private MessageCommunication messageCommunication;
+
+        /// <summary>
+        /// 設定です。
+        /// </summary>
+        private ImageStoreSettings settings;
 
         #endregion Fields
 
@@ -63,41 +63,31 @@ namespace ImageStore
         /// <summary>
         /// ID です。
         /// </summary>
-        /// <value>
-        /// ID
-        /// </value>
+        /// <value>ID</value>
         public override Guid Id { get; } = PluginId;
 
         /// <summary>
         /// 製品名です。
         /// </summary>
-        /// <value>
-        /// 製品名
-        /// </value>
+        /// <value>製品名</value>
         public override string Name { get; } = FileVersionInfo.ProductName;
 
         /// <summary>
         /// 会社名です。
         /// </summary>
-        /// <value>
-        /// 会社名
-        /// </value>
+        /// <value>会社名</value>
         public override string Manufacturer { get; } = FileVersionInfo.CompanyName;
 
         /// <summary>
         /// プラグインのバージョンです。
         /// </summary>
-        /// <value>
-        /// プラグインのバージョン
-        /// </value>
+        /// <value>プラグインのバージョン</value>
         public override string VersionString { get; } = FileVersionInfo.ProductVersion;
 
         /// <summary>
         /// トップレベルで使用するアイコンです。
         /// </summary>
-        /// <value>
-        /// トップレベルで使用するアイコン
-        /// </value>
+        /// <value>トップレベルで使用するアイコン</value>
         public override Image Icon { get; }
 
         #endregion Properties
@@ -123,7 +113,8 @@ namespace ImageStore
 
         /// <summary>
         /// ライブ映像の新しいフレームを取得した時に発生します。
-        /// </summary>s
+        /// </summary>
+        /// s
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
         private void OnLiveSourceLiveContentEvent(object sender, EventArgs e)

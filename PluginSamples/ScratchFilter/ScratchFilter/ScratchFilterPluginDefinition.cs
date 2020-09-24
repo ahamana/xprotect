@@ -47,49 +47,37 @@ namespace ScratchFilter
         /// <summary>
         /// ID です。
         /// </summary>
-        /// <value>
-        /// ID
-        /// </value>
+        /// <value>ID</value>
         public override Guid Id { get; } = PluginId;
 
         /// <summary>
         /// 製品名です。
         /// </summary>
-        /// <value>
-        /// 製品名
-        /// </value>
+        /// <value>製品名</value>
         public override string Name { get; } = FileVersionInfo.ProductName;
 
         /// <summary>
         /// 会社名です。
         /// </summary>
-        /// <value>
-        /// 会社名
-        /// </value>
+        /// <value>会社名</value>
         public override string Manufacturer { get; } = FileVersionInfo.CompanyName;
 
         /// <summary>
         /// プラグインのバージョンです。
         /// </summary>
-        /// <value>
-        /// プラグインのバージョン
-        /// </value>
+        /// <value>プラグインのバージョン</value>
         public override string VersionString { get; } = FileVersionInfo.ProductVersion;
 
         /// <summary>
         /// トップレベルで使用するアイコンです。
         /// </summary>
-        /// <value>
-        /// トップレベルで使用するアイコン
-        /// </value>
+        /// <value>トップレベルで使用するアイコン</value>
         public override Image Icon { get; }
 
         /// <summary>
         /// Smart Client のツールバー用プラグインの一覧です。
         /// </summary>
-        /// <value>
-        /// Smart Client のツールバー用プラグインの一覧
-        /// </value>
+        /// <value>Smart Client のツールバー用プラグインの一覧</value>
         public override List<ViewItemToolbarPlugin> ViewItemToolbarPlugins { get; } = new List<ViewItemToolbarPlugin>();
 
         #endregion Properties

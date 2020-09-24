@@ -17,44 +17,16 @@ namespace ScratchFilter.Client.Toolbar
         #region Fields
 
         /// <summary>
-        /// アンマネージリソースが解放されたかどうかです。
-        /// </summary>
-        private bool disposed;
-
-        /// <summary>
         /// メッセージの受信オブジェクトです。
         /// </summary>
         private readonly List<object> messageReceivers = new List<object>();
 
+        /// <summary>
+        /// アンマネージリソースが解放されたかどうかです。
+        /// </summary>
+        private bool disposed;
+
         #endregion Fields
-
-        #region Properties
-
-        /// <summary>
-        /// 表示先のウィンドウです。
-        /// </summary>
-        /// <value>
-        /// 表示先のウィンドウ
-        /// </value>
-        protected Item Window { get; private set; }
-
-        /// <summary>
-        /// 表示先のモニターです。
-        /// </summary>
-        /// <value>
-        /// 表示先のモニター
-        /// </value>
-        protected Item Monitor { get; private set; }
-
-        /// <summary>
-        /// プラグインの説明です。
-        /// </summary>
-        /// <value>
-        /// プラグインの説明
-        /// </value>
-        protected virtual string Description { get; }
-
-        #endregion Properties
 
         #region Constructors
 
@@ -68,6 +40,28 @@ namespace ScratchFilter.Client.Toolbar
 
         #endregion Constructors
 
+        #region Properties
+
+        /// <summary>
+        /// 表示先のウィンドウです。
+        /// </summary>
+        /// <value>表示先のウィンドウ</value>
+        protected Item Window { get; private set; }
+
+        /// <summary>
+        /// 表示先のモニターです。
+        /// </summary>
+        /// <value>表示先のモニター</value>
+        protected Item Monitor { get; private set; }
+
+        /// <summary>
+        /// プラグインの説明です。
+        /// </summary>
+        /// <value>プラグインの説明</value>
+        protected virtual string Description { get; }
+
+        #endregion Properties
+
         #region Methods
 
         /// <summary>
@@ -76,9 +70,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <param name="message">テーマ変更の内容</param>
         /// <param name="destination">通知先</param>
         /// <param name="sender">通知元</param>
-        /// <returns>
-        /// <c>null</c>
-        /// </returns>
+        /// <returns><c>null</c></returns>
         private object ThemeChangedIndicationReceiver(Message message, FQID destination, FQID sender)
         {
             ReloadIcon();
@@ -115,8 +107,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         protected void ReloadIcon()
         {
-            // Dispose メソッドの実行のみとして、null は設定しない。
-            // ※ null を設定すると、デフォルトアイコンが一瞬表示されてしまう。
+            // Dispose メソッドの実行のみとして、null は設定しない。 ※ null を設定すると、デフォルトアイコンが一瞬表示されてしまう。
             Icon?.Dispose();
 
             LoadIcon();
@@ -185,12 +176,8 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// 名前です。
         /// </summary>
-        /// <remarks>
-        /// Smart Client の UI のどこにも表示されず、使用されることはありません。
-        /// </remarks>
-        /// <value>
-        /// 名前
-        /// </value>
+        /// <remarks>Smart Client の UI のどこにも表示されず、使用されることはありません。</remarks>
+        /// <value>名前</value>
         public sealed override string Name { get; }
 
         #endregion Properties
