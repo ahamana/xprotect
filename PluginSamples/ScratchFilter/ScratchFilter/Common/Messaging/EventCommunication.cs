@@ -112,7 +112,6 @@ namespace ScratchFilter.Common.Messaging
             {
                 EventHeader = eventHeader,
                 Location = device.Name,
-                // Description を設定するとアラーム情報の「手順」に反映される。
                 Description = description,
                 Vendor = vendor
             };
@@ -192,7 +191,6 @@ namespace ScratchFilter.Common.Messaging
             {
                 EventHeader = eventHeader,
                 Location = device.Name,
-                // Description を設定するとアラーム情報の「手順」に反映される。
                 Description = description,
                 Vendor = vendor
             };
