@@ -1,4 +1,4 @@
-﻿using ScratchFilter.Client.ViewModels;
+using ScratchFilter.Client.ViewModels;
 using System;
 using System.Windows;
 using VideoOS.Platform.Client;

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using VideoOS.Platform;
 
 namespace ScratchFilter.Common

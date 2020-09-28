@@ -1,4 +1,4 @@
-﻿using ImageProcessor;
+using ImageProcessor;
 using Prism.Commands;
 using Prism.Mvvm;
 using Reactive.Bindings;

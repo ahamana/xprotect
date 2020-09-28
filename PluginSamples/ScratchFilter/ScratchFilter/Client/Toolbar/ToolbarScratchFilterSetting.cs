@@ -1,4 +1,4 @@
-﻿using ScratchFilter.Client.Views;
+using ScratchFilter.Client.Views;
 using ScratchFilter.Properties;
 using System;
 using System.Windows;

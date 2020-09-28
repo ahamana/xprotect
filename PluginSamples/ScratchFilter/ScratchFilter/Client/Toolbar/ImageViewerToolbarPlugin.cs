@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using VideoOS.Platform;
 using VideoOS.Platform.Client;

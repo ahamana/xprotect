@@ -1,4 +1,4 @@
-﻿using ImageProcessor;
+using ImageProcessor;
 using ScratchFilter.Client.Data;
 using ScratchFilter.Properties;
 using System;
