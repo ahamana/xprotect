@@ -16,7 +16,7 @@
     "gulp-htmlmin": "5.0.1",
     "gulp-imagemin": "7.1.0",
     "gulp-load-plugins": "2.0.5",
-    "gulp-terser": "1.4.0",
+    "gulp-terser": "1.4.1",
     "gulp-typescript": "6.0.0-alpha.1",
     "gulp-zip": "5.0.2",
     "typescript": "4.0.5"
