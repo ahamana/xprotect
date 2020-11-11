@@ -88,7 +88,7 @@ namespace ScratchFilter.Common.Live
         {
             LiveContentEventArgs args = e as LiveContentEventArgs;
 
-            if (args == null || args.LiveContent == null)
+            if (args?.LiveContent == null)
             {
                 return;
             }
