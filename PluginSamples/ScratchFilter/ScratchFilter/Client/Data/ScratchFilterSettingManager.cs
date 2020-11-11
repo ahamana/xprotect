@@ -131,7 +131,7 @@ namespace ScratchFilter.Client.Data
         /// <exception cref="ArgumentNullException"><paramref name="setting" /> が <c>null</c> の場合にスローされます。</exception>
         internal void Save(ScratchFilterSetting setting)
         {
-            if (setting == null)
+            if (setting is null)
             {
                 throw new ArgumentNullException(nameof(setting));
             }
@@ -147,7 +147,7 @@ namespace ScratchFilter.Client.Data
         /// <exception cref="ArgumentException"><paramref name="settings" /> が空の場合にスローされます。</exception>
         internal void Save(IEnumerable<ScratchFilterSetting> settings)
         {
-            if (settings == null)
+            if (settings is null)
             {
                 throw new ArgumentNullException(nameof(settings));
             }

@@ -34,7 +34,7 @@ namespace ImageStore
         /// <summary>
         /// プラグインの ID です。
         /// </summary>
-        private static readonly Guid PluginId = new Guid("65accde7-fbac-4c56-b98b-9b4458627bda");
+        private static readonly Guid PluginId = Guid.Parse("65accde7-fbac-4c56-b98b-9b4458627bda");
 
         /// <summary>
         /// メッセージを受信するためのフィルタです。
@@ -122,7 +122,7 @@ namespace ImageStore
             JPEGLiveSource liveSource = sender as JPEGLiveSource;
             LiveContentEventArgs args = e as LiveContentEventArgs;
 
-            if (args?.LiveContent == null)
+            if (args?.LiveContent is null)
             {
                 return;
             }
@@ -157,7 +157,7 @@ namespace ImageStore
         {
             BaseEvent eventData = message.Data as BaseEvent;
 
-            if (eventData == null)
+            if (eventData is null)
             {
                 return null;
             }

@@ -53,7 +53,7 @@ namespace ScratchFilter.Common.Messaging
         /// <param name="relatedItem">関連項目</param>
         internal void SendUserDefinedEvent(Item userDefinedEvent, Item relatedItem = null)
         {
-            if (userDefinedEvent == null)
+            if (userDefinedEvent is null)
             {
                 return;
             }
@@ -81,7 +81,7 @@ namespace ScratchFilter.Common.Messaging
                 return;
             }
 
-            if (device == null)
+            if (device is null)
             {
                 return;
             }
@@ -128,7 +128,7 @@ namespace ScratchFilter.Common.Messaging
         /// <param name="text">通知する文字列</param>
         internal void SendGenericEvent(GenericEventDataSource dataSource, string text)
         {
-            if (dataSource == null)
+            if (dataSource is null)
             {
                 return;
             }
@@ -159,7 +159,7 @@ namespace ScratchFilter.Common.Messaging
                 return;
             }
 
-            if (device == null)
+            if (device is null)
             {
                 return;
             }

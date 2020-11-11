@@ -65,7 +65,7 @@ namespace ScratchFilter.Client.Toolbar
 
             using Bitmap original = ImageViewerAddOn.GetCurrentDisplayedImageAsBitmap();
 
-            if (original == null)
+            if (original is null)
             {
                 return;
             }

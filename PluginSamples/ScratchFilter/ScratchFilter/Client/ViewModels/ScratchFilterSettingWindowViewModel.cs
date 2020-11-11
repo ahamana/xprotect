@@ -58,7 +58,7 @@ namespace ScratchFilter.Client.ViewModels
         /// <exception cref="ArgumentNullException"><paramref name="imageViewerAddOn" /> が <c>null</c> の場合にスローされます。</exception>
         internal ScratchFilterSettingWindowViewModel(ImageViewerAddOn imageViewerAddOn)
         {
-            if (imageViewerAddOn == null)
+            if (imageViewerAddOn is null)
             {
                 throw new ArgumentNullException(nameof(imageViewerAddOn));
             }
@@ -87,7 +87,7 @@ namespace ScratchFilter.Client.ViewModels
 
             originalImage = imageCollector.GetImage()?.AddTo(disposable);
 
-            if (originalImage == null)
+            if (originalImage is null)
             {
                 int width = (int)PreviewImageWidth;
                 int height = (int)(imageViewerAddOn.Size.Height * PreviewImageWidth / imageViewerAddOn.Size.Width);
@@ -208,7 +208,7 @@ namespace ScratchFilter.Client.ViewModels
         /// </summary>
         private void ChangePreviewImage()
         {
-            if (originalImage == null)
+            if (originalImage is null)
             {
                 return;
             }

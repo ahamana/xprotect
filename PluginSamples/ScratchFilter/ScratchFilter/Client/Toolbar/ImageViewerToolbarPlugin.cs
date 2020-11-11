@@ -40,7 +40,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         private void RegisterImageViewerEvents()
         {
-            if (ImageViewerAddOn == null)
+            if (ImageViewerAddOn is null)
             {
                 return;
             }
@@ -64,7 +64,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         private void UnregisterImageViewerEvents()
         {
-            if (ImageViewerAddOn == null)
+            if (ImageViewerAddOn is null)
             {
                 return;
             }
@@ -89,7 +89,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
         private void OnNewImageViewerControl(ImageViewerAddOn imageViewerAddOn)
         {
-            if (ImageViewerAddOn != null)
+            if (ImageViewerAddOn is not null)
             {
                 return;
             }
@@ -199,7 +199,7 @@ namespace ScratchFilter.Client.Toolbar
         public override void Init(Item viewItemInstance, Item window)
         {
             // ※「再生タブ → エクスポート → カメラ選択」を行うと、window が null の状態で呼ばれる。
-            if (window == null)
+            if (window is null)
             {
                 return;
             }
@@ -216,7 +216,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         public override void Close()
         {
-            if (Window == null)
+            if (Window is null)
             {
                 return;
             }

@@ -121,7 +121,7 @@ namespace ScratchFilter.Client.Toolbar
         public override void Init(Item viewItemInstance, Item window)
         {
             // ※「再生タブ → エクスポート → カメラ選択」を行うと、window が null の状態で呼ばれる。
-            if (window == null)
+            if (window is null)
             {
                 return;
             }
@@ -142,7 +142,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         public override void Close()
         {
-            if (Window == null)
+            if (Window is null)
             {
                 return;
             }

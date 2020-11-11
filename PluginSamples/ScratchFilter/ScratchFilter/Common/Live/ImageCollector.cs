@@ -52,7 +52,7 @@ namespace ScratchFilter.Common.Live
         /// <exception cref="ArgumentNullException"><paramref name="cameraFQID" /> が <c>null</c> の場合にスローされます。</exception>
         protected ImageCollector(FQID cameraFQID)
         {
-            if (cameraFQID == null)
+            if (cameraFQID is null)
             {
                 throw new ArgumentNullException(nameof(cameraFQID));
             }
@@ -88,7 +88,7 @@ namespace ScratchFilter.Common.Live
         {
             LiveContentEventArgs args = e as LiveContentEventArgs;
 
-            if (args?.LiveContent == null)
+            if (args?.LiveContent is null)
             {
                 return;
             }
@@ -109,7 +109,7 @@ namespace ScratchFilter.Common.Live
         /// <exception cref="ArgumentNullException"><paramref name="camera" /> が <c>null</c> の場合にスローされます。</exception>
         private void Init(Item camera)
         {
-            if (camera == null)
+            if (camera is null)
             {
                 throw new ArgumentNullException(nameof(camera));
             }
@@ -168,14 +168,14 @@ namespace ScratchFilter.Common.Live
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
 
-            while (imageStream == null && stopwatch.Elapsed < VideoSourceTimeout)
+            while (imageStream is null && stopwatch.Elapsed < VideoSourceTimeout)
             {
                 Task.Delay(TimeSpan.FromTicks(TimeSpan.TicksPerMillisecond)).Wait();
             }
 
             lock (this)
             {
-                if (imageStream == null)
+                if (imageStream is null)
                 {
                     return null;
                 }

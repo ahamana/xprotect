@@ -26,7 +26,7 @@ namespace ScratchFilter.Extensions
         /// <exception cref="ArgumentNullException"><paramref name="bitmap" /> が <c>null</c> の場合にスローされます。</exception>
         internal static BitmapSource ToBitmapSource(this Bitmap bitmap)
         {
-            if (bitmap == null)
+            if (bitmap is null)
             {
                 throw new ArgumentNullException(nameof(bitmap));
             }
