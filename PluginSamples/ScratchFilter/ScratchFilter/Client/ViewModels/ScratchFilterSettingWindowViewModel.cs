@@ -17,7 +17,6 @@ using System.Windows.Media;
 using VideoOS.Platform;
 using VideoOS.Platform.Client;
 using VideoOS.UI.Common.WPF.Utils.FormIntegration;
-using Brush = System.Drawing.Brush;
 using Size = System.Drawing.Size;
 
 namespace ScratchFilter.Client.ViewModels
@@ -83,14 +82,14 @@ namespace ScratchFilter.Client.ViewModels
             ImageGamma = ReactiveProperty.FromObject(setting, setting => setting.ImageGamma).AddTo(disposable);
             ImageGamma.Subscribe(_ => ChangePreviewImage());
 
-            using IImageCollector imageCollector = new BitmapCollector(imageViewerAddOn.CameraFQID);
+            using var imageCollector = new BitmapCollector(imageViewerAddOn.CameraFQID);
 
             originalImage = imageCollector.GetImage()?.AddTo(disposable);
 
             if (originalImage is null)
             {
-                int width = (int)PreviewImageWidth;
-                int height = (int)(imageViewerAddOn.Size.Height * PreviewImageWidth / imageViewerAddOn.Size.Width);
+                var width = (int)PreviewImageWidth;
+                var height = (int)(imageViewerAddOn.Size.Height * PreviewImageWidth / imageViewerAddOn.Size.Width);
 
                 PreviewImage.Value = CreateTextImage(Resources.Toolbar_ScratchFilterSetting_Message_ImageCaptureFailure, new Size(width, height));
 
@@ -180,19 +179,19 @@ namespace ScratchFilter.Client.ViewModels
         /// <returns>テキスト画像</returns>
         private ImageSource CreateTextImage(string text, Size size)
         {
-            using Bitmap image = new Bitmap(size.Width, size.Height);
-            using Graphics graphics = Graphics.FromImage(image);
-            using Font font = new Font(WindowsFormsHostConstants.FontFamily, (float)WindowsFormsHostConstants.FontSize, GraphicsUnit.Pixel);
-            using Brush brush = new SolidBrush(ClientControl.Instance.Theme.TextColor);
+            using var image = new Bitmap(size.Width, size.Height);
+            using var graphics = Graphics.FromImage(image);
+            using var font = new Font(WindowsFormsHostConstants.FontFamily, (float)WindowsFormsHostConstants.FontSize, GraphicsUnit.Pixel);
+            using var brush = new SolidBrush(ClientControl.Instance.Theme.TextColor);
 
             graphics.Clear(ClientControl.Instance.Theme.BorderColor);
 
-            Rectangle rectangle = new Rectangle()
+            var rectangle = new Rectangle
             {
                 Size = image.Size
             };
 
-            StringFormat format = new StringFormat()
+            var format = new StringFormat
             {
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center
@@ -213,7 +212,7 @@ namespace ScratchFilter.Client.ViewModels
                 return;
             }
 
-            using ImageFactory imageFactory = new ImageFactory();
+            using var imageFactory = new ImageFactory();
 
             imageFactory.Load(originalImage)
                         .Contrast(setting.ImageContrast)
@@ -221,7 +220,7 @@ namespace ScratchFilter.Client.ViewModels
                         .Saturation(setting.ImageSaturation)
                         .Gamma(setting.ImageGamma);
 
-            using Bitmap image = new Bitmap(imageFactory.Image);
+            using var image = new Bitmap(imageFactory.Image);
 
             PreviewImage.Value = image.ToBitmapSource();
         }

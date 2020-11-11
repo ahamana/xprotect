@@ -43,15 +43,15 @@ namespace ImageStore.Client.Data
         /// <returns>設定</returns>
         internal static ImageStoreSettings Load()
         {
-            string directoryPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var directoryPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-            string filePath = Path.Combine(directoryPath, $"{nameof(ImageStoreSettings)}.xml");
+            var filePath = Path.Combine(directoryPath, $"{nameof(ImageStoreSettings)}.xml");
 
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ImageStoreSettings));
+            var xmlSerializer = new XmlSerializer(typeof(ImageStoreSettings));
 
-            using TextReader reader = new StreamReader(filePath, Encoding.UTF8);
+            using var reader = new StreamReader(filePath, Encoding.UTF8);
 
-            ImageStoreSettings settings = (ImageStoreSettings)xmlSerializer.Deserialize(reader);
+            var settings = (ImageStoreSettings)xmlSerializer.Deserialize(reader);
             settings.filePath = filePath;
 
             return settings;
@@ -63,12 +63,12 @@ namespace ImageStore.Client.Data
         internal void Save()
         {
             // デフォルトの名前空間の出力制御
-            XmlSerializerNamespaces namespaces = new XmlSerializerNamespaces();
+            var namespaces = new XmlSerializerNamespaces();
             namespaces.Add(string.Empty, string.Empty);
 
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ImageStoreSettings));
+            var xmlSerializer = new XmlSerializer(typeof(ImageStoreSettings));
 
-            using TextWriter writer = new StreamWriter(filePath, false, Encoding.UTF8);
+            using var writer = new StreamWriter(filePath, false, Encoding.UTF8);
 
             xmlSerializer.Serialize(writer, this, namespaces);
         }

@@ -86,7 +86,7 @@ namespace ScratchFilter.Common.Live
         /// <param name="e">イベントのデータ</param>
         private void OnLiveSourceLiveContentEvent(object sender, EventArgs e)
         {
-            LiveContentEventArgs args = e as LiveContentEventArgs;
+            var args = e as LiveContentEventArgs;
 
             if (args?.LiveContent is null)
             {
@@ -95,7 +95,7 @@ namespace ScratchFilter.Common.Live
 
             lock (this)
             {
-                using TLiveSourceContent liveContent = (TLiveSourceContent)args.LiveContent;
+                using var liveContent = (TLiveSourceContent)args.LiveContent;
 
                 imageStream?.Dispose();
                 imageStream = GenerateImageStream(liveContent);
@@ -166,7 +166,7 @@ namespace ScratchFilter.Common.Live
         /// <returns>画像</returns>
         public Bitmap GetImage()
         {
-            Stopwatch stopwatch = Stopwatch.StartNew();
+            var stopwatch = Stopwatch.StartNew();
 
             while (imageStream is null && stopwatch.Elapsed < VideoSourceTimeout)
             {
@@ -180,7 +180,7 @@ namespace ScratchFilter.Common.Live
                     return null;
                 }
 
-                using Image image = Image.FromStream(imageStream);
+                using var image = Image.FromStream(imageStream);
 
                 return new Bitmap(image);
             }

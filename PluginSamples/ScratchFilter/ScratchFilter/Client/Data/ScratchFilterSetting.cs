@@ -71,7 +71,7 @@ namespace ScratchFilter.Client.Data
         {
             get
             {
-                Item camera = Configuration.Instance.GetItem(CameraId, Kind.Camera);
+                var camera = Configuration.Instance.GetItem(CameraId, Kind.Camera);
 
                 return camera?.Name;
             }

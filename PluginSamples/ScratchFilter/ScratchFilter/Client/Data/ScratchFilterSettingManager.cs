@@ -63,15 +63,15 @@ namespace ScratchFilter.Client.Data
         /// </summary>
         private void Save()
         {
-            string dir = Path.GetDirectoryName(SettingFile);
+            var dir = Path.GetDirectoryName(SettingFile);
 
             Directory.CreateDirectory(dir);
 
-            using Stream stream = File.Create(SettingFile);
+            using var stream = File.Create(SettingFile);
 
-            object value = settings.Values;
+            var value = settings.Values;
 
-            JsonSerializerOptions options = new JsonSerializerOptions()
+            var options = new JsonSerializerOptions
             {
                 IgnoreReadOnlyProperties = true,
                 WriteIndented = true
@@ -90,7 +90,7 @@ namespace ScratchFilter.Client.Data
                 return;
             }
 
-            string json = File.ReadAllText(SettingFile);
+            var json = File.ReadAllText(SettingFile);
 
             JsonSerializer.Deserialize<List<ScratchFilterSetting>>(json).ForEach(setting =>
             {
@@ -111,9 +111,9 @@ namespace ScratchFilter.Client.Data
                 throw new ArgumentException(nameof(cameraId));
             }
 
-            if (!settings.TryGetValue(cameraId, out ScratchFilterSetting setting))
+            if (!settings.TryGetValue(cameraId, out var setting))
             {
-                setting = new ScratchFilterSetting()
+                setting = new ScratchFilterSetting
                 {
                     CameraId = cameraId
                 };

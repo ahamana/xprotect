@@ -101,12 +101,12 @@ namespace ImageStore
         /// <returns>画像を保存するファイルのパス</returns>
         private string GenerateImageFilePath(string cameraName)
         {
-            DateTime now = DateTime.Now;
+            var now = DateTime.Now;
 
-            string filePath = Path.Combine(settings.OutputDir,
-                                           now.ToString("yyyy-MM-dd"),
-                                           cameraName,
-                                           $"{now.ToString("yyyy-MM-dd_HH-mm-ss-fff")}.jpg");
+            var filePath = Path.Combine(settings.OutputDir,
+                                        now.ToString("yyyy-MM-dd"),
+                                        cameraName,
+                                        $"{now.ToString("yyyy-MM-dd_HH-mm-ss-fff")}.jpg");
 
             return filePath;
         }
@@ -119,26 +119,25 @@ namespace ImageStore
         /// <param name="e">イベントのデータ</param>
         private void OnLiveSourceLiveContentEvent(object sender, EventArgs e)
         {
-            JPEGLiveSource liveSource = sender as JPEGLiveSource;
-            LiveContentEventArgs args = e as LiveContentEventArgs;
+            var liveSource = sender as JPEGLiveSource;
+            var args = e as LiveContentEventArgs;
 
             if (args?.LiveContent is null)
             {
                 return;
             }
 
-            string filePath = GenerateImageFilePath(liveSource.Item.Name);
+            var filePath = GenerateImageFilePath(liveSource.Item.Name);
 
-            string dirPath = Path.GetDirectoryName(filePath);
+            var dirPath = Path.GetDirectoryName(filePath);
 
             Directory.CreateDirectory(dirPath);
 
             try
             {
-                using (LiveSourceContent liveContent = args.LiveContent)
-                {
-                    File.WriteAllBytes(filePath, liveContent.Content);
-                }
+                using var liveContent = args.LiveContent;
+
+                File.WriteAllBytes(filePath, liveContent.Content);
             }
             catch
             {
@@ -155,23 +154,23 @@ namespace ImageStore
         /// <returns>戻り値</returns>
         private object NewEventIndicationReceiver(Message message, FQID destination, FQID sender)
         {
-            BaseEvent eventData = message.Data as BaseEvent;
+            var eventData = message.Data as BaseEvent;
 
             if (eventData is null)
             {
                 return null;
             }
 
-            EventSource eventSource = eventData.EventHeader.Source;
+            var eventSource = eventData.EventHeader.Source;
 
             switch (eventData.EventHeader.Message)
             {
                 case "Recording Started":
                     if (!liveSources.ContainsKey(eventSource.FQID))
                     {
-                        Item camera = new Item(eventSource.FQID, eventSource.Name);
+                        var camera = new Item(eventSource.FQID, eventSource.Name);
 
-                        VideoLiveSource liveSource = new JPEGLiveSource(camera)
+                        var liveSource = new JPEGLiveSource(camera)
                         {
                             LiveModeStart = true,
                             // 幅と高さに 0 を指定して、実際の解像度の画像を取得
@@ -196,7 +195,7 @@ namespace ImageStore
                 case "Recording Stopped":
                     if (liveSources.ContainsKey(eventSource.FQID))
                     {
-                        LiveSource liveSource = liveSources[eventSource.FQID];
+                        var liveSource = liveSources[eventSource.FQID];
 
                         liveSource.Close();
 

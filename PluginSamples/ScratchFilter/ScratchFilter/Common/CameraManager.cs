@@ -37,7 +37,7 @@ namespace ScratchFilter.Common
         /// <returns>カメラの一覧</returns>
         private IReadOnlyCollection<Item> GetCameras(List<Item> items)
         {
-            List<Item> cameras = new List<Item>();
+            var cameras = new List<Item>();
 
             items.ForEach(item =>
             {

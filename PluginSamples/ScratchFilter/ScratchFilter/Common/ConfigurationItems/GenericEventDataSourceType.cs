@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using VideoOS.Platform;
 using VideoOS.Platform.ConfigurationItems;
@@ -35,9 +34,9 @@ namespace ScratchFilter.Common.ConfigurationItems
         /// <returns>ジェネリックイベントのデータソース</returns>
         internal static GenericEventDataSource GetGenericEventDataSource(this GenericEventDataSourceType genericEventDataSourceType)
         {
-            ManagementServer managementServer = new ManagementServer(EnvironmentManager.Instance.MasterSite);
+            var managementServer = new ManagementServer(EnvironmentManager.Instance.MasterSite);
 
-            ICollection<GenericEventDataSource> genericEventDataSources = managementServer.GenericEventDataSourceFolder.GenericEventDataSources;
+            var genericEventDataSources = managementServer.GenericEventDataSourceFolder.GenericEventDataSources;
 
             return genericEventDataSources.First(genericEventDataSource => genericEventDataSourceType.ToString() == genericEventDataSource.Name);
         }

@@ -189,18 +189,18 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         public override void Init()
         {
-            ViewItemToolbarPlaceDefinition.ViewItemIds = new List<Guid>()
+            ViewItemToolbarPlaceDefinition.ViewItemIds = new List<Guid>
             {
                 ViewAndLayoutItem.CameraBuiltinId
             };
 
-            ViewItemToolbarPlaceDefinition.WorkSpaceIds = new List<Guid>()
+            ViewItemToolbarPlaceDefinition.WorkSpaceIds = new List<Guid>
             {
                 ClientControl.LiveBuildInWorkSpaceId,
                 ClientControl.PlaybackBuildInWorkSpaceId
             };
 
-            ViewItemToolbarPlaceDefinition.WorkSpaceStates = new List<WorkSpaceState>()
+            ViewItemToolbarPlaceDefinition.WorkSpaceStates = new List<WorkSpaceState>
             {
                 WorkSpaceState.Normal
             };

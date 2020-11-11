@@ -31,7 +31,7 @@ namespace ScratchFilter.Extensions
                 throw new ArgumentNullException(nameof(bitmap));
             }
 
-            IntPtr hBitmap = bitmap.GetHbitmap();
+            var hBitmap = bitmap.GetHbitmap();
 
             try
             {

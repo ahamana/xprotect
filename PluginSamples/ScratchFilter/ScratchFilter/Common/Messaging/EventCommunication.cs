@@ -1,6 +1,5 @@
 using System;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Reflection;
@@ -38,10 +37,10 @@ namespace ScratchFilter.Common.Messaging
         private string GetEventServerHostname()
         {
             // イベントサーバのサービス URL の情報を取得
-            Configuration.ServiceURIInfo serviceURIInfo =
+            var serviceURIInfo =
                 Configuration.Instance.GetRegisteredServiceUriInfo(Configuration.MAPServiceType, EnvironmentManager.Instance.MasterSite.ServerId).First();
 
-            Uri serviceUri = UrlUtil.BuildUri(serviceURIInfo.UriArray.First());
+            var serviceUri = UrlUtil.BuildUri(serviceURIInfo.UriArray.First());
 
             return serviceUri.Host;
         }
@@ -63,7 +62,7 @@ namespace ScratchFilter.Common.Messaging
                 return;
             }
 
-            Message message = new Message(MessageId.Control.TriggerCommand, relatedItem?.FQID);
+            var message = new Message(MessageId.Control.TriggerCommand, relatedItem?.FQID);
 
             EnvironmentManager.Instance.SendMessage(message, userDefinedEvent.FQID);
         }
@@ -86,7 +85,7 @@ namespace ScratchFilter.Common.Messaging
                 return;
             }
 
-            EventSource eventSource = new EventSource()
+            var eventSource = new EventSource
             {
                 // Send empty - it is possible to send without an eventsource, but the intended design is that there should be a source.
                 // The FQID is primamry used to match up the ObjectId with the camera.
@@ -95,7 +94,7 @@ namespace ScratchFilter.Common.Messaging
                 Name = device.Name
             };
 
-            EventHeader eventHeader = new EventHeader()
+            var eventHeader = new EventHeader
             {
                 ID = Guid.NewGuid(),
                 Message = eventName,
@@ -103,12 +102,12 @@ namespace ScratchFilter.Common.Messaging
                 Timestamp = DateTime.Now
             };
 
-            Vendor vendor = new Vendor
+            var vendor = new Vendor
             {
                 Name = VendorName
             };
 
-            AnalyticsEvent analyticsEvent = new AnalyticsEvent()
+            var analyticsEvent = new AnalyticsEvent
             {
                 EventHeader = eventHeader,
                 Location = device.Name,
@@ -116,7 +115,7 @@ namespace ScratchFilter.Common.Messaging
                 Vendor = vendor
             };
 
-            Message message = new Message(MessageId.Server.NewEventCommand, analyticsEvent);
+            var message = new Message(MessageId.Server.NewEventCommand, analyticsEvent);
 
             EnvironmentManager.Instance.SendMessage(message);
         }
@@ -138,10 +137,10 @@ namespace ScratchFilter.Common.Messaging
                 return;
             }
 
-            using TcpClient client = new TcpClient(GetEventServerHostname(), dataSource.DataSourcePort);
-            using Stream stream = client.GetStream();
+            using var client = new TcpClient(GetEventServerHostname(), dataSource.DataSourcePort);
+            using var stream = client.GetStream();
 
-            byte[] buffer = Encoding.UTF8.GetBytes(text);
+            var buffer = Encoding.UTF8.GetBytes(text);
 
             stream.Write(buffer, 0, buffer.Length);
         }
@@ -164,7 +163,7 @@ namespace ScratchFilter.Common.Messaging
                 return;
             }
 
-            EventSource eventSource = new EventSource()
+            var eventSource = new EventSource
             {
                 // Send empty - it is possible to send without an eventsource, but the intended design is that there should be a source.
                 // The FQID is primamry used to match up the ObjectId with the camera.
@@ -173,7 +172,7 @@ namespace ScratchFilter.Common.Messaging
                 Name = device.Name
             };
 
-            EventHeader eventHeader = new EventHeader()
+            var eventHeader = new EventHeader
             {
                 ID = Guid.NewGuid(),
                 Name = alarmName,
@@ -182,12 +181,12 @@ namespace ScratchFilter.Common.Messaging
                 Timestamp = DateTime.Now
             };
 
-            Vendor vendor = new Vendor
+            var vendor = new Vendor
             {
                 Name = VendorName
             };
 
-            Alarm alarm = new Alarm()
+            var alarm = new Alarm
             {
                 EventHeader = eventHeader,
                 Location = device.Name,
@@ -195,7 +194,7 @@ namespace ScratchFilter.Common.Messaging
                 Vendor = vendor
             };
 
-            Message message = new Message(MessageId.Server.NewAlarmCommand, alarm);
+            var message = new Message(MessageId.Server.NewAlarmCommand, alarm);
 
             EnvironmentManager.Instance.SendMessage(message);
         }

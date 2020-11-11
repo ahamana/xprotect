@@ -30,12 +30,12 @@ namespace ScratchFilter.Client.Toolbar
         /// <returns>セパレータ用のアイコン</returns>
         private Image CreateSeparatorIcon()
         {
-            Image icon = new Bitmap(SeparatorSize.Width, SeparatorSize.Height);
+            var icon = new Bitmap(SeparatorSize.Width, SeparatorSize.Height);
 
-            using Graphics graphics = Graphics.FromImage(icon);
-            using Brush brush = new SolidBrush(ClientControl.Instance.Theme.SeparatorLinesColor);
+            using var graphics = Graphics.FromImage(icon);
+            using var brush = new SolidBrush(ClientControl.Instance.Theme.SeparatorLinesColor);
 
-            Rectangle rectangle = new Rectangle()
+            var rectangle = new Rectangle
             {
                 Size = icon.Size
             };

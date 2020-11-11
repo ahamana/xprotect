@@ -49,11 +49,11 @@ namespace ScratchFilter.Common.Live
         /// <returns>画像のストリーム</returns>
         protected override Stream GenerateImageStream(LiveSourceBitmapContent liveContent)
         {
-            Stream stream = new MemoryStream();
+            var stream = new MemoryStream();
 
-            using Image image = new Bitmap(liveContent.GetPlaneWidth(0), liveContent.GetPlaneHeight(0),
-                                           liveContent.GetPlaneStride(0), PixelFormat.Format24bppRgb,
-                                           liveContent.GetPlanePointer(0));
+            using var image = new Bitmap(liveContent.GetPlaneWidth(0), liveContent.GetPlaneHeight(0),
+                                         liveContent.GetPlaneStride(0), PixelFormat.Format24bppRgb,
+                                         liveContent.GetPlanePointer(0));
 
             image.Save(stream, ImageFormat.Bmp);
 
