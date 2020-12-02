@@ -12,11 +12,13 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Reflection;
 using System.Text;
+
 using VideoOS.Platform;
 using VideoOS.Platform.ConfigurationItems;
 using VideoOS.Platform.Data;
 using VideoOS.Platform.Messaging;
 using VideoOS.Platform.Util;
+
 using AnalyticsEvent = VideoOS.Platform.Data.AnalyticsEvent;
 
 namespace ScratchFilter.Common.Messaging

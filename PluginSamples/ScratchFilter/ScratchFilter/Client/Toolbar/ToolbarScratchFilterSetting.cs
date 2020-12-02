@@ -6,9 +6,11 @@
 // express written permission of Canon Inc.
 //
 
+using System;
+
 using ScratchFilter.Client.Views;
 using ScratchFilter.Properties;
-using System;
+
 using VideoOS.Platform;
 using VideoOS.Platform.Client;
 

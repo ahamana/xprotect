@@ -6,7 +6,6 @@
 // express written permission of Canon Inc.
 //
 
-using Mapster;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,6 +13,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text.Json;
+
+using Mapster;
 
 namespace ScratchFilter.Client.Data
 {

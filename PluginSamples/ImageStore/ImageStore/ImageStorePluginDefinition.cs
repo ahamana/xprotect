@@ -6,7 +6,6 @@
 // express written permission of Canon Inc.
 //
 
-using ImageStore.Client.Data;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,6 +13,9 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+
+using ImageStore.Client.Data;
+
 using VideoOS.Platform;
 using VideoOS.Platform.Data;
 using VideoOS.Platform.Live;

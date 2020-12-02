@@ -6,14 +6,18 @@
 // express written permission of Canon Inc.
 //
 
-using ImageProcessor;
-using ScratchFilter.Client.Data;
-using ScratchFilter.Properties;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+
+using ImageProcessor;
+
+using ScratchFilter.Client.Data;
+using ScratchFilter.Properties;
+
 using VideoOS.Platform;
 using VideoOS.Platform.Client;
+
 using Point = System.Drawing.Point;
 
 namespace ScratchFilter.Client.Toolbar

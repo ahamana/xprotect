@@ -6,9 +6,10 @@
 // express written permission of Canon Inc.
 //
 
-using Microsoft.Xaml.Behaviors;
 using System;
 using System.Windows;
+
+using Microsoft.Xaml.Behaviors;
 
 namespace ScratchFilter.Client.Views.Behaviors
 {

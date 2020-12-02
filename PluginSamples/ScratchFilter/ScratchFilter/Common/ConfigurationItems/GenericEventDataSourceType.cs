@@ -7,6 +7,7 @@
 //
 
 using System.Linq;
+
 using VideoOS.Platform;
 using VideoOS.Platform.ConfigurationItems;
 

@@ -6,25 +6,31 @@
 // express written permission of Canon Inc.
 //
 
-using ImageProcessor;
-using Prism.Commands;
-using Prism.Mvvm;
-using Reactive.Bindings;
-using Reactive.Bindings.Extensions;
-using Reactive.Bindings.Notifiers;
-using ScratchFilter.Client.Data;
-using ScratchFilter.Common.Live;
-using ScratchFilter.Extensions;
-using ScratchFilter.Properties;
 using System;
 using System.Drawing;
 using System.Reactive.Disposables;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+
+using ImageProcessor;
+
+using Prism.Commands;
+using Prism.Mvvm;
+
+using Reactive.Bindings;
+using Reactive.Bindings.Extensions;
+using Reactive.Bindings.Notifiers;
+
+using ScratchFilter.Client.Data;
+using ScratchFilter.Common.Live;
+using ScratchFilter.Extensions;
+using ScratchFilter.Properties;
+
 using VideoOS.Platform;
 using VideoOS.Platform.Client;
 using VideoOS.UI.Common.WPF.Utils.FormIntegration;
+
 using Size = System.Drawing.Size;
 
 namespace ScratchFilter.Client.ViewModels

@@ -6,8 +6,10 @@
 // express written permission of Canon Inc.
 //
 
-using Prism.Mvvm;
 using System;
+
+using Prism.Mvvm;
+
 using VideoOS.Platform;
 
 namespace ScratchFilter.Client.Data
