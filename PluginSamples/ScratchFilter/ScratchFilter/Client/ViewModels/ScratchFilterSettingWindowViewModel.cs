@@ -29,9 +29,9 @@ using ScratchFilter.Properties;
 
 using VideoOS.Platform;
 using VideoOS.Platform.Client;
-using VideoOS.UI.Common.WPF.Utils.FormIntegration;
 
 using Size = System.Drawing.Size;
+using SystemFonts = System.Drawing.SystemFonts;
 
 namespace ScratchFilter.Client.ViewModels
 {
@@ -195,7 +195,7 @@ namespace ScratchFilter.Client.ViewModels
         {
             using var image = new Bitmap(size.Width, size.Height);
             using var graphics = Graphics.FromImage(image);
-            using var font = new Font(WindowsFormsHostConstants.FontFamily, (float)WindowsFormsHostConstants.FontSize, GraphicsUnit.Pixel);
+            using var font = new Font(SystemFonts.DefaultFont.FontFamily, SystemFonts.DefaultFont.Size, GraphicsUnit.Pixel);
             using var brush = new SolidBrush(ClientControl.Instance.Theme.TextColor);
 
             graphics.Clear(ClientControl.Instance.Theme.BorderColor);

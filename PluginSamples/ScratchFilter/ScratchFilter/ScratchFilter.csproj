@@ -120,11 +120,7 @@
       <HintPath>..\packages\ToString.Fody.1.11.0\lib\net452\ToString.dll</HintPath>
     </Reference>
     <Reference Include="VideoOS.Platform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bc60fba4a7969f89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MIPSDK\VideoOS.Platform.dll</HintPath>
-    </Reference>
-    <Reference Include="VideoOS.UI.Common.WPF">
-      <HintPath>..\MIPSDK\VideoOS.UI.Common.WPF.dll</HintPath>
+      <HintPath>..\packages\MilestoneSystems.VideoOS.Platform.20.3.0\lib\net47\VideoOS.Platform.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -158,7 +154,7 @@
     <Compile Include="ScratchFilterPluginDefinition.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.ja.resx" />
+    <EmbeddedResource Include="Properties\Resources.ja-JP.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -178,10 +174,10 @@
     <None Include="packages.config" />
     <None Include="Resources\Client\Dark\ScratchFilterActive.png" />
     <None Include="Resources\Client\Dark\ScratchFilterInactive.png" />
-    <Content Include="Resources\Client\Dark\ScratchFilterSettings.png" />
+    <None Include="Resources\Client\Dark\ScratchFilterSettings.png" />
     <None Include="Resources\Client\Light\ScratchFilterActive.png" />
     <None Include="Resources\Client\Light\ScratchFilterInactive.png" />
-    <Content Include="Resources\Client\Light\ScratchFilterSettings.png" />
+    <None Include="Resources\Client\Light\ScratchFilterSettings.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
