@@ -136,16 +136,16 @@ namespace ScratchFilter.Client.Data
         /// <summary>
         /// 傷フィルタの設定を保存します。
         /// </summary>
-        /// <param name="setting">更新対象の傷フィルタの設定</param>
-        /// <exception cref="ArgumentNullException"><paramref name="setting" /> が <c>null</c> の場合にスローされます。</exception>
-        internal void Save(ScratchFilterSetting setting)
+        /// <param name="settings">更新対象の傷フィルタの設定</param>
+        /// <exception cref="ArgumentNullException"><paramref name="settings" /> が <c>null</c> の場合にスローされます。</exception>
+        internal void Save(params ScratchFilterSetting[] settings)
         {
-            if (setting is null)
+            if (settings is null)
             {
-                throw new ArgumentNullException(nameof(setting));
+                throw new ArgumentNullException(nameof(settings));
             }
 
-            Save(new[] { setting });
+            Save(settings);
         }
 
         /// <summary>
