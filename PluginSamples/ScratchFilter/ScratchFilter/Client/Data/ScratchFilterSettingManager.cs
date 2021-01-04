@@ -141,7 +141,7 @@ namespace ScratchFilter.Client.Data
         /// <exception cref="ArgumentException"><paramref name="settings" /> が空の場合にスローされます。</exception>
         internal void Save(params ScratchFilterSetting[] settings)
         {
-            Save(settings);
+            Save(Enumerable.AsEnumerable(settings));
         }
 
         /// <summary>
