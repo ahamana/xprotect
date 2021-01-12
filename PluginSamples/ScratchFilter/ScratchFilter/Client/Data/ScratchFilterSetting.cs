@@ -71,7 +71,7 @@ namespace ScratchFilter.Client.Data
         /// カメラの ID です。
         /// </summary>
         /// <value>カメラの ID</value>
-        public Guid CameraId { get; set; }
+        public Guid CameraId { get; init; }
 
         /// <summary>
         /// カメラ名です。
