@@ -23,7 +23,7 @@
             archiveEvery="Day"
             archiveFileName="${logDir}/Application_{#}.log"
             archiveNumbering="Date"
-            maxArchiveFiles="7" />
+            maxArchiveDays="7" />
   </targets>
 
   <!-- ================================================================== -->
