@@ -53,6 +53,20 @@ namespace ScratchFilter
 
         #endregion Fields
 
+        #region Constructors
+
+        /// <summary>
+        /// 静的コンストラクタです。
+        /// </summary>
+        static ScratchFilterPluginDefinition()
+        {
+            var productName = FileVersionInfo.ProductName;
+
+            LogManager.Configuration.Variables.Add(nameof(productName), productName);
+        }
+
+        #endregion Constructors
+
         #region Properties
 
         /// <summary>

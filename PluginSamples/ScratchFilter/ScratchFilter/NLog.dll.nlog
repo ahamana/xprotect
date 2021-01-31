@@ -6,8 +6,7 @@
   <!-- ================================================================== -->
   <!--     Variables                                                      -->
   <!-- ================================================================== -->
-  <variable name="productName" value="Scratch Filter" />
-  <variable name="logDir" value="${specialfolder:folder=CommonApplicationData:dir=Canon/WebView/${productName}/Logs}" />
+  <variable name="logDir" value="${specialfolder:CommonApplicationData}/Canon/WebView/${var:productName}/Logs" />
   <variable name="logLayout" value="${longdate} [${threadid:padding=8}] [${uppercase:${level:padding=-5}}] ${callsite}: ${callsite-linenumber} - ${message} ${exception:format=tostring}" />
   <variable name="logEncoding" value="UTF-8" />
 
