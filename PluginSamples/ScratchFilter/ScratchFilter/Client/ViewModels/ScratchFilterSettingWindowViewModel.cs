@@ -15,7 +15,6 @@ using System.Windows.Media;
 
 using ImageProcessor;
 
-using Prism.Commands;
 using Prism.Mvvm;
 
 using Reactive.Bindings;
@@ -105,7 +104,7 @@ namespace ScratchFilter.Client.ViewModels
 
             SaveCommand = IsSettable.ToReactiveCommand<Window>().WithSubscribe(SaveSettings).AddTo(disposable);
 
-            CancelCommand = new DelegateCommand<Window>(Exit);
+            CancelCommand = new ReactiveCommand<Window>().WithSubscribe(Exit);
 
             ChangePreviewImage();
         }
