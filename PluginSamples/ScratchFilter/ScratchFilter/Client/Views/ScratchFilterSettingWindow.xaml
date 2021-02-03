@@ -47,9 +47,12 @@
                 <Grid.RowDefinitions>
                     <!-- カメラ名 -->
                     <RowDefinition Height="Auto" MinHeight="24" />
-                    <!-- 画像 -->
+                    <!-- 画像/エラーメッセージ -->
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="640" />
+                </Grid.ColumnDefinitions>
 
                 <!-- カメラ名 -->
                 <TextBlock Grid.Row="0"
@@ -59,8 +62,18 @@
                 <!-- 画像 -->
                 <Image Grid.Row="1"
                        Grid.Column="0"
-                       Width="{Binding PreviewImageWidth}"
                        Source="{Binding PreviewImage.Value}" />
+
+                <!-- エラーメッセージ -->
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Height="240"
+                       BorderBrush="White"
+                       BorderThickness="1"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Message_ImageCaptureFailure}"
+                       Visibility="{Binding ErrorMessageVisibility.Value}" />
             </Grid>
         </DockPanel>
 

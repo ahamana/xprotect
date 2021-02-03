@@ -25,13 +25,8 @@ using Reactive.Bindings.Notifiers;
 using ScratchFilter.Client.Data;
 using ScratchFilter.Common.Live;
 using ScratchFilter.Extensions;
-using ScratchFilter.Properties;
 
-using VideoOS.Platform;
 using VideoOS.Platform.Client;
-
-using Size = System.Drawing.Size;
-using SystemFonts = System.Drawing.SystemFonts;
 
 namespace ScratchFilter.Client.ViewModels
 {
@@ -80,6 +75,8 @@ namespace ScratchFilter.Client.ViewModels
 
             PreviewImage = new ReactivePropertySlim<ImageSource>().AddTo(disposable);
 
+            ErrorMessageVisibility = new ReactivePropertySlim<Visibility>(Visibility.Hidden).AddTo(disposable);
+
             setting = ScratchFilterSettingManager.Instance.GetSetting(imageViewerAddOn.CameraFQID.ObjectId);
 
             CameraName = setting.ObserveProperty(setting => setting.CameraName).ToReadOnlyReactivePropertySlim().AddTo(disposable);
@@ -102,11 +99,7 @@ namespace ScratchFilter.Client.ViewModels
 
             if (originalImage is null)
             {
-                var width = (int)PreviewImageWidth;
-                var height = (int)(imageViewerAddOn.Size.Height * PreviewImageWidth / imageViewerAddOn.Size.Width);
-
-                PreviewImage.Value = CreateTextImage(Resources.Toolbar_ScratchFilterSetting_Message_ImageCaptureFailure, new Size(width, height));
-
+                ErrorMessageVisibility.Value = Visibility.Visible;
                 IsSettable.TurnOff();
             }
 
@@ -122,12 +115,6 @@ namespace ScratchFilter.Client.ViewModels
         #region Properties
 
         /// <summary>
-        /// プレビュー画像の幅です。
-        /// </summary>
-        /// <value>プレビュー画像の幅</value>
-        public double PreviewImageWidth { get; } = 640;
-
-        /// <summary>
         /// 設定可能であるかどうかです。
         /// </summary>
         /// <value>設定可能であるかどうか</value>
@@ -138,6 +125,12 @@ namespace ScratchFilter.Client.ViewModels
         /// </summary>
         /// <value>プレビュー画像</value>
         public IReactiveProperty<ImageSource> PreviewImage { get; }
+
+        /// <summary>
+        /// エラーメッセージの表示状態です。
+        /// </summary>
+        /// <value>エラーメッセージの表示状態</value>
+        public IReactiveProperty<Visibility> ErrorMessageVisibility { get; }
 
         /// <summary>
         /// カメラ名です。
@@ -184,37 +177,6 @@ namespace ScratchFilter.Client.ViewModels
         #endregion Properties
 
         #region Methods
-
-        /// <summary>
-        /// テキスト画像を生成します。
-        /// </summary>
-        /// <param name="text">テキスト</param>
-        /// <param name="size">画像のサイズ</param>
-        /// <returns>テキスト画像</returns>
-        private ImageSource CreateTextImage(string text, Size size)
-        {
-            using var image = new Bitmap(size.Width, size.Height);
-            using var graphics = Graphics.FromImage(image);
-            using var font = new Font(SystemFonts.DefaultFont.FontFamily, SystemFonts.DefaultFont.Size, GraphicsUnit.Pixel);
-            using var brush = new SolidBrush(ClientControl.Instance.Theme.TextColor);
-
-            graphics.Clear(ClientControl.Instance.Theme.BorderColor);
-
-            var rectangle = new Rectangle
-            {
-                Size = image.Size
-            };
-
-            var format = new StringFormat
-            {
-                Alignment = StringAlignment.Center,
-                LineAlignment = StringAlignment.Center
-            };
-
-            graphics.DrawString(text, font, brush, rectangle, format);
-
-            return image.ToBitmapSource();
-        }
 
         /// <summary>
         /// プレビュー画像を変更します。
