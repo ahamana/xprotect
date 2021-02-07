@@ -97,7 +97,7 @@ namespace ScratchFilter
         /// トップレベルで使用するアイコンです。
         /// </summary>
         /// <value>トップレベルで使用するアイコン</value>
-        public override Image Icon { get; }
+        public override Image? Icon { get; }
 
         /// <summary>
         /// Smart Client のツールバー用プラグインの一覧です。

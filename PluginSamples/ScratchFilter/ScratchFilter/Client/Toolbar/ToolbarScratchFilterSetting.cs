@@ -53,6 +53,11 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         public override void Activate()
         {
+            if (ImageViewerAddOn is null)
+            {
+                return;
+            }
+
             var window = new ScratchFilterSettingWindow(ImageViewerAddOn);
 
             window.ShowDialog();

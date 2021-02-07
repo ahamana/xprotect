@@ -43,12 +43,12 @@ namespace ScratchFilter.Common.Live
         /// <summary>
         /// ライブ映像のソースです。
         /// </summary>
-        private TVideoLiveSource liveSource;
+        private TVideoLiveSource? liveSource;
 
         /// <summary>
         /// 画像のストリームです。
         /// </summary>
-        private Stream imageStream;
+        private Stream? imageStream;
 
         #endregion Fields
 
@@ -58,14 +58,8 @@ namespace ScratchFilter.Common.Live
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraFQID">カメラの完全修飾 ID</param>
-        /// <exception cref="ArgumentNullException"><paramref name="cameraFQID" /> が <c>null</c> の場合にスローされます。</exception>
         protected ImageCollector(FQID cameraFQID)
         {
-            if (cameraFQID is null)
-            {
-                throw new ArgumentNullException(nameof(cameraFQID));
-            }
-
             Init(Configuration.Instance.GetItem(cameraFQID));
         }
 
@@ -115,14 +109,8 @@ namespace ScratchFilter.Common.Live
         /// 初期化処理を行います。
         /// </summary>
         /// <param name="camera">カメラ</param>
-        /// <exception cref="ArgumentNullException"><paramref name="camera" /> が <c>null</c> の場合にスローされます。</exception>
         private void Init(Item camera)
         {
-            if (camera is null)
-            {
-                throw new ArgumentNullException(nameof(camera));
-            }
-
             liveSource = GenerateVideoLiveSource(camera);
 
             liveSource.LiveModeStart = true;
@@ -167,13 +155,13 @@ namespace ScratchFilter.Common.Live
         /// </summary>
         /// <param name="liveContent">ライブ映像の内容</param>
         /// <returns>画像のストリーム</returns>
-        protected abstract Stream GenerateImageStream(TLiveSourceContent liveContent);
+        protected abstract Stream? GenerateImageStream(TLiveSourceContent liveContent);
 
         /// <summary>
         /// 画像を取得します。
         /// </summary>
         /// <returns>画像</returns>
-        public Bitmap GetImage()
+        public Bitmap? GetImage()
         {
             var stopwatch = Stopwatch.StartNew();
 

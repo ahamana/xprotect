@@ -55,19 +55,19 @@ namespace ScratchFilter.Client.Toolbar
         /// 表示先のウィンドウです。
         /// </summary>
         /// <value>表示先のウィンドウ</value>
-        protected Item Window { get; private set; }
+        protected Item? Window { get; private set; }
 
         /// <summary>
         /// 表示先のモニターです。
         /// </summary>
         /// <value>表示先のモニター</value>
-        protected Item Monitor { get; private set; }
+        protected Item? Monitor { get; private set; }
 
         /// <summary>
         /// プラグインの説明です。
         /// </summary>
         /// <value>プラグインの説明</value>
-        protected virtual string Description { get; }
+        protected virtual string? Description { get; }
 
         #endregion Properties
 
@@ -80,7 +80,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <param name="destination">通知先</param>
         /// <param name="sender">通知元</param>
         /// <returns><c>null</c></returns>
-        private object ThemeChangedIndicationReceiver(Message message, FQID destination, FQID sender)
+        private object? ThemeChangedIndicationReceiver(Message message, FQID destination, FQID sender)
         {
             ReloadIcon();
 
@@ -187,7 +187,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <remarks>Smart Client の UI のどこにも表示されず、使用されることはありません。</remarks>
         /// <value>名前</value>
-        public sealed override string Name { get; }
+        public sealed override string? Name { get; }
 
         #endregion Properties
 

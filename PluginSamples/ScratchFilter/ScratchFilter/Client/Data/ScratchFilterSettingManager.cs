@@ -101,7 +101,7 @@ namespace ScratchFilter.Client.Data
 
             var json = File.ReadAllText(SettingFile);
 
-            JsonSerializer.Deserialize<List<ScratchFilterSetting>>(json).ForEach(setting =>
+            JsonSerializer.Deserialize<List<ScratchFilterSetting>>(json)?.ForEach(setting =>
             {
                 settings.Add(setting.CameraId, setting);
             });
@@ -137,7 +137,6 @@ namespace ScratchFilter.Client.Data
         /// 傷フィルタの設定を保存します。
         /// </summary>
         /// <param name="settings">更新対象の傷フィルタの設定</param>
-        /// <exception cref="ArgumentNullException"><paramref name="settings" /> が <c>null</c> の場合にスローされます。</exception>
         /// <exception cref="ArgumentException"><paramref name="settings" /> が空の場合にスローされます。</exception>
         internal void Save(params ScratchFilterSetting[] settings)
         {
@@ -148,15 +147,9 @@ namespace ScratchFilter.Client.Data
         /// 傷フィルタの設定を保存します。
         /// </summary>
         /// <param name="settings">更新対象の傷フィルタの設定の一覧</param>
-        /// <exception cref="ArgumentNullException"><paramref name="settings" /> が <c>null</c> の場合にスローされます。</exception>
         /// <exception cref="ArgumentException"><paramref name="settings" /> が空の場合にスローされます。</exception>
         internal void Save(IEnumerable<ScratchFilterSetting> settings)
         {
-            if (settings is null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
-
             if (!settings.Any())
             {
                 throw new ArgumentException(nameof(settings));

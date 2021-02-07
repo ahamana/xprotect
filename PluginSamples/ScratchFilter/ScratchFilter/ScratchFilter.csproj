@@ -20,6 +20,7 @@
     <OldToolsVersion>4.0</OldToolsVersion>
     <TargetFrameworkProfile />
     <LangVersion>9.0</LangVersion>
+    <Nullable>enable</Nullable>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>

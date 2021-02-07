@@ -52,7 +52,7 @@ namespace ScratchFilter.Client.ViewModels
         /// <summary>
         /// オリジナル画像です。
         /// </summary>
-        private readonly Bitmap originalImage;
+        private readonly Bitmap? originalImage;
 
         #endregion Fields
 
@@ -62,14 +62,8 @@ namespace ScratchFilter.Client.ViewModels
         /// コンストラクタです。
         /// </summary>
         /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
-        /// <exception cref="ArgumentNullException"><paramref name="imageViewerAddOn" /> が <c>null</c> の場合にスローされます。</exception>
         internal ScratchFilterSettingWindowViewModel(ImageViewerAddOn imageViewerAddOn)
         {
-            if (imageViewerAddOn is null)
-            {
-                throw new ArgumentNullException(nameof(imageViewerAddOn));
-            }
-
             IsSettable = new BooleanNotifier(true);
 
             PreviewImage = new ReactivePropertySlim<ImageSource>().AddTo(disposable);
@@ -135,7 +129,7 @@ namespace ScratchFilter.Client.ViewModels
         /// カメラ名です。
         /// </summary>
         /// <value>カメラ名</value>
-        public IReadOnlyReactiveProperty<string> CameraName { get; }
+        public IReadOnlyReactiveProperty<string?> CameraName { get; }
 
         /// <summary>
         /// 画像のコントラストです。
@@ -208,7 +202,7 @@ namespace ScratchFilter.Client.ViewModels
         {
             ScratchFilterSettingManager.Instance.Save(setting);
 
-            window?.Close();
+            window.Close();
         }
 
         /// <summary>
@@ -217,7 +211,7 @@ namespace ScratchFilter.Client.ViewModels
         /// <param name="window">ウィンドウ</param>
         private void Exit(Window window)
         {
-            window?.Close();
+            window.Close();
         }
 
         /// <summary>

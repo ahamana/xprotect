@@ -68,6 +68,11 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         private void HandleDisplayedImage()
         {
+            if (ImageViewerAddOn is null)
+            {
+                return;
+            }
+
             ImageViewerAddOn.ClearOverlay(default);
 
             if (!isActive)

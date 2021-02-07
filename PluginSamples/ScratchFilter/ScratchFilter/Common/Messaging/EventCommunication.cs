@@ -60,13 +60,8 @@ namespace ScratchFilter.Common.Messaging
         /// </summary>
         /// <param name="userDefinedEvent">ユーザ定義イベント</param>
         /// <param name="relatedItem">関連項目</param>
-        internal void SendUserDefinedEvent(Item userDefinedEvent, Item relatedItem = null)
+        internal void SendUserDefinedEvent(Item userDefinedEvent, Item? relatedItem = null)
         {
-            if (userDefinedEvent is null)
-            {
-                return;
-            }
-
             if (userDefinedEvent.FQID.Kind != Kind.TriggerEvent)
             {
                 return;
@@ -83,14 +78,9 @@ namespace ScratchFilter.Common.Messaging
         /// <param name="eventName">イベント名</param>
         /// <param name="device">デバイス</param>
         /// <param name="description">説明</param>
-        internal void SendAnalyticsEvent(string eventName, Item device, string description = null)
+        internal void SendAnalyticsEvent(string eventName, Item device, string? description = null)
         {
             if (string.IsNullOrEmpty(eventName))
-            {
-                return;
-            }
-
-            if (device is null)
             {
                 return;
             }
@@ -137,11 +127,6 @@ namespace ScratchFilter.Common.Messaging
         /// <param name="text">通知する文字列</param>
         internal void SendGenericEvent(GenericEventDataSource dataSource, string text)
         {
-            if (dataSource is null)
-            {
-                return;
-            }
-
             if (string.IsNullOrEmpty(text))
             {
                 return;
@@ -161,14 +146,9 @@ namespace ScratchFilter.Common.Messaging
         /// <param name="alarmName">アラーム名</param>
         /// <param name="device">デバイス</param>
         /// <param name="description">説明</param>
-        internal void SendAlarm(string alarmName, Item device, string description = null)
+        internal void SendAlarm(string alarmName, Item device, string? description = null)
         {
             if (string.IsNullOrEmpty(alarmName))
-            {
-                return;
-            }
-
-            if (device is null)
             {
                 return;
             }

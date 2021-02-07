@@ -31,14 +31,8 @@ namespace ScratchFilter.Extensions
         /// </summary>
         /// <param name="bitmap">変換する <see cref="Bitmap" /></param>
         /// <returns>変換した <see cref="BitmapSource" /></returns>
-        /// <exception cref="ArgumentNullException"><paramref name="bitmap" /> が <c>null</c> の場合にスローされます。</exception>
         internal static BitmapSource ToBitmapSource(this Bitmap bitmap)
         {
-            if (bitmap is null)
-            {
-                throw new ArgumentNullException(nameof(bitmap));
-            }
-
             var hBitmap = bitmap.GetHbitmap();
 
             try

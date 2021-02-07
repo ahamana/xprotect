@@ -6,7 +6,6 @@
 // express written permission of Canon Inc.
 //
 
-using System;
 using System.Windows;
 
 using ScratchFilter.Client.ViewModels;
@@ -26,14 +25,8 @@ namespace ScratchFilter.Client.Views
         /// コンストラクタです。
         /// </summary>
         /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
-        /// <exception cref="ArgumentNullException"><paramref name="imageViewerAddOn" /> が <c>null</c> の場合にスローされます。</exception>
         internal ScratchFilterSettingWindow(ImageViewerAddOn imageViewerAddOn)
         {
-            if (imageViewerAddOn is null)
-            {
-                throw new ArgumentNullException(nameof(imageViewerAddOn));
-            }
-
             InitializeComponent();
 
             DataContext = new ScratchFilterSettingWindowViewModel(imageViewerAddOn);

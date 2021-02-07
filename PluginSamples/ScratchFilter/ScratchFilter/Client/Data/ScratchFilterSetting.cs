@@ -77,7 +77,7 @@ namespace ScratchFilter.Client.Data
         /// カメラ名です。
         /// </summary>
         /// <value>カメラ名</value>
-        public string CameraName
+        public string? CameraName
         {
             get
             {
