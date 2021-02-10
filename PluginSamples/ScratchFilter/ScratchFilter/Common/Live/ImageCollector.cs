@@ -155,7 +155,7 @@ namespace ScratchFilter.Common.Live
         /// </summary>
         /// <param name="liveContent">ライブ映像の内容</param>
         /// <returns>画像のストリーム</returns>
-        protected abstract Stream? GenerateImageStream(TLiveSourceContent liveContent);
+        protected abstract Stream GenerateImageStream(TLiveSourceContent liveContent);
 
         /// <summary>
         /// 画像を取得します。
