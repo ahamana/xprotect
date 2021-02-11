@@ -8,8 +8,8 @@ const BUILD_ROOT_DIR = './build';
 
 // ビルド用のディレクトリ
 const BUILD_DIR = {
-	root: BUILD_ROOT_DIR,
-	dist: `${BUILD_ROOT_DIR}/distributions`
+    root: BUILD_ROOT_DIR,
+    dist: `${BUILD_ROOT_DIR}/distributions`
 }
 
 // コンテンツのディレクトリ
@@ -31,28 +31,28 @@ const TSCONFIG_JSON_FILE_PATH = './tsconfig.json';
 //    Build Settings
 //-----------------------------------------------------------------------------
 export default {
-	// tsconfig.json
-	tsconfigJson: TSCONFIG_JSON_FILE_PATH,
+    // tsconfig.json
+    tsconfigJson: TSCONFIG_JSON_FILE_PATH,
 
-	// ビルドディレクトリ
-	buildDir: BUILD_DIR,
+    // ビルドディレクトリ
+    buildDir: BUILD_DIR,
 
-	// コンテンツファイル
-	src: CONTENT_FILE_PATHS,
+    // コンテンツファイル
+    src: CONTENT_FILE_PATHS,
 
-	// フィルタ
-	filter: {
-		// 画像
-		image: {
-			pattern: IMAGE_FILE_PATTERN
-		},
+    // フィルタ
+    filter: {
+        // 画像
+        image: {
+            pattern: IMAGE_FILE_PATTERN
+        },
 
-		// HTML
-		html: {
-			pattern: HTML_FILE_PATTERN
-		}
-	},
+        // HTML
+        html: {
+            pattern: HTML_FILE_PATTERN
+        }
+    },
 
-	// アーカイブ名
-	archiveName: 'Samples.zip'
+    // アーカイブ名
+    archiveName: 'Samples.zip'
 }

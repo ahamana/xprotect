@@ -26,47 +26,47 @@ const $ = gulpLoadPlugins();
 //-----------------------------------------------------------------------------
 // クリーン
 export const clean = () => {
-	return del(config.buildDir.dist, { force: true });
+    return del(config.buildDir.dist, { force: true });
 };
 
 // ビルド
 export const build = () => {
-	const dest = config.buildDir.dist;
+    const dest = config.buildDir.dist;
 
-	del.sync(`${dest}/${config.archiveName}`, { force: true });
+    del.sync(`${dest}/${config.archiveName}`, { force: true });
 
-	const imageFilter = $.filter(config.filter.image.pattern, { restore: true });
-	const htmlFilter = $.filter(config.filter.html.pattern, { restore: true });
-	const cssFilter = $.filter('**/*.css', { restore: true });
-	const tsFilter = $.filter('**/*.ts', { restore: true });
-	const jsFilter = $.filter('**/*.js', { restore: true });
+    const imageFilter = $.filter(config.filter.image.pattern, { restore: true });
+    const htmlFilter = $.filter(config.filter.html.pattern, { restore: true });
+    const cssFilter = $.filter('**/*.css', { restore: true });
+    const tsFilter = $.filter('**/*.ts', { restore: true });
+    const jsFilter = $.filter('**/*.js', { restore: true });
 
-	return gulp.src(config.src)
-		.pipe(imageFilter)
-		.pipe($.imagemin())
-		.pipe(imageFilter.restore)
-		.pipe(htmlFilter)
-		.pipe($.htmlmin({
-			collapseWhitespace: true,
-			keepClosingSlash: true,
-			removeComments: true,
-			ignoreCustomComments: [/^#include\s+/],
-			removeStyleLinkTypeAttributes: true,
-			removeScriptTypeAttributes: true,
-			minifyCSS: true,
-			minifyJS: true
-		}))
-		.pipe(htmlFilter.restore)
-		.pipe(cssFilter)
-		.pipe($.autoprefixer())
-		.pipe($.cleanCss())
-		.pipe(cssFilter.restore)
-		.pipe(tsFilter)
-		.pipe($.typescript.createProject(config.tsconfigJson)())
-		.pipe(tsFilter.restore)
-		.pipe(jsFilter)
-		.pipe($.terser())
-		.pipe(jsFilter.restore)
-		.pipe($.zip(config.archiveName))
-		.pipe(gulp.dest(dest));
+    return gulp.src(config.src)
+        .pipe(imageFilter)
+        .pipe($.imagemin())
+        .pipe(imageFilter.restore)
+        .pipe(htmlFilter)
+        .pipe($.htmlmin({
+            collapseWhitespace: true,
+            keepClosingSlash: true,
+            removeComments: true,
+            ignoreCustomComments: [/^#include\s+/],
+            removeStyleLinkTypeAttributes: true,
+            removeScriptTypeAttributes: true,
+            minifyCSS: true,
+            minifyJS: true
+        }))
+        .pipe(htmlFilter.restore)
+        .pipe(cssFilter)
+        .pipe($.autoprefixer())
+        .pipe($.cleanCss())
+        .pipe(cssFilter.restore)
+        .pipe(tsFilter)
+        .pipe($.typescript.createProject(config.tsconfigJson)())
+        .pipe(tsFilter.restore)
+        .pipe(jsFilter)
+        .pipe($.terser())
+        .pipe(jsFilter.restore)
+        .pipe($.zip(config.archiveName))
+        .pipe(gulp.dest(dest));
 };
