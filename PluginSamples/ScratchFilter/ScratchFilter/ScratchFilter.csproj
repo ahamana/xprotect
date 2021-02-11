@@ -3,9 +3,12 @@
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
     <UseWPF>true</UseWPF>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
+    <Copyright>© 2020 Canon Inc.</Copyright>
+    <Product>Scratch Filter</Product>
+    <Company>Canon Inc.</Company>
+    <Authors>Canon Inc.</Authors>
   </PropertyGroup>
 
   <ItemGroup>
