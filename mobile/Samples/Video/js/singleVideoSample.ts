@@ -6,7 +6,7 @@ const Application = new function () {
 	 * Initialization. 
 	 */
 	const initialize = (): void => {
-		const connectParams: object = { ProcessingMessage: 'No' };
+		const connectParams = { ProcessingMessage: 'No' };
 
 		XPMobileSDK.Connect(connectParams, connectionDidConnect, connectionDidNotConnect);
 	};
@@ -23,8 +23,8 @@ const Application = new function () {
 	 */
 	const connectionDidConnect = (): void => {
 		if (sessionStorage.getItem('isLogIn') == String(true)) {
-			const username: string = sessionStorage.getItem('Username');
-			const password: string = sessionStorage.getItem('Password');
+			const username = sessionStorage.getItem('Username');
+			const password = sessionStorage.getItem('Password');
 
 			login(username, password);
 		}
@@ -37,7 +37,7 @@ const Application = new function () {
 	 * Executes login process.
 	 */
 	const login = (username: string, password: string): void => {
-		const loginParams: object = {
+		const loginParams = {
 			'Username': username,
 			'Password': password
 		};
@@ -65,8 +65,8 @@ const Application = new function () {
 
 		sessionStorage.setItem('isLogIn', String(true));
 
-		const searchParams: URLSearchParams = new URLSearchParams(location.search);
-		const cameraId: string = searchParams.get('cid');
+		const searchParams = new URLSearchParams(location.search);
+		const cameraId = searchParams.get('cid');
 
 		if (cameraId === null) {
 			alert('クエリーにカメラ ID を指定してください。');
@@ -75,7 +75,7 @@ const Application = new function () {
 		}
 
 		XPMobileSDK.getAllViews(items => {
-			const item: any = (items[0].Items[0].Items[0].Items as Array<any>).find(item => item.Id === cameraId.toLowerCase());
+			const item = (items[0].Items[0].Items[0].Items as Array<any>).find(item => item.Id === cameraId.toLowerCase());
 
 			if (item !== undefined) {
 				buildCameraElement(item);
@@ -99,11 +99,11 @@ const Application = new function () {
 	};
 
 	const Camera = (cameraId: string): void => {
-		const canvas: HTMLCanvasElement = document.querySelector('canvas');
-		const canvasContext: CanvasRenderingContext2D = canvas.getContext('2d');
-		const image: HTMLImageElement = document.createElement('img');
+		const canvas = document.querySelector('canvas');
+		const canvasContext = canvas.getContext('2d');
+		const image = document.createElement('img');
 		let imageURL: string, videoController: any;
-		let drawing: boolean = false;
+		let drawing = false;
 
 		/**
 		 * Video stream request callback 
@@ -125,7 +125,7 @@ const Application = new function () {
 			drawing = true;
 
 			if (frame.hasSizeInformation) {
-				const multiplier: number = (frame.sizeInfo.destinationSize.resampling * XPMobileSDK.getResamplingFactor()) || 1;
+				const multiplier = (frame.sizeInfo.destinationSize.resampling * XPMobileSDK.getResamplingFactor()) || 1;
 				image.width = multiplier * frame.sizeInfo.destinationSize.width;
 				image.height = multiplier * frame.sizeInfo.destinationSize.height;
 			}
@@ -189,8 +189,8 @@ const Application = new function () {
 document.addEventListener('DOMContentLoaded', () => {
 	// Add the event listener when the login button is clicked.
 	document.getElementById('login-button').addEventListener('click', () => {
-		const username: string = (document.querySelector('#username') as HTMLInputElement).value;
-		const password: string = (document.querySelector('#password') as HTMLInputElement).value;
+		const username = (document.querySelector('#username') as HTMLInputElement).value;
+		const password = (document.querySelector('#password') as HTMLInputElement).value;
 
 		Application.login(username, password);
 	});
