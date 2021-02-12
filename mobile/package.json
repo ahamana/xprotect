@@ -3,8 +3,8 @@
   "main": "gulpfile.babel.js",
   "license": "Unlicense",
   "devDependencies": {
-    "@babel/core": "7.12.13",
-    "@babel/preset-env": "7.12.13",
+    "@babel/core": "7.12.16",
+    "@babel/preset-env": "7.12.16",
     "@babel/register": "7.12.13",
     "@types/bootstrap": "4.5.0",
     "@types/jquery": "3.5.5",
