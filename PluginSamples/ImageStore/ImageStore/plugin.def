@@ -1,4 +1,4 @@
-<plugin>
+﻿<plugin>
   <file name="ImageStore.dll" />
   <load env="SmartClient" />
 </plugin>
