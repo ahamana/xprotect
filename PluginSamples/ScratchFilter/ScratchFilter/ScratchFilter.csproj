@@ -46,7 +46,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="md &quot;$(ProgramW6432)\Milestone\MIPPlugins\$(ProjectName)&quot; &amp;gt; NUL 2&amp;gt;&amp;amp;1&#xD;&#xA;del /q /s &quot;$(ProgramW6432)\Milestone\MIPPlugins\$(ProjectName)&quot;&#xD;&#xA;xcopy /e &quot;$(TargetDir)*&quot; &quot;$(ProgramW6432)\Milestone\MIPPlugins\$(ProjectName)&quot;&#xD;&#xA;" />
+    <Exec Command="md &quot;$(ProgramW6432)\Milestone\MIPPlugins\$(ProjectName)&quot; &gt; NUL 2&gt;&amp;1&#xD;&#xA;del /q /s &quot;$(ProgramW6432)\Milestone\MIPPlugins\$(ProjectName)&quot;&#xD;&#xA;xcopy /e &quot;$(TargetDir)*&quot; &quot;$(ProgramW6432)\Milestone\MIPPlugins\$(ProjectName)&quot;&#xD;&#xA;" />
   </Target>
 
 </Project>
