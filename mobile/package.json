@@ -3,8 +3,8 @@
   "main": "gulpfile.babel.js",
   "license": "Unlicense",
   "devDependencies": {
-    "@babel/core": "7.13.14",
-    "@babel/preset-env": "7.13.12",
+    "@babel/core": "7.13.15",
+    "@babel/preset-env": "7.13.15",
     "@babel/register": "7.13.14",
     "@types/bootstrap": "4.5.0",
     "@types/jquery": "3.5.5",
@@ -19,7 +19,7 @@
     "gulp-terser": "2.0.1",
     "gulp-typescript": "6.0.0-alpha.1",
     "gulp-zip": "5.1.0",
-    "typescript": "4.2.3"
+    "typescript": "4.2.4"
   },
   "babel": {
     "presets": [
