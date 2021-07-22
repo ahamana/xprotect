@@ -36,14 +36,14 @@ namespace ScratchFilter.Common.Live
         private static readonly TimeSpan VideoSourceTimeout = TimeSpan.FromSeconds(5);
 
         /// <summary>
+        /// ライブ映像のソースです。
+        /// </summary>
+        private readonly TVideoLiveSource liveSource;
+
+        /// <summary>
         /// アンマネージリソースが解放されたかどうかです。
         /// </summary>
         private bool disposed;
-
-        /// <summary>
-        /// ライブ映像のソースです。
-        /// </summary>
-        private TVideoLiveSource? liveSource;
 
         /// <summary>
         /// 画像のストリームです。
@@ -58,10 +58,7 @@ namespace ScratchFilter.Common.Live
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraFQID">カメラの完全修飾 ID</param>
-        private protected ImageCollector(FQID cameraFQID)
-        {
-            Init(Configuration.Instance.GetItem(cameraFQID));
-        }
+        private protected ImageCollector(FQID cameraFQID) : this(cameraFQID.ObjectId) { }
 
         /// <summary>
         /// コンストラクタです。
@@ -75,7 +72,18 @@ namespace ScratchFilter.Common.Live
                 throw new ArgumentException(nameof(cameraId));
             }
 
-            Init(Configuration.Instance.GetItem(cameraId, Kind.Camera));
+            var camera = Configuration.Instance.GetItem(cameraId, Kind.Camera);
+
+            liveSource = GenerateVideoLiveSource(camera);
+
+            liveSource.LiveModeStart = true;
+            // 幅と高さに 0 を指定して、実際の解像度の画像を取得
+            liveSource.Width = 0;
+            liveSource.Height = 0;
+
+            liveSource.LiveContentEvent += OnLiveSourceLiveContentEvent;
+
+            liveSource.Init();
         }
 
         #endregion Constructors
@@ -101,24 +109,6 @@ namespace ScratchFilter.Common.Live
                 imageStream?.Dispose();
                 imageStream = GenerateImageStream(liveContent);
             }
-        }
-
-        /// <summary>
-        /// 初期化処理を行います。
-        /// </summary>
-        /// <param name="camera">カメラ</param>
-        private void Init(Item camera)
-        {
-            liveSource = GenerateVideoLiveSource(camera);
-
-            liveSource.LiveModeStart = true;
-            // 幅と高さに 0 を指定して、実際の解像度の画像を取得
-            liveSource.Width = 0;
-            liveSource.Height = 0;
-
-            liveSource.LiveContentEvent += OnLiveSourceLiveContentEvent;
-
-            liveSource.Init();
         }
 
         /// <summary>
