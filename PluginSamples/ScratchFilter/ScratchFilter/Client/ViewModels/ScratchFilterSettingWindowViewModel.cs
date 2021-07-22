@@ -184,10 +184,10 @@ namespace ScratchFilter.Client.ViewModels
             using var imageFactory = new ImageFactory();
 
             imageFactory.Load(originalImage)
-                        .Contrast(setting.ImageContrast)
-                        .Brightness(setting.ImageBrightness)
-                        .Saturation(setting.ImageSaturation)
-                        .Gamma(setting.ImageGamma);
+                        .Contrast(ImageContrast.Value)
+                        .Brightness(ImageBrightness.Value)
+                        .Saturation(ImageSaturation.Value)
+                        .Gamma(ImageGamma.Value);
 
             using var image = new Bitmap(imageFactory.Image);
 
