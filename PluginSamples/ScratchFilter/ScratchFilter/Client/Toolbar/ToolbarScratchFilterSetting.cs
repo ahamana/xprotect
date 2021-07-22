@@ -29,7 +29,7 @@ namespace ScratchFilter.Client.Toolbar
         /// プラグインの説明です。
         /// </summary>
         /// <value>プラグインの説明</value>
-        private protected override string Description { get; } = Resources.Toolbar_ScratchFilterSetting_Description;
+        private protected sealed override string Description { get; } = Resources.Toolbar_ScratchFilterSetting_Description;
 
         #endregion Properties
 
@@ -38,7 +38,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// アイコンを読み込みます。
         /// </summary>
-        private protected override void LoadIcon()
+        private protected sealed override void LoadIcon()
         {
             Icon = ClientControl.Instance.Theme.ThemeType switch
             {
@@ -51,7 +51,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// ツールバー用プラグインのメニューが押下された時に発生します。
         /// </summary>
-        public override void Activate()
+        public sealed override void Activate()
         {
             if (ImageViewerAddOn is null)
             {
@@ -88,7 +88,7 @@ namespace ScratchFilter.Client.Toolbar
         /// ID です。
         /// </summary>
         /// <value>ID</value>
-        public override Guid Id { get; } = PluginId;
+        public sealed override Guid Id { get; } = PluginId;
 
         #endregion Properties
 
@@ -98,7 +98,7 @@ namespace ScratchFilter.Client.Toolbar
         /// ツールバーの傷フィルタ機能の設定用インスタンスを生成します。
         /// </summary>
         /// <returns>ツールバーの傷フィルタ機能の設定用インスタンス</returns>
-        public override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance()
+        public sealed override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance()
         {
             return new ToolbarScratchFilterSettingInstance();
         }

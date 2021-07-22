@@ -44,7 +44,7 @@ namespace ScratchFilter.Client.Toolbar
         /// プラグインの説明です。
         /// </summary>
         /// <value>プラグインの説明</value>
-        private protected override string Description
+        private protected sealed override string Description
         {
             get
             {
@@ -107,7 +107,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        private protected override void OnImageViewerImageDisplayed(object sender, ImageDisplayedEventArgs e)
+        private protected sealed override void OnImageViewerImageDisplayed(object sender, ImageDisplayedEventArgs e)
         {
             HandleDisplayedImage();
         }
@@ -117,7 +117,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        private protected override void OnImageViewerRecordedImageReceived(object sender, RecordedImageReceivedEventArgs e)
+        private protected sealed override void OnImageViewerRecordedImageReceived(object sender, RecordedImageReceivedEventArgs e)
         {
             HandleDisplayedImage();
         }
@@ -125,7 +125,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// アイコンを読み込みます。
         /// </summary>
-        private protected override void LoadIcon()
+        private protected sealed override void LoadIcon()
         {
             Icon = (ClientControl.Instance.Theme.ThemeType, isActive) switch
             {
@@ -140,7 +140,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// ツールバー用プラグインのメニューが押下された時に発生します。
         /// </summary>
-        public override void Activate()
+        public sealed override void Activate()
         {
             isActive = !isActive;
 
@@ -175,7 +175,7 @@ namespace ScratchFilter.Client.Toolbar
         /// ID です。
         /// </summary>
         /// <value>ID</value>
-        public override Guid Id { get; } = PluginId;
+        public sealed override Guid Id { get; } = PluginId;
 
         #endregion Properties
 
@@ -185,7 +185,7 @@ namespace ScratchFilter.Client.Toolbar
         /// ツールバーの傷フィルタ機能用インスタンスを生成します。
         /// </summary>
         /// <returns>ツールバーの傷フィルタ機能用インスタンス</returns>
-        public override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance()
+        public sealed override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance()
         {
             return new ToolbarScratchFilterInstance();
         }

@@ -73,37 +73,37 @@ namespace ScratchFilter
         /// ID です。
         /// </summary>
         /// <value>ID</value>
-        public override Guid Id { get; } = PluginId;
+        public sealed override Guid Id { get; } = PluginId;
 
         /// <summary>
         /// 製品名です。
         /// </summary>
         /// <value>製品名</value>
-        public override string Name { get; } = FileVersionInfo.ProductName;
+        public sealed override string Name { get; } = FileVersionInfo.ProductName;
 
         /// <summary>
         /// 会社名です。
         /// </summary>
         /// <value>会社名</value>
-        public override string Manufacturer { get; } = FileVersionInfo.CompanyName;
+        public sealed override string Manufacturer { get; } = FileVersionInfo.CompanyName;
 
         /// <summary>
         /// プラグインのバージョンです。
         /// </summary>
         /// <value>プラグインのバージョン</value>
-        public override string VersionString { get; } = FileVersionInfo.ProductVersion;
+        public sealed override string VersionString { get; } = FileVersionInfo.ProductVersion;
 
         /// <summary>
         /// トップレベルで使用するアイコンです。
         /// </summary>
         /// <value>トップレベルで使用するアイコン</value>
-        public override Image? Icon { get; }
+        public sealed override Image? Icon { get; }
 
         /// <summary>
         /// Smart Client のツールバー用プラグインの一覧です。
         /// </summary>
         /// <value>Smart Client のツールバー用プラグインの一覧</value>
-        public override List<ViewItemToolbarPlugin> ViewItemToolbarPlugins { get; } = new();
+        public sealed override List<ViewItemToolbarPlugin> ViewItemToolbarPlugins { get; } = new();
 
         #endregion Properties
 
@@ -112,7 +112,7 @@ namespace ScratchFilter
         /// <summary>
         /// 初期化処理を行います。
         /// </summary>
-        public override void Init()
+        public sealed override void Init()
         {
             Logger.Info("Start plug-in");
 
@@ -127,7 +127,7 @@ namespace ScratchFilter
         /// <summary>
         /// 終了処理を行います。
         /// </summary>
-        public override void Close()
+        public sealed override void Close()
         {
             ViewItemToolbarPlugins.Clear();
 

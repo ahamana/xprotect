@@ -44,7 +44,7 @@ namespace ScratchFilter.Common.Live
         /// </summary>
         /// <param name="camera">カメラ</param>
         /// <returns>ライブ映像のソース</returns>
-        private protected override JPEGLiveSource GenerateVideoLiveSource(Item camera)
+        private protected sealed override JPEGLiveSource GenerateVideoLiveSource(Item camera)
         {
             return new(camera)
             {
@@ -58,7 +58,7 @@ namespace ScratchFilter.Common.Live
         /// </summary>
         /// <param name="liveContent">ライブ映像の内容</param>
         /// <returns>画像のストリーム</returns>
-        private protected override Stream GenerateImageStream(LiveSourceContent liveContent)
+        private protected sealed override Stream GenerateImageStream(LiveSourceContent liveContent)
         {
             return new MemoryStream(liveContent.Content);
         }

@@ -65,7 +65,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// ツールバー用プラグインのメニューが押下された時に発生します。
         /// </summary>
-        public override void Activate()
+        public sealed override void Activate()
         {
             // Do nothing.
         }
@@ -86,13 +86,13 @@ namespace ScratchFilter.Client.Toolbar
         /// ID です。
         /// </summary>
         /// <value>ID</value>
-        public override Guid Id { get; }
+        public sealed override Guid Id { get; }
 
         /// <summary>
         /// 詳細項目への表示方法です。
         /// </summary>
         /// <value>詳細項目への表示方法</value>
-        public override ToolbarPluginOverflowMode ToolbarPluginOverflowMode { get; } = ToolbarPluginOverflowMode.NeverInOverflow;
+        public sealed override ToolbarPluginOverflowMode ToolbarPluginOverflowMode { get; } = ToolbarPluginOverflowMode.NeverInOverflow;
 
         #endregion Properties
 
@@ -102,7 +102,7 @@ namespace ScratchFilter.Client.Toolbar
         /// ツールバーのセパレータ用インスタンスを生成します。
         /// </summary>
         /// <returns>ツールバーのセパレータ用インスタンス</returns>
-        public override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance()
+        public sealed override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance()
         {
             return new ToolbarSeparatorInstance();
         }
