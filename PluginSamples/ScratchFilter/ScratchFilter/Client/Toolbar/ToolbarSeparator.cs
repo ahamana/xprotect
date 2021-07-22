@@ -57,7 +57,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// アイコンを読み込みます。
         /// </summary>
-        protected override void LoadIcon()
+        private protected override void LoadIcon()
         {
             Icon = CreateSeparatorIcon();
         }

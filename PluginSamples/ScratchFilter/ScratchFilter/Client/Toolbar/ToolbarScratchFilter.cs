@@ -44,7 +44,7 @@ namespace ScratchFilter.Client.Toolbar
         /// プラグインの説明です。
         /// </summary>
         /// <value>プラグインの説明</value>
-        protected override string Description
+        private protected override string Description
         {
             get
             {
@@ -107,7 +107,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        protected override void OnImageViewerImageDisplayed(object sender, ImageDisplayedEventArgs e)
+        private protected override void OnImageViewerImageDisplayed(object sender, ImageDisplayedEventArgs e)
         {
             HandleDisplayedImage();
         }
@@ -117,7 +117,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        protected override void OnImageViewerRecordedImageReceived(object sender, RecordedImageReceivedEventArgs e)
+        private protected override void OnImageViewerRecordedImageReceived(object sender, RecordedImageReceivedEventArgs e)
         {
             HandleDisplayedImage();
         }
@@ -125,7 +125,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// アイコンを読み込みます。
         /// </summary>
-        protected override void LoadIcon()
+        private protected override void LoadIcon()
         {
             Icon = (ClientControl.Instance.Theme.ThemeType, isActive) switch
             {

@@ -29,7 +29,7 @@ namespace ScratchFilter.Client.Toolbar
         /// プラグインの説明です。
         /// </summary>
         /// <value>プラグインの説明</value>
-        protected override string Description { get; } = Resources.Toolbar_ScratchFilterSetting_Description;
+        private protected override string Description { get; } = Resources.Toolbar_ScratchFilterSetting_Description;
 
         #endregion Properties
 
@@ -38,7 +38,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// アイコンを読み込みます。
         /// </summary>
-        protected override void LoadIcon()
+        private protected override void LoadIcon()
         {
             Icon = ClientControl.Instance.Theme.ThemeType switch
             {

@@ -58,7 +58,7 @@ namespace ScratchFilter.Common.Live
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraFQID">カメラの完全修飾 ID</param>
-        protected ImageCollector(FQID cameraFQID)
+        private protected ImageCollector(FQID cameraFQID)
         {
             Init(Configuration.Instance.GetItem(cameraFQID));
         }
@@ -68,7 +68,7 @@ namespace ScratchFilter.Common.Live
         /// </summary>
         /// <param name="cameraId">カメラの ID</param>
         /// <exception cref="ArgumentException"><paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。</exception>
-        protected ImageCollector(Guid cameraId)
+        private protected ImageCollector(Guid cameraId)
         {
             if (cameraId == Guid.Empty)
             {
@@ -148,14 +148,14 @@ namespace ScratchFilter.Common.Live
         /// </summary>
         /// <param name="camera">カメラ</param>
         /// <returns>ライブ映像のソース</returns>
-        protected abstract TVideoLiveSource GenerateVideoLiveSource(Item camera);
+        private protected abstract TVideoLiveSource GenerateVideoLiveSource(Item camera);
 
         /// <summary>
         /// 画像のストリームを生成します。
         /// </summary>
         /// <param name="liveContent">ライブ映像の内容</param>
         /// <returns>画像のストリーム</returns>
-        protected abstract Stream GenerateImageStream(TLiveSourceContent liveContent);
+        private protected abstract Stream GenerateImageStream(TLiveSourceContent liveContent);
 
         /// <summary>
         /// 画像を取得します。

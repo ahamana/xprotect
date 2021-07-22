@@ -42,7 +42,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// コンストラクタです。
         /// </summary>
-        protected ToolbarPluginInstance()
+        private protected ToolbarPluginInstance()
         {
             Enabled = false;
         }
@@ -55,19 +55,19 @@ namespace ScratchFilter.Client.Toolbar
         /// 表示先のウィンドウです。
         /// </summary>
         /// <value>表示先のウィンドウ</value>
-        protected Item? Window { get; private set; }
+        private protected Item? Window { get; private set; }
 
         /// <summary>
         /// 表示先のモニターです。
         /// </summary>
         /// <value>表示先のモニター</value>
-        protected Item? Monitor { get; private set; }
+        private protected Item? Monitor { get; private set; }
 
         /// <summary>
         /// プラグインの説明です。
         /// </summary>
         /// <value>プラグインの説明</value>
-        protected virtual string? Description { get; }
+        private protected virtual string? Description { get; }
 
         #endregion Properties
 
@@ -109,12 +109,12 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// アイコンを読み込みます。
         /// </summary>
-        protected abstract void LoadIcon();
+        private protected abstract void LoadIcon();
 
         /// <summary>
         /// アイコンを再読み込みします。
         /// </summary>
-        protected void ReloadIcon()
+        private protected void ReloadIcon()
         {
             // Dispose メソッドの実行のみとして、null は設定しない。 ※ null を設定すると、デフォルトアイコンが一瞬表示されてしまう。
             Icon?.Dispose();
