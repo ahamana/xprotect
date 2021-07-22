@@ -24,6 +24,20 @@ namespace ScratchFilter.Client.Toolbar
         #region Properties
 
         /// <summary>
+        /// 映像が表示されているカメラの ID です。
+        /// </summary>
+        /// <value>映像が表示されているカメラの ID</value>
+        private Guid CameraId
+        {
+            get
+            {
+                Guid.TryParse(Monitor?.Properties["CurrentCameraId"], out var cameraId);
+
+                return cameraId;
+            }
+        }
+
+        /// <summary>
         /// イメージビューワのアドオンです。
         /// </summary>
         /// <value>イメージビューワのアドオン</value>
@@ -32,17 +46,6 @@ namespace ScratchFilter.Client.Toolbar
         #endregion Properties
 
         #region Methods
-
-        /// <summary>
-        /// 映像が表示されているカメラの ID を取得します。
-        /// </summary>
-        /// <returns>映像が表示されているカメラの ID</returns>
-        private Guid GetCurrentCameraId()
-        {
-            Guid.TryParse(Monitor?.Properties["CurrentCameraId"], out var cameraId);
-
-            return cameraId;
-        }
 
         /// <summary>
         /// イメージビューワのイベントを登録します。
@@ -103,9 +106,7 @@ namespace ScratchFilter.Client.Toolbar
                 return;
             }
 
-            var cameraId = GetCurrentCameraId();
-
-            if (cameraId == imageViewerAddOn.CameraFQID.ObjectId)
+            if (CameraId == imageViewerAddOn.CameraFQID.ObjectId)
             {
                 ImageViewerAddOn = imageViewerAddOn;
 
