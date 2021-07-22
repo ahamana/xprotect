@@ -116,7 +116,8 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         private protected void ReloadIcon()
         {
-            // Dispose メソッドの実行のみとして、null は設定しない。 ※ null を設定すると、デフォルトアイコンが一瞬表示されてしまう。
+            // Dispose メソッドの実行のみとして、null は設定しない。
+            // ※ null を設定すると、デフォルトアイコンが一瞬表示されてしまう。
             Icon?.Dispose();
 
             LoadIcon();
