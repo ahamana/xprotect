@@ -72,9 +72,7 @@ namespace ScratchFilter.Client.Data
         /// </summary>
         private void Save()
         {
-            var dir = Path.GetDirectoryName(SettingFile);
-
-            Directory.CreateDirectory(dir);
+            Directory.CreateDirectory(Path.GetDirectoryName(SettingFile));
 
             using var stream = File.Create(SettingFile);
 
