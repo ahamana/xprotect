@@ -89,9 +89,7 @@ namespace ScratchFilter.Common.Live
         /// <param name="e">イベントのデータ</param>
         private void OnLiveSourceLiveContentEvent(object sender, EventArgs e)
         {
-            var args = e as LiveContentEventArgs;
-
-            if (args?.LiveContent is null)
+            if (e is not LiveContentEventArgs { LiveContent: not null } args)
             {
                 return;
             }
