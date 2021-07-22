@@ -27,7 +27,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// セパレータのサイズです。
         /// </summary>
-        private static readonly Size SeparatorSize = new Size(1, Util.ImageList.ImageSize.Height);
+        private static readonly Size SeparatorSize = new(1, Util.ImageList.ImageSize.Height);
 
         #endregion Fields
 

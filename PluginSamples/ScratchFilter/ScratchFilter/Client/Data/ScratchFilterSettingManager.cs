@@ -61,7 +61,7 @@ namespace ScratchFilter.Client.Data
         /// インスタンスです。
         /// </summary>
         /// <value>インスタンス</value>
-        internal static ScratchFilterSettingManager Instance { get; } = new ScratchFilterSettingManager();
+        internal static ScratchFilterSettingManager Instance { get; } = new();
 
         #endregion Properties
 
@@ -120,7 +120,7 @@ namespace ScratchFilter.Client.Data
 
             if (!settings.TryGetValue(cameraId, out var setting))
             {
-                setting = new ScratchFilterSetting
+                setting = new()
                 {
                     CameraId = cameraId
                 };

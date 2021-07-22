@@ -28,7 +28,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// メッセージの受信オブジェクトです。
         /// </summary>
-        private readonly List<object> messageReceivers = new List<object>();
+        private readonly List<object> messageReceivers = new();
 
         /// <summary>
         /// アンマネージリソースが解放されたかどうかです。
@@ -198,18 +198,18 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         public override void Init()
         {
-            ViewItemToolbarPlaceDefinition.ViewItemIds = new List<Guid>
+            ViewItemToolbarPlaceDefinition.ViewItemIds = new()
             {
                 ViewAndLayoutItem.CameraBuiltinId
             };
 
-            ViewItemToolbarPlaceDefinition.WorkSpaceIds = new List<Guid>
+            ViewItemToolbarPlaceDefinition.WorkSpaceIds = new()
             {
                 ClientControl.LiveBuildInWorkSpaceId,
                 ClientControl.PlaybackBuildInWorkSpaceId
             };
 
-            ViewItemToolbarPlaceDefinition.WorkSpaceStates = new List<WorkSpaceState>
+            ViewItemToolbarPlaceDefinition.WorkSpaceStates = new()
             {
                 WorkSpaceState.Normal
             };

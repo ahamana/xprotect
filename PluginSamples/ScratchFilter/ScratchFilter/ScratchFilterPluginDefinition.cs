@@ -103,7 +103,7 @@ namespace ScratchFilter
         /// Smart Client のツールバー用プラグインの一覧です。
         /// </summary>
         /// <value>Smart Client のツールバー用プラグインの一覧</value>
-        public override List<ViewItemToolbarPlugin> ViewItemToolbarPlugins { get; } = new List<ViewItemToolbarPlugin>();
+        public override List<ViewItemToolbarPlugin> ViewItemToolbarPlugins { get; } = new();
 
         #endregion Properties
 

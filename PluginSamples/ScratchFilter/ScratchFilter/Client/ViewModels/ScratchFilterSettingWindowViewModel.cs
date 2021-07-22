@@ -42,7 +42,7 @@ namespace ScratchFilter.Client.ViewModels
         /// <summary>
         /// 開放するリソースのグループです。
         /// </summary>
-        private readonly CompositeDisposable disposable = new CompositeDisposable();
+        private readonly CompositeDisposable disposable = new();
 
         /// <summary>
         /// 傷フィルタの設定です。
@@ -64,7 +64,7 @@ namespace ScratchFilter.Client.ViewModels
         /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
         internal ScratchFilterSettingWindowViewModel(ImageViewerAddOn imageViewerAddOn)
         {
-            IsSettable = new BooleanNotifier(true);
+            IsSettable = new(true);
 
             PreviewImage = new ReactivePropertySlim<ImageSource>().AddTo(disposable);
 

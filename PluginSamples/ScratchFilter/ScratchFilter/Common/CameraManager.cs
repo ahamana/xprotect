@@ -33,7 +33,7 @@ namespace ScratchFilter.Common
         /// インスタンスです。
         /// </summary>
         /// <value>インスタンス</value>
-        internal static CameraManager Instance { get; } = new CameraManager();
+        internal static CameraManager Instance { get; } = new();
 
         #endregion Properties
 
