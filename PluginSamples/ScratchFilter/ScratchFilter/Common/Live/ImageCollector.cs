@@ -177,7 +177,7 @@ namespace ScratchFilter.Common.Live
 
                 using var image = Image.FromStream(imageStream);
 
-                return new Bitmap(image);
+                return new(image);
             }
         }
 
