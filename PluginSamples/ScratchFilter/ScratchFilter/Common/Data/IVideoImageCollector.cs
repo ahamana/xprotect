@@ -47,7 +47,7 @@ namespace ScratchFilter.Common.Data
         /// </summary>
         /// <param name="imageSize">画像のサイズ</param>
         /// <remarks>
-        /// 幅と高さに 0 を指定した場合は、実際の解像度の画像が取得されます。
+        /// 幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
         /// </remarks>
         void SetImageSize(Size imageSize);
 
