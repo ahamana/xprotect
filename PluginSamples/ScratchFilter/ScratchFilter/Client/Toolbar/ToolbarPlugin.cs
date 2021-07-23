@@ -130,12 +130,6 @@ namespace ScratchFilter.Client.Toolbar
         /// <param name="window">ツールバー用プラグインの表示先のウィンドウ</param>
         public override void Init(Item viewItemInstance, Item window)
         {
-            // ※「再生タブ → エクスポート → カメラ選択」を行うと、window が null の状態で呼ばれる。
-            if (window is null)
-            {
-                return;
-            }
-
             Window = window;
             Monitor = viewItemInstance;
             Title = Description;
@@ -152,11 +146,6 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         public override void Close()
         {
-            if (Window is null)
-            {
-                return;
-            }
-
             messageReceivers.ForEach(EnvironmentManager.Instance.UnRegisterReceiver);
 
             Dispose();
