@@ -7,6 +7,7 @@
 //
 
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace ScratchFilter.Common.Data
@@ -53,6 +54,23 @@ namespace ScratchFilter.Common.Data
         /// </summary>
         /// <returns>画像データ</returns>
         TImageData? GetLastImage();
+
+        /// <summary>
+        /// 指定された日時を起点として画像を取得します。
+        /// </summary>
+        /// <param name="dateTime">日時</param>
+        /// <param name="maxCount">画像の最大取得数</param>
+        /// <returns>画像データの一覧</returns>
+        IEnumerable<TImageData> GetImages(DateTime dateTime, int maxCount = int.MaxValue);
+
+        /// <summary>
+        /// 指定された日時を起点として、指定された時間幅に存在する画像を取得します。
+        /// </summary>
+        /// <param name="dateTime">日時</param>
+        /// <param name="timeSpan">時間幅</param>
+        /// <param name="maxCount">画像の最大取得数</param>
+        /// <returns>画像データの一覧</returns>
+        IEnumerable<TImageData> GetImages(DateTime dateTime, TimeSpan timeSpan, int maxCount = int.MaxValue);
 
         /// <summary>
         /// 収集する画像のサイズを設定します。

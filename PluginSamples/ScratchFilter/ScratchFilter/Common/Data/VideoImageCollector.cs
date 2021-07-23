@@ -7,7 +7,9 @@
 //
 
 using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 using VideoOS.Platform;
 using VideoOS.Platform.Data;
@@ -164,6 +166,29 @@ namespace ScratchFilter.Common.Data
         public TImageData? GetImageNearest(DateTime dateTime)
         {
             return (TImageData?)videoSource.GetNearest(dateTime.ToUniversalTime());
+        }
+
+        /// <summary>
+        /// 指定された日時を起点として画像を取得します。
+        /// </summary>
+        /// <param name="dateTime">日時</param>
+        /// <param name="maxCount">画像の最大取得数</param>
+        /// <returns>画像データの一覧</returns>
+        public IEnumerable<TImageData> GetImages(DateTime dateTime, int maxCount = int.MaxValue)
+        {
+            return GetImages(dateTime, TimeSpan.MaxValue, maxCount);
+        }
+
+        /// <summary>
+        /// 指定された日時を起点として、指定された時間幅に存在する画像を取得します。
+        /// </summary>
+        /// <param name="dateTime">日時</param>
+        /// <param name="timeSpan">時間幅</param>
+        /// <param name="maxCount">画像の最大取得数</param>
+        /// <returns>画像データの一覧</returns>
+        public IEnumerable<TImageData> GetImages(DateTime dateTime, TimeSpan timeSpan, int maxCount = int.MaxValue)
+        {
+            return videoSource.Get(dateTime, timeSpan, maxCount).Cast<TImageData>();
         }
 
         /// <summary>
