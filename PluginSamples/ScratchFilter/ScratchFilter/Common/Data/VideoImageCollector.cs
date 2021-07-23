@@ -169,7 +169,7 @@ namespace ScratchFilter.Common.Data
         }
 
         /// <summary>
-        /// 指定された日時を起点として画像を取得します。
+        /// 指定された日時以降の画像を取得します。
         /// </summary>
         /// <param name="dateTime">日時</param>
         /// <param name="maxCount">画像の最大取得数</param>
@@ -180,7 +180,7 @@ namespace ScratchFilter.Common.Data
         }
 
         /// <summary>
-        /// 指定された日時を起点として、指定された時間幅に存在する画像を取得します。
+        /// 指定された日時以降の指定された時間幅に存在する画像を取得します。
         /// </summary>
         /// <param name="dateTime">日時</param>
         /// <param name="timeSpan">時間幅</param>
