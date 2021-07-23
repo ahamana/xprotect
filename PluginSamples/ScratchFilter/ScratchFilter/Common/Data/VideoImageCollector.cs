@@ -139,11 +139,11 @@ namespace ScratchFilter.Common.Data
         public abstract void SetImageSize(Size imageSize);
 
         /// <summary>
-        /// 指定された日時の画像を取得します。
+        /// 指定された日時、もしくは指定された日時以降の最も近い日時の画像を取得します。
         /// </summary>
         /// <param name="dateTime">日時</param>
         /// <returns>画像データ</returns>
-        public TImageData? GetImage(DateTime dateTime)
+        public TImageData? GetImageAtOrAfter(DateTime dateTime)
         {
             return (TImageData?)videoSource.Get(dateTime.ToUniversalTime());
         }

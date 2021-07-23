@@ -23,11 +23,11 @@ namespace ScratchFilter.Common.Data
         #region Methods
 
         /// <summary>
-        /// 指定された日時の画像を取得します。
+        /// 指定された日時、もしくは指定された日時以降の最も近い日時の画像を取得します。
         /// </summary>
         /// <param name="dateTime">日時</param>
         /// <returns>画像データ</returns>
-        TImageData? GetImage(DateTime dateTime);
+        TImageData? GetImageAtOrAfter(DateTime dateTime);
 
         /// <summary>
         /// 指定された日時、もしくは指定された日時以前の最も近い日時の画像を取得します。
