@@ -35,7 +35,7 @@ namespace ScratchFilter.Common.Data
         /// <summary>
         /// 録画映像のソースです。
         /// </summary>
-        private protected readonly TVideoSource liveSource;
+        private protected readonly TVideoSource videoSource;
 
         #endregion Fields
 
@@ -77,10 +77,10 @@ namespace ScratchFilter.Common.Data
 
             var camera = Configuration.Instance.GetItem(cameraId, Kind.Camera);
 
-            liveSource = GenerateVideoSource(camera);
+            videoSource = GenerateVideoSource(camera);
 
             // 幅と高さに 0 を指定した場合は、実際の解像度の画像が取得される。
-            liveSource.Init(imageSize.Width, imageSize.Height);
+            videoSource.Init(imageSize.Width, imageSize.Height);
         }
 
         #endregion Constructors
@@ -102,7 +102,7 @@ namespace ScratchFilter.Common.Data
 
             if (disposing)
             {
-                liveSource?.Close();
+                videoSource?.Close();
             }
 
             disposed = true;
@@ -131,7 +131,7 @@ namespace ScratchFilter.Common.Data
         /// <returns>画像データ</returns>
         public TImageData? GetImage(DateTime dateTime)
         {
-            return (TImageData?)liveSource.Get(dateTime.ToUniversalTime());
+            return (TImageData?)videoSource.Get(dateTime.ToUniversalTime());
         }
 
         /// <summary>
@@ -141,7 +141,7 @@ namespace ScratchFilter.Common.Data
         /// <returns>画像データ</returns>
         public TImageData? GetImageAtOrBefore(DateTime dateTime)
         {
-            return (TImageData?)liveSource.GetAtOrBefore(dateTime.ToUniversalTime());
+            return (TImageData?)videoSource.GetAtOrBefore(dateTime.ToUniversalTime());
         }
 
         /// <summary>
@@ -151,7 +151,7 @@ namespace ScratchFilter.Common.Data
         /// <returns>画像データ</returns>
         public TImageData? GetImageNearest(DateTime dateTime)
         {
-            return (TImageData?)liveSource.GetNearest(dateTime.ToUniversalTime());
+            return (TImageData?)videoSource.GetNearest(dateTime.ToUniversalTime());
         }
 
         /// <summary>

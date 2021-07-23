@@ -72,10 +72,10 @@ namespace ScratchFilter.Common.Data
         /// </remarks>
         public sealed override void SetImageSize(Size imageSize)
         {
-            liveSource.Width = imageSize.Width;
-            liveSource.Height = imageSize.Height;
+            videoSource.Width = imageSize.Width;
+            videoSource.Height = imageSize.Height;
 
-            liveSource.SetWidthHeight();
+            videoSource.SetWidthHeight();
         }
 
         #endregion Methods
