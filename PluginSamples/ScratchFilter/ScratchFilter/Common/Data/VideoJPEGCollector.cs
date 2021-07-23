@@ -68,6 +68,24 @@ namespace ScratchFilter.Common.Data
         }
 
         /// <summary>
+        /// 最も日時の古い画像を取得します。
+        /// </summary>
+        /// <returns>画像データ</returns>
+        public sealed override JPEGData? GetFirstImage()
+        {
+            return videoSource.GetBegin();
+        }
+
+        /// <summary>
+        /// 最も日時の新しい画像を取得します。
+        /// </summary>
+        /// <returns>画像データ</returns>
+        public sealed override JPEGData? GetLastImage()
+        {
+            return videoSource.GetEnd();
+        }
+
+        /// <summary>
         /// 収集する画像のサイズを設定します。
         /// </summary>
         /// <param name="imageSize">画像のサイズ</param>

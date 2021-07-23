@@ -116,6 +116,18 @@ namespace ScratchFilter.Common.Data
         private protected abstract TVideoSource GenerateVideoSource(Item camera);
 
         /// <summary>
+        /// 最も日時の古い画像を取得します。
+        /// </summary>
+        /// <returns>画像データ</returns>
+        public abstract TImageData? GetFirstImage();
+
+        /// <summary>
+        /// 最も日時の新しい画像を取得します。
+        /// </summary>
+        /// <returns>画像データ</returns>
+        public abstract TImageData? GetLastImage();
+
+        /// <summary>
         /// 収集する画像のサイズを設定します。
         /// </summary>
         /// <param name="imageSize">画像のサイズ</param>
