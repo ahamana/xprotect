@@ -146,7 +146,7 @@ namespace ScratchFilter.Client.Toolbar
         private protected virtual void OnImageViewerStartLive(object sender, PassRequestEventArgs e) { }
 
         /// <summary>
-        /// イメージビューワの表示モードが「再生」もしくは「設定」に変更された時に発生します。
+        /// イメージビューワの表示モードが「再生」、もしくは「設定」に変更された時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>

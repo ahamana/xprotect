@@ -21,11 +21,11 @@ namespace ScratchFilter.Extensions
         #region Methods
 
         /// <summary>
-        /// 指定した種類の項目の一覧を取得します。
+        /// 指定された種類の項目の一覧を取得します。
         /// </summary>
         /// <param name="items">項目の一覧</param>
         /// <param name="kind">項目の種類</param>
-        /// <returns>指定した種類の項目の一覧</returns>
+        /// <returns>指定された種類の項目の一覧</returns>
         private static List<Item> GetItemsOfKind(List<Item> items, Guid kind)
         {
             var kindItems = new List<Item>();
@@ -46,11 +46,11 @@ namespace ScratchFilter.Extensions
         }
 
         /// <summary>
-        /// 指定した種類の項目の一覧を取得します。
+        /// 指定された種類の項目の一覧を取得します。
         /// </summary>
         /// <param name="configuration"><see cref="Configuration" /></param>
         /// <param name="kind">項目の種類</param>
-        /// <returns>指定した種類の項目の一覧</returns>
+        /// <returns>指定された種類の項目の一覧</returns>
         internal static List<Item> GetItemsOfKind(this Configuration configuration, Guid kind)
         {
             return GetItemsOfKind(configuration.GetItemsByKind(kind), kind);

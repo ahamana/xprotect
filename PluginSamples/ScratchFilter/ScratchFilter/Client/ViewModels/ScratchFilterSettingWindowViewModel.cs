@@ -86,9 +86,9 @@ namespace ScratchFilter.Client.ViewModels
             ImageGamma = ReactiveProperty.FromObject(setting, setting => setting.ImageGamma).AddTo(disposable);
             ImageGamma.Subscribe(_ => ChangePreviewImage());
 
-            using var imageCollector = new BitmapCollector(imageViewerAddOn.CameraFQID);
+            using var liveImageCollector = new LiveBitmapCollector(imageViewerAddOn.CameraFQID);
 
-            originalImage = imageCollector.GetImage()?.AddTo(disposable);
+            originalImage = liveImageCollector.GetImage()?.AddTo(disposable);
 
             if (originalImage is null)
             {

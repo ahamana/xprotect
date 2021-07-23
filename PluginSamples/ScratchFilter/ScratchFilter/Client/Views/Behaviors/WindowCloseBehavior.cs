@@ -16,7 +16,7 @@ namespace ScratchFilter.Client.Views.Behaviors
     /// <summary>
     /// ウィンドウを閉じる時のビヘイビアです。
     /// </summary>
-    /// <seealso cref="Behavior{Window}" />
+    /// <seealso cref="Behavior&lt;Window&gt;" />
     [ToString]
     internal sealed class WindowCloseBehavior : Behavior<Window>
     {
