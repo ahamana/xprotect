@@ -104,7 +104,7 @@ namespace ScratchFilter.Common.Data
 
             if (disposing)
             {
-                videoSource?.Close();
+                videoSource.Close();
             }
 
             disposed = true;
