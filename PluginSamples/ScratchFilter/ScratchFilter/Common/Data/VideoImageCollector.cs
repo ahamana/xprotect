@@ -59,9 +59,7 @@ namespace ScratchFilter.Common.Data
         /// </summary>
         /// <param name="cameraId">カメラの ID</param>
         /// <param name="imageSize">画像のサイズ</param>
-        /// <exception cref="ArgumentException">
-        /// <paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。
-        /// </exception>
+        /// <exception cref="ArgumentException"><paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。</exception>
         private protected VideoImageCollector(Guid cameraId) : this(cameraId, Size.Empty) { }
 
         /// <summary>
@@ -69,9 +67,7 @@ namespace ScratchFilter.Common.Data
         /// </summary>
         /// <param name="cameraId">カメラの ID</param>
         /// <param name="imageSize">画像のサイズ</param>
-        /// <exception cref="ArgumentException">
-        /// <paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。
-        /// </exception>
+        /// <exception cref="ArgumentException"><paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。</exception>
         private protected VideoImageCollector(Guid cameraId, Size imageSize)
         {
             if (cameraId == Guid.Empty)
@@ -132,7 +128,7 @@ namespace ScratchFilter.Common.Data
         /// 指定された日時の画像を取得します。
         /// </summary>
         /// <param name="dateTime">日時</param>
-        /// <returns>画像</returns>
+        /// <returns>画像データ</returns>
         public TImageData? GetImage(DateTime dateTime)
         {
             return (TImageData?)liveSource.Get(dateTime.ToUniversalTime());
@@ -142,7 +138,7 @@ namespace ScratchFilter.Common.Data
         /// 指定された日時、もしくは指定された日時以前の最も近い日時の画像を取得します。
         /// </summary>
         /// <param name="dateTime">日時</param>
-        /// <returns>画像</returns>
+        /// <returns>画像データ</returns>
         public TImageData? GetImageAtOrBefore(DateTime dateTime)
         {
             return (TImageData?)liveSource.GetAtOrBefore(dateTime.ToUniversalTime());
@@ -152,7 +148,7 @@ namespace ScratchFilter.Common.Data
         /// 指定された日時に最も近い日時の画像を取得します。
         /// </summary>
         /// <param name="dateTime">日時</param>
-        /// <returns>画像</returns>
+        /// <returns>画像データ</returns>
         public TImageData? GetImageNearest(DateTime dateTime)
         {
             return (TImageData?)liveSource.GetNearest(dateTime.ToUniversalTime());

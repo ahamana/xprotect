@@ -25,21 +25,21 @@ namespace ScratchFilter.Common.Data
         /// 指定された日時の画像を取得します。
         /// </summary>
         /// <param name="dateTime">日時</param>
-        /// <returns>画像</returns>
+        /// <returns>画像データ</returns>
         TImageData? GetImage(DateTime dateTime);
 
         /// <summary>
         /// 指定された日時、もしくは指定された日時以前の最も近い日時の画像を取得します。
         /// </summary>
         /// <param name="dateTime">日時</param>
-        /// <returns>画像</returns>
+        /// <returns>画像データ</returns>
         TImageData? GetImageAtOrBefore(DateTime dateTime);
 
         /// <summary>
         /// 指定された日時に最も近い日時の画像を取得します。
         /// </summary>
         /// <param name="dateTime">日時</param>
-        /// <returns>画像</returns>
+        /// <returns>画像データ</returns>
         TImageData? GetImageNearest(DateTime dateTime);
 
         /// <summary>
