@@ -7,6 +7,7 @@
 //
 
 using System;
+using System.Drawing;
 using System.IO;
 
 using VideoOS.Platform;
@@ -32,8 +33,22 @@ namespace ScratchFilter.Common.Live
         /// <summary>
         /// コンストラクタです。
         /// </summary>
+        /// <param name="cameraFQID">カメラの完全修飾 ID</param>
+        /// <param name="imageSize">画像のサイズ</param>
+        internal LiveJPEGCollector(FQID cameraFQID, Size imageSize) : base(cameraFQID, imageSize) { }
+
+        /// <summary>
+        /// コンストラクタです。
+        /// </summary>
         /// <param name="cameraId">カメラの ID</param>
         internal LiveJPEGCollector(Guid cameraId) : base(cameraId) { }
+
+        /// <summary>
+        /// コンストラクタです。
+        /// </summary>
+        /// <param name="cameraId">カメラの ID</param>
+        /// <param name="imageSize">画像のサイズ</param>
+        internal LiveJPEGCollector(Guid cameraId, Size imageSize) : base(cameraId, imageSize) { }
 
         #endregion Constructors
 

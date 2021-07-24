@@ -63,9 +63,25 @@ namespace ScratchFilter.Common.Live
         /// <summary>
         /// コンストラクタです。
         /// </summary>
+        /// <param name="cameraFQID">カメラの完全修飾 ID</param>
+        /// <param name="imageSize">画像のサイズ</param>
+        private protected LiveImageCollector(FQID cameraFQID, Size imageSize) : this(cameraFQID.ObjectId, imageSize) { }
+
+        /// <summary>
+        /// コンストラクタです。
+        /// </summary>
         /// <param name="cameraId">カメラの ID</param>
+        /// <param name="imageSize">画像のサイズ</param>
         /// <exception cref="ArgumentException"><paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。</exception>
-        private protected LiveImageCollector(Guid cameraId)
+        private protected LiveImageCollector(Guid cameraId) : this(cameraId, Size.Empty) { }
+
+        /// <summary>
+        /// コンストラクタです。
+        /// </summary>
+        /// <param name="cameraId">カメラの ID</param>
+        /// <param name="imageSize">画像のサイズ</param>
+        /// <exception cref="ArgumentException"><paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。</exception>
+        private protected LiveImageCollector(Guid cameraId, Size imageSize)
         {
             if (cameraId == Guid.Empty)
             {
@@ -77,9 +93,9 @@ namespace ScratchFilter.Common.Live
             liveSource = GenerateVideoLiveSource(camera);
 
             liveSource.LiveModeStart = true;
-            // 幅と高さに 0 を指定して、実際の解像度の画像を取得
-            liveSource.Width = 0;
-            liveSource.Height = 0;
+            // 幅と高さに 0 を指定した場合は、実際の解像度の画像が取得される。
+            liveSource.Width = imageSize.Width;
+            liveSource.Height = imageSize.Height;
 
             liveSource.LiveContentEvent += OnLiveSourceLiveContentEvent;
 
@@ -169,6 +185,25 @@ namespace ScratchFilter.Common.Live
 
                 return new(image);
             }
+        }
+
+        /// <summary>
+        /// 収集する画像のサイズを設定します。
+        /// </summary>
+        /// <param name="imageSize">画像のサイズ</param>
+        /// <remarks>
+        /// 幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
+        /// </remarks>
+        public void SetImageSize(Size imageSize)
+        {
+            liveSource.LiveModeStart = false;
+
+            liveSource.Width = imageSize.Width;
+            liveSource.Height = imageSize.Height;
+
+            liveSource.SetWidthHeight();
+
+            liveSource.LiveModeStart = true;
         }
 
         /// <summary>
