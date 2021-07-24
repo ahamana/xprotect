@@ -52,18 +52,6 @@ namespace ScratchFilter.Client.Toolbar
         #region Properties
 
         /// <summary>
-        /// 表示先のウィンドウです。
-        /// </summary>
-        /// <value>表示先のウィンドウ</value>
-        private protected Item? Window { get; private set; }
-
-        /// <summary>
-        /// 表示先のモニターです。
-        /// </summary>
-        /// <value>表示先のモニター</value>
-        private protected Item? Monitor { get; private set; }
-
-        /// <summary>
         /// プラグインの説明です。
         /// </summary>
         /// <value>プラグインの説明</value>
@@ -130,8 +118,6 @@ namespace ScratchFilter.Client.Toolbar
         /// <param name="window">ツールバー用プラグインの表示先のウィンドウ</param>
         public override void Init(Item viewItemInstance, Item window)
         {
-            Window = window;
-            Monitor = viewItemInstance;
             Title = Description;
             Tooltip = Description;
 
