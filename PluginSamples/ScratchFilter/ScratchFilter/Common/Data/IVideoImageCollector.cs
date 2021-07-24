@@ -8,7 +8,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 
 namespace ScratchFilter.Common.Data
 {
@@ -71,15 +70,6 @@ namespace ScratchFilter.Common.Data
         /// <param name="maxCount">画像の最大取得数</param>
         /// <returns>画像データの一覧</returns>
         IEnumerable<TImageData> GetImages(DateTime dateTime, TimeSpan timeSpan, int maxCount = int.MaxValue);
-
-        /// <summary>
-        /// 収集する画像のサイズを設定します。
-        /// </summary>
-        /// <param name="imageSize">画像のサイズ</param>
-        /// <remarks>
-        /// 幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
-        /// </remarks>
-        void SetImageSize(Size imageSize);
 
         #endregion Methods
     }

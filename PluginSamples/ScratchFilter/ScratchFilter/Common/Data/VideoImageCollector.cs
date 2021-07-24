@@ -130,15 +130,6 @@ namespace ScratchFilter.Common.Data
         public abstract TImageData? GetLastImage();
 
         /// <summary>
-        /// 収集する画像のサイズを設定します。
-        /// </summary>
-        /// <param name="imageSize">画像のサイズ</param>
-        /// <remarks>
-        /// 幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
-        /// </remarks>
-        public abstract void SetImageSize(Size imageSize);
-
-        /// <summary>
         /// 指定された日時、もしくは指定された日時以降の最も近い日時の画像を取得します。
         /// </summary>
         /// <param name="dateTime">日時</param>
