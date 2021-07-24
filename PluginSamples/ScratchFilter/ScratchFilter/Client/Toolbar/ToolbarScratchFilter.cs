@@ -66,7 +66,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワの表示画像を処理します。
         /// </summary>
-        /// <param name="imageViewerAddOn">イメージビューワ</param>
+        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
         private void HandleDisplayedImage(ImageViewerAddOn imageViewerAddOn)
         {
             imageViewerAddOn.ClearOverlay(default);

@@ -36,7 +36,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワのイベントを登録します。
         /// </summary>
-        /// <param name="imageViewerAddOn">イメージビューワ</param>
+        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
         private void RegisterImageViewerEvents(ImageViewerAddOn imageViewerAddOn)
         {
             imageViewerAddOn.CloseEvent += OnImageViewerClose;
@@ -56,7 +56,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワのイベントの登録を解除します。
         /// </summary>
-        /// <param name="imageViewerAddOn">イメージビューワ</param>
+        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
         private void UnregisterImageViewerEvents(ImageViewerAddOn imageViewerAddOn)
         {
             imageViewerAddOn.CloseEvent -= OnImageViewerClose;
