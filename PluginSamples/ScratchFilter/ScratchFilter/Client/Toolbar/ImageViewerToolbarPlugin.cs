@@ -109,77 +109,242 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        private protected virtual void OnImageViewerUserControlSizeOrLocationChanged(object sender, EventArgs e) { }
+        private void OnImageViewerUserControlSizeOrLocationChanged(object sender, EventArgs e)
+        {
+            if (sender is not ImageViewerAddOn imageViewerAddOn)
+            {
+                return;
+            }
+
+            OnImageViewerUserControlSizeOrLocationChanged(imageViewerAddOn, e);
+        }
 
         /// <summary>
         /// イメージビューワのライブストリームの XML の情報が利用可能になった時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        private protected virtual void OnImageViewerLiveStreamInformation(object sender, LiveStreamInformationEventArgs e) { }
+        private void OnImageViewerLiveStreamInformation(object sender, LiveStreamInformationEventArgs e)
+        {
+            if (sender is not ImageViewerAddOn imageViewerAddOn)
+            {
+                return;
+            }
+
+            OnImageViewerLiveStreamInformation(imageViewerAddOn, e);
+        }
 
         /// <summary>
         /// イメージビューワの表示モードが「ライブ」に変更された時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        private protected virtual void OnImageViewerStartLive(object sender, PassRequestEventArgs e) { }
+        private void OnImageViewerStartLive(object sender, PassRequestEventArgs e)
+        {
+            if (sender is not ImageViewerAddOn imageViewerAddOn)
+            {
+                return;
+            }
+
+            OnImageViewerStartLive(imageViewerAddOn, e);
+        }
 
         /// <summary>
         /// イメージビューワの表示モードが「再生」、もしくは「設定」に変更された時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        private protected virtual void OnImageViewerStopLive(object sender, PassRequestEventArgs e) { }
+        private void OnImageViewerStopLive(object sender, PassRequestEventArgs e)
+        {
+            if (sender is not ImageViewerAddOn imageViewerAddOn)
+            {
+                return;
+            }
+
+            OnImageViewerStopLive(imageViewerAddOn, e);
+        }
 
         /// <summary>
         /// イメージビューワのプロパティが変更された時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        private protected virtual void OnImageViewerPropertyChanged(object sender, EventArgs e) { }
+        private void OnImageViewerPropertyChanged(object sender, EventArgs e)
+        {
+            if (sender is not ImageViewerAddOn imageViewerAddOn)
+            {
+                return;
+            }
+
+            OnImageViewerPropertyChanged(imageViewerAddOn, e);
+        }
 
         /// <summary>
         /// イメージビューワにライブ映像の画像が表示された時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        private protected virtual void OnImageViewerImageDisplayed(object sender, ImageDisplayedEventArgs e) { }
+        private void OnImageViewerImageDisplayed(object sender, ImageDisplayedEventArgs e)
+        {
+            if (sender is not ImageViewerAddOn imageViewerAddOn)
+            {
+                return;
+            }
+
+            OnImageViewerImageDisplayed(imageViewerAddOn, e);
+        }
 
         /// <summary>
         /// イメージビューワに録画映像の画像が表示された時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        private protected virtual void OnImageViewerRecordedImageReceived(object sender, RecordedImageReceivedEventArgs e) { }
+        private void OnImageViewerRecordedImageReceived(object sender, RecordedImageReceivedEventArgs e)
+        {
+            if (sender is not ImageViewerAddOn imageViewerAddOn)
+            {
+                return;
+            }
+
+            OnImageViewerRecordedImageReceived(imageViewerAddOn, e);
+        }
 
         /// <summary>
         /// イメージビューワ上でマウスがクリックされた時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        private protected virtual void OnImageViewerMouseClick(object sender, MouseEventArgs e) { }
+        private void OnImageViewerMouseClick(object sender, MouseEventArgs e)
+        {
+            if (sender is not ImageViewerAddOn imageViewerAddOn)
+            {
+                return;
+            }
+
+            OnImageViewerMouseClick(imageViewerAddOn, e);
+        }
 
         /// <summary>
         /// イメージビューワ上でマウスがダブルクリックされた時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        private protected virtual void OnImageViewerMouseDoubleClick(object sender, MouseEventArgs e) { }
+        private void OnImageViewerMouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (sender is not ImageViewerAddOn imageViewerAddOn)
+            {
+                return;
+            }
+
+            OnImageViewerMouseDoubleClick(imageViewerAddOn, e);
+        }
 
         /// <summary>
         /// イメージビューワ上でマウスが動かされた時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        private protected virtual void OnImageViewerMouseMove(object sender, MouseEventArgs e) { }
+        private void OnImageViewerMouseMove(object sender, MouseEventArgs e)
+        {
+            if (sender is not ImageViewerAddOn imageViewerAddOn)
+            {
+                return;
+            }
+
+            OnImageViewerMouseMove(imageViewerAddOn, e);
+        }
 
         /// <summary>
         /// イメージビューワ上でマウスが右クリックされた時に発生します。
         /// </summary>
         /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
         /// <param name="e">イベントのデータ</param>
-        private protected virtual void OnImageViewerMouseRightClick(object sender, MouseEventArgs e) { }
+        private void OnImageViewerMouseRightClick(object sender, MouseEventArgs e)
+        {
+            if (sender is not ImageViewerAddOn imageViewerAddOn)
+            {
+                return;
+            }
+
+            OnImageViewerMouseRightClick(imageViewerAddOn, e);
+        }
+
+        /// <summary>
+        /// イメージビューワのサイズ、表示位置が変更された時に発生します。
+        /// </summary>
+        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
+        /// <param name="e">イベントのデータ</param>
+        private protected virtual void OnImageViewerUserControlSizeOrLocationChanged(ImageViewerAddOn imageViewerAddOn, EventArgs e) { }
+
+        /// <summary>
+        /// イメージビューワのライブストリームの XML の情報が利用可能になった時に発生します。
+        /// </summary>
+        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
+        /// <param name="e">イベントのデータ</param>
+        private protected virtual void OnImageViewerLiveStreamInformation(ImageViewerAddOn imageViewerAddOn, LiveStreamInformationEventArgs e) { }
+
+        /// <summary>
+        /// イメージビューワの表示モードが「ライブ」に変更された時に発生します。
+        /// </summary>
+        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
+        /// <param name="e">イベントのデータ</param>
+        private protected virtual void OnImageViewerStartLive(ImageViewerAddOn imageViewerAddOn, PassRequestEventArgs e) { }
+
+        /// <summary>
+        /// イメージビューワの表示モードが「再生」、もしくは「設定」に変更された時に発生します。
+        /// </summary>
+        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
+        /// <param name="e">イベントのデータ</param>
+        private protected virtual void OnImageViewerStopLive(ImageViewerAddOn imageViewerAddOn, PassRequestEventArgs e) { }
+
+        /// <summary>
+        /// イメージビューワのプロパティが変更された時に発生します。
+        /// </summary>
+        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
+        /// <param name="e">イベントのデータ</param>
+        private protected virtual void OnImageViewerPropertyChanged(ImageViewerAddOn imageViewerAddOn, EventArgs e) { }
+
+        /// <summary>
+        /// イメージビューワにライブ映像の画像が表示された時に発生します。
+        /// </summary>
+        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
+        /// <param name="e">イベントのデータ</param>
+        private protected virtual void OnImageViewerImageDisplayed(ImageViewerAddOn imageViewerAddOn, ImageDisplayedEventArgs e) { }
+
+        /// <summary>
+        /// イメージビューワに録画映像の画像が表示された時に発生します。
+        /// </summary>
+        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
+        /// <param name="e">イベントのデータ</param>
+        private protected virtual void OnImageViewerRecordedImageReceived(ImageViewerAddOn imageViewerAddOn, RecordedImageReceivedEventArgs e) { }
+
+        /// <summary>
+        /// イメージビューワ上でマウスがクリックされた時に発生します。
+        /// </summary>
+        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
+        /// <param name="e">イベントのデータ</param>
+        private protected virtual void OnImageViewerMouseClick(ImageViewerAddOn imageViewerAddOn, MouseEventArgs e) { }
+
+        /// <summary>
+        /// イメージビューワ上でマウスがダブルクリックされた時に発生します。
+        /// </summary>
+        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
+        /// <param name="e">イベントのデータ</param>
+        private protected virtual void OnImageViewerMouseDoubleClick(ImageViewerAddOn imageViewerAddOn, MouseEventArgs e) { }
+
+        /// <summary>
+        /// イメージビューワ上でマウスが動かされた時に発生します。
+        /// </summary>
+        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
+        /// <param name="e">イベントのデータ</param>
+        private protected virtual void OnImageViewerMouseMove(ImageViewerAddOn imageViewerAddOn, MouseEventArgs e) { }
+
+        /// <summary>
+        /// イメージビューワ上でマウスが右クリックされた時に発生します。
+        /// </summary>
+        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
+        /// <param name="e">イベントのデータ</param>
+        private protected virtual void OnImageViewerMouseRightClick(ImageViewerAddOn imageViewerAddOn, MouseEventArgs e) { }
 
         /// <summary>
         /// ツールバーのインスタンスが UI に追加されたときに呼ばれます。

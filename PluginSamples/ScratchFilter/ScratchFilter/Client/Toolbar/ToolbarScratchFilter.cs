@@ -101,30 +101,20 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワにライブ映像の画像が表示された時に発生します。
         /// </summary>
-        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
         /// <param name="e">イベントのデータ</param>
-        private protected sealed override void OnImageViewerImageDisplayed(object sender, ImageDisplayedEventArgs e)
+        private protected sealed override void OnImageViewerImageDisplayed(ImageViewerAddOn imageViewerAddOn, ImageDisplayedEventArgs e)
         {
-            if (sender is not ImageViewerAddOn imageViewerAddOn)
-            {
-                return;
-            }
-
             HandleDisplayedImage(imageViewerAddOn);
         }
 
         /// <summary>
         /// イメージビューワに録画映像の画像が表示された時に発生します。
         /// </summary>
-        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
         /// <param name="e">イベントのデータ</param>
-        private protected sealed override void OnImageViewerRecordedImageReceived(object sender, RecordedImageReceivedEventArgs e)
+        private protected sealed override void OnImageViewerRecordedImageReceived(ImageViewerAddOn imageViewerAddOn, RecordedImageReceivedEventArgs e)
         {
-            if (sender is not ImageViewerAddOn imageViewerAddOn)
-            {
-                return;
-            }
-
             HandleDisplayedImage(imageViewerAddOn);
         }
 
