@@ -25,8 +25,6 @@ using ScratchFilter.Client.Data;
 using ScratchFilter.Common.Live;
 using ScratchFilter.Extensions;
 
-using VideoOS.Platform.Client;
-
 namespace ScratchFilter.Client.ViewModels
 {
     /// <summary>
@@ -61,16 +59,22 @@ namespace ScratchFilter.Client.ViewModels
         /// <summary>
         /// コンストラクタです。
         /// </summary>
-        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
-        internal ScratchFilterSettingWindowViewModel(ImageViewerAddOn imageViewerAddOn)
+        /// <param name="cameraId">カメラの ID</param>
+        /// <exception cref="ArgumentException"><paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。</exception>
+        internal ScratchFilterSettingWindowViewModel(Guid cameraId)
         {
+            if (cameraId == Guid.Empty)
+            {
+                throw new ArgumentException(nameof(cameraId));
+            }
+
             IsSettable = new(true);
 
             PreviewImage = new ReactivePropertySlim<ImageSource>().AddTo(disposable);
 
             ErrorMessageVisibility = new ReactivePropertySlim<Visibility>(Visibility.Hidden).AddTo(disposable);
 
-            setting = ScratchFilterSettingManager.Instance.GetSetting(imageViewerAddOn.CameraFQID.ObjectId);
+            setting = ScratchFilterSettingManager.Instance.GetSetting(cameraId);
 
             CameraName = setting.ObserveProperty(setting => setting.CameraName).ToReadOnlyReactivePropertySlim().AddTo(disposable);
 
@@ -86,9 +90,9 @@ namespace ScratchFilter.Client.ViewModels
             ImageGamma = ReactiveProperty.FromObject(setting, setting => setting.ImageGamma).AddTo(disposable);
             ImageGamma.Subscribe(_ => ChangePreviewImage());
 
-            using var liveImageCollector = new LiveBitmapCollector(imageViewerAddOn.CameraFQID);
+            using var imageCollector = new LiveBitmapCollector(cameraId);
 
-            originalImage = liveImageCollector.GetImage()?.AddTo(disposable);
+            originalImage = imageCollector.GetImage()?.AddTo(disposable);
 
             if (originalImage is null)
             {

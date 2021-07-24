@@ -66,28 +66,24 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワの表示画像を処理します。
         /// </summary>
-        private void HandleDisplayedImage()
+        /// <param name="imageViewerAddOn">イメージビューワ</param>
+        private void HandleDisplayedImage(ImageViewerAddOn imageViewerAddOn)
         {
-            if (ImageViewerAddOn is null)
-            {
-                return;
-            }
-
-            ImageViewerAddOn.ClearOverlay(default);
+            imageViewerAddOn.ClearOverlay(default);
 
             if (!isActive)
             {
                 return;
             }
 
-            using var original = ImageViewerAddOn.GetCurrentDisplayedImageAsBitmap();
+            using var original = imageViewerAddOn.GetCurrentDisplayedImageAsBitmap();
 
             if (original is null)
             {
                 return;
             }
 
-            var setting = ScratchFilterSettingManager.Instance.GetSetting(ImageViewerAddOn.CameraFQID.ObjectId);
+            var setting = ScratchFilterSettingManager.Instance.GetSetting(imageViewerAddOn.CameraFQID.ObjectId);
 
             using var imageFactory = new ImageFactory();
 
@@ -99,7 +95,7 @@ namespace ScratchFilter.Client.Toolbar
 
             using var overlay = new Bitmap(imageFactory.Image);
 
-            ImageViewerAddOn.SetOverlay(overlay, default, true, true, true, 1, DockStyle.None, DockStyle.None, Point.Empty.X, Point.Empty.Y);
+            imageViewerAddOn.SetOverlay(overlay, default, true, true, true, 1, DockStyle.None, DockStyle.None, Point.Empty.X, Point.Empty.Y);
         }
 
         /// <summary>
@@ -109,7 +105,12 @@ namespace ScratchFilter.Client.Toolbar
         /// <param name="e">イベントのデータ</param>
         private protected sealed override void OnImageViewerImageDisplayed(object sender, ImageDisplayedEventArgs e)
         {
-            HandleDisplayedImage();
+            if (sender is not ImageViewerAddOn imageViewerAddOn)
+            {
+                return;
+            }
+
+            HandleDisplayedImage(imageViewerAddOn);
         }
 
         /// <summary>
@@ -119,7 +120,12 @@ namespace ScratchFilter.Client.Toolbar
         /// <param name="e">イベントのデータ</param>
         private protected sealed override void OnImageViewerRecordedImageReceived(object sender, RecordedImageReceivedEventArgs e)
         {
-            HandleDisplayedImage();
+            if (sender is not ImageViewerAddOn imageViewerAddOn)
+            {
+                return;
+            }
+
+            HandleDisplayedImage(imageViewerAddOn);
         }
 
         /// <summary>

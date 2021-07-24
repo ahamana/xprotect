@@ -27,21 +27,7 @@ namespace ScratchFilter.Client.Toolbar
         /// 映像が表示されているカメラの ID です。
         /// </summary>
         /// <value>映像が表示されているカメラの ID</value>
-        private Guid CameraId
-        {
-            get
-            {
-                Guid.TryParse(Monitor?.Properties["CurrentCameraId"], out var cameraId);
-
-                return cameraId;
-            }
-        }
-
-        /// <summary>
-        /// イメージビューワのアドオンです。
-        /// </summary>
-        /// <value>イメージビューワのアドオン</value>
-        private protected ImageViewerAddOn? ImageViewerAddOn { get; private set; }
+        private protected Guid CameraId { get; private set; }
 
         #endregion Properties
 
@@ -50,49 +36,41 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// イメージビューワのイベントを登録します。
         /// </summary>
-        private void RegisterImageViewerEvents()
+        /// <param name="imageViewerAddOn">イメージビューワ</param>
+        private void RegisterImageViewerEvents(ImageViewerAddOn imageViewerAddOn)
         {
-            if (ImageViewerAddOn is null)
-            {
-                return;
-            }
-
-            ImageViewerAddOn.CloseEvent += OnImageViewerClose;
-            ImageViewerAddOn.UserControlSizeOrLocationChangedEvent += OnImageViewerUserControlSizeOrLocationChanged;
-            ImageViewerAddOn.LiveStreamInformationEvent += OnImageViewerLiveStreamInformation;
-            ImageViewerAddOn.StartLiveEvent += OnImageViewerStartLive;
-            ImageViewerAddOn.StopLiveEvent += OnImageViewerStopLive;
-            ImageViewerAddOn.PropertyChangedEvent += OnImageViewerPropertyChanged;
-            ImageViewerAddOn.ImageDisplayedEvent += OnImageViewerImageDisplayed;
-            ImageViewerAddOn.RecordedImageReceivedEvent += OnImageViewerRecordedImageReceived;
-            ImageViewerAddOn.MouseClickEvent += OnImageViewerMouseClick;
-            ImageViewerAddOn.MouseDoubleClickEvent += OnImageViewerMouseDoubleClick;
-            ImageViewerAddOn.MouseMoveEvent += OnImageViewerMouseMove;
-            ImageViewerAddOn.MouseRightClickEvent += OnImageViewerMouseRightClick;
+            imageViewerAddOn.CloseEvent += OnImageViewerClose;
+            imageViewerAddOn.UserControlSizeOrLocationChangedEvent += OnImageViewerUserControlSizeOrLocationChanged;
+            imageViewerAddOn.LiveStreamInformationEvent += OnImageViewerLiveStreamInformation;
+            imageViewerAddOn.StartLiveEvent += OnImageViewerStartLive;
+            imageViewerAddOn.StopLiveEvent += OnImageViewerStopLive;
+            imageViewerAddOn.PropertyChangedEvent += OnImageViewerPropertyChanged;
+            imageViewerAddOn.ImageDisplayedEvent += OnImageViewerImageDisplayed;
+            imageViewerAddOn.RecordedImageReceivedEvent += OnImageViewerRecordedImageReceived;
+            imageViewerAddOn.MouseClickEvent += OnImageViewerMouseClick;
+            imageViewerAddOn.MouseDoubleClickEvent += OnImageViewerMouseDoubleClick;
+            imageViewerAddOn.MouseMoveEvent += OnImageViewerMouseMove;
+            imageViewerAddOn.MouseRightClickEvent += OnImageViewerMouseRightClick;
         }
 
         /// <summary>
         /// イメージビューワのイベントの登録を解除します。
         /// </summary>
-        private void UnregisterImageViewerEvents()
+        /// <param name="imageViewerAddOn">イメージビューワ</param>
+        private void UnregisterImageViewerEvents(ImageViewerAddOn imageViewerAddOn)
         {
-            if (ImageViewerAddOn is null)
-            {
-                return;
-            }
-
-            ImageViewerAddOn.CloseEvent -= OnImageViewerClose;
-            ImageViewerAddOn.UserControlSizeOrLocationChangedEvent -= OnImageViewerUserControlSizeOrLocationChanged;
-            ImageViewerAddOn.LiveStreamInformationEvent -= OnImageViewerLiveStreamInformation;
-            ImageViewerAddOn.StartLiveEvent -= OnImageViewerStartLive;
-            ImageViewerAddOn.StopLiveEvent -= OnImageViewerStopLive;
-            ImageViewerAddOn.PropertyChangedEvent -= OnImageViewerPropertyChanged;
-            ImageViewerAddOn.ImageDisplayedEvent -= OnImageViewerImageDisplayed;
-            ImageViewerAddOn.RecordedImageReceivedEvent -= OnImageViewerRecordedImageReceived;
-            ImageViewerAddOn.MouseClickEvent -= OnImageViewerMouseClick;
-            ImageViewerAddOn.MouseDoubleClickEvent -= OnImageViewerMouseDoubleClick;
-            ImageViewerAddOn.MouseMoveEvent -= OnImageViewerMouseMove;
-            ImageViewerAddOn.MouseRightClickEvent -= OnImageViewerMouseRightClick;
+            imageViewerAddOn.CloseEvent -= OnImageViewerClose;
+            imageViewerAddOn.UserControlSizeOrLocationChangedEvent -= OnImageViewerUserControlSizeOrLocationChanged;
+            imageViewerAddOn.LiveStreamInformationEvent -= OnImageViewerLiveStreamInformation;
+            imageViewerAddOn.StartLiveEvent -= OnImageViewerStartLive;
+            imageViewerAddOn.StopLiveEvent -= OnImageViewerStopLive;
+            imageViewerAddOn.PropertyChangedEvent -= OnImageViewerPropertyChanged;
+            imageViewerAddOn.ImageDisplayedEvent -= OnImageViewerImageDisplayed;
+            imageViewerAddOn.RecordedImageReceivedEvent -= OnImageViewerRecordedImageReceived;
+            imageViewerAddOn.MouseClickEvent -= OnImageViewerMouseClick;
+            imageViewerAddOn.MouseDoubleClickEvent -= OnImageViewerMouseDoubleClick;
+            imageViewerAddOn.MouseMoveEvent -= OnImageViewerMouseMove;
+            imageViewerAddOn.MouseRightClickEvent -= OnImageViewerMouseRightClick;
         }
 
         /// <summary>
@@ -101,17 +79,14 @@ namespace ScratchFilter.Client.Toolbar
         /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
         private void OnNewImageViewerControl(ImageViewerAddOn imageViewerAddOn)
         {
-            if (ImageViewerAddOn is not null)
+            if (CameraId != Guid.Empty)
             {
                 return;
             }
 
-            if (CameraId == imageViewerAddOn.CameraFQID.ObjectId)
-            {
-                ImageViewerAddOn = imageViewerAddOn;
+            CameraId = imageViewerAddOn.CameraFQID.ObjectId;
 
-                RegisterImageViewerEvents();
-            }
+            RegisterImageViewerEvents(imageViewerAddOn);
         }
 
         /// <summary>
@@ -121,7 +96,12 @@ namespace ScratchFilter.Client.Toolbar
         /// <param name="e">イベントのデータ</param>
         private void OnImageViewerClose(object sender, EventArgs e)
         {
-            UnregisterImageViewerEvents();
+            if (sender is not ImageViewerAddOn imageViewerAddOn)
+            {
+                return;
+            }
+
+            UnregisterImageViewerEvents(imageViewerAddOn);
         }
 
         /// <summary>

@@ -6,11 +6,10 @@
 // express written permission of Canon Inc.
 //
 
+using System;
 using System.Windows;
 
 using ScratchFilter.Client.ViewModels;
-
-using VideoOS.Platform.Client;
 
 namespace ScratchFilter.Client.Views
 {
@@ -24,12 +23,18 @@ namespace ScratchFilter.Client.Views
         /// <summary>
         /// コンストラクタです。
         /// </summary>
-        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
-        internal ScratchFilterSettingWindow(ImageViewerAddOn imageViewerAddOn)
+        /// <param name="cameraId">カメラの ID</param>
+        /// <exception cref="ArgumentException"><paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。</exception>
+        internal ScratchFilterSettingWindow(Guid cameraId)
         {
+            if (cameraId == Guid.Empty)
+            {
+                throw new ArgumentException(nameof(cameraId));
+            }
+
             InitializeComponent();
 
-            DataContext = new ScratchFilterSettingWindowViewModel(imageViewerAddOn);
+            DataContext = new ScratchFilterSettingWindowViewModel(cameraId);
         }
 
         #endregion Constructors
