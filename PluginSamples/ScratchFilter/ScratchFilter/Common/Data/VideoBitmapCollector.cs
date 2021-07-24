@@ -15,7 +15,7 @@ using VideoOS.Platform.Data;
 namespace ScratchFilter.Common.Data
 {
     /// <summary>
-    /// Bitmap 画像を収集するためのクラスです。
+    /// 録画映像の Bitmap 画像を収集するためのクラスです。
     /// </summary>
     /// <seealso cref="VideoImageCollector&lt;BitmapVideoSource, BitmapData&gt;" />
     [ToString]

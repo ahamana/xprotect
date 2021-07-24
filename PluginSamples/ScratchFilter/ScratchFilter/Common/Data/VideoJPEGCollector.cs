@@ -15,7 +15,7 @@ using VideoOS.Platform.Data;
 namespace ScratchFilter.Common.Data
 {
     /// <summary>
-    /// JPEG 画像を収集するためのクラスです。
+    /// 録画映像の JPEG 画像を収集するためのクラスです。
     /// </summary>
     /// <seealso cref="VideoImageCollector&lt;JPEGVideoSource, JPEGData&gt;" />
     [ToString]

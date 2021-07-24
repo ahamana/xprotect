@@ -17,7 +17,7 @@ using VideoOS.Platform.Live;
 namespace ScratchFilter.Common.Live
 {
     /// <summary>
-    /// Bitmap 画像を収集するためのクラスです。
+    /// ライブ映像の Bitmap 画像を収集するためのクラスです。
     /// </summary>
     /// <seealso cref="LiveImageCollector&lt;BitmapLiveSource, LiveSourceBitmapContent&gt;" />
     [ToString]
