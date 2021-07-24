@@ -26,11 +26,11 @@ namespace ScratchFilter.Extensions
         /// <param name="items">項目の一覧</param>
         /// <param name="kind">項目の種類</param>
         /// <returns>指定された種類の項目の一覧</returns>
-        private static List<Item> GetItemsOfKind(List<Item> items, Guid kind)
+        private static List<Item> GetItemsOfKind(in List<Item> items, in Guid kind)
         {
             var kindItems = new List<Item>();
 
-            items.ForEach(item =>
+            foreach (var item in items)
             {
                 if (item.FQID.Kind == kind && item.FQID.FolderType == FolderType.No)
                 {
@@ -40,7 +40,7 @@ namespace ScratchFilter.Extensions
                 {
                     kindItems.AddRange(GetItemsOfKind(item.GetChildren(), kind));
                 }
-            });
+            }
 
             return kindItems;
         }
@@ -51,7 +51,7 @@ namespace ScratchFilter.Extensions
         /// <param name="configuration"><see cref="Configuration" /></param>
         /// <param name="kind">項目の種類</param>
         /// <returns>指定された種類の項目の一覧</returns>
-        internal static List<Item> GetItemsOfKind(this Configuration configuration, Guid kind)
+        internal static List<Item> GetItemsOfKind(this Configuration configuration, in Guid kind)
         {
             return GetItemsOfKind(configuration.GetItemsByKind(kind), kind);
         }

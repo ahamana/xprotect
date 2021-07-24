@@ -111,7 +111,7 @@ namespace ScratchFilter.Client.Data
         /// <param name="cameraId">カメラの ID</param>
         /// <returns>傷フィルタの設定</returns>
         /// <exception cref="ArgumentException"><paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。</exception>
-        internal ScratchFilterSetting GetSetting(Guid cameraId)
+        internal ScratchFilterSetting GetSetting(in Guid cameraId)
         {
             if (cameraId == Guid.Empty)
             {
@@ -146,18 +146,18 @@ namespace ScratchFilter.Client.Data
         /// </summary>
         /// <param name="settings">更新対象の傷フィルタの設定の一覧</param>
         /// <exception cref="ArgumentException"><paramref name="settings" /> が空の場合にスローされます。</exception>
-        internal void Save(IEnumerable<ScratchFilterSetting> settings)
+        internal void Save(in IEnumerable<ScratchFilterSetting> settings)
         {
             if (!settings.Any())
             {
                 throw new ArgumentException(nameof(settings));
             }
 
-            settings.ToList().ForEach(setting =>
+            foreach (var setting in settings)
             {
                 this.settings.Remove(setting.CameraId);
                 this.settings.Add(setting.CameraId, setting);
-            });
+            }
 
             Save();
         }

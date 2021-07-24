@@ -60,7 +60,7 @@ namespace ScratchFilter.Common.Messaging
         /// </summary>
         /// <param name="userDefinedEvent">ユーザ定義イベント</param>
         /// <param name="relatedItem">関連項目</param>
-        internal void SendUserDefinedEvent(Item userDefinedEvent, Item? relatedItem = null)
+        internal void SendUserDefinedEvent(in Item userDefinedEvent, in Item? relatedItem = null)
         {
             if (userDefinedEvent.FQID.Kind != Kind.TriggerEvent)
             {
@@ -78,7 +78,7 @@ namespace ScratchFilter.Common.Messaging
         /// <param name="eventName">イベント名</param>
         /// <param name="device">デバイス</param>
         /// <param name="description">説明</param>
-        internal void SendAnalyticsEvent(string eventName, Item device, string? description = null)
+        internal void SendAnalyticsEvent(in string eventName, in Item device, in string? description = null)
         {
             if (string.IsNullOrEmpty(eventName))
             {
@@ -125,7 +125,7 @@ namespace ScratchFilter.Common.Messaging
         /// </summary>
         /// <param name="dataSource">ジェネリックイベントのデータソース</param>
         /// <param name="text">通知する文字列</param>
-        internal void SendGenericEvent(GenericEventDataSource dataSource, string text)
+        internal void SendGenericEvent(in GenericEventDataSource dataSource, in string text)
         {
             if (string.IsNullOrEmpty(text))
             {
@@ -146,7 +146,7 @@ namespace ScratchFilter.Common.Messaging
         /// <param name="alarmName">アラーム名</param>
         /// <param name="device">デバイス</param>
         /// <param name="description">説明</param>
-        internal void SendAlarm(string alarmName, Item device, string? description = null)
+        internal void SendAlarm(in string alarmName, in Item device, in string? description = null)
         {
             if (string.IsNullOrEmpty(alarmName))
             {

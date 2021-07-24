@@ -25,7 +25,7 @@ namespace ScratchFilter.Client.Views
         /// </summary>
         /// <param name="cameraId">カメラの ID</param>
         /// <exception cref="ArgumentException"><paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。</exception>
-        internal ScratchFilterSettingWindow(Guid cameraId)
+        internal ScratchFilterSettingWindow(in Guid cameraId)
         {
             if (cameraId == Guid.Empty)
             {

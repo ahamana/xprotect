@@ -27,27 +27,27 @@ namespace ScratchFilter.Common.Data
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraFQID">カメラの完全修飾 ID</param>
-        internal VideoBitmapCollector(FQID cameraFQID) : base(cameraFQID) { }
+        internal VideoBitmapCollector(in FQID cameraFQID) : base(cameraFQID) { }
 
         /// <summary>
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraFQID">カメラの完全修飾 ID</param>
         /// <param name="imageSize">画像のサイズ</param>
-        internal VideoBitmapCollector(FQID cameraFQID, Size imageSize) : base(cameraFQID, imageSize) { }
+        internal VideoBitmapCollector(in FQID cameraFQID, in Size imageSize) : base(cameraFQID, imageSize) { }
 
         /// <summary>
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraId">カメラの ID</param>
-        internal VideoBitmapCollector(Guid cameraId) : base(cameraId) { }
+        internal VideoBitmapCollector(in Guid cameraId) : base(cameraId) { }
 
         /// <summary>
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraId">カメラの ID</param>
         /// <param name="imageSize">画像のサイズ</param>
-        internal VideoBitmapCollector(Guid cameraId, Size imageSize) : base(cameraId, imageSize) { }
+        internal VideoBitmapCollector(in Guid cameraId, in Size imageSize) : base(cameraId, imageSize) { }
 
         #endregion Constructors
 
@@ -58,7 +58,7 @@ namespace ScratchFilter.Common.Data
         /// </summary>
         /// <param name="camera">カメラ</param>
         /// <returns>録画映像のソース</returns>
-        private protected sealed override BitmapVideoSource GenerateVideoSource(Item camera)
+        private protected sealed override BitmapVideoSource GenerateVideoSource(in Item camera)
         {
             return new(camera);
         }
