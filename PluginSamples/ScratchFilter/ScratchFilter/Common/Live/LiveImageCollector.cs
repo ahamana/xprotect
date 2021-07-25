@@ -65,6 +65,9 @@ namespace ScratchFilter.Common.Live
         /// </summary>
         /// <param name="cameraFQID">カメラの完全修飾 ID</param>
         /// <param name="imageSize">画像のサイズ</param>
+        /// <remarks>
+        /// 画像のサイズの幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
+        /// </remarks>
         private protected LiveImageCollector(in FQID cameraFQID, in Size imageSize) : this(cameraFQID.ObjectId, imageSize) { }
 
         /// <summary>
@@ -80,6 +83,9 @@ namespace ScratchFilter.Common.Live
         /// <param name="cameraId">カメラの ID</param>
         /// <param name="imageSize">画像のサイズ</param>
         /// <exception cref="ArgumentException"><paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。</exception>
+        /// <remarks>
+        /// 画像のサイズの幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
+        /// </remarks>
         private protected LiveImageCollector(in Guid cameraId, in Size imageSize)
         {
             if (cameraId == Guid.Empty)
