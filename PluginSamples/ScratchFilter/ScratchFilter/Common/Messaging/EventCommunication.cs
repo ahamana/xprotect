@@ -32,9 +32,9 @@ namespace ScratchFilter.Common.Messaging
         #region Fields
 
         /// <summary>
-        /// ベンダー名です。
+        /// プラグインの定義です。
         /// </summary>
-        private static readonly string VendorName;
+        private static readonly PluginDefinition PluginDefinition;
 
         #endregion Fields
 
@@ -47,9 +47,7 @@ namespace ScratchFilter.Common.Messaging
         {
             var pluginId = Guid.Parse(Assembly.GetExecutingAssembly().GetCustomAttribute<GuidAttribute>().Value);
 
-            var pluginDefinition = EnvironmentManager.Instance.AllPluginDefinitions.FirstOrDefault(pluginDefinition => pluginId == pluginDefinition.Id);
-
-            VendorName = pluginDefinition?.Manufacturer ?? string.Empty;
+            PluginDefinition = EnvironmentManager.Instance.AllPluginDefinitions.First(pluginDefinition => pluginId == pluginDefinition.Id);
         }
 
         #endregion Constructors
@@ -120,7 +118,7 @@ namespace ScratchFilter.Common.Messaging
 
             var vendor = new Vendor
             {
-                Name = VendorName
+                Name = PluginDefinition.Manufacturer
             };
 
             var analyticsEvent = new AnalyticsEvent
@@ -189,7 +187,7 @@ namespace ScratchFilter.Common.Messaging
 
             var vendor = new Vendor
             {
-                Name = VendorName
+                Name = PluginDefinition.Manufacturer
             };
 
             var alarm = new Alarm
