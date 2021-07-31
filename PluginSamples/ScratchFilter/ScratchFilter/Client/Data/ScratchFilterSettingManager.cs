@@ -42,7 +42,7 @@ namespace ScratchFilter.Client.Data
         /// <summary>
         /// 傷フィルタの設定の一覧です。
         /// </summary>
-        private readonly IDictionary<Guid, ScratchFilterSetting> settings = new Dictionary<Guid, ScratchFilterSetting>();
+        private readonly IDictionary<Guid, ScratchFilterSetting> settings = new SortedDictionary<Guid, ScratchFilterSetting>();
 
         #endregion Fields
 
