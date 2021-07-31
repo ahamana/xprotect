@@ -31,7 +31,7 @@ namespace ImageStore
     /// The class is an abstract class where all implemented methods and properties need to be declared with override.
     /// The class is constructed when the environment is loading the DLL.
     /// </summary>
-    /// <seealso cref="VideoOS.Platform.PluginDefinition" />
+    /// <seealso cref="PluginDefinition" />
     public class ImageStorePluginDefinition : PluginDefinition
     {
         #region Fields
