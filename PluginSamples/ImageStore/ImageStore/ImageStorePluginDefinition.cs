@@ -141,9 +141,7 @@ namespace ImageStore
 
             var filePath = GenerateImageFilePath(liveSource.Item.Name);
 
-            var dirPath = Path.GetDirectoryName(filePath);
-
-            Directory.CreateDirectory(dirPath);
+            Directory.CreateDirectory(Path.GetDirectoryName(filePath));
 
             try
             {
