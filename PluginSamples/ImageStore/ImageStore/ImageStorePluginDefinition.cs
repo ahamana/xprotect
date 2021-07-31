@@ -176,7 +176,7 @@ namespace ImageStore
                 case "Recording Started":
                     if (!liveSources.ContainsKey(eventSource.FQID))
                     {
-                        var camera = new Item(eventSource.FQID, eventSource.Name);
+                        var camera = Configuration.Instance.GetItem(eventSource.FQID);
 
                         var liveSource = new JPEGLiveSource(camera)
                         {
