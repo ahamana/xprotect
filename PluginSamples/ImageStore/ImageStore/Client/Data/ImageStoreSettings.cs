@@ -16,14 +16,14 @@ namespace ImageStore.Client.Data
     /// <summary>
     /// 設定です。
     /// </summary>
-    internal sealed class ImageStoreSettings
+    public sealed class ImageStoreSettings
     {
         #region Fields
 
         /// <summary>
         /// 設定ファイルのパスです。
         /// </summary>
-        private string filePath;
+        private string? filePath;
 
         #endregion Fields
 
@@ -33,7 +33,7 @@ namespace ImageStore.Client.Data
         /// JPEG ファイルを出力するディレクトリです。
         /// </summary>
         /// <value>JPEG ファイルを出力するディレクトリ</value>
-        public string OutputDir { get; set; }
+        public string? OutputDir { get; set; }
 
         /// <summary>
         /// 出力する JPEG ファイルの圧縮です。

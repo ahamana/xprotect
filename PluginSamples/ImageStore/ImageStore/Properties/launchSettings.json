@@ -1,0 +1,8 @@
+﻿{
+  "profiles": {
+    "ScratchFilter": {
+      "commandName": "Executable",
+      "executablePath": "$(ProgramW6432)\\Milestone\\XProtect Smart Client\\Client.exe"
+    }
+  }
+}

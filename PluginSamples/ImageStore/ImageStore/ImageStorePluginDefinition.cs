@@ -13,6 +13,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 using ImageStore.Client.Data;
 
@@ -37,14 +38,19 @@ namespace ImageStore
         #region Fields
 
         /// <summary>
+        /// アセンブリです。
+        /// </summary>
+        private static readonly Assembly Assembly = Assembly.GetExecutingAssembly();
+
+        /// <summary>
         /// バージョン情報です。
         /// </summary>
-        private static readonly FileVersionInfo FileVersionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
+        private static readonly FileVersionInfo FileVersionInfo = FileVersionInfo.GetVersionInfo(Assembly.Location);
 
         /// <summary>
         /// プラグインの ID です。
         /// </summary>
-        private static readonly Guid PluginId = Guid.Parse("65accde7-fbac-4c56-b98b-9b4458627bda");
+        private static readonly Guid PluginId = Guid.Parse(Assembly.GetCustomAttribute<GuidAttribute>().Value);
 
         /// <summary>
         /// メッセージを受信するためのフィルタです。
@@ -59,12 +65,12 @@ namespace ImageStore
         /// <summary>
         /// メッセージに関する通信です。
         /// </summary>
-        private MessageCommunication messageCommunication;
+        private MessageCommunication? messageCommunication;
 
         /// <summary>
         /// 設定です。
         /// </summary>
-        private ImageStoreSettings settings;
+        private ImageStoreSettings? settings;
 
         #endregion Fields
 
@@ -98,7 +104,7 @@ namespace ImageStore
         /// トップレベルで使用するアイコンです。
         /// </summary>
         /// <value>トップレベルで使用するアイコン</value>
-        public sealed override Image Icon { get; }
+        public sealed override Image? Icon { get; }
 
         #endregion Properties
 
@@ -113,7 +119,7 @@ namespace ImageStore
         {
             var now = DateTime.Now;
 
-            var filePath = Path.Combine(settings.OutputDir,
+            var filePath = Path.Combine(settings?.OutputDir,
                                         $"{now:yyyy-MM-dd}",
                                         cameraName,
                                         $"{now:yyyy-MM-dd_HH-mm-ss-fff}.jpg");
@@ -162,7 +168,7 @@ namespace ImageStore
         /// <param name="destination">通知先</param>
         /// <param name="sender">通知元</param>
         /// <returns><c>null</c></returns>
-        private object NewEventIndicationReceiver(Message message, FQID destination, FQID sender)
+        private object? NewEventIndicationReceiver(Message message, FQID destination, FQID sender)
         {
             if (message.Data is not BaseEvent eventData)
             {
@@ -186,7 +192,7 @@ namespace ImageStore
                             Height = 0
                         };
 
-                        if (Enumerable.Range(1, 100).Contains(settings.Compression))
+                        if (settings is not null && Enumerable.Range(1, 100).Contains(settings.Compression))
                         {
                             liveSource.Compression = settings.Compression;
                         }
@@ -219,7 +225,7 @@ namespace ImageStore
         /// <summary>
         /// 初期化処理を行います。
         /// </summary>
-        public override void Init()
+        public sealed override void Init()
         {
             MessageCommunicationManager.Start(EnvironmentManager.Instance.MasterSite.ServerId);
 
@@ -234,9 +240,13 @@ namespace ImageStore
         /// <summary>
         /// 終了処理を行います。
         /// </summary>
-        public override void Close()
+        public sealed override void Close()
         {
-            messageCommunicationFilters.ForEach(messageCommunication.UnRegisterCommunicationFilter);
+            if (messageCommunication is not null)
+            {
+                messageCommunicationFilters.ForEach(messageCommunication.UnRegisterCommunicationFilter);
+                messageCommunication.Dispose();
+            }
 
             MessageCommunicationManager.Stop(EnvironmentManager.Instance.MasterSite.ServerId);
 
