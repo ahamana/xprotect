@@ -7,10 +7,10 @@
 //
 
 using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Net.Sockets;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 
 using VideoOS.Platform;
@@ -34,9 +34,25 @@ namespace ScratchFilter.Common.Messaging
         /// <summary>
         /// ベンダー名です。
         /// </summary>
-        private static readonly string VendorName = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).CompanyName;
+        private static readonly string VendorName;
 
         #endregion Fields
+
+        #region Constructors
+
+        /// <summary>
+        /// 静的コンストラクタです。
+        /// </summary>
+        static EventCommunication()
+        {
+            var pluginId = Guid.Parse(Assembly.GetExecutingAssembly().GetCustomAttribute<GuidAttribute>().Value);
+
+            var pluginDefinition = EnvironmentManager.Instance.AllPluginDefinitions.FirstOrDefault(pluginDefinition => pluginId == pluginDefinition.Id);
+
+            VendorName = pluginDefinition?.Manufacturer ?? string.Empty;
+        }
+
+        #endregion Constructors
 
         #region Methods
 

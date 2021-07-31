@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 using NLog;
 
@@ -37,19 +38,24 @@ namespace ScratchFilter
         #region Fields
 
         /// <summary>
-        /// プラグインの ID です。
-        /// </summary>
-        private static readonly Guid PluginId = Guid.Parse("8c9a02d0-dcb0-4460-8779-23ad282677a0");
-
-        /// <summary>
         /// ロガーです。
         /// </summary>
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         /// <summary>
+        /// アセンブリです。
+        /// </summary>
+        private static readonly Assembly Assembly = Assembly.GetExecutingAssembly();
+
+        /// <summary>
         /// バージョン情報です。
         /// </summary>
-        private static readonly FileVersionInfo FileVersionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
+        private static readonly FileVersionInfo FileVersionInfo = FileVersionInfo.GetVersionInfo(Assembly.Location);
+
+        /// <summary>
+        /// プラグインの ID です。
+        /// </summary>
+        private static readonly Guid PluginId = Guid.Parse(Assembly.GetCustomAttribute<GuidAttribute>().Value);
 
         #endregion Fields
 
