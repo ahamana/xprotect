@@ -58,7 +58,7 @@ namespace ScratchFilter.Common.Live
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraFQID">カメラの完全修飾 ID</param>
-        private protected LiveImageCollector(in FQID cameraFQID) : this(cameraFQID.ObjectId) { }
+        private protected LiveImageCollector(FQID cameraFQID) : this(cameraFQID.ObjectId) { }
 
         /// <summary>
         /// コンストラクタです。
@@ -68,14 +68,14 @@ namespace ScratchFilter.Common.Live
         /// <remarks>
         /// 画像のサイズの幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
         /// </remarks>
-        private protected LiveImageCollector(in FQID cameraFQID, in Size imageSize) : this(cameraFQID.ObjectId, imageSize) { }
+        private protected LiveImageCollector(FQID cameraFQID, Size imageSize) : this(cameraFQID.ObjectId, imageSize) { }
 
         /// <summary>
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraId">カメラの ID</param>
         /// <exception cref="ArgumentException"><paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。</exception>
-        private protected LiveImageCollector(in Guid cameraId) : this(cameraId, Size.Empty) { }
+        private protected LiveImageCollector(Guid cameraId) : this(cameraId, Size.Empty) { }
 
         /// <summary>
         /// コンストラクタです。
@@ -86,7 +86,7 @@ namespace ScratchFilter.Common.Live
         /// <remarks>
         /// 画像のサイズの幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
         /// </remarks>
-        private protected LiveImageCollector(in Guid cameraId, in Size imageSize)
+        private protected LiveImageCollector(Guid cameraId, Size imageSize)
         {
             if (cameraId == Guid.Empty)
             {
@@ -136,7 +136,7 @@ namespace ScratchFilter.Common.Live
         /// アンマネージリソースを解放し、必要に応じてマネージリソースも解放します。
         /// </summary>
         /// <param name="disposing">マネージリソースとアンマネージリソースの両方を解放する場合は <c>true</c>。アンマネージリソースだけを解放する場合は <c>false</c>。</param>
-        private void Dispose(in bool disposing)
+        private void Dispose(bool disposing)
         {
             if (isDisposed)
             {
@@ -157,14 +157,14 @@ namespace ScratchFilter.Common.Live
         /// </summary>
         /// <param name="camera">カメラ</param>
         /// <returns>ライブ映像のソース</returns>
-        private protected abstract TVideoLiveSource GenerateVideoLiveSource(in Item camera);
+        private protected abstract TVideoLiveSource GenerateVideoLiveSource(Item camera);
 
         /// <summary>
         /// 画像のストリームを生成します。
         /// </summary>
         /// <param name="liveContent">ライブ映像の内容</param>
         /// <returns>画像のストリーム</returns>
-        private protected abstract Stream GenerateImageStream(in TLiveSourceContent liveContent);
+        private protected abstract Stream GenerateImageStream(TLiveSourceContent liveContent);
 
         /// <summary>
         /// 画像を取得します。

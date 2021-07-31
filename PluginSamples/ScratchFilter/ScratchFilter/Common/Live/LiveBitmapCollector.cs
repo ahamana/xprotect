@@ -29,7 +29,7 @@ namespace ScratchFilter.Common.Live
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraFQID">カメラの完全修飾 ID</param>
-        internal LiveBitmapCollector(in FQID cameraFQID) : base(cameraFQID) { }
+        internal LiveBitmapCollector(FQID cameraFQID) : base(cameraFQID) { }
 
         /// <summary>
         /// コンストラクタです。
@@ -39,13 +39,13 @@ namespace ScratchFilter.Common.Live
         /// <remarks>
         /// 画像のサイズの幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
         /// </remarks>
-        internal LiveBitmapCollector(in FQID cameraFQID, in Size imageSize) : base(cameraFQID, imageSize) { }
+        internal LiveBitmapCollector(FQID cameraFQID, Size imageSize) : base(cameraFQID, imageSize) { }
 
         /// <summary>
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraId">カメラの ID</param>
-        internal LiveBitmapCollector(in Guid cameraId) : base(cameraId) { }
+        internal LiveBitmapCollector(Guid cameraId) : base(cameraId) { }
 
         /// <summary>
         /// コンストラクタです。
@@ -55,7 +55,7 @@ namespace ScratchFilter.Common.Live
         /// <remarks>
         /// 画像のサイズの幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
         /// </remarks>
-        internal LiveBitmapCollector(in Guid cameraId, in Size imageSize) : base(cameraId, imageSize) { }
+        internal LiveBitmapCollector(Guid cameraId, Size imageSize) : base(cameraId, imageSize) { }
 
         #endregion Constructors
 
@@ -66,7 +66,7 @@ namespace ScratchFilter.Common.Live
         /// </summary>
         /// <param name="camera">カメラ</param>
         /// <returns>ライブ映像のソース</returns>
-        private protected sealed override BitmapLiveSource GenerateVideoLiveSource(in Item camera)
+        private protected sealed override BitmapLiveSource GenerateVideoLiveSource(Item camera)
         {
             return new(camera, BitmapFormat.BGR24);
         }
@@ -76,7 +76,7 @@ namespace ScratchFilter.Common.Live
         /// </summary>
         /// <param name="liveContent">ライブ映像の内容</param>
         /// <returns>画像のストリーム</returns>
-        private protected sealed override Stream GenerateImageStream(in LiveSourceBitmapContent liveContent)
+        private protected sealed override Stream GenerateImageStream(LiveSourceBitmapContent liveContent)
         {
             var stream = new MemoryStream();
 

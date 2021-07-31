@@ -26,21 +26,21 @@ namespace ScratchFilter.Common.Data
         /// </summary>
         /// <param name="dateTime">日時</param>
         /// <returns>画像データ</returns>
-        TImageData? GetImageAtOrAfter(in DateTime dateTime);
+        TImageData? GetImageAtOrAfter(DateTime dateTime);
 
         /// <summary>
         /// 指定された日時、もしくは指定された日時以前の最も近い日時の画像を取得します。
         /// </summary>
         /// <param name="dateTime">日時</param>
         /// <returns>画像データ</returns>
-        TImageData? GetImageAtOrBefore(in DateTime dateTime);
+        TImageData? GetImageAtOrBefore(DateTime dateTime);
 
         /// <summary>
         /// 指定された日時に最も近い日時の画像を取得します。
         /// </summary>
         /// <param name="dateTime">日時</param>
         /// <returns>画像データ</returns>
-        TImageData? GetImageNearest(in DateTime dateTime);
+        TImageData? GetImageNearest(DateTime dateTime);
 
         /// <summary>
         /// 最も日時の古い画像を取得します。
@@ -60,7 +60,7 @@ namespace ScratchFilter.Common.Data
         /// <param name="dateTime">日時</param>
         /// <param name="maxCount">画像の最大取得数</param>
         /// <returns>画像データの一覧</returns>
-        IEnumerable<TImageData> GetImages(in DateTime dateTime, in int maxCount = int.MaxValue);
+        IEnumerable<TImageData> GetImages(DateTime dateTime, int maxCount = int.MaxValue);
 
         /// <summary>
         /// 指定された日時以降の指定された時間幅に存在する画像を取得します。
@@ -69,7 +69,7 @@ namespace ScratchFilter.Common.Data
         /// <param name="timeSpan">時間幅</param>
         /// <param name="maxCount">画像の最大取得数</param>
         /// <returns>画像データの一覧</returns>
-        IEnumerable<TImageData> GetImages(in DateTime dateTime, in TimeSpan timeSpan, in int maxCount = int.MaxValue);
+        IEnumerable<TImageData> GetImages(DateTime dateTime, TimeSpan timeSpan, int maxCount = int.MaxValue);
 
         #endregion Methods
     }

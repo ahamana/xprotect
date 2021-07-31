@@ -47,7 +47,7 @@ namespace ScratchFilter.Common.Data
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraFQID">カメラの完全修飾 ID</param>
-        private protected VideoImageCollector(in FQID cameraFQID) : this(cameraFQID.ObjectId) { }
+        private protected VideoImageCollector(FQID cameraFQID) : this(cameraFQID.ObjectId) { }
 
         /// <summary>
         /// コンストラクタです。
@@ -57,7 +57,7 @@ namespace ScratchFilter.Common.Data
         /// <remarks>
         /// 画像のサイズの幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
         /// </remarks>
-        private protected VideoImageCollector(in FQID cameraFQID, in Size imageSize) : this(cameraFQID.ObjectId, imageSize) { }
+        private protected VideoImageCollector(FQID cameraFQID, Size imageSize) : this(cameraFQID.ObjectId, imageSize) { }
 
         /// <summary>
         /// コンストラクタです。
@@ -65,7 +65,7 @@ namespace ScratchFilter.Common.Data
         /// <param name="cameraId">カメラの ID</param>
         /// <param name="imageSize">画像のサイズ</param>
         /// <exception cref="ArgumentException"><paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。</exception>
-        private protected VideoImageCollector(in Guid cameraId) : this(cameraId, Size.Empty) { }
+        private protected VideoImageCollector(Guid cameraId) : this(cameraId, Size.Empty) { }
 
         /// <summary>
         /// コンストラクタです。
@@ -76,7 +76,7 @@ namespace ScratchFilter.Common.Data
         /// <remarks>
         /// 画像のサイズの幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
         /// </remarks>
-        private protected VideoImageCollector(in Guid cameraId, in Size imageSize)
+        private protected VideoImageCollector(Guid cameraId, Size imageSize)
         {
             if (cameraId == Guid.Empty)
             {
@@ -99,7 +99,7 @@ namespace ScratchFilter.Common.Data
         /// アンマネージリソースを解放し、必要に応じてマネージリソースも解放します。
         /// </summary>
         /// <param name="disposing">マネージリソースとアンマネージリソースの両方を解放する場合は <c>true</c>。アンマネージリソースだけを解放する場合は <c>false</c>。</param>
-        private void Dispose(in bool disposing)
+        private void Dispose(bool disposing)
         {
             if (isDisposed)
             {
@@ -119,7 +119,7 @@ namespace ScratchFilter.Common.Data
         /// </summary>
         /// <param name="camera">カメラ</param>
         /// <returns>録画映像のソース</returns>
-        private protected abstract TVideoSource GenerateVideoSource(in Item camera);
+        private protected abstract TVideoSource GenerateVideoSource(Item camera);
 
         /// <summary>
         /// 最も日時の古い画像を取得します。
@@ -138,7 +138,7 @@ namespace ScratchFilter.Common.Data
         /// </summary>
         /// <param name="dateTime">日時</param>
         /// <returns>画像データ</returns>
-        public TImageData? GetImageAtOrAfter(in DateTime dateTime)
+        public TImageData? GetImageAtOrAfter(DateTime dateTime)
         {
             return (TImageData?)videoSource.Get(dateTime.ToUniversalTime());
         }
@@ -148,7 +148,7 @@ namespace ScratchFilter.Common.Data
         /// </summary>
         /// <param name="dateTime">日時</param>
         /// <returns>画像データ</returns>
-        public TImageData? GetImageAtOrBefore(in DateTime dateTime)
+        public TImageData? GetImageAtOrBefore(DateTime dateTime)
         {
             return (TImageData?)videoSource.GetAtOrBefore(dateTime.ToUniversalTime());
         }
@@ -158,7 +158,7 @@ namespace ScratchFilter.Common.Data
         /// </summary>
         /// <param name="dateTime">日時</param>
         /// <returns>画像データ</returns>
-        public TImageData? GetImageNearest(in DateTime dateTime)
+        public TImageData? GetImageNearest(DateTime dateTime)
         {
             return (TImageData?)videoSource.GetNearest(dateTime.ToUniversalTime());
         }
@@ -169,7 +169,7 @@ namespace ScratchFilter.Common.Data
         /// <param name="dateTime">日時</param>
         /// <param name="maxCount">画像の最大取得数</param>
         /// <returns>画像データの一覧</returns>
-        public IEnumerable<TImageData> GetImages(in DateTime dateTime, in int maxCount = int.MaxValue)
+        public IEnumerable<TImageData> GetImages(DateTime dateTime, int maxCount = int.MaxValue)
         {
             return GetImages(dateTime, TimeSpan.MaxValue, maxCount);
         }
@@ -181,7 +181,7 @@ namespace ScratchFilter.Common.Data
         /// <param name="timeSpan">時間幅</param>
         /// <param name="maxCount">画像の最大取得数</param>
         /// <returns>画像データの一覧</returns>
-        public IEnumerable<TImageData> GetImages(in DateTime dateTime, in TimeSpan timeSpan, in int maxCount = int.MaxValue)
+        public IEnumerable<TImageData> GetImages(DateTime dateTime, TimeSpan timeSpan, int maxCount = int.MaxValue)
         {
             return videoSource.Get(dateTime, timeSpan, maxCount).Cast<TImageData>();
         }

@@ -28,7 +28,7 @@ namespace ScratchFilter.Common.Live
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraFQID">カメラの完全修飾 ID</param>
-        internal LiveJPEGCollector(in FQID cameraFQID) : base(cameraFQID) { }
+        internal LiveJPEGCollector(FQID cameraFQID) : base(cameraFQID) { }
 
         /// <summary>
         /// コンストラクタです。
@@ -38,13 +38,13 @@ namespace ScratchFilter.Common.Live
         /// <remarks>
         /// 画像のサイズの幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
         /// </remarks>
-        internal LiveJPEGCollector(in FQID cameraFQID, in Size imageSize) : base(cameraFQID, imageSize) { }
+        internal LiveJPEGCollector(FQID cameraFQID, Size imageSize) : base(cameraFQID, imageSize) { }
 
         /// <summary>
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraId">カメラの ID</param>
-        internal LiveJPEGCollector(in Guid cameraId) : base(cameraId) { }
+        internal LiveJPEGCollector(Guid cameraId) : base(cameraId) { }
 
         /// <summary>
         /// コンストラクタです。
@@ -54,7 +54,7 @@ namespace ScratchFilter.Common.Live
         /// <remarks>
         /// 画像のサイズの幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
         /// </remarks>
-        internal LiveJPEGCollector(in Guid cameraId, in Size imageSize) : base(cameraId, imageSize) { }
+        internal LiveJPEGCollector(Guid cameraId, Size imageSize) : base(cameraId, imageSize) { }
 
         #endregion Constructors
 
@@ -65,7 +65,7 @@ namespace ScratchFilter.Common.Live
         /// </summary>
         /// <param name="camera">カメラ</param>
         /// <returns>ライブ映像のソース</returns>
-        private protected sealed override JPEGLiveSource GenerateVideoLiveSource(in Item camera)
+        private protected sealed override JPEGLiveSource GenerateVideoLiveSource(Item camera)
         {
             return new(camera)
             {
@@ -79,7 +79,7 @@ namespace ScratchFilter.Common.Live
         /// </summary>
         /// <param name="liveContent">ライブ映像の内容</param>
         /// <returns>画像のストリーム</returns>
-        private protected sealed override Stream GenerateImageStream(in LiveSourceContent liveContent)
+        private protected sealed override Stream GenerateImageStream(LiveSourceContent liveContent)
         {
             return new MemoryStream(liveContent.Content);
         }

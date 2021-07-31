@@ -58,7 +58,7 @@ namespace ScratchFilter.Client.Toolbar
         /// イメージビューワの表示画像を処理します。
         /// </summary>
         /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
-        private void HandleDisplayedImage(in ImageViewerAddOn imageViewerAddOn)
+        private void HandleDisplayedImage(ImageViewerAddOn imageViewerAddOn)
         {
             imageViewerAddOn.ClearOverlay(default);
 
@@ -94,7 +94,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
         /// <param name="e">イベントのデータ</param>
-        private protected sealed override void OnImageViewerImageDisplayed(in ImageViewerAddOn imageViewerAddOn, in ImageDisplayedEventArgs e)
+        private protected sealed override void OnImageViewerImageDisplayed(ImageViewerAddOn imageViewerAddOn, ImageDisplayedEventArgs e)
         {
             HandleDisplayedImage(imageViewerAddOn);
         }
@@ -104,7 +104,7 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
         /// <param name="e">イベントのデータ</param>
-        private protected sealed override void OnImageViewerRecordedImageReceived(in ImageViewerAddOn imageViewerAddOn, in RecordedImageReceivedEventArgs e)
+        private protected sealed override void OnImageViewerRecordedImageReceived(ImageViewerAddOn imageViewerAddOn, RecordedImageReceivedEventArgs e)
         {
             HandleDisplayedImage(imageViewerAddOn);
         }

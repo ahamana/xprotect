@@ -33,7 +33,7 @@ namespace ScratchFilter.Client.Views.Behaviors
         }
 
         /// <summary>
-        /// ビヘイビアが <see cref="Behavior{Window}.AssociatedObject" /> にアタッチされた後で呼び出されます。
+        /// ビヘイビアが <see cref="Behavior&lt;Window&gt;.AssociatedObject" /> にアタッチされた後で呼び出されます。
         /// </summary>
         protected sealed override void OnAttached()
         {
@@ -42,7 +42,7 @@ namespace ScratchFilter.Client.Views.Behaviors
         }
 
         /// <summary>
-        /// ビヘイビアが <see cref="Behavior{Window}.AssociatedObject" /> からデタッチされる時、その前に呼び出されます。
+        /// ビヘイビアが <see cref="Behavior&lt;Window&gt;.AssociatedObject" /> からデタッチされる時、その前に呼び出されます。
         /// </summary>
         protected sealed override void OnDetaching()
         {
