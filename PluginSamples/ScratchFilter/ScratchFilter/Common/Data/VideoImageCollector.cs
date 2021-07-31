@@ -32,7 +32,7 @@ namespace ScratchFilter.Common.Data
         /// <summary>
         /// アンマネージリソースが解放されたかどうかです。
         /// </summary>
-        private bool disposed;
+        private bool isDisposed;
 
         /// <summary>
         /// 録画映像のソースです。
@@ -101,7 +101,7 @@ namespace ScratchFilter.Common.Data
         /// <param name="disposing">マネージリソースとアンマネージリソースの両方を解放する場合は <c>true</c>。アンマネージリソースだけを解放する場合は <c>false</c>。</param>
         private void Dispose(in bool disposing)
         {
-            if (disposed)
+            if (isDisposed)
             {
                 return;
             }
@@ -111,7 +111,7 @@ namespace ScratchFilter.Common.Data
                 videoSource.Close();
             }
 
-            disposed = true;
+            isDisposed = true;
         }
 
         /// <summary>

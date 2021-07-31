@@ -43,7 +43,7 @@ namespace ScratchFilter.Common.Live
         /// <summary>
         /// アンマネージリソースが解放されたかどうかです。
         /// </summary>
-        private bool disposed;
+        private bool isDisposed;
 
         /// <summary>
         /// 画像のストリームです。
@@ -138,7 +138,7 @@ namespace ScratchFilter.Common.Live
         /// <param name="disposing">マネージリソースとアンマネージリソースの両方を解放する場合は <c>true</c>。アンマネージリソースだけを解放する場合は <c>false</c>。</param>
         private void Dispose(in bool disposing)
         {
-            if (disposed)
+            if (isDisposed)
             {
                 return;
             }
@@ -149,7 +149,7 @@ namespace ScratchFilter.Common.Live
                 imageStream?.Dispose();
             }
 
-            disposed = true;
+            isDisposed = true;
         }
 
         /// <summary>

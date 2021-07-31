@@ -33,7 +33,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <summary>
         /// アンマネージリソースが解放されたかどうかです。
         /// </summary>
-        private bool disposed;
+        private bool isDisposed;
 
         #endregion Fields
 
@@ -81,7 +81,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <param name="disposing">マネージリソースとアンマネージリソースの両方を解放する場合は <c>true</c>。アンマネージリソースだけを解放する場合は <c>false</c>。</param>
         private void Dispose(in bool disposing)
         {
-            if (disposed)
+            if (isDisposed)
             {
                 return;
             }
@@ -91,7 +91,7 @@ namespace ScratchFilter.Client.Toolbar
                 Icon?.Dispose();
             }
 
-            disposed = true;
+            isDisposed = true;
         }
 
         /// <summary>
