@@ -49,7 +49,7 @@ namespace ImageStore
         /// <summary>
         /// メッセージを受信するためのフィルタです。
         /// </summary>
-        private readonly List<object> messageCommunicationFilters = new List<object>();
+        private readonly List<object> messageCommunicationFilters = new();
 
         /// <summary>
         /// ライブ映像のソースです。
@@ -74,31 +74,31 @@ namespace ImageStore
         /// ID です。
         /// </summary>
         /// <value>ID</value>
-        public override Guid Id { get; } = PluginId;
+        public sealed override Guid Id { get; } = PluginId;
 
         /// <summary>
         /// 製品名です。
         /// </summary>
         /// <value>製品名</value>
-        public override string Name { get; } = FileVersionInfo.ProductName;
+        public sealed override string Name { get; } = FileVersionInfo.ProductName;
 
         /// <summary>
         /// 会社名です。
         /// </summary>
         /// <value>会社名</value>
-        public override string Manufacturer { get; } = FileVersionInfo.CompanyName;
+        public sealed override string Manufacturer { get; } = FileVersionInfo.CompanyName;
 
         /// <summary>
         /// プラグインのバージョンです。
         /// </summary>
         /// <value>プラグインのバージョン</value>
-        public override string VersionString { get; } = FileVersionInfo.ProductVersion;
+        public sealed override string VersionString { get; } = FileVersionInfo.ProductVersion;
 
         /// <summary>
         /// トップレベルで使用するアイコンです。
         /// </summary>
         /// <value>トップレベルで使用するアイコン</value>
-        public override Image Icon { get; }
+        public sealed override Image Icon { get; }
 
         #endregion Properties
 
@@ -109,14 +109,14 @@ namespace ImageStore
         /// </summary>
         /// <param name="cameraName">カメラ名</param>
         /// <returns>画像を保存するファイルのパス</returns>
-        private string GenerateImageFilePath(string cameraName)
+        private string GenerateImageFilePath(in string cameraName)
         {
             var now = DateTime.Now;
 
             var filePath = Path.Combine(settings.OutputDir,
-                                        now.ToString("yyyy-MM-dd"),
+                                        $"{now:yyyy-MM-dd}",
                                         cameraName,
-                                        $"{now.ToString("yyyy-MM-dd_HH-mm-ss-fff")}.jpg");
+                                        $"{now:yyyy-MM-dd_HH-mm-ss-fff}.jpg");
 
             return filePath;
         }
@@ -129,10 +129,12 @@ namespace ImageStore
         /// <param name="e">イベントのデータ</param>
         private void OnLiveSourceLiveContentEvent(object sender, EventArgs e)
         {
-            var liveSource = sender as JPEGLiveSource;
-            var args = e as LiveContentEventArgs;
+            if (sender is not JPEGLiveSource liveSource)
+            {
+                return;
+            }
 
-            if (args?.LiveContent is null)
+            if (e is not LiveContentEventArgs { LiveContent: not null } args)
             {
                 return;
             }
@@ -161,12 +163,10 @@ namespace ImageStore
         /// <param name="message">新規イベントの内容</param>
         /// <param name="destination">通知先</param>
         /// <param name="sender">通知元</param>
-        /// <returns>戻り値</returns>
+        /// <returns><c>null</c></returns>
         private object NewEventIndicationReceiver(Message message, FQID destination, FQID sender)
         {
-            var eventData = message.Data as BaseEvent;
-
-            if (eventData is null)
+            if (message.Data is not BaseEvent eventData)
             {
                 return null;
             }
@@ -241,6 +241,11 @@ namespace ImageStore
             messageCommunicationFilters.ForEach(messageCommunication.UnRegisterCommunicationFilter);
 
             MessageCommunicationManager.Stop(EnvironmentManager.Instance.MasterSite.ServerId);
+
+            foreach (var liveSource in liveSources.Values)
+            {
+                liveSource.Close();
+            }
         }
 
         #endregion Methods
