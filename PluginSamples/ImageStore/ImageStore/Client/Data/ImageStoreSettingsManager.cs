@@ -56,7 +56,8 @@ namespace ImageStore.Client.Data
         /// <summary>
         /// 設定を保存します。
         /// </summary>
-        internal void Save()
+        /// <param name="settings">設定</param>
+        internal void Save(ImageStoreSettings settings)
         {
             // デフォルトの名前空間の出力制御
             var namespaces = new XmlSerializerNamespaces();
@@ -66,7 +67,7 @@ namespace ImageStore.Client.Data
 
             using var writer = File.CreateText(SettingsFile);
 
-            xmlSerializer.Serialize(writer, this, namespaces);
+            xmlSerializer.Serialize(writer, settings, namespaces);
         }
 
         #endregion Methods
