@@ -83,7 +83,7 @@ namespace ScratchFilter.Common.Messaging
 
             var message = new Message(MessageId.Control.TriggerCommand, relatedItem?.FQID);
 
-            EnvironmentManager.Instance.SendMessage(message, userDefinedEvent.FQID);
+            EnvironmentManager.Instance.PostMessage(message, userDefinedEvent.FQID);
         }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace ScratchFilter.Common.Messaging
 
             var message = new Message(MessageId.Server.NewEventCommand, analyticsEvent);
 
-            EnvironmentManager.Instance.SendMessage(message);
+            EnvironmentManager.Instance.PostMessage(message);
         }
 
         /// <summary>
@@ -200,7 +200,7 @@ namespace ScratchFilter.Common.Messaging
 
             var message = new Message(MessageId.Server.NewAlarmCommand, alarm);
 
-            EnvironmentManager.Instance.SendMessage(message);
+            EnvironmentManager.Instance.PostMessage(message);
         }
 
         #endregion Methods
