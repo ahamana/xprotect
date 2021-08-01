@@ -18,10 +18,15 @@
 
   <ItemGroup>
     <PackageReference Include="MilestoneSystems.VideoOS.Platform" Version="21.1.0" />
+    <PackageReference Include="NLog" Version="4.7.10" />
+    <PackageReference Include="NLog.Schema" Version="4.7.10" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="ImageStoreSettings.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="NLog.dll.nlog">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="plugin.def">

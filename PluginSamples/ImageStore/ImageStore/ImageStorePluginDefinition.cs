@@ -17,6 +17,8 @@ using System.Runtime.InteropServices;
 
 using ImageStore.Client.Data;
 
+using NLog;
+
 using VideoOS.Platform;
 using VideoOS.Platform.Data;
 using VideoOS.Platform.Live;
@@ -36,6 +38,11 @@ namespace ImageStore
     public class ImageStorePluginDefinition : PluginDefinition
     {
         #region Fields
+
+        /// <summary>
+        /// ロガーです。
+        /// </summary>
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         /// <summary>
         /// アセンブリです。
@@ -75,6 +82,16 @@ namespace ImageStore
         #endregion Fields
 
         #region Constructors
+
+        /// <summary>
+        /// 静的コンストラクタです。
+        /// </summary>
+        static ImageStorePluginDefinition()
+        {
+            var productName = FileVersionInfo.ProductName;
+
+            LogManager.Configuration.Variables.Add(nameof(productName), productName);
+        }
 
         /// <summary>
         /// コンストラクタです。
@@ -240,6 +257,8 @@ namespace ImageStore
         /// </summary>
         public sealed override void Init()
         {
+            Logger.Info("Start plug-in");
+
             MessageCommunicationManager.Start(EnvironmentManager.Instance.MasterSite.ServerId);
 
             messageCommunication = MessageCommunicationManager.Get(EnvironmentManager.Instance.MasterSite.ServerId);
@@ -265,6 +284,8 @@ namespace ImageStore
             {
                 liveSource.Close();
             }
+
+            Logger.Info("End plug-in");
         }
 
         #endregion Methods
