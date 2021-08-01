@@ -232,7 +232,7 @@ namespace ImageStore
             messageCommunication = MessageCommunicationManager.Get(EnvironmentManager.Instance.MasterSite.ServerId);
 
             messageCommunicationFilters.Add(messageCommunication.RegisterCommunicationFilter(NewEventIndicationReceiver,
-                                                                                             new CommunicationIdFilter(MessageId.Server.NewEventIndication)));
+                                                                                             new(MessageId.Server.NewEventIndication)));
 
             settings = ImageStoreSettings.Load();
         }
