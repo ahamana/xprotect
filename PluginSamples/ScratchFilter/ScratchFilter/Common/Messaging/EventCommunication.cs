@@ -47,7 +47,7 @@ namespace ScratchFilter.Common.Messaging
         {
             var pluginId = Guid.Parse(Assembly.GetExecutingAssembly().GetCustomAttribute<GuidAttribute>().Value);
 
-            PluginDefinition = EnvironmentManager.Instance.AllPluginDefinitions.First(pluginDefinition => pluginId == pluginDefinition.Id);
+            PluginDefinition = PluginManager.GetPluginDefinition(pluginId);
         }
 
         #endregion Constructors
