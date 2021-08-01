@@ -38,7 +38,7 @@ namespace ScratchFilter.Common.Live
         /// <summary>
         /// ライブ映像のソースです。
         /// </summary>
-        private readonly TVideoLiveSource liveSource;
+        private readonly TVideoLiveSource videoLiveSource;
 
         /// <summary>
         /// アンマネージリソースが解放されたかどうかです。
@@ -95,16 +95,16 @@ namespace ScratchFilter.Common.Live
 
             var camera = Configuration.Instance.GetItem(cameraId, Kind.Camera);
 
-            liveSource = GenerateVideoLiveSource(camera);
+            videoLiveSource = GenerateVideoLiveSource(camera);
 
-            liveSource.LiveModeStart = true;
+            videoLiveSource.LiveModeStart = true;
             // 幅と高さに 0 を指定した場合は、実際の解像度の画像が取得される。
-            liveSource.Width = imageSize.Width;
-            liveSource.Height = imageSize.Height;
+            videoLiveSource.Width = imageSize.Width;
+            videoLiveSource.Height = imageSize.Height;
 
-            liveSource.LiveContentEvent += OnLiveSourceLiveContentEvent;
+            videoLiveSource.LiveContentEvent += OnLiveSourceLiveContentEvent;
 
-            liveSource.Init();
+            videoLiveSource.Init();
         }
 
         #endregion Constructors
@@ -145,7 +145,7 @@ namespace ScratchFilter.Common.Live
 
             if (disposing)
             {
-                liveSource.Close();
+                videoLiveSource.Close();
                 imageStream?.Dispose();
             }
 
