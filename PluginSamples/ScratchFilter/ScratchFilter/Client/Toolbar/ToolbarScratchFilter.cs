@@ -44,11 +44,12 @@ namespace ScratchFilter.Client.Toolbar
         /// プラグインの説明です。
         /// </summary>
         /// <value>プラグインの説明</value>
-        private protected sealed override string Description => isActive switch
-        {
-            true => Resources.Toolbar_ScratchFilter_Description_Active,
-            false => Resources.Toolbar_ScratchFilter_Description_Inactive
-        };
+        private protected sealed override string Description =>
+            isActive switch
+            {
+                true => Resources.Toolbar_ScratchFilter_Description_Active,
+                false => Resources.Toolbar_ScratchFilter_Description_Inactive
+            };
 
         #endregion Properties
 
