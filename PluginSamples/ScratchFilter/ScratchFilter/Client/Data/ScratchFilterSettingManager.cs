@@ -136,10 +136,8 @@ namespace ScratchFilter.Client.Data
         /// </summary>
         /// <param name="settings">更新対象の傷フィルタの設定</param>
         /// <exception cref="ArgumentException"><paramref name="settings" /> が空の場合にスローされます。</exception>
-        internal void Save(params ScratchFilterSetting[] settings)
-        {
+        internal void Save(params ScratchFilterSetting[] settings) =>
             Save(Enumerable.AsEnumerable(settings));
-        }
 
         /// <summary>
         /// 傷フィルタの設定を保存します。

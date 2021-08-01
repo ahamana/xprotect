@@ -138,30 +138,24 @@ namespace ScratchFilter.Common.Data
         /// </summary>
         /// <param name="dateTime">日時</param>
         /// <returns>画像データ</returns>
-        public TImageData? GetImageAtOrAfter(DateTime dateTime)
-        {
-            return (TImageData?)videoSource.Get(dateTime.ToUniversalTime());
-        }
+        public TImageData? GetImageAtOrAfter(DateTime dateTime) =>
+            (TImageData?)videoSource.Get(dateTime.ToUniversalTime());
 
         /// <summary>
         /// 指定された日時、もしくは指定された日時以前の最も近い日時の画像を取得します。
         /// </summary>
         /// <param name="dateTime">日時</param>
         /// <returns>画像データ</returns>
-        public TImageData? GetImageAtOrBefore(DateTime dateTime)
-        {
-            return (TImageData?)videoSource.GetAtOrBefore(dateTime.ToUniversalTime());
-        }
+        public TImageData? GetImageAtOrBefore(DateTime dateTime) =>
+            (TImageData?)videoSource.GetAtOrBefore(dateTime.ToUniversalTime());
 
         /// <summary>
         /// 指定された日時に最も近い日時の画像を取得します。
         /// </summary>
         /// <param name="dateTime">日時</param>
         /// <returns>画像データ</returns>
-        public TImageData? GetImageNearest(DateTime dateTime)
-        {
-            return (TImageData?)videoSource.GetNearest(dateTime.ToUniversalTime());
-        }
+        public TImageData? GetImageNearest(DateTime dateTime) =>
+            (TImageData?)videoSource.GetNearest(dateTime.ToUniversalTime());
 
         /// <summary>
         /// 指定された日時以降の画像を取得します。
@@ -169,10 +163,8 @@ namespace ScratchFilter.Common.Data
         /// <param name="dateTime">日時</param>
         /// <param name="maxCount">画像の最大取得数</param>
         /// <returns>画像データの一覧</returns>
-        public IEnumerable<TImageData> GetImages(DateTime dateTime, int maxCount = int.MaxValue)
-        {
-            return GetImages(dateTime, TimeSpan.MaxValue, maxCount);
-        }
+        public IEnumerable<TImageData> GetImages(DateTime dateTime, int maxCount = int.MaxValue) =>
+            GetImages(dateTime, TimeSpan.MaxValue, maxCount);
 
         /// <summary>
         /// 指定された日時以降の指定された時間幅に存在する画像を取得します。
@@ -181,10 +173,8 @@ namespace ScratchFilter.Common.Data
         /// <param name="timeSpan">時間幅</param>
         /// <param name="maxCount">画像の最大取得数</param>
         /// <returns>画像データの一覧</returns>
-        public IEnumerable<TImageData> GetImages(DateTime dateTime, TimeSpan timeSpan, int maxCount = int.MaxValue)
-        {
-            return videoSource.Get(dateTime, timeSpan, maxCount).Cast<TImageData>();
-        }
+        public IEnumerable<TImageData> GetImages(DateTime dateTime, TimeSpan timeSpan, int maxCount = int.MaxValue) =>
+            videoSource.Get(dateTime, timeSpan, maxCount).Cast<TImageData>();
 
         /// <summary>
         /// アンマネージリソースの解放またはリセットに関連付けられているアプリケーション定義のタスクを実行します。

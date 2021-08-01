@@ -102,10 +102,8 @@ namespace ScratchFilter.Client.Toolbar
         /// ツールバーのセパレータ用インスタンスを生成します。
         /// </summary>
         /// <returns>ツールバーのセパレータ用インスタンス</returns>
-        public sealed override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance()
-        {
-            return new ToolbarSeparatorInstance();
-        }
+        public sealed override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance() =>
+            new ToolbarSeparatorInstance();
 
         #endregion Methods
     }

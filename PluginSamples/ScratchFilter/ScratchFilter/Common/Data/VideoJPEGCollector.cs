@@ -64,32 +64,26 @@ namespace ScratchFilter.Common.Data
         /// </summary>
         /// <param name="camera">カメラ</param>
         /// <returns>録画映像のソース</returns>
-        private protected sealed override JPEGVideoSource GenerateVideoSource(Item camera)
-        {
-            return new(camera)
+        private protected sealed override JPEGVideoSource GenerateVideoSource(Item camera) =>
+            new(camera)
             {
                 // 無圧縮の画像を取得
                 Compression = 100
             };
-        }
 
         /// <summary>
         /// 最も日時の古い画像を取得します。
         /// </summary>
         /// <returns>画像データ</returns>
-        public sealed override JPEGData? GetFirstImage()
-        {
-            return videoSource.GetBegin();
-        }
+        public sealed override JPEGData? GetFirstImage() =>
+            videoSource.GetBegin();
 
         /// <summary>
         /// 最も日時の新しい画像を取得します。
         /// </summary>
         /// <returns>画像データ</returns>
-        public sealed override JPEGData? GetLastImage()
-        {
-            return videoSource.GetEnd();
-        }
+        public sealed override JPEGData? GetLastImage() =>
+            videoSource.GetEnd();
 
         #endregion Methods
     }

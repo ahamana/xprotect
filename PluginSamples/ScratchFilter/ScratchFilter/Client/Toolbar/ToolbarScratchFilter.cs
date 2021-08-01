@@ -95,20 +95,16 @@ namespace ScratchFilter.Client.Toolbar
         /// </summary>
         /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
         /// <param name="e">イベントのデータ</param>
-        private protected sealed override void OnImageViewerImageDisplayed(ImageViewerAddOn imageViewerAddOn, ImageDisplayedEventArgs e)
-        {
+        private protected sealed override void OnImageViewerImageDisplayed(ImageViewerAddOn imageViewerAddOn, ImageDisplayedEventArgs e) =>
             HandleDisplayedImage(imageViewerAddOn);
-        }
 
         /// <summary>
         /// イメージビューワに録画映像の画像が表示された時に発生します。
         /// </summary>
         /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
         /// <param name="e">イベントのデータ</param>
-        private protected sealed override void OnImageViewerRecordedImageReceived(ImageViewerAddOn imageViewerAddOn, RecordedImageReceivedEventArgs e)
-        {
+        private protected sealed override void OnImageViewerRecordedImageReceived(ImageViewerAddOn imageViewerAddOn, RecordedImageReceivedEventArgs e) =>
             HandleDisplayedImage(imageViewerAddOn);
-        }
 
         /// <summary>
         /// アイコンを読み込みます。
@@ -173,10 +169,8 @@ namespace ScratchFilter.Client.Toolbar
         /// ツールバーの傷フィルタ機能用インスタンスを生成します。
         /// </summary>
         /// <returns>ツールバーの傷フィルタ機能用インスタンス</returns>
-        public sealed override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance()
-        {
-            return new ToolbarScratchFilterInstance();
-        }
+        public sealed override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance() =>
+            new ToolbarScratchFilterInstance();
 
         #endregion Methods
     }

@@ -66,10 +66,8 @@ namespace ScratchFilter.Common.Live
         /// </summary>
         /// <param name="camera">カメラ</param>
         /// <returns>ライブ映像のソース</returns>
-        private protected sealed override BitmapLiveSource GenerateVideoLiveSource(Item camera)
-        {
-            return new(camera, BitmapFormat.BGR24);
-        }
+        private protected sealed override BitmapLiveSource GenerateVideoLiveSource(Item camera) =>
+            new(camera, BitmapFormat.BGR24);
 
         /// <summary>
         /// 画像のストリームを生成します。
