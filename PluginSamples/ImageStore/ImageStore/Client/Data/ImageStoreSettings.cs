@@ -6,11 +6,6 @@
 // express written permission of Canon Inc.
 //
 
-using System.IO;
-using System.Reflection;
-using System.Text;
-using System.Xml.Serialization;
-
 namespace ImageStore.Client.Data
 {
     /// <summary>
@@ -18,22 +13,13 @@ namespace ImageStore.Client.Data
     /// </summary>
     public sealed class ImageStoreSettings
     {
-        #region Fields
-
-        /// <summary>
-        /// 設定ファイルのパスです。
-        /// </summary>
-        private string? filePath;
-
-        #endregion Fields
-
         #region Properties
 
         /// <summary>
         /// JPEG ファイルを出力するディレクトリです。
         /// </summary>
         /// <value>JPEG ファイルを出力するディレクトリ</value>
-        public string? OutputDir { get; set; }
+        public string OutputDir { get; set; } = string.Empty;
 
         /// <summary>
         /// 出力する JPEG ファイルの圧縮です。
@@ -42,45 +28,5 @@ namespace ImageStore.Client.Data
         public ushort Compression { get; set; }
 
         #endregion Properties
-
-        #region Methods
-
-        /// <summary>
-        /// 設定を読み込みます。
-        /// </summary>
-        /// <returns>設定</returns>
-        internal static ImageStoreSettings Load()
-        {
-            var directoryPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-            var filePath = Path.Combine(directoryPath, $"{nameof(ImageStoreSettings)}.xml");
-
-            var xmlSerializer = new XmlSerializer(typeof(ImageStoreSettings));
-
-            using var reader = new StreamReader(filePath, Encoding.UTF8);
-
-            var settings = (ImageStoreSettings)xmlSerializer.Deserialize(reader);
-            settings.filePath = filePath;
-
-            return settings;
-        }
-
-        /// <summary>
-        /// 設定を保存します。
-        /// </summary>
-        internal void Save()
-        {
-            // デフォルトの名前空間の出力制御
-            var namespaces = new XmlSerializerNamespaces();
-            namespaces.Add(string.Empty, string.Empty);
-
-            var xmlSerializer = new XmlSerializer(typeof(ImageStoreSettings));
-
-            using var writer = new StreamWriter(filePath, false, Encoding.UTF8);
-
-            xmlSerializer.Serialize(writer, this, namespaces);
-        }
-
-        #endregion Methods
     }
 }

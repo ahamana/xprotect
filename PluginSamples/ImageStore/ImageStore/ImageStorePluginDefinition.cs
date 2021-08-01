@@ -63,16 +63,28 @@ namespace ImageStore
         private readonly IDictionary<FQID, LiveSource> liveSources = new Dictionary<FQID, LiveSource>();
 
         /// <summary>
+        /// 設定です。
+        /// </summary>
+        private readonly ImageStoreSettings settings;
+
+        /// <summary>
         /// メッセージに関する通信です。
         /// </summary>
         private MessageCommunication? messageCommunication;
 
-        /// <summary>
-        /// 設定です。
-        /// </summary>
-        private ImageStoreSettings? settings;
-
         #endregion Fields
+
+        #region Constructors
+
+        /// <summary>
+        /// コンストラクタです。
+        /// </summary>
+        public ImageStorePluginDefinition()
+        {
+            settings = ImageStoreSettingsManager.Instance.Load();
+        }
+
+        #endregion Constructors
 
         #region Properties
 
@@ -119,7 +131,7 @@ namespace ImageStore
         {
             var now = DateTime.Now;
 
-            var filePath = Path.Combine(settings?.OutputDir,
+            var filePath = Path.Combine(settings.OutputDir,
                                         $"{now:yyyy-MM-dd}",
                                         cameraName,
                                         $"{now:yyyy-MM-dd_HH-mm-ss-fff}.jpg");
@@ -187,12 +199,13 @@ namespace ImageStore
                         var liveSource = new JPEGLiveSource(camera)
                         {
                             LiveModeStart = true,
+
                             // 幅と高さに 0 を指定して、実際の解像度の画像を取得
                             Width = 0,
                             Height = 0
                         };
 
-                        if (settings is not null && Enumerable.Range(1, 100).Contains(settings.Compression))
+                        if (Enumerable.Range(1, 100).Contains(settings.Compression))
                         {
                             liveSource.Compression = settings.Compression;
                         }
@@ -233,8 +246,6 @@ namespace ImageStore
 
             messageCommunicationFilters.Add(messageCommunication.RegisterCommunicationFilter(NewEventIndicationReceiver,
                                                                                              new(MessageId.Server.NewEventIndication)));
-
-            settings = ImageStoreSettings.Load();
         }
 
         /// <summary>
