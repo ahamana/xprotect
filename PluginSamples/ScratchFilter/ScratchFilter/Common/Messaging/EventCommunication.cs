@@ -81,12 +81,12 @@ namespace ScratchFilter.Common.Messaging
                 return;
             }
 
-            var message = new Message(MessageId.Control.TriggerCommand)
+            var eventMessage = new Message(MessageId.Control.TriggerCommand)
             {
                 RelatedFQID = relatedItem?.FQID
             };
 
-            EnvironmentManager.Instance.PostMessage(message, userDefinedEvent.FQID);
+            EnvironmentManager.Instance.PostMessage(eventMessage, userDefinedEvent.FQID);
         }
 
         /// <summary>
@@ -97,18 +97,14 @@ namespace ScratchFilter.Common.Messaging
         /// <param name="description">説明</param>
         internal void SendAnalyticsEvent(string eventName, Item device, string? description = null)
         {
-            if (string.IsNullOrEmpty(eventName))
+            if (string.IsNullOrWhiteSpace(eventName))
             {
                 return;
             }
 
             var eventSource = new EventSource
             {
-                // Send empty - it is possible to send without an eventsource, but the intended design is that there should be a source.
-                // The FQID is primamry used to match up the ObjectId with the camera.
-                FQID = device.FQID,
-                // If FQID is null, then the Name can be an IP address, and the event server will make a lookup to find the camera.
-                Name = device.Name
+                FQID = device.FQID
             };
 
             var eventHeader = new EventHeader
@@ -133,12 +129,12 @@ namespace ScratchFilter.Common.Messaging
                 Vendor = vendor
             };
 
-            var message = new Message(MessageId.Server.NewEventCommand)
+            var eventMessage = new Message(MessageId.Server.NewEventCommand)
             {
                 Data = analyticsEvent
             };
 
-            EnvironmentManager.Instance.PostMessage(message);
+            EnvironmentManager.Instance.PostMessage(eventMessage);
         }
 
         /// <summary>
@@ -166,28 +162,30 @@ namespace ScratchFilter.Common.Messaging
         /// </summary>
         /// <param name="alarmName">アラーム名</param>
         /// <param name="device">デバイス</param>
+        /// <param name="message">メッセージ</param>
         /// <param name="description">説明</param>
-        internal void SendAlarm(string alarmName, Item device, string? description = null)
+        internal void SendAlarm(string alarmName, Item device, string message, string? description = null)
         {
-            if (string.IsNullOrEmpty(alarmName))
+            if (string.IsNullOrWhiteSpace(alarmName))
+            {
+                return;
+            }
+
+            if (string.IsNullOrEmpty(message))
             {
                 return;
             }
 
             var eventSource = new EventSource
             {
-                // Send empty - it is possible to send without an eventsource, but the intended design is that there should be a source.
-                // The FQID is primamry used to match up the ObjectId with the camera.
-                FQID = device.FQID,
-                // If FQID is null, then the Name can be an IP address, and the event server will make a lookup to find the camera.
-                Name = device.Name
+                FQID = device.FQID
             };
 
             var eventHeader = new EventHeader
             {
                 ID = Guid.NewGuid(),
                 Name = alarmName,
-                Message = alarmName,
+                Message = message,
                 Source = eventSource,
                 Timestamp = DateTime.Now
             };
@@ -205,12 +203,12 @@ namespace ScratchFilter.Common.Messaging
                 Vendor = vendor
             };
 
-            var message = new Message(MessageId.Server.NewAlarmCommand)
+            var eventMessage = new Message(MessageId.Server.NewAlarmCommand)
             {
                 Data = alarm
             };
 
-            EnvironmentManager.Instance.PostMessage(message);
+            EnvironmentManager.Instance.PostMessage(eventMessage);
         }
 
         #endregion Methods
