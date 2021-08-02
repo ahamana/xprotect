@@ -114,6 +114,7 @@ namespace ScratchFilter.Common.Messaging
             var eventHeader = new EventHeader
             {
                 ID = Guid.NewGuid(),
+                Name = eventName,
                 Message = eventName,
                 Source = eventSource,
                 Timestamp = DateTime.Now
