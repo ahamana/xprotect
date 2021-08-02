@@ -81,7 +81,10 @@ namespace ScratchFilter.Common.Messaging
                 return;
             }
 
-            var message = new Message(MessageId.Control.TriggerCommand, relatedItem?.FQID);
+            var message = new Message(MessageId.Control.TriggerCommand)
+            {
+                RelatedFQID = relatedItem?.FQID
+            };
 
             EnvironmentManager.Instance.PostMessage(message, userDefinedEvent.FQID);
         }
@@ -129,7 +132,10 @@ namespace ScratchFilter.Common.Messaging
                 Vendor = vendor
             };
 
-            var message = new Message(MessageId.Server.NewEventCommand, analyticsEvent);
+            var message = new Message(MessageId.Server.NewEventCommand)
+            {
+                Data = analyticsEvent
+            };
 
             EnvironmentManager.Instance.PostMessage(message);
         }
@@ -198,7 +204,10 @@ namespace ScratchFilter.Common.Messaging
                 Vendor = vendor
             };
 
-            var message = new Message(MessageId.Server.NewAlarmCommand, alarm);
+            var message = new Message(MessageId.Server.NewAlarmCommand)
+            {
+                Data = alarm
+            };
 
             EnvironmentManager.Instance.PostMessage(message);
         }
