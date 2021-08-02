@@ -74,11 +74,6 @@ namespace ImageStore
         /// </summary>
         private readonly ImageStoreSettings settings;
 
-        /// <summary>
-        /// メッセージに関する通信です。
-        /// </summary>
-        private MessageCommunication? messageCommunication;
-
         #endregion Fields
 
         #region Constructors
@@ -261,7 +256,7 @@ namespace ImageStore
 
             MessageCommunicationManager.Start(EnvironmentManager.Instance.MasterSite.ServerId);
 
-            messageCommunication = MessageCommunicationManager.Get(EnvironmentManager.Instance.MasterSite.ServerId);
+            var messageCommunication = MessageCommunicationManager.Get(EnvironmentManager.Instance.MasterSite.ServerId);
 
             messageCommunicationFilters.Add(messageCommunication.RegisterCommunicationFilter(NewEventIndicationReceiver,
                                                                                              new(MessageId.Server.NewEventIndication)));
@@ -272,10 +267,11 @@ namespace ImageStore
         /// </summary>
         public sealed override void Close()
         {
+            var messageCommunication = MessageCommunicationManager.Get(EnvironmentManager.Instance.MasterSite.ServerId);
+
             if (messageCommunication is not null)
             {
                 messageCommunicationFilters.ForEach(messageCommunication.UnRegisterCommunicationFilter);
-                messageCommunication.Dispose();
             }
 
             MessageCommunicationManager.Stop(EnvironmentManager.Instance.MasterSite.ServerId);
