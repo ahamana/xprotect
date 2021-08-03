@@ -120,14 +120,17 @@ namespace ScratchFilter
         /// </summary>
         public sealed override void Init()
         {
-            Logger.Info("Start plug-in");
+            Logger.Info("Start plug-in on {0}", EnvironmentManager.Instance.EnvironmentProduct);
 
-            ViewItemToolbarPlugins.Add(new ToolbarSeparator());
-            ViewItemToolbarPlugins.Add(new ToolbarScratchFilter());
-            ViewItemToolbarPlugins.Add(new ToolbarScratchFilterSetting());
-            ViewItemToolbarPlugins.Add(new ToolbarSeparator());
+            if (EnvironmentManager.Instance.EnvironmentType == EnvironmentType.SmartClient)
+            {
+                ViewItemToolbarPlugins.Add(new ToolbarSeparator());
+                ViewItemToolbarPlugins.Add(new ToolbarScratchFilter());
+                ViewItemToolbarPlugins.Add(new ToolbarScratchFilterSetting());
+                ViewItemToolbarPlugins.Add(new ToolbarSeparator());
 
-            ScratchFilterSettingManager.Instance.Load();
+                ScratchFilterSettingManager.Instance.Load();
+            }
         }
 
         /// <summary>
@@ -137,7 +140,7 @@ namespace ScratchFilter
         {
             ViewItemToolbarPlugins.Clear();
 
-            Logger.Info("End plug-in");
+            Logger.Info("End plug-in on {0}", EnvironmentManager.Instance.EnvironmentProduct);
         }
 
         #endregion Methods
