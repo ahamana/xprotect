@@ -18,6 +18,7 @@ using System.Runtime.InteropServices;
 using ImageStore.Client.Data;
 
 using NLog;
+using NLog.Fluent;
 
 using VideoOS.Platform;
 using VideoOS.Platform.Data;
@@ -252,7 +253,9 @@ namespace ImageStore
         /// </summary>
         public sealed override void Init()
         {
-            Logger.Info("Start plug-in");
+            Logger.Info()
+                  .Message("Start plug-in on {0}", EnvironmentManager.Instance.EnvironmentProduct)
+                  .Write();
 
             MessageCommunicationManager.Start(EnvironmentManager.Instance.MasterSite.ServerId);
 
@@ -281,7 +284,9 @@ namespace ImageStore
                 liveSource.Close();
             }
 
-            Logger.Info("End plug-in");
+            Logger.Info()
+                  .Message("End plug-in on {0}", EnvironmentManager.Instance.EnvironmentProduct)
+                  .Write();
         }
 
         #endregion Methods

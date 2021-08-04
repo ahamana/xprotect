@@ -14,6 +14,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 
 using NLog;
+using NLog.Fluent;
 
 using ScratchFilter.Client.Data;
 using ScratchFilter.Client.Toolbar;
@@ -120,7 +121,9 @@ namespace ScratchFilter
         /// </summary>
         public sealed override void Init()
         {
-            Logger.Info("Start plug-in on {0}", EnvironmentManager.Instance.EnvironmentProduct);
+            Logger.Info()
+                  .Message("Start plug-in on {0}", EnvironmentManager.Instance.EnvironmentProduct)
+                  .Write();
 
             if (EnvironmentManager.Instance.EnvironmentType == EnvironmentType.SmartClient)
             {
@@ -140,7 +143,9 @@ namespace ScratchFilter
         {
             ViewItemToolbarPlugins.Clear();
 
-            Logger.Info("End plug-in on {0}", EnvironmentManager.Instance.EnvironmentProduct);
+            Logger.Info()
+                  .Message("End plug-in on {0}", EnvironmentManager.Instance.EnvironmentProduct)
+                  .Write();
         }
 
         #endregion Methods
