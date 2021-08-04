@@ -74,8 +74,10 @@ namespace ScratchFilter
         static ScratchFilterPluginDefinition()
         {
             var productName = FileVersionInfo.ProductName;
+            var environmentType = Enum.GetName(typeof(EnvironmentType), EnvironmentManager.Instance.EnvironmentType);
 
             LogManager.Configuration.Variables.Add(nameof(productName), productName);
+            LogManager.Configuration.Variables.Add(nameof(environmentType), environmentType);
         }
 
         #endregion Constructors
