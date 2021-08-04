@@ -33,8 +33,9 @@ namespace ScratchFilter
     /// The class is constructed when the environment is loading the DLL.
     /// </summary>
     /// <seealso cref="PluginDefinition" />
+    /// <seealso cref="IDisposable" />
     [ToString]
-    public sealed class ScratchFilterPluginDefinition : PluginDefinition
+    public sealed class ScratchFilterPluginDefinition : PluginDefinition, IDisposable
     {
         #region Fields
 
@@ -57,6 +58,11 @@ namespace ScratchFilter
         /// プラグインの ID です。
         /// </summary>
         private static readonly Guid PluginId = Guid.Parse(Assembly.GetCustomAttribute<GuidAttribute>().Value);
+
+        /// <summary>
+        /// アンマネージリソースが解放されたかどうかです。
+        /// </summary>
+        private bool isDisposed;
 
         #endregion Fields
 
@@ -117,6 +123,27 @@ namespace ScratchFilter
         #region Methods
 
         /// <summary>
+        /// アンマネージリソースを解放し、必要に応じてマネージリソースも解放します。
+        /// </summary>
+        /// <param name="disposing">
+        /// マネージリソースとアンマネージリソースの両方を解放する場合は <c>true</c>。アンマネージリソースだけを解放する場合は <c>false</c>。
+        /// </param>
+        private void Dispose(bool disposing)
+        {
+            if (isDisposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                Icon?.Dispose();
+            }
+
+            isDisposed = true;
+        }
+
+        /// <summary>
         /// 初期化処理を行います。
         /// </summary>
         public sealed override void Init()
@@ -143,9 +170,20 @@ namespace ScratchFilter
         {
             ViewItemToolbarPlugins.Clear();
 
+            Dispose();
+
             Logger.Info()
                   .Message("End plug-in on {0}", EnvironmentManager.Instance.EnvironmentProduct)
                   .Write();
+        }
+
+        /// <summary>
+        /// アンマネージリソースの解放またはリセットに関連付けられているアプリケーション定義のタスクを実行します。
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         #endregion Methods

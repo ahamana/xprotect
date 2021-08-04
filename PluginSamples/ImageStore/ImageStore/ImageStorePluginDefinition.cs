@@ -36,7 +36,8 @@ namespace ImageStore
     /// The class is constructed when the environment is loading the DLL.
     /// </summary>
     /// <seealso cref="PluginDefinition" />
-    public class ImageStorePluginDefinition : PluginDefinition
+    /// <seealso cref="IDisposable" />
+    public class ImageStorePluginDefinition : PluginDefinition, IDisposable
     {
         #region Fields
 
@@ -74,6 +75,11 @@ namespace ImageStore
         /// 設定です。
         /// </summary>
         private readonly ImageStoreSettings settings;
+
+        /// <summary>
+        /// アンマネージリソースが解放されたかどうかです。
+        /// </summary>
+        private bool isDisposed;
 
         #endregion Fields
 
@@ -248,6 +254,28 @@ namespace ImageStore
             return null;
         }
 
+        /// </summary> <param name="disposing"> マネージリソースとアンマネージリソースの両方を解放する場合は
+        /// <c>true</c>。アンマネージリソースだけを解放する場合は <c>false</c>。 </param>
+        private void Dispose(bool disposing)
+        {
+            if (isDisposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                Icon?.Dispose();
+
+                foreach (var liveSource in liveSources.Values)
+                {
+                    liveSource.Close();
+                }
+            }
+
+            isDisposed = true;
+        }
+
         /// <summary>
         /// 初期化処理を行います。
         /// </summary>
@@ -279,14 +307,20 @@ namespace ImageStore
 
             MessageCommunicationManager.Stop(EnvironmentManager.Instance.MasterSite.ServerId);
 
-            foreach (var liveSource in liveSources.Values)
-            {
-                liveSource.Close();
-            }
+            Dispose();
 
             Logger.Info()
                   .Message("End plug-in on {0}", EnvironmentManager.Instance.EnvironmentProduct)
                   .Write();
+        }
+
+        /// <summary>
+        /// アンマネージリソースの解放またはリセットに関連付けられているアプリケーション定義のタスクを実行します。
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         #endregion Methods
