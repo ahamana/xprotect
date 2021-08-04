@@ -9,6 +9,7 @@
     <Company>Canon Inc.</Company>
     <Product>Scratch Filter</Product>
     <Copyright>© 2020 Canon Inc.</Copyright>
+    <Version>1.0.0.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
