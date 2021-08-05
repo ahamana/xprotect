@@ -45,8 +45,6 @@ namespace ScratchFilter.Client.OptionsDialog
         internal OptionScratchFilter(ScratchFilterPluginDefinition pluginDefinition)
         {
             this.pluginDefinition = pluginDefinition;
-
-            Name = string.Format(Resources.Help_ScratchFilter_About, pluginDefinition.Name);
         }
 
         #endregion Constructors
@@ -63,7 +61,8 @@ namespace ScratchFilter.Client.OptionsDialog
         /// 名前です。
         /// </summary>
         /// <value>名前</value>
-        public sealed override string Name { get; }
+        public sealed override string Name =>
+            string.Format(Resources.Help_ScratchFilter_About, pluginDefinition.Name);
 
         #endregion Properties
 
