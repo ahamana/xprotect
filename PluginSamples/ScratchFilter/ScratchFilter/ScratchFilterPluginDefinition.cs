@@ -17,6 +17,7 @@ using NLog;
 using NLog.Fluent;
 
 using ScratchFilter.Client.Data;
+using ScratchFilter.Client.OptionsDialog;
 using ScratchFilter.Client.Toolbar;
 
 using VideoOS.Platform;
@@ -85,6 +86,12 @@ namespace ScratchFilter
         #region Properties
 
         /// <summary>
+        /// 著作権です。
+        /// </summary>
+        /// <value>著作権</value>
+        internal string Copyright { get; } = FileVersionInfo.LegalCopyright;
+
+        /// <summary>
         /// ID です。
         /// </summary>
         /// <value>ID</value>
@@ -119,6 +126,12 @@ namespace ScratchFilter
         /// </summary>
         /// <value>Smart Client のツールバー用プラグインの一覧</value>
         public sealed override List<ViewItemToolbarPlugin> ViewItemToolbarPlugins { get; } = new();
+
+        /// <summary>
+        /// Smart Client の設定オプション用プラグインの一覧です。
+        /// </summary>
+        /// <value>Smart Client の設定オプション用プラグインの一覧</value>
+        public sealed override List<OptionsDialogPlugin> OptionsDialogPlugins { get; } = new();
 
         #endregion Properties
 
@@ -161,6 +174,8 @@ namespace ScratchFilter
                 ViewItemToolbarPlugins.Add(new ToolbarScratchFilterSetting());
                 ViewItemToolbarPlugins.Add(new ToolbarSeparator());
 
+                OptionsDialogPlugins.Add(new OptionScratchFilter(this));
+
                 ScratchFilterSettingManager.Instance.Load();
             }
         }
@@ -171,6 +186,7 @@ namespace ScratchFilter
         public sealed override void Close()
         {
             ViewItemToolbarPlugins.Clear();
+            OptionsDialogPlugins.Clear();
 
             Dispose();
 
