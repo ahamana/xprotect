@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
-    <UseWPF>true</UseWPF>
     <LangVersion>9</LangVersion>
     <Nullable>enable</Nullable>
     <Authors>Canon Inc.</Authors>
