@@ -1,0 +1,237 @@
+﻿<Window x:Class="ScratchFilter.Client.Views.Toolbar.ScratchFilterSettingWindow"
+        x:ClassModifier="internal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:b="clr-namespace:ScratchFilter.Client.Views.Behaviors"
+        xmlns:properties="clr-namespace:ScratchFilter.Properties"
+        mc:Ignorable="d"
+        d:DesignHeight="364" d:DesignWidth="660"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        Title="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Description}">
+
+    <i:Interaction.Behaviors>
+        <b:WindowCloseBehavior />
+    </i:Interaction.Behaviors>
+
+    <Grid Grid.IsSharedSizeScope="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="12" />
+            <!-- プレビュー -->
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="12" />
+            <!-- 設定項目 -->
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="12" />
+            <!-- 境界線 -->
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="12" />
+            <!-- ボタン -->
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="12" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="12" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="12" />
+        </Grid.ColumnDefinitions>
+
+        <!-- プレビュー -->
+        <DockPanel Grid.Row="1"
+                   Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <!-- カメラ名 -->
+                    <RowDefinition Height="Auto" MinHeight="24" />
+                    <!-- 画像/エラーメッセージ -->
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="640" />
+                </Grid.ColumnDefinitions>
+
+                <!-- カメラ名 -->
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="{Binding CameraName.Value}" />
+
+                <!-- 画像 -->
+                <Image Grid.Row="1"
+                       Grid.Column="0"
+                       Source="{Binding PreviewImage.Value}" />
+
+                <!-- エラーメッセージ -->
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Height="240"
+                       BorderBrush="White"
+                       BorderThickness="1"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Message_ImageCaptureFailure}"
+                       Visibility="{Binding ErrorMessageVisibility.Value}" />
+            </Grid>
+        </DockPanel>
+
+        <!-- 設定項目 -->
+        <DockPanel Grid.Row="3"
+                   Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <!-- 画像のコントラスト -->
+                    <!-- ラベル -->
+                    <RowDefinition Height="Auto" MinHeight="24" />
+                    <!-- スライダー -->
+                    <RowDefinition Height="Auto" MinHeight="24" />
+                    <RowDefinition Height="6" />
+                    <!-- 画像の明るさ -->
+                    <!-- ラベル -->
+                    <RowDefinition Height="Auto" MinHeight="24" />
+                    <!-- スライダー -->
+                    <RowDefinition Height="Auto" MinHeight="24" />
+                    <RowDefinition Height="6" />
+                    <!-- 画像の彩度 -->
+                    <!-- ラベル -->
+                    <RowDefinition Height="Auto" MinHeight="24" />
+                    <!-- スライダー -->
+                    <RowDefinition Height="Auto" MinHeight="24" />
+                    <RowDefinition Height="6" />
+                    <!-- 画像のガンマ -->
+                    <!-- ラベル -->
+                    <RowDefinition Height="Auto" MinHeight="24" />
+                    <!-- スライダー -->
+                    <RowDefinition Height="Auto" MinHeight="24" />
+                    <RowDefinition Height="6" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2" />
+                    <!-- 項目 -->
+                    <ColumnDefinition Width="Auto" MinWidth="590" />
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="2" />
+                </Grid.ColumnDefinitions>
+
+                <!-- 画像のコントラスト -->
+                <!-- ラベル -->
+                <Label Grid.Row="0"
+                       Grid.Column="1"
+                       Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_ImageContrast}" />
+                <!-- スライダー -->
+                <Slider Grid.Row="1"
+                        Grid.Column="1"
+                        Minimum="-100"
+                        Maximum="100"
+                        TickFrequency="1"
+                        IsSnapToTickEnabled="True"
+                        IsEnabled="{Binding IsSettable.Value}"
+                        Value="{Binding ImageContrast.Value}" />
+                <!-- スライダーの値 -->
+                <TextBlock Grid.Row="1"
+                           Grid.Column="3"
+                           Text="{Binding ImageContrast.Value}" />
+
+                <!-- 画像の明るさ -->
+                <!-- ラベル -->
+                <Label Grid.Row="3"
+                       Grid.Column="1"
+                       Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_ImageBrightness}" />
+                <!-- スライダー -->
+                <Slider Grid.Row="4"
+                        Grid.Column="1"
+                        Minimum="-100"
+                        Maximum="100"
+                        TickFrequency="1"
+                        IsSnapToTickEnabled="True"
+                        IsEnabled="{Binding IsSettable.Value}"
+                        Value="{Binding ImageBrightness.Value}" />
+                <!-- スライダーの値 -->
+                <TextBlock Grid.Row="4"
+                           Grid.Column="3"
+                           Text="{Binding ImageBrightness.Value}" />
+
+                <!-- 画像の彩度 -->
+                <!-- ラベル -->
+                <Label Grid.Row="6"
+                       Grid.Column="1"
+                       Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_ImageSaturation}" />
+                <!-- スライダー -->
+                <Slider Grid.Row="7"
+                        Grid.Column="1"
+                        Minimum="-100"
+                        Maximum="100"
+                        TickFrequency="1"
+                        IsSnapToTickEnabled="True"
+                        IsEnabled="{Binding IsSettable.Value}"
+                        Value="{Binding ImageSaturation.Value}" />
+                <!-- スライダーの値 -->
+                <TextBlock Grid.Row="7"
+                           Grid.Column="3"
+                           Text="{Binding ImageSaturation.Value}" />
+
+                <!-- 画像のガンマ -->
+                <!-- ラベル -->
+                <Label Grid.Row="9"
+                       Grid.Column="1"
+                       Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_ImageGamma}" />
+                <!-- スライダー -->
+                <Slider Grid.Row="10"
+                        Grid.Column="1"
+                        Minimum="0.1"
+                        Maximum="5"
+                        TickFrequency="0.01"
+                        IsSnapToTickEnabled="True"
+                        IsEnabled="{Binding IsSettable.Value}"
+                        Value="{Binding ImageGamma.Value}" />
+                <!-- スライダーの値 -->
+                <TextBlock Grid.Row="10"
+                           Grid.Column="3"
+                           Text="{Binding ImageGamma.Value}" />
+            </Grid>
+        </DockPanel>
+
+        <!-- 境界線 -->
+        <Separator Grid.Row="5"
+                   Grid.Column="1" />
+
+        <!-- ボタンエリア -->
+        <DockPanel Grid.Row="7"
+                   Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" MinHeight="24" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="12" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="8" />
+                    <!-- OK ボタン -->
+                    <ColumnDefinition Width="Auto" MinWidth="80" SharedSizeGroup="Button" />
+                    <ColumnDefinition Width="8" />
+                    <!-- キャンセルボタン -->
+                    <ColumnDefinition Width="Auto" MinWidth="80" SharedSizeGroup="Button" />
+                    <ColumnDefinition Width="12" />
+                </Grid.ColumnDefinitions>
+
+                <!-- OK ボタン -->
+                <Button Grid.Row="0"
+                        Grid.Column="3"
+                        Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_OK}"
+                        Command="{Binding SaveCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                        IsEnabled="{Binding IsSettable.Value}" />
+
+                <!-- キャンセルボタン -->
+                <Button Grid.Row="0"
+                        Grid.Column="5"
+                        Content="{x:Static properties:Resources.Toolbar_ScratchFilterSetting_Label_Cancel}"
+                        Command="{Binding CancelCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

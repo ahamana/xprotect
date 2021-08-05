@@ -8,7 +8,7 @@
 
 using System;
 
-using ScratchFilter.Client.Views;
+using ScratchFilter.Client.Views.Toolbar;
 using ScratchFilter.Properties;
 
 using VideoOS.Platform;
