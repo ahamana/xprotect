@@ -18,6 +18,15 @@ namespace ScratchFilter.Client.Views.OptionsDialog
     /// <seealso cref="OptionsDialogUserControl" />
     internal sealed partial class ScratchFilterUserControl : OptionsDialogUserControl
     {
+        #region Fields
+
+        /// <summary>
+        /// プラグインの定義です。
+        /// </summary>
+        private readonly ScratchFilterPluginDefinition pluginDefinition;
+
+        #endregion Fields
+
         #region Constructors
 
         /// <summary>
@@ -28,12 +37,24 @@ namespace ScratchFilter.Client.Views.OptionsDialog
         {
             InitializeComponent();
 
+            this.pluginDefinition = pluginDefinition;
+        }
+
+        #endregion Constructors
+
+        #region Methods
+
+        /// <summary>
+        /// 初期化処理を行います。
+        /// </summary>
+        public sealed override void Init()
+        {
             aboutLabel.Text = string.Format(Resources.Help_ScratchFilter_About_Details,
                                             pluginDefinition.Name,
                                             pluginDefinition.VersionString,
                                             pluginDefinition.Copyright);
         }
 
-        #endregion Constructors
+        #endregion Methods
     }
 }
