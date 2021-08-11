@@ -16,7 +16,6 @@ namespace ScratchFilter.Client.Views.OptionsDialog
         {
             if (disposing && (components != null))
             {
-                iconPictureBox.Image?.Dispose();
                 components.Dispose();
             }
             base.Dispose(disposing);

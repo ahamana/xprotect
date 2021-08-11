@@ -46,14 +46,6 @@ namespace ScratchFilter.Client.Views.OptionsDialog
         #region Methods
 
         /// <summary>
-        /// 終了処理を行います。
-        /// </summary>
-        public sealed override void Close()
-        {
-            Dispose();
-        }
-
-        /// <summary>
         /// 初期化処理を行います。
         /// </summary>
         public sealed override void Init()
@@ -69,6 +61,16 @@ namespace ScratchFilter.Client.Views.OptionsDialog
                                             pluginDefinition.Name,
                                             pluginDefinition.VersionString,
                                             pluginDefinition.Copyright);
+        }
+
+        /// <summary>
+        /// 終了処理を行います。
+        /// </summary>
+        public sealed override void Close()
+        {
+            iconPictureBox.Image?.Dispose();
+
+            Dispose();
         }
 
         #endregion Methods
