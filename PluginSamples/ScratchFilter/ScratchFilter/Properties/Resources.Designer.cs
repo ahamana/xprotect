@@ -61,6 +61,26 @@ namespace ScratchFilter.Properties {
         }
         
         /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        public static System.Drawing.Bitmap Application_Icon_Dark {
+            get {
+                object obj = ResourceManager.GetObject("Application.Icon.Dark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        public static System.Drawing.Bitmap Application_Icon_Light {
+            get {
+                object obj = ResourceManager.GetObject("Application.Icon.Light", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   About {0} に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Help_ScratchFilter_About {

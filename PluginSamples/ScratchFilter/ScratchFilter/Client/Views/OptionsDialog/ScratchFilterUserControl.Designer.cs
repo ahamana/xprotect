@@ -16,6 +16,7 @@ namespace ScratchFilter.Client.Views.OptionsDialog
         {
             if (disposing && (components != null))
             {
+                iconPictureBox.Image?.Dispose();
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -29,13 +30,23 @@ namespace ScratchFilter.Client.Views.OptionsDialog
         /// </summary>
         private void InitializeComponent()
         {
+            this.iconPictureBox = new System.Windows.Forms.PictureBox();
             this.aboutLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).BeginInit();
             this.SuspendLayout();
+            // 
+            // iconPictureBox
+            // 
+            this.iconPictureBox.Location = new System.Drawing.Point(15, 15);
+            this.iconPictureBox.Name = "iconPictureBox";
+            this.iconPictureBox.Size = new System.Drawing.Size(16, 16);
+            this.iconPictureBox.TabIndex = 1;
+            this.iconPictureBox.TabStop = false;
             // 
             // aboutLabel
             // 
             this.aboutLabel.AutoSize = true;
-            this.aboutLabel.Location = new System.Drawing.Point(15, 15);
+            this.aboutLabel.Location = new System.Drawing.Point(37, 18);
             this.aboutLabel.Name = "aboutLabel";
             this.aboutLabel.Size = new System.Drawing.Size(77, 12);
             this.aboutLabel.TabIndex = 0;
@@ -45,8 +56,10 @@ namespace ScratchFilter.Client.Views.OptionsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.iconPictureBox);
             this.Controls.Add(this.aboutLabel);
             this.Name = "ScratchFilterUserControl";
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -54,6 +67,7 @@ namespace ScratchFilter.Client.Views.OptionsDialog
 
         #endregion
 
+        private System.Windows.Forms.PictureBox iconPictureBox;
         private System.Windows.Forms.Label aboutLabel;
     }
 }

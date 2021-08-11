@@ -8,6 +8,7 @@
 
 using ScratchFilter.Properties;
 
+using VideoOS.Platform;
 using VideoOS.Platform.Client;
 
 namespace ScratchFilter.Client.Views.OptionsDialog
@@ -45,10 +46,25 @@ namespace ScratchFilter.Client.Views.OptionsDialog
         #region Methods
 
         /// <summary>
+        /// 終了処理を行います。
+        /// </summary>
+        public sealed override void Close()
+        {
+            Dispose();
+        }
+
+        /// <summary>
         /// 初期化処理を行います。
         /// </summary>
         public sealed override void Init()
         {
+            iconPictureBox.Image = ClientControl.Instance.Theme.ThemeType switch
+            {
+                ThemeType.Dark => Resources.Application_Icon_Dark,
+                ThemeType.Light => Resources.Application_Icon_Light,
+                _ => default
+            };
+
             aboutLabel.Text = string.Format(Resources.Help_ScratchFilter_About_Details,
                                             pluginDefinition.Name,
                                             pluginDefinition.VersionString,
