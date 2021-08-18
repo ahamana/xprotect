@@ -140,9 +140,7 @@ namespace ScratchFilter
         /// <summary>
         /// アンマネージリソースを解放し、必要に応じてマネージリソースも解放します。
         /// </summary>
-        /// <param name="disposing">
-        /// マネージリソースとアンマネージリソースの両方を解放する場合は <c>true</c>。アンマネージリソースだけを解放する場合は <c>false</c>。
-        /// </param>
+        /// <param name="disposing">マネージリソースとアンマネージリソースの両方を解放する場合は <c>true</c>。アンマネージリソースだけを解放する場合は <c>false</c>。</param>
         private void Dispose(bool disposing)
         {
             if (isDisposed)
