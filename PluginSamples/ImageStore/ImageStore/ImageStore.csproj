@@ -18,8 +18,8 @@
 
   <ItemGroup>
     <PackageReference Include="MilestoneSystems.VideoOS.Platform" Version="21.1.0" />
-    <PackageReference Include="NLog" Version="4.7.10" />
-    <PackageReference Include="NLog.Schema" Version="4.7.10" />
+    <PackageReference Include="NLog" Version="4.7.11" />
+    <PackageReference Include="NLog.Schema" Version="4.7.11" />
   </ItemGroup>
 
   <ItemGroup>
