@@ -134,9 +134,9 @@ namespace ImageStore
         public sealed override string VersionString { get; } = FileVersionInfo.ProductVersion;
 
         /// <summary>
-        /// トップレベルで使用するアイコンです。
+        /// Management Client でのトップレベルで使用するアイコンです。
         /// </summary>
-        /// <value>トップレベルで使用するアイコン</value>
+        /// <value>Management Client でのトップレベルで使用するアイコン</value>
         public sealed override Image? Icon { get; }
 
         #endregion Properties
