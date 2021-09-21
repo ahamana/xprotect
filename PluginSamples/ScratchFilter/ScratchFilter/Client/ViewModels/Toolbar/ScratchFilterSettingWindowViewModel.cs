@@ -22,6 +22,7 @@ using Reactive.Bindings.Extensions;
 using Reactive.Bindings.Notifiers;
 
 using ScratchFilter.Client.Data;
+using ScratchFilter.Client.Views.Toolbar;
 using ScratchFilter.Common.Live;
 using ScratchFilter.Extensions;
 

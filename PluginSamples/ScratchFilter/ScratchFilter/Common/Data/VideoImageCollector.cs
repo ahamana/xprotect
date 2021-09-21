@@ -63,7 +63,6 @@ namespace ScratchFilter.Common.Data
         /// コンストラクタです。
         /// </summary>
         /// <param name="cameraId">カメラの ID</param>
-        /// <param name="imageSize">画像のサイズ</param>
         /// <exception cref="ArgumentException"><paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。</exception>
         private protected VideoImageCollector(Guid cameraId) : this(cameraId, Size.Empty) { }
 
