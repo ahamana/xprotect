@@ -219,9 +219,7 @@ namespace ScratchFilter.Client.ViewModels.Toolbar
             window.Close();
         }
 
-        /// <summary>
-        /// アンマネージリソースの解放またはリセットに関連付けられているアプリケーション定義のタスクを実行します。
-        /// </summary>
+        /// <inheritdoc cref="IDisposable.Dispose" />
         public void Dispose()
         {
             disposable.Dispose();

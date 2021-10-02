@@ -16,7 +16,7 @@ namespace ScratchFilter.Client.Views.Behaviors
     /// <summary>
     /// ウィンドウを閉じる時のビヘイビアです。
     /// </summary>
-    /// <seealso cref="Behavior&lt;Window&gt;" />
+    /// <seealso cref="Behavior{Window}" />
     [ToString]
     internal sealed class WindowCloseBehavior : Behavior<Window>
     {
@@ -32,18 +32,14 @@ namespace ScratchFilter.Client.Views.Behaviors
             (AssociatedObject.DataContext as IDisposable)?.Dispose();
         }
 
-        /// <summary>
-        /// ビヘイビアが <see cref="Behavior&lt;Window&gt;.AssociatedObject" /> にアタッチされた後で呼び出されます。
-        /// </summary>
+        /// <inheritdoc />
         protected sealed override void OnAttached()
         {
             base.OnAttached();
             AssociatedObject.Closed += OnWindowClosed;
         }
 
-        /// <summary>
-        /// ビヘイビアが <see cref="Behavior&lt;Window&gt;.AssociatedObject" /> からデタッチされる時、その前に呼び出されます。
-        /// </summary>
+        /// <inheritdoc />
         protected sealed override void OnDetaching()
         {
             base.OnDetaching();

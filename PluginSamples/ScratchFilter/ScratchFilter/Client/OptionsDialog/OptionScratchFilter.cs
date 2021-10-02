@@ -51,16 +51,10 @@ namespace ScratchFilter.Client.OptionsDialog
 
         #region Properties
 
-        /// <summary>
-        /// ID です。
-        /// </summary>
-        /// <value>ID</value>
+        /// <inheritdoc />
         public sealed override Guid Id { get; } = PluginId;
 
-        /// <summary>
-        /// 名前です。
-        /// </summary>
-        /// <value>名前</value>
+        /// <inheritdoc />
         public sealed override string Name =>
             string.Format(Resources.Help_ScratchFilter_About, pluginDefinition.Name);
 
@@ -68,27 +62,18 @@ namespace ScratchFilter.Client.OptionsDialog
 
         #region Methods
 
-        /// <summary>
-        /// 初期化処理を行います。
-        /// </summary>
+        /// <inheritdoc />
         public sealed override void Init() { }
 
-        /// <summary>
-        /// 終了処理を行います。
-        /// </summary>
+        /// <inheritdoc />
         public sealed override void Close() { }
 
-        /// <summary>
-        /// ユーザーコントロールを生成します。
-        /// </summary>
-        /// <returns>ユーザーコントロール</returns>
+        /// <inheritdoc />
         public sealed override OptionsDialogUserControl GenerateUserControl() =>
             new ScratchFilterUserControl(pluginDefinition);
 
-        /// <summary>
-        /// 変更内容を保存します。
-        /// </summary>
         /// <returns><c>true</c></returns>
+        /// <inheritdoc />
         public sealed override bool SaveChanges() =>
             SaveProperties(true);
 

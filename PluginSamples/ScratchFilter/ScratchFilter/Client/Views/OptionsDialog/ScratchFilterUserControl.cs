@@ -45,9 +45,7 @@ namespace ScratchFilter.Client.Views.OptionsDialog
 
         #region Methods
 
-        /// <summary>
-        /// 初期化処理を行います。
-        /// </summary>
+        /// <inheritdoc />
         public sealed override void Init()
         {
             iconPictureBox.Image = ClientControl.Instance.Theme.ThemeType switch
@@ -63,9 +61,7 @@ namespace ScratchFilter.Client.Views.OptionsDialog
                                             pluginDefinition.Copyright);
         }
 
-        /// <summary>
-        /// 終了処理を行います。
-        /// </summary>
+        /// <inheritdoc />
         public sealed override void Close()
         {
             iconPictureBox.Image?.Dispose();

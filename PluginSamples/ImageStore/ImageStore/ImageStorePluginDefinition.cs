@@ -109,34 +109,19 @@ namespace ImageStore
 
         #region Properties
 
-        /// <summary>
-        /// ID です。
-        /// </summary>
-        /// <value>ID</value>
+        /// <inheritdoc />
         public sealed override Guid Id { get; } = PluginId;
 
-        /// <summary>
-        /// 製品名です。
-        /// </summary>
-        /// <value>製品名</value>
+        /// <inheritdoc />
         public sealed override string Name { get; } = FileVersionInfo.ProductName;
 
-        /// <summary>
-        /// 会社名です。
-        /// </summary>
-        /// <value>会社名</value>
+        /// <inheritdoc />
         public sealed override string Manufacturer { get; } = FileVersionInfo.CompanyName;
 
-        /// <summary>
-        /// プラグインのバージョンです。
-        /// </summary>
-        /// <value>プラグインのバージョン</value>
+        /// <inheritdoc />
         public sealed override string VersionString { get; } = FileVersionInfo.ProductVersion;
 
-        /// <summary>
-        /// Management Client でのトップレベルで使用するアイコンです。
-        /// </summary>
-        /// <value>Management Client でのトップレベルで使用するアイコン</value>
+        /// <inheritdoc />
         public sealed override Image? Icon { get; }
 
         #endregion Properties
@@ -280,9 +265,7 @@ namespace ImageStore
             isDisposed = true;
         }
 
-        /// <summary>
-        /// 初期化処理を行います。
-        /// </summary>
+        /// <inheritdoc />
         public sealed override void Init()
         {
             Logger.Info()
@@ -297,9 +280,7 @@ namespace ImageStore
                                                                                              new(MessageId.Server.NewEventIndication)));
         }
 
-        /// <summary>
-        /// 終了処理を行います。
-        /// </summary>
+        /// <inheritdoc />
         public sealed override void Close()
         {
             var messageCommunication = MessageCommunicationManager.Get(EnvironmentManager.Instance.MasterSite.ServerId);
@@ -318,9 +299,7 @@ namespace ImageStore
                   .Write();
         }
 
-        /// <summary>
-        /// アンマネージリソースの解放またはリセットに関連付けられているアプリケーション定義のタスクを実行します。
-        /// </summary>
+        /// <inheritdoc cref="IDisposable.Dispose" />
         public void Dispose()
         {
             Dispose(true);

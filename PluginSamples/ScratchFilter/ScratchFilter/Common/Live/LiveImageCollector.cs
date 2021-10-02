@@ -166,10 +166,7 @@ namespace ScratchFilter.Common.Live
         /// <returns>画像のストリーム</returns>
         private protected abstract Stream GenerateImageStream(TLiveSourceContent liveContent);
 
-        /// <summary>
-        /// 画像を取得します。
-        /// </summary>
-        /// <returns>画像</returns>
+        /// <inheritdoc cref="ILiveImageCollector.GetImage" />
         public Bitmap? GetImage()
         {
             var stopwatch = Stopwatch.StartNew();
@@ -192,9 +189,7 @@ namespace ScratchFilter.Common.Live
             }
         }
 
-        /// <summary>
-        /// アンマネージリソースの解放またはリセットに関連付けられているアプリケーション定義のタスクを実行します。
-        /// </summary>
+        /// <inheritdoc cref="IDisposable.Dispose" />
         public void Dispose()
         {
             Dispose(true);

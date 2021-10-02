@@ -25,19 +25,14 @@ namespace ScratchFilter.Client.Toolbar
     {
         #region Properties
 
-        /// <summary>
-        /// プラグインの説明です。
-        /// </summary>
-        /// <value>プラグインの説明</value>
+        /// <inheritdoc />
         private protected sealed override string Description { get; } = Resources.Toolbar_ScratchFilterSetting_Description;
 
         #endregion Properties
 
         #region Methods
 
-        /// <summary>
-        /// アイコンを読み込みます。
-        /// </summary>
+        /// <inheritdoc />
         private protected sealed override void LoadIcon()
         {
             Icon = ClientControl.Instance.Theme.ThemeType switch
@@ -48,9 +43,7 @@ namespace ScratchFilter.Client.Toolbar
             };
         }
 
-        /// <summary>
-        /// ツールバー用プラグインのメニューが押下された時に発生します。
-        /// </summary>
+        /// <inheritdoc />
         public sealed override void Activate()
         {
             if (CameraId == Guid.Empty)
@@ -84,20 +77,14 @@ namespace ScratchFilter.Client.Toolbar
 
         #region Properties
 
-        /// <summary>
-        /// ID です。
-        /// </summary>
-        /// <value>ID</value>
+        /// <inheritdoc />
         public sealed override Guid Id { get; } = PluginId;
 
         #endregion Properties
 
         #region Methods
 
-        /// <summary>
-        /// ツールバーの傷フィルタ機能の設定用インスタンスを生成します。
-        /// </summary>
-        /// <returns>ツールバーの傷フィルタ機能の設定用インスタンス</returns>
+        /// <inheritdoc />
         public sealed override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance() =>
             new ToolbarScratchFilterSettingInstance();
 

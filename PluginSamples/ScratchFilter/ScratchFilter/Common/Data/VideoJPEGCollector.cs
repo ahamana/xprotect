@@ -17,7 +17,7 @@ namespace ScratchFilter.Common.Data
     /// <summary>
     /// 録画映像の JPEG 画像を収集するためのクラスです。
     /// </summary>
-    /// <seealso cref="VideoImageCollector&lt;JPEGVideoSource, JPEGData&gt;" />
+    /// <seealso cref="VideoImageCollector{JPEGVideoSource, JPEGData}" />
     [ToString]
     internal sealed class VideoJPEGCollector : VideoImageCollector<JPEGVideoSource, JPEGData>
     {
@@ -59,11 +59,7 @@ namespace ScratchFilter.Common.Data
 
         #region Methods
 
-        /// <summary>
-        /// 録画映像のソースを生成します。
-        /// </summary>
-        /// <param name="camera">カメラ</param>
-        /// <returns>録画映像のソース</returns>
+        /// <inheritdoc />
         private protected sealed override JPEGVideoSource GenerateVideoSource(Item camera) =>
             new(camera)
             {
@@ -71,17 +67,11 @@ namespace ScratchFilter.Common.Data
                 Compression = 100
             };
 
-        /// <summary>
-        /// 最も日時の古い画像を取得します。
-        /// </summary>
-        /// <returns>画像データ</returns>
+        /// <inheritdoc />
         public sealed override JPEGData? GetFirstImage() =>
             videoSource.GetBegin();
 
-        /// <summary>
-        /// 最も日時の新しい画像を取得します。
-        /// </summary>
-        /// <returns>画像データ</returns>
+        /// <inheritdoc />
         public sealed override JPEGData? GetLastImage() =>
             videoSource.GetEnd();
 

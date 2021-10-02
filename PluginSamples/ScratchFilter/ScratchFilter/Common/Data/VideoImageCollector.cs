@@ -21,7 +21,7 @@ namespace ScratchFilter.Common.Data
     /// </summary>
     /// <typeparam name="TVideoSource"><see cref="VideoSource" /> のサブタイプ</typeparam>
     /// <typeparam name="TImageData">画像データの型</typeparam>
-    /// <seealso cref="IVideoImageCollector&lt;TImageData&gt;" />
+    /// <seealso cref="IVideoImageCollector{TImageData}" />
     [ToString]
     internal abstract class VideoImageCollector<TVideoSource, TImageData> : IVideoImageCollector<TImageData>
         where TVideoSource : VideoSource
@@ -120,64 +120,33 @@ namespace ScratchFilter.Common.Data
         /// <returns>録画映像のソース</returns>
         private protected abstract TVideoSource GenerateVideoSource(Item camera);
 
-        /// <summary>
-        /// 最も日時の古い画像を取得します。
-        /// </summary>
-        /// <returns>画像データ</returns>
+        /// <inheritdoc cref="IVideoImageCollector{TImageData}.GetFirstImage" />
         public abstract TImageData? GetFirstImage();
 
-        /// <summary>
-        /// 最も日時の新しい画像を取得します。
-        /// </summary>
-        /// <returns>画像データ</returns>
+        /// <inheritdoc cref="IVideoImageCollector{TImageData}.GetLastImage" />
         public abstract TImageData? GetLastImage();
 
-        /// <summary>
-        /// 指定された日時、もしくは指定された日時以降の最も近い日時の画像を取得します。
-        /// </summary>
-        /// <param name="dateTime">日時</param>
-        /// <returns>画像データ</returns>
+        /// <inheritdoc cref="IVideoImageCollector{TImageData}.GetImageAtOrAfter(DateTime)" />
         public TImageData? GetImageAtOrAfter(DateTime dateTime) =>
             (TImageData?)videoSource.Get(dateTime.ToUniversalTime());
 
-        /// <summary>
-        /// 指定された日時、もしくは指定された日時以前の最も近い日時の画像を取得します。
-        /// </summary>
-        /// <param name="dateTime">日時</param>
-        /// <returns>画像データ</returns>
+        /// <inheritdoc cref="IVideoImageCollector{TImageData}.GetImageAtOrBefore(DateTime)" />
         public TImageData? GetImageAtOrBefore(DateTime dateTime) =>
             (TImageData?)videoSource.GetAtOrBefore(dateTime.ToUniversalTime());
 
-        /// <summary>
-        /// 指定された日時に最も近い日時の画像を取得します。
-        /// </summary>
-        /// <param name="dateTime">日時</param>
-        /// <returns>画像データ</returns>
+        /// <inheritdoc cref="IVideoImageCollector{TImageData}.GetImageNearest(DateTime)" />
         public TImageData? GetImageNearest(DateTime dateTime) =>
             (TImageData?)videoSource.GetNearest(dateTime.ToUniversalTime());
 
-        /// <summary>
-        /// 指定された日時以降の画像を取得します。
-        /// </summary>
-        /// <param name="dateTime">日時</param>
-        /// <param name="maxCount">画像の最大取得数</param>
-        /// <returns>画像データの一覧</returns>
+        /// <inheritdoc cref="IVideoImageCollector{TImageData}.GetImages(DateTime, int)" />
         public IEnumerable<TImageData> GetImages(DateTime dateTime, int maxCount = int.MaxValue) =>
             GetImages(dateTime, TimeSpan.MaxValue, maxCount);
 
-        /// <summary>
-        /// 指定された日時以降の指定された時間幅に存在する画像を取得します。
-        /// </summary>
-        /// <param name="dateTime">日時</param>
-        /// <param name="timeSpan">時間幅</param>
-        /// <param name="maxCount">画像の最大取得数</param>
-        /// <returns>画像データの一覧</returns>
+        /// <inheritdoc cref="IVideoImageCollector{TImageData}.GetImages(DateTime, TimeSpan, int)" />
         public IEnumerable<TImageData> GetImages(DateTime dateTime, TimeSpan timeSpan, int maxCount = int.MaxValue) =>
             videoSource.Get(dateTime, timeSpan, maxCount).Cast<TImageData>();
 
-        /// <summary>
-        /// アンマネージリソースの解放またはリセットに関連付けられているアプリケーション定義のタスクを実行します。
-        /// </summary>
+        /// <inheritdoc cref="IDisposable.Dispose" />
         public void Dispose()
         {
             Dispose(true);

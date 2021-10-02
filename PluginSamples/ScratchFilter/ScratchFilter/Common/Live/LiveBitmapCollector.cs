@@ -19,7 +19,7 @@ namespace ScratchFilter.Common.Live
     /// <summary>
     /// ライブ映像の Bitmap 画像を収集するためのクラスです。
     /// </summary>
-    /// <seealso cref="LiveImageCollector&lt;BitmapLiveSource, LiveSourceBitmapContent&gt;" />
+    /// <seealso cref="LiveImageCollector{BitmapLiveSource, LiveSourceBitmapContent}" />
     [ToString]
     internal sealed class LiveBitmapCollector : LiveImageCollector<BitmapLiveSource, LiveSourceBitmapContent>
     {
@@ -61,19 +61,11 @@ namespace ScratchFilter.Common.Live
 
         #region Methods
 
-        /// <summary>
-        /// ライブ映像のソースを生成します。
-        /// </summary>
-        /// <param name="camera">カメラ</param>
-        /// <returns>ライブ映像のソース</returns>
+        /// <inheritdoc />
         private protected sealed override BitmapLiveSource GenerateVideoLiveSource(Item camera) =>
             new(camera, BitmapFormat.BGR24);
 
-        /// <summary>
-        /// 画像のストリームを生成します。
-        /// </summary>
-        /// <param name="liveContent">ライブ映像の内容</param>
-        /// <returns>画像のストリーム</returns>
+        /// <inheritdoc />
         private protected sealed override Stream GenerateImageStream(LiveSourceBitmapContent liveContent)
         {
             var stream = new MemoryStream();

@@ -91,46 +91,25 @@ namespace ScratchFilter
         /// <value>著作権</value>
         internal string Copyright { get; } = FileVersionInfo.LegalCopyright;
 
-        /// <summary>
-        /// ID です。
-        /// </summary>
-        /// <value>ID</value>
+        /// <inheritdoc />
         public sealed override Guid Id { get; } = PluginId;
 
-        /// <summary>
-        /// 製品名です。
-        /// </summary>
-        /// <value>製品名</value>
+        /// <inheritdoc />
         public sealed override string Name { get; } = FileVersionInfo.ProductName;
 
-        /// <summary>
-        /// 会社名です。
-        /// </summary>
-        /// <value>会社名</value>
+        /// <inheritdoc />
         public sealed override string Manufacturer { get; } = FileVersionInfo.CompanyName;
 
-        /// <summary>
-        /// プラグインのバージョンです。
-        /// </summary>
-        /// <value>プラグインのバージョン</value>
+        /// <inheritdoc />
         public sealed override string VersionString { get; } = FileVersionInfo.ProductVersion;
 
-        /// <summary>
-        /// Management Client でのトップレベルで使用するアイコンです。
-        /// </summary>
-        /// <value>Management Client でのトップレベルで使用するアイコン</value>
+        /// <inheritdoc />
         public sealed override Image? Icon { get; }
 
-        /// <summary>
-        /// Smart Client のツールバー用プラグインの一覧です。
-        /// </summary>
-        /// <value>Smart Client のツールバー用プラグインの一覧</value>
+        /// <inheritdoc />
         public sealed override List<ViewItemToolbarPlugin> ViewItemToolbarPlugins { get; } = new();
 
-        /// <summary>
-        /// Smart Client の設定オプション用プラグインの一覧です。
-        /// </summary>
-        /// <value>Smart Client の設定オプション用プラグインの一覧</value>
+        /// <inheritdoc />
         public sealed override List<OptionsDialogPlugin> OptionsDialogPlugins { get; } = new();
 
         #endregion Properties
@@ -156,9 +135,7 @@ namespace ScratchFilter
             isDisposed = true;
         }
 
-        /// <summary>
-        /// 初期化処理を行います。
-        /// </summary>
+        /// <inheritdoc />
         public sealed override void Init()
         {
             Logger.Info()
@@ -178,9 +155,7 @@ namespace ScratchFilter
             }
         }
 
-        /// <summary>
-        /// 終了処理を行います。
-        /// </summary>
+        /// <inheritdoc />
         public sealed override void Close()
         {
             ViewItemToolbarPlugins.Clear();
@@ -193,9 +168,7 @@ namespace ScratchFilter
                   .Write();
         }
 
-        /// <summary>
-        /// アンマネージリソースの解放またはリセットに関連付けられているアプリケーション定義のタスクを実行します。
-        /// </summary>
+        /// <inheritdoc cref="IDisposable.Dispose" />
         public void Dispose()
         {
             Dispose(true);

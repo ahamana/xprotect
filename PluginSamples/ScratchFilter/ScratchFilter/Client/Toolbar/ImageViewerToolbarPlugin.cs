@@ -346,11 +346,7 @@ namespace ScratchFilter.Client.Toolbar
         /// <param name="e">イベントのデータ</param>
         private protected virtual void OnImageViewerMouseRightClick(ImageViewerAddOn imageViewerAddOn, MouseEventArgs e) { }
 
-        /// <summary>
-        /// ツールバーのインスタンスが UI に追加されたときに呼ばれます。
-        /// </summary>
-        /// <param name="viewItemInstance">ツールバーのアイテムに関連したビューアイテムのインスタンス</param>
-        /// <param name="window">ツールバーの表示先のウィンドウ</param>
+        /// <inheritdoc />
         public override void Init(Item viewItemInstance, Item window)
         {
             base.Init(viewItemInstance, window);
@@ -360,9 +356,7 @@ namespace ScratchFilter.Client.Toolbar
             Enabled = true;
         }
 
-        /// <summary>
-        /// 終了処理です。
-        /// </summary>
+        /// <inheritdoc />
         public override void Close()
         {
             base.Close();

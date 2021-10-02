@@ -40,10 +40,7 @@ namespace ScratchFilter.Client.Toolbar
 
         #region Properties
 
-        /// <summary>
-        /// プラグインの説明です。
-        /// </summary>
-        /// <value>プラグインの説明</value>
+        /// <inheritdoc />
         private protected sealed override string Description =>
             isActive switch
             {
@@ -90,25 +87,15 @@ namespace ScratchFilter.Client.Toolbar
             imageViewerAddOn.SetOverlay(overlay, default, true, true, true, 1, DockStyle.None, DockStyle.None, Point.Empty.X, Point.Empty.Y);
         }
 
-        /// <summary>
-        /// イメージビューワにライブ映像の画像が表示された時に発生します。
-        /// </summary>
-        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
-        /// <param name="e">イベントのデータ</param>
+        /// <inheritdoc />
         private protected sealed override void OnImageViewerImageDisplayed(ImageViewerAddOn imageViewerAddOn, ImageDisplayedEventArgs e) =>
             HandleDisplayedImage(imageViewerAddOn);
 
-        /// <summary>
-        /// イメージビューワに録画映像の画像が表示された時に発生します。
-        /// </summary>
-        /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
-        /// <param name="e">イベントのデータ</param>
+        /// <inheritdoc />
         private protected sealed override void OnImageViewerRecordedImageReceived(ImageViewerAddOn imageViewerAddOn, RecordedImageReceivedEventArgs e) =>
             HandleDisplayedImage(imageViewerAddOn);
 
-        /// <summary>
-        /// アイコンを読み込みます。
-        /// </summary>
+        /// <inheritdoc />
         private protected sealed override void LoadIcon()
         {
             Icon = (ClientControl.Instance.Theme.ThemeType, isActive) switch
@@ -121,9 +108,7 @@ namespace ScratchFilter.Client.Toolbar
             };
         }
 
-        /// <summary>
-        /// ツールバー用プラグインのメニューが押下された時に発生します。
-        /// </summary>
+        /// <inheritdoc />
         public sealed override void Activate()
         {
             isActive = !isActive;
@@ -155,20 +140,14 @@ namespace ScratchFilter.Client.Toolbar
 
         #region Properties
 
-        /// <summary>
-        /// ID です。
-        /// </summary>
-        /// <value>ID</value>
+        /// <inheritdoc />
         public sealed override Guid Id { get; } = PluginId;
 
         #endregion Properties
 
         #region Methods
 
-        /// <summary>
-        /// ツールバーの傷フィルタ機能用インスタンスを生成します。
-        /// </summary>
-        /// <returns>ツールバーの傷フィルタ機能用インスタンス</returns>
+        /// <inheritdoc />
         public sealed override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance() =>
             new ToolbarScratchFilterInstance();
 

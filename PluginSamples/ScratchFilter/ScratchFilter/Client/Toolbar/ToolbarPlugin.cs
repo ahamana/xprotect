@@ -111,11 +111,7 @@ namespace ScratchFilter.Client.Toolbar
             LoadIcon();
         }
 
-        /// <summary>
-        /// ツールバー用プラグインのインスタンスが UI に追加された時に発生します。
-        /// </summary>
-        /// <param name="viewItemInstance">ツールバー用プラグインの表示先のモニター</param>
-        /// <param name="window">ツールバー用プラグインの表示先のウィンドウ</param>
+        /// <inheritdoc />
         public override void Init(Item viewItemInstance, Item window)
         {
             Title = Description;
@@ -127,9 +123,7 @@ namespace ScratchFilter.Client.Toolbar
                                                                               new MessageIdFilter(MessageId.SmartClient.ThemeChangedIndication)));
         }
 
-        /// <summary>
-        /// 終了処理を行います。
-        /// </summary>
+        /// <inheritdoc />
         public override void Close()
         {
             messageReceivers.ForEach(EnvironmentManager.Instance.UnRegisterReceiver);
@@ -137,9 +131,7 @@ namespace ScratchFilter.Client.Toolbar
             Dispose();
         }
 
-        /// <summary>
-        /// アンマネージリソースの解放またはリセットに関連付けられているアプリケーション定義のタスクを実行します。
-        /// </summary>
+        /// <inheritdoc cref="IDisposable.Dispose" />
         public void Dispose()
         {
             Dispose(true);
@@ -158,20 +150,15 @@ namespace ScratchFilter.Client.Toolbar
     {
         #region Properties
 
-        /// <summary>
-        /// 名前です。
-        /// </summary>
         /// <remarks>Smart Client の UI のどこにも表示されず、使用されることはありません。</remarks>
-        /// <value>名前</value>
+        /// <inheritdoc />
         public sealed override string? Name { get; }
 
         #endregion Properties
 
         #region Methods
 
-        /// <summary>
-        /// 初期化処理を行います。
-        /// </summary>
+        /// <inheritdoc />
         public override void Init()
         {
             ViewItemToolbarPlaceDefinition.ViewItemIds = new()
@@ -191,9 +178,7 @@ namespace ScratchFilter.Client.Toolbar
             };
         }
 
-        /// <summary>
-        /// 終了処理を行います。
-        /// </summary>
+        /// <inheritdoc />
         public override void Close() { }
 
         #endregion Methods

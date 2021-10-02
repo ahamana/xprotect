@@ -54,17 +54,13 @@ namespace ScratchFilter.Client.Toolbar
             return icon;
         }
 
-        /// <summary>
-        /// アイコンを読み込みます。
-        /// </summary>
+        /// <inheritdoc />
         private protected sealed override void LoadIcon()
         {
             Icon = CreateSeparatorIcon();
         }
 
-        /// <summary>
-        /// ツールバー用プラグインのメニューが押下された時に発生します。
-        /// </summary>
+        /// <inheritdoc />
         public sealed override void Activate()
         {
             // Do nothing.
@@ -82,26 +78,17 @@ namespace ScratchFilter.Client.Toolbar
     {
         #region Properties
 
-        /// <summary>
-        /// ID です。
-        /// </summary>
-        /// <value>ID</value>
+        /// <inheritdoc />
         public sealed override Guid Id { get; }
 
-        /// <summary>
-        /// 詳細項目への表示方法です。
-        /// </summary>
-        /// <value>詳細項目への表示方法</value>
+        /// <inheritdoc />
         public sealed override ToolbarPluginOverflowMode ToolbarPluginOverflowMode { get; } = ToolbarPluginOverflowMode.NeverInOverflow;
 
         #endregion Properties
 
         #region Methods
 
-        /// <summary>
-        /// ツールバーのセパレータ用インスタンスを生成します。
-        /// </summary>
-        /// <returns>ツールバーのセパレータ用インスタンス</returns>
+        /// <inheritdoc />
         public sealed override ViewItemToolbarPluginInstance GenerateViewItemToolbarPluginInstance() =>
             new ToolbarSeparatorInstance();
 
