@@ -150,7 +150,9 @@ namespace ScratchFilter.Client.Toolbar
     {
         #region Properties
 
-        /// <remarks>Smart Client の UI のどこにも表示されず、使用されることはありません。</remarks>
+        /// <remarks>
+        /// Smart Client の UI のどこにも表示されず、使用されることはありません。
+        /// </remarks>
         /// <inheritdoc />
         public sealed override string? Name { get; }
 
