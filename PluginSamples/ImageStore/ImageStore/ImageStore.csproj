@@ -17,6 +17,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="docfx.console" Version="2.58.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="MilestoneSystems.VideoOS.Platform" Version="21.1.0" />
     <PackageReference Include="NLog" Version="4.7.11" />
     <PackageReference Include="NLog.Schema" Version="4.7.11" />
