@@ -11,32 +11,31 @@ using System.Windows;
 
 using ScratchFilter.Client.ViewModels.Toolbar;
 
-namespace ScratchFilter.Client.Views.Toolbar
+namespace ScratchFilter.Client.Views.Toolbar;
+
+/// <summary>
+/// ScratchFilterSettingWindow.xaml の相互作用ロジック
+/// </summary>
+internal sealed partial class ScratchFilterSettingWindow : Window
 {
+    #region Constructors
+
     /// <summary>
-    /// ScratchFilterSettingWindow.xaml の相互作用ロジック
+    /// コンストラクタです。
     /// </summary>
-    internal sealed partial class ScratchFilterSettingWindow : Window
+    /// <param name="cameraId">カメラの ID</param>
+    /// <exception cref="ArgumentException"><paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。</exception>
+    internal ScratchFilterSettingWindow(Guid cameraId)
     {
-        #region Constructors
-
-        /// <summary>
-        /// コンストラクタです。
-        /// </summary>
-        /// <param name="cameraId">カメラの ID</param>
-        /// <exception cref="ArgumentException"><paramref name="cameraId" /> が <see cref="Guid.Empty" /> の場合にスローされます。</exception>
-        internal ScratchFilterSettingWindow(Guid cameraId)
+        if (cameraId == Guid.Empty)
         {
-            if (cameraId == Guid.Empty)
-            {
-                throw new ArgumentException(nameof(cameraId));
-            }
-
-            InitializeComponent();
-
-            DataContext = new ScratchFilterSettingWindowViewModel(cameraId);
+            throw new ArgumentException(nameof(cameraId));
         }
 
-        #endregion Constructors
+        InitializeComponent();
+
+        DataContext = new ScratchFilterSettingWindowViewModel(cameraId);
     }
+
+    #endregion Constructors
 }

@@ -9,22 +9,21 @@
 using System;
 using System.Drawing;
 
-namespace ScratchFilter.Common.Live
+namespace ScratchFilter.Common.Live;
+
+/// <summary>
+/// ライブ映像の画像を収集するためのインターフェースです。
+/// </summary>
+/// <seealso cref="IDisposable" />
+internal interface ILiveImageCollector : IDisposable
 {
+    #region Methods
+
     /// <summary>
-    /// ライブ映像の画像を収集するためのインターフェースです。
+    /// 画像を取得します。
     /// </summary>
-    /// <seealso cref="IDisposable" />
-    internal interface ILiveImageCollector : IDisposable
-    {
-        #region Methods
+    /// <returns>画像</returns>
+    Bitmap? GetImage();
 
-        /// <summary>
-        /// 画像を取得します。
-        /// </summary>
-        /// <returns>画像</returns>
-        Bitmap? GetImage();
-
-        #endregion Methods
-    }
+    #endregion Methods
 }

@@ -12,121 +12,120 @@ using Prism.Mvvm;
 
 using VideoOS.Platform;
 
-namespace ScratchFilter.Client.Data
+namespace ScratchFilter.Client.Data;
+
+/// <summary>
+/// 傷フィルタの設定です。
+/// </summary>
+/// <seealso cref="BindableBase" />
+[ToString]
+internal sealed class ScratchFilterSetting : BindableBase
 {
+    #region Fields
+
     /// <summary>
-    /// 傷フィルタの設定です。
+    /// デフォルトの画像のコントラストです。
     /// </summary>
-    /// <seealso cref="BindableBase" />
-    [ToString]
-    internal sealed class ScratchFilterSetting : BindableBase
+    private static readonly int DefaultImageContrast = 0;
+
+    /// <summary>
+    /// デフォルトの画像の明るさです。
+    /// </summary>
+    private static readonly int DefaultImageBrightness = 0;
+
+    /// <summary>
+    /// デフォルトの画像の彩度です。
+    /// </summary>
+    private static readonly int DefaultImageSaturation = 0;
+
+    /// <summary>
+    /// デフォルトの画像のガンマです。
+    /// </summary>
+    private static readonly float DefaultImageGamma = 1;
+
+    /// <summary>
+    /// 画像のコントラストです。
+    /// </summary>
+    private int imageContrast = DefaultImageContrast;
+
+    /// <summary>
+    /// 画像の明るさです。
+    /// </summary>
+    private int imageBrightness = DefaultImageBrightness;
+
+    /// <summary>
+    /// 画像の彩度です。
+    /// </summary>
+    private int imageSaturation = DefaultImageSaturation;
+
+    /// <summary>
+    /// 画像のガンマです。
+    /// </summary>
+    private float imageGamma = DefaultImageGamma;
+
+    #endregion Fields
+
+    #region Properties
+
+    /// <summary>
+    /// カメラの ID です。
+    /// </summary>
+    /// <value>カメラの ID</value>
+    public Guid CameraId { get; init; }
+
+    /// <summary>
+    /// カメラ名です。
+    /// </summary>
+    /// <value>カメラ名</value>
+    public string? CameraName
     {
-        #region Fields
-
-        /// <summary>
-        /// デフォルトの画像のコントラストです。
-        /// </summary>
-        private static readonly int DefaultImageContrast = 0;
-
-        /// <summary>
-        /// デフォルトの画像の明るさです。
-        /// </summary>
-        private static readonly int DefaultImageBrightness = 0;
-
-        /// <summary>
-        /// デフォルトの画像の彩度です。
-        /// </summary>
-        private static readonly int DefaultImageSaturation = 0;
-
-        /// <summary>
-        /// デフォルトの画像のガンマです。
-        /// </summary>
-        private static readonly float DefaultImageGamma = 1;
-
-        /// <summary>
-        /// 画像のコントラストです。
-        /// </summary>
-        private int imageContrast = DefaultImageContrast;
-
-        /// <summary>
-        /// 画像の明るさです。
-        /// </summary>
-        private int imageBrightness = DefaultImageBrightness;
-
-        /// <summary>
-        /// 画像の彩度です。
-        /// </summary>
-        private int imageSaturation = DefaultImageSaturation;
-
-        /// <summary>
-        /// 画像のガンマです。
-        /// </summary>
-        private float imageGamma = DefaultImageGamma;
-
-        #endregion Fields
-
-        #region Properties
-
-        /// <summary>
-        /// カメラの ID です。
-        /// </summary>
-        /// <value>カメラの ID</value>
-        public Guid CameraId { get; init; }
-
-        /// <summary>
-        /// カメラ名です。
-        /// </summary>
-        /// <value>カメラ名</value>
-        public string? CameraName
+        get
         {
-            get
-            {
-                var camera = Configuration.Instance.GetItem(CameraId, Kind.Camera);
+            var camera = Configuration.Instance.GetItem(CameraId, Kind.Camera);
 
-                return camera?.Name;
-            }
+            return camera?.Name;
         }
-
-        /// <summary>
-        /// 画像のコントラストです。
-        /// </summary>
-        /// <value>画像のコントラスト</value>
-        public int ImageContrast
-        {
-            get => imageContrast;
-            set => SetProperty(ref imageContrast, value);
-        }
-
-        /// <summary>
-        /// 画像の明るさです。
-        /// </summary>
-        /// <value>画像の明るさ</value>
-        public int ImageBrightness
-        {
-            get => imageBrightness;
-            set => SetProperty(ref imageBrightness, value);
-        }
-
-        /// <summary>
-        /// 画像の彩度です。
-        /// </summary>
-        /// <value>画像の彩度</value>
-        public int ImageSaturation
-        {
-            get => imageSaturation;
-            set => SetProperty(ref imageSaturation, value);
-        }
-
-        /// <summary>
-        /// 画像のガンマです。
-        /// </summary>
-        /// <value>画像のガンマ</value>
-        public float ImageGamma
-        {
-            get => imageGamma;
-            set => SetProperty(ref imageGamma, value);
-        }
-
-        #endregion Properties
     }
+
+    /// <summary>
+    /// 画像のコントラストです。
+    /// </summary>
+    /// <value>画像のコントラスト</value>
+    public int ImageContrast
+    {
+        get => imageContrast;
+        set => SetProperty(ref imageContrast, value);
+    }
+
+    /// <summary>
+    /// 画像の明るさです。
+    /// </summary>
+    /// <value>画像の明るさ</value>
+    public int ImageBrightness
+    {
+        get => imageBrightness;
+        set => SetProperty(ref imageBrightness, value);
+    }
+
+    /// <summary>
+    /// 画像の彩度です。
+    /// </summary>
+    /// <value>画像の彩度</value>
+    public int ImageSaturation
+    {
+        get => imageSaturation;
+        set => SetProperty(ref imageSaturation, value);
+    }
+
+    /// <summary>
+    /// 画像のガンマです。
+    /// </summary>
+    /// <value>画像のガンマ</value>
+    public float ImageGamma
+    {
+        get => imageGamma;
+        set => SetProperty(ref imageGamma, value);
+    }
+
+    #endregion Properties
 }

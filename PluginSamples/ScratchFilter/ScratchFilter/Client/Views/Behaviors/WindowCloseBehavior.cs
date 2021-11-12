@@ -11,41 +11,40 @@ using System.Windows;
 
 using Microsoft.Xaml.Behaviors;
 
-namespace ScratchFilter.Client.Views.Behaviors
+namespace ScratchFilter.Client.Views.Behaviors;
+
+/// <summary>
+/// ウィンドウを閉じる時のビヘイビアです。
+/// </summary>
+/// <seealso cref="Behavior{Window}" />
+[ToString]
+internal sealed class WindowCloseBehavior : Behavior<Window>
 {
+    #region Methods
+
     /// <summary>
-    /// ウィンドウを閉じる時のビヘイビアです。
+    /// ウィンドウが閉じる時に発生します。
     /// </summary>
-    /// <seealso cref="Behavior{Window}" />
-    [ToString]
-    internal sealed class WindowCloseBehavior : Behavior<Window>
+    /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+    /// <param name="e">イベントのデータ</param>
+    private void OnWindowClosed(object sender, EventArgs e)
     {
-        #region Methods
-
-        /// <summary>
-        /// ウィンドウが閉じる時に発生します。
-        /// </summary>
-        /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
-        /// <param name="e">イベントのデータ</param>
-        private void OnWindowClosed(object sender, EventArgs e)
-        {
-            (AssociatedObject.DataContext as IDisposable)?.Dispose();
-        }
-
-        /// <inheritdoc />
-        protected sealed override void OnAttached()
-        {
-            base.OnAttached();
-            AssociatedObject.Closed += OnWindowClosed;
-        }
-
-        /// <inheritdoc />
-        protected sealed override void OnDetaching()
-        {
-            base.OnDetaching();
-            AssociatedObject.Closed -= OnWindowClosed;
-        }
-
-        #endregion Methods
+        (AssociatedObject.DataContext as IDisposable)?.Dispose();
     }
+
+    /// <inheritdoc />
+    protected sealed override void OnAttached()
+    {
+        base.OnAttached();
+        AssociatedObject.Closed += OnWindowClosed;
+    }
+
+    /// <inheritdoc />
+    protected sealed override void OnDetaching()
+    {
+        base.OnDetaching();
+        AssociatedObject.Closed -= OnWindowClosed;
+    }
+
+    #endregion Methods
 }

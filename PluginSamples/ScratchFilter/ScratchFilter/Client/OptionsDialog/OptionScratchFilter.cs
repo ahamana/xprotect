@@ -13,70 +13,69 @@ using ScratchFilter.Properties;
 
 using VideoOS.Platform.Client;
 
-namespace ScratchFilter.Client.OptionsDialog
+namespace ScratchFilter.Client.OptionsDialog;
+
+/// <summary>
+/// 傷フィルタの設定オプションです。
+/// </summary>
+/// <seealso cref="OptionsDialogPlugin" />
+[ToString]
+internal sealed class OptionScratchFilter : OptionsDialogPlugin
 {
+    #region Fields
+
     /// <summary>
-    /// 傷フィルタの設定オプションです。
+    /// プラグインの ID です。
     /// </summary>
-    /// <seealso cref="OptionsDialogPlugin" />
-    [ToString]
-    internal sealed class OptionScratchFilter : OptionsDialogPlugin
+    private static readonly Guid PluginId = Guid.Parse("D3627413-98D3-4804-831F-271C4C81F082");
+
+    /// <summary>
+    /// プラグインの定義です。
+    /// </summary>
+    private readonly ScratchFilterPluginDefinition pluginDefinition;
+
+    #endregion Fields
+
+    #region Constructors
+
+    /// <summary>
+    /// コンストラクタです。
+    /// </summary>
+    /// <param name="pluginDefinition">プラグインの定義</param>
+    internal OptionScratchFilter(ScratchFilterPluginDefinition pluginDefinition)
     {
-        #region Fields
-
-        /// <summary>
-        /// プラグインの ID です。
-        /// </summary>
-        private static readonly Guid PluginId = Guid.Parse("D3627413-98D3-4804-831F-271C4C81F082");
-
-        /// <summary>
-        /// プラグインの定義です。
-        /// </summary>
-        private readonly ScratchFilterPluginDefinition pluginDefinition;
-
-        #endregion Fields
-
-        #region Constructors
-
-        /// <summary>
-        /// コンストラクタです。
-        /// </summary>
-        /// <param name="pluginDefinition">プラグインの定義</param>
-        internal OptionScratchFilter(ScratchFilterPluginDefinition pluginDefinition)
-        {
-            this.pluginDefinition = pluginDefinition;
-        }
-
-        #endregion Constructors
-
-        #region Properties
-
-        /// <inheritdoc />
-        public sealed override Guid Id { get; } = PluginId;
-
-        /// <inheritdoc />
-        public sealed override string Name =>
-            string.Format(Resources.Help_ScratchFilter_About, pluginDefinition.Name);
-
-        #endregion Properties
-
-        #region Methods
-
-        /// <inheritdoc />
-        public sealed override void Init() { }
-
-        /// <inheritdoc />
-        public sealed override void Close() { }
-
-        /// <inheritdoc />
-        public sealed override OptionsDialogUserControl GenerateUserControl() =>
-            new ScratchFilterUserControl(pluginDefinition);
-
-        /// <returns><c>true</c></returns>
-        /// <inheritdoc />
-        public sealed override bool SaveChanges() =>
-            SaveProperties(true);
-
-        #endregion Methods
+        this.pluginDefinition = pluginDefinition;
     }
+
+    #endregion Constructors
+
+    #region Properties
+
+    /// <inheritdoc />
+    public sealed override Guid Id { get; } = PluginId;
+
+    /// <inheritdoc />
+    public sealed override string Name =>
+        string.Format(Resources.Help_ScratchFilter_About, pluginDefinition.Name);
+
+    #endregion Properties
+
+    #region Methods
+
+    /// <inheritdoc />
+    public sealed override void Init() { }
+
+    /// <inheritdoc />
+    public sealed override void Close() { }
+
+    /// <inheritdoc />
+    public sealed override OptionsDialogUserControl GenerateUserControl() =>
+        new ScratchFilterUserControl(pluginDefinition);
+
+    /// <returns><c>true</c></returns>
+    /// <inheritdoc />
+    public sealed override bool SaveChanges() =>
+        SaveProperties(true);
+
+    #endregion Methods
 }

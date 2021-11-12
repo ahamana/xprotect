@@ -14,71 +14,70 @@ using System.IO;
 using VideoOS.Platform;
 using VideoOS.Platform.Live;
 
-namespace ScratchFilter.Common.Live
+namespace ScratchFilter.Common.Live;
+
+/// <summary>
+/// ライブ映像の Bitmap 画像を収集するためのクラスです。
+/// </summary>
+/// <seealso cref="LiveImageCollector{BitmapLiveSource, LiveSourceBitmapContent}" />
+[ToString]
+internal sealed class LiveBitmapCollector : LiveImageCollector<BitmapLiveSource, LiveSourceBitmapContent>
 {
+    #region Constructors
+
     /// <summary>
-    /// ライブ映像の Bitmap 画像を収集するためのクラスです。
+    /// コンストラクタです。
     /// </summary>
-    /// <seealso cref="LiveImageCollector{BitmapLiveSource, LiveSourceBitmapContent}" />
-    [ToString]
-    internal sealed class LiveBitmapCollector : LiveImageCollector<BitmapLiveSource, LiveSourceBitmapContent>
+    /// <param name="cameraFQID">カメラの完全修飾 ID</param>
+    internal LiveBitmapCollector(FQID cameraFQID) : base(cameraFQID) { }
+
+    /// <summary>
+    /// コンストラクタです。
+    /// </summary>
+    /// <param name="cameraFQID">カメラの完全修飾 ID</param>
+    /// <param name="imageSize">画像のサイズ</param>
+    /// <remarks>
+    /// 画像のサイズの幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
+    /// </remarks>
+    internal LiveBitmapCollector(FQID cameraFQID, Size imageSize) : base(cameraFQID, imageSize) { }
+
+    /// <summary>
+    /// コンストラクタです。
+    /// </summary>
+    /// <param name="cameraId">カメラの ID</param>
+    internal LiveBitmapCollector(Guid cameraId) : base(cameraId) { }
+
+    /// <summary>
+    /// コンストラクタです。
+    /// </summary>
+    /// <param name="cameraId">カメラの ID</param>
+    /// <param name="imageSize">画像のサイズ</param>
+    /// <remarks>
+    /// 画像のサイズの幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
+    /// </remarks>
+    internal LiveBitmapCollector(Guid cameraId, Size imageSize) : base(cameraId, imageSize) { }
+
+    #endregion Constructors
+
+    #region Methods
+
+    /// <inheritdoc />
+    private protected sealed override BitmapLiveSource GenerateVideoLiveSource(Item camera) =>
+        new(camera, BitmapFormat.BGR24);
+
+    /// <inheritdoc />
+    private protected sealed override Stream GenerateImageStream(LiveSourceBitmapContent liveContent)
     {
-        #region Constructors
+        var stream = new MemoryStream();
 
-        /// <summary>
-        /// コンストラクタです。
-        /// </summary>
-        /// <param name="cameraFQID">カメラの完全修飾 ID</param>
-        internal LiveBitmapCollector(FQID cameraFQID) : base(cameraFQID) { }
+        using var image = new Bitmap(liveContent.GetPlaneWidth(0), liveContent.GetPlaneHeight(0),
+                                     liveContent.GetPlaneStride(0), PixelFormat.Format24bppRgb,
+                                     liveContent.GetPlanePointer(0));
 
-        /// <summary>
-        /// コンストラクタです。
-        /// </summary>
-        /// <param name="cameraFQID">カメラの完全修飾 ID</param>
-        /// <param name="imageSize">画像のサイズ</param>
-        /// <remarks>
-        /// 画像のサイズの幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
-        /// </remarks>
-        internal LiveBitmapCollector(FQID cameraFQID, Size imageSize) : base(cameraFQID, imageSize) { }
+        image.Save(stream, ImageFormat.Bmp);
 
-        /// <summary>
-        /// コンストラクタです。
-        /// </summary>
-        /// <param name="cameraId">カメラの ID</param>
-        internal LiveBitmapCollector(Guid cameraId) : base(cameraId) { }
-
-        /// <summary>
-        /// コンストラクタです。
-        /// </summary>
-        /// <param name="cameraId">カメラの ID</param>
-        /// <param name="imageSize">画像のサイズ</param>
-        /// <remarks>
-        /// 画像のサイズの幅と高さに 0 を指定した場合は、実際の解像度の画像が収集されます。
-        /// </remarks>
-        internal LiveBitmapCollector(Guid cameraId, Size imageSize) : base(cameraId, imageSize) { }
-
-        #endregion Constructors
-
-        #region Methods
-
-        /// <inheritdoc />
-        private protected sealed override BitmapLiveSource GenerateVideoLiveSource(Item camera) =>
-            new(camera, BitmapFormat.BGR24);
-
-        /// <inheritdoc />
-        private protected sealed override Stream GenerateImageStream(LiveSourceBitmapContent liveContent)
-        {
-            var stream = new MemoryStream();
-
-            using var image = new Bitmap(liveContent.GetPlaneWidth(0), liveContent.GetPlaneHeight(0),
-                                         liveContent.GetPlaneStride(0), PixelFormat.Format24bppRgb,
-                                         liveContent.GetPlanePointer(0));
-
-            image.Save(stream, ImageFormat.Bmp);
-
-            return stream;
-        }
-
-        #endregion Methods
+        return stream;
     }
+
+    #endregion Methods
 }

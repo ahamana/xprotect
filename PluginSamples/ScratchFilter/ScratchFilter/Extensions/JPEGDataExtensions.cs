@@ -11,27 +11,26 @@ using System.IO;
 
 using VideoOS.Platform.Data;
 
-namespace ScratchFilter.Extensions
+namespace ScratchFilter.Extensions;
+
+/// <summary>
+/// <see cref="JPEGData" /> の拡張メソッドです。
+/// </summary>
+internal static class JPEGDataExtensions
 {
+    #region Methods
+
     /// <summary>
-    /// <see cref="JPEGData" /> の拡張メソッドです。
+    /// 画像を取得します。
     /// </summary>
-    internal static class JPEGDataExtensions
+    /// <param name="jpegData"><see cref="JPEGData" /></param>
+    /// <returns>画像</returns>
+    internal static Bitmap GetBitmap(this JPEGData jpegData)
     {
-        #region Methods
+        using var stream = new MemoryStream(jpegData.Bytes);
 
-        /// <summary>
-        /// 画像を取得します。
-        /// </summary>
-        /// <param name="jpegData"><see cref="JPEGData" /></param>
-        /// <returns>画像</returns>
-        internal static Bitmap GetBitmap(this JPEGData jpegData)
-        {
-            using var stream = new MemoryStream(jpegData.Bytes);
-
-            return new(stream);
-        }
-
-        #endregion Methods
+        return new(stream);
     }
+
+    #endregion Methods
 }

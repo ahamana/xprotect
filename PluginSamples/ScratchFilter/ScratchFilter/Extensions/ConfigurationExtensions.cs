@@ -11,51 +11,50 @@ using System.Collections.Generic;
 
 using VideoOS.Platform;
 
-namespace ScratchFilter.Extensions
+namespace ScratchFilter.Extensions;
+
+/// <summary>
+/// <see cref="Configuration" /> の拡張メソッドです。
+/// </summary>
+internal static class ConfigurationExtensions
 {
+    #region Methods
+
     /// <summary>
-    /// <see cref="Configuration" /> の拡張メソッドです。
+    /// 指定された種類の項目の一覧を取得します。
     /// </summary>
-    internal static class ConfigurationExtensions
+    /// <param name="items">項目の一覧</param>
+    /// <param name="kind">項目の種類</param>
+    /// <returns>指定された種類の項目の一覧</returns>
+    private static List<Item> GetItemsOfKind(List<Item> items, Guid kind)
     {
-        #region Methods
+        var kindItems = new List<Item>();
 
-        /// <summary>
-        /// 指定された種類の項目の一覧を取得します。
-        /// </summary>
-        /// <param name="items">項目の一覧</param>
-        /// <param name="kind">項目の種類</param>
-        /// <returns>指定された種類の項目の一覧</returns>
-        private static List<Item> GetItemsOfKind(List<Item> items, Guid kind)
+        foreach (var item in items)
         {
-            var kindItems = new List<Item>();
-
-            foreach (var item in items)
+            if (item.FQID.Kind == kind && item.FQID.FolderType == FolderType.No)
             {
-                if (item.FQID.Kind == kind && item.FQID.FolderType == FolderType.No)
-                {
-                    kindItems.Add(item);
-                }
-                else if (item.HasChildren != HasChildren.No)
-                {
-                    kindItems.AddRange(GetItemsOfKind(item.GetChildren(), kind));
-                }
+                kindItems.Add(item);
             }
-
-            return kindItems;
+            else if (item.HasChildren != HasChildren.No)
+            {
+                kindItems.AddRange(GetItemsOfKind(item.GetChildren(), kind));
+            }
         }
 
-        /// <summary>
-        /// 指定された種類の項目の一覧を取得します。
-        /// </summary>
-        /// <param name="configuration"><see cref="Configuration" /></param>
-        /// <param name="kind">項目の種類</param>
-        /// <returns>指定された種類の項目の一覧</returns>
-        internal static List<Item> GetItemsOfKind(this Configuration configuration, Guid kind)
-        {
-            return GetItemsOfKind(configuration.GetItemsByKind(kind), kind);
-        }
-
-        #endregion Methods
+        return kindItems;
     }
+
+    /// <summary>
+    /// 指定された種類の項目の一覧を取得します。
+    /// </summary>
+    /// <param name="configuration"><see cref="Configuration" /></param>
+    /// <param name="kind">項目の種類</param>
+    /// <returns>指定された種類の項目の一覧</returns>
+    internal static List<Item> GetItemsOfKind(this Configuration configuration, Guid kind)
+    {
+        return GetItemsOfKind(configuration.GetItemsByKind(kind), kind);
+    }
+
+    #endregion Methods
 }
