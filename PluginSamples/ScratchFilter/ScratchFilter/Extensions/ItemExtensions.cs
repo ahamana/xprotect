@@ -48,10 +48,8 @@ internal static class ItemExtensions
     /// </summary>
     /// <param name="item"><see cref="Item" /></param>
     /// <returns>フォルダ階層のない形式にした項目</returns>
-    internal static List<Item> Flatten(this Item item)
-    {
-        return FlattenItems(new() { item });
-    }
+    internal static List<Item> Flatten(this Item item) =>
+        FlattenItems(new() { item });
 
     #endregion Methods
 }
