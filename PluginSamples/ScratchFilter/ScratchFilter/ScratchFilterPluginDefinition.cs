@@ -14,7 +14,6 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 
 using NLog;
-using NLog.Fluent;
 
 using ScratchFilter.Client.Data;
 using ScratchFilter.Client.OptionsDialog;
@@ -138,9 +137,9 @@ public sealed class ScratchFilterPluginDefinition : PluginDefinition, IDisposabl
     /// <inheritdoc />
     public sealed override void Init()
     {
-        Logger.Info()
+        Logger.ForInfoEvent()
               .Message("Start plug-in on {0}", EnvironmentManager.Instance.EnvironmentProduct)
-              .Write();
+              .Log();
 
         if (EnvironmentManager.Instance.EnvironmentType == EnvironmentType.SmartClient)
         {
@@ -163,9 +162,9 @@ public sealed class ScratchFilterPluginDefinition : PluginDefinition, IDisposabl
 
         Dispose();
 
-        Logger.Info()
+        Logger.ForInfoEvent()
               .Message("End plug-in on {0}", EnvironmentManager.Instance.EnvironmentProduct)
-              .Write();
+              .Log();
     }
 
     /// <inheritdoc cref="IDisposable.Dispose" />

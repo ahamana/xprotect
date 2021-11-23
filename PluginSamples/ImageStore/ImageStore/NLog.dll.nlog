@@ -8,7 +8,6 @@
 	<!-- ================================================================== -->
 	<variable name="logDir" value="${specialfolder:CommonApplicationData}/Canon/WebView/${var:productName}/Logs/${var:environmentType}" />
 	<variable name="logLayout" value="${longdate} [${threadid:padding=8}] [${uppercase:${level:padding=-5}}] ${callsite}: ${callsite-linenumber} - ${message} ${exception:format=tostring}" />
-	<variable name="logEncoding" value="UTF-8" />
 
 	<!-- ================================================================== -->
 	<!--     Targets                                                        -->
@@ -18,7 +17,6 @@
 				name="LogFile"
 				fileName="${logDir}/Application.log"
 				layout="${logLayout}"
-				encoding="${logEncoding}"
 				archiveEvery="Day"
 				archiveFileName="${logDir}/Application_{#}.log"
 				archiveNumbering="Date"

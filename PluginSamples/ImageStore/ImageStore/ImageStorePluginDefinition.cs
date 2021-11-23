@@ -18,7 +18,6 @@ using System.Runtime.InteropServices;
 using ImageStore.Client.Data;
 
 using NLog;
-using NLog.Fluent;
 
 using VideoOS.Platform;
 using VideoOS.Platform.Data;
@@ -267,9 +266,9 @@ public class ImageStorePluginDefinition : PluginDefinition, IDisposable
     /// <inheritdoc />
     public sealed override void Init()
     {
-        Logger.Info()
+        Logger.ForInfoEvent()
               .Message("Start plug-in on {0}", EnvironmentManager.Instance.EnvironmentProduct)
-              .Write();
+              .Log();
 
         MessageCommunicationManager.Start(EnvironmentManager.Instance.MasterSite.ServerId);
 
@@ -293,9 +292,9 @@ public class ImageStorePluginDefinition : PluginDefinition, IDisposable
 
         Dispose();
 
-        Logger.Info()
+        Logger.ForInfoEvent()
               .Message("End plug-in on {0}", EnvironmentManager.Instance.EnvironmentProduct)
-              .Write();
+              .Log();
     }
 
     /// <inheritdoc cref="IDisposable.Dispose" />
