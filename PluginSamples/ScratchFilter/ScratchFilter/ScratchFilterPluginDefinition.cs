@@ -6,19 +6,19 @@
 // express written permission of Canon Inc.
 //
 
-using NLog;
-using NLog.Fluent;
-
-using ScratchFilter.Client.Data;
-using ScratchFilter.Client.OptionsDialog;
-using ScratchFilter.Client.Toolbar;
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Reflection;
 using System.Runtime.InteropServices;
+
+using NLog;
+using NLog.Fluent;
+
+using ScratchFilter.Client.Data;
+using ScratchFilter.Client.OptionsDialog;
+using ScratchFilter.Client.Toolbar;
 
 using VideoOS.Platform;
 using VideoOS.Platform.Client;
