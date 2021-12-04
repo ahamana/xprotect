@@ -38,7 +38,7 @@
     <PackageReference Include="NLog" Version="5.0.0-preview.3" />
     <PackageReference Include="NLog.Schema" Version="5.0.0-preview.3" />
     <PackageReference Include="Prism.Core" Version="8.1.97" />
-    <PackageReference Include="ReactiveProperty" Version="8.0.2" />
+    <PackageReference Include="ReactiveProperty" Version="8.0.3-pre202112031043" />
     <PackageReference Include="System.Text.Json" Version="6.0.0" />
     <PackageReference Include="ToString.Fody" Version="1.11.0" />
   </ItemGroup>
