@@ -41,6 +41,7 @@ internal abstract class ImageViewerToolbarPluginInstance : ToolbarPluginInstance
     {
         imageViewerAddOn.CloseEvent += OnImageViewerClose;
         imageViewerAddOn.UserControlSizeOrLocationChangedEvent += OnImageViewerUserControlSizeOrLocationChanged;
+        imageViewerAddOn.IndependentPlaybackModeChangedEvent += OnImageViewerIndependentPlaybackModeChanged;
         imageViewerAddOn.LiveStreamInformationEvent += OnImageViewerLiveStreamInformation;
         imageViewerAddOn.StartLiveEvent += OnImageViewerStartLive;
         imageViewerAddOn.StopLiveEvent += OnImageViewerStopLive;
@@ -61,6 +62,7 @@ internal abstract class ImageViewerToolbarPluginInstance : ToolbarPluginInstance
     {
         imageViewerAddOn.CloseEvent -= OnImageViewerClose;
         imageViewerAddOn.UserControlSizeOrLocationChangedEvent -= OnImageViewerUserControlSizeOrLocationChanged;
+        imageViewerAddOn.IndependentPlaybackModeChangedEvent -= OnImageViewerIndependentPlaybackModeChanged;
         imageViewerAddOn.LiveStreamInformationEvent -= OnImageViewerLiveStreamInformation;
         imageViewerAddOn.StartLiveEvent -= OnImageViewerStartLive;
         imageViewerAddOn.StopLiveEvent -= OnImageViewerStopLive;
@@ -117,6 +119,21 @@ internal abstract class ImageViewerToolbarPluginInstance : ToolbarPluginInstance
         }
 
         OnImageViewerUserControlSizeOrLocationChanged(imageViewerAddOn, e);
+    }
+
+    /// <summary>
+    /// イメージビューワの独立再生モードの有効・無効が切り替わった時に発生します。
+    /// </summary>
+    /// <param name="sender">イベントハンドラがアタッチされるオブジェクト</param>
+    /// <param name="e">イベントのデータ</param>
+    private void OnImageViewerIndependentPlaybackModeChanged(object sender, IndependentPlaybackModeEventArgs e)
+    {
+        if (sender is not ImageViewerAddOn imageViewerAddOn)
+        {
+            return;
+        }
+
+        OnImageViewerIndependentPlaybackModeChanged(imageViewerAddOn, e);
     }
 
     /// <summary>
@@ -275,6 +292,13 @@ internal abstract class ImageViewerToolbarPluginInstance : ToolbarPluginInstance
     /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
     /// <param name="e">イベントのデータ</param>
     private protected virtual void OnImageViewerUserControlSizeOrLocationChanged(ImageViewerAddOn imageViewerAddOn, EventArgs e) { }
+
+    /// <summary>
+    /// イメージビューワの独立再生モードの有効・無効が切り替わった時に発生します。
+    /// </summary>
+    /// <param name="imageViewerAddOn">イメージビューワのアドオン</param>
+    /// <param name="e">イベントのデータ</param>
+    private protected virtual void OnImageViewerIndependentPlaybackModeChanged(ImageViewerAddOn imageViewerAddOn, IndependentPlaybackModeEventArgs e) { }
 
     /// <summary>
     /// イメージビューワのライブストリームの XML の情報が利用可能になった時に発生します。
