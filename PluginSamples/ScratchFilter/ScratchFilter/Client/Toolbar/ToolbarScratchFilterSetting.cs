@@ -33,15 +33,13 @@ internal sealed class ToolbarScratchFilterSettingInstance : ImageViewerToolbarPl
     #region Methods
 
     /// <inheritdoc />
-    private protected sealed override void LoadIcon()
-    {
+    private protected sealed override void LoadIcon() =>
         Icon = ClientControl.Instance.Theme.ThemeType switch
         {
             ThemeType.Dark => Resources.Toolbar_ScratchFilterSetting_Icon_Dark,
             ThemeType.Light => Resources.Toolbar_ScratchFilterSetting_Icon_Light,
             _ => default
         };
-    }
 
     /// <inheritdoc />
     public sealed override void Activate()

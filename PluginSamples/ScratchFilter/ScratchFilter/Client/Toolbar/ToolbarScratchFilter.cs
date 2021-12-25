@@ -96,8 +96,7 @@ internal sealed class ToolbarScratchFilterInstance : ImageViewerToolbarPluginIns
         HandleDisplayedImage(imageViewerAddOn);
 
     /// <inheritdoc />
-    private protected sealed override void LoadIcon()
-    {
+    private protected sealed override void LoadIcon() =>
         Icon = (ClientControl.Instance.Theme.ThemeType, isActive) switch
         {
             (ThemeType.Dark, true) => Resources.Toolbar_ScratchFilter_Icon_Dark_Active,
@@ -106,7 +105,6 @@ internal sealed class ToolbarScratchFilterInstance : ImageViewerToolbarPluginIns
             (ThemeType.Light, false) => Resources.Toolbar_ScratchFilter_Icon_Light_Inactive,
             _ => default
         };
-    }
 
     /// <inheritdoc />
     public sealed override void Activate()

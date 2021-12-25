@@ -44,7 +44,7 @@ internal sealed class ToolbarSeparatorInstance : ToolbarPluginInstance
         using var graphics = Graphics.FromImage(icon);
         using var brush = new SolidBrush(ClientControl.Instance.Theme.SeparatorLinesColor);
 
-        var rectangle = new Rectangle
+        var rectangle = Rectangle.Empty with
         {
             Size = icon.Size
         };
@@ -55,16 +55,11 @@ internal sealed class ToolbarSeparatorInstance : ToolbarPluginInstance
     }
 
     /// <inheritdoc />
-    private protected sealed override void LoadIcon()
-    {
+    private protected sealed override void LoadIcon() =>
         Icon = CreateSeparatorIcon();
-    }
 
     /// <inheritdoc />
-    public sealed override void Activate()
-    {
-        // Do nothing.
-    }
+    public sealed override void Activate() { }
 
     #endregion Methods
 }
