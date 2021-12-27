@@ -44,11 +44,6 @@ internal sealed class ToolbarScratchFilterSettingInstance : ImageViewerToolbarPl
     /// <inheritdoc />
     public sealed override void Activate()
     {
-        if (CameraId == Guid.Empty)
-        {
-            return;
-        }
-
         var window = new ScratchFilterSettingWindow(CameraId);
 
         window.ShowDialog();
