@@ -24,9 +24,9 @@ internal abstract class ImageViewerToolbarPluginInstance : ToolbarPluginInstance
     #region Properties
 
     /// <summary>
-    /// 映像が表示されているカメラの ID です。
+    /// 映像を表示するカメラの ID です。
     /// </summary>
-    /// <value>映像が表示されているカメラの ID</value>
+    /// <value>映像を表示するカメラの ID</value>
     private protected Guid CameraId { get; private set; }
 
     #endregion Properties
