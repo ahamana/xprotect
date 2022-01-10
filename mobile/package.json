@@ -4,10 +4,10 @@
   "license": "Unlicense",
   "devDependencies": {
     "@babel/core": "7.16.7",
-    "@babel/preset-env": "7.16.7",
-    "@babel/register": "7.16.7",
+    "@babel/preset-env": "7.16.8",
+    "@babel/register": "7.16.8",
     "@types/bootstrap": "4.5.0",
-    "@types/jquery": "3.5.11",
+    "@types/jquery": "3.5.12",
     "del": "6.0.0",
     "gulp": "4.0.2",
     "gulp-autoprefixer": "8.0.0",
