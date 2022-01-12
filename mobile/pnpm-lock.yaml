@@ -3,9 +3,9 @@ lockfileVersion: 5.3
 specifiers:
   '@babel/core': 7.16.7
   '@babel/preset-env': 7.16.8
-  '@babel/register': 7.16.8
+  '@babel/register': 7.16.9
   '@types/bootstrap': 4.5.0
-  '@types/jquery': 3.5.12
+  '@types/jquery': 3.5.13
   del: 6.0.0
   gulp: 4.0.2
   gulp-autoprefixer: 8.0.0
@@ -22,9 +22,9 @@ specifiers:
 devDependencies:
   '@babel/core': 7.16.7
   '@babel/preset-env': 7.16.8_@babel+core@7.16.7
-  '@babel/register': 7.16.8_@babel+core@7.16.7
+  '@babel/register': 7.16.9_@babel+core@7.16.7
   '@types/bootstrap': 4.5.0
-  '@types/jquery': 3.5.12
+  '@types/jquery': 3.5.13
   del: 6.0.0
   gulp: 4.0.2
   gulp-autoprefixer: 8.0.0_gulp@4.0.2
@@ -1123,8 +1123,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /@babel/register/7.16.8_@babel+core@7.16.7:
-    resolution: {integrity: sha512-aoUj2ocH92k7qyyA59y07sUaCVxxS7VjNul/jR0mpAyYvpo6n5HELZmyUGtrgFm7/1b0UutT7I1w/4bAkXxCHA==}
+  /@babel/register/7.16.9_@babel+core@7.16.7:
+    resolution: {integrity: sha512-jJ72wcghdRIlENfvALcyODhNoGE5j75cYHdC+aQMh6cU/P86tiiXTp9XYZct1UxUMo/4+BgQRyNZEGx0KWGS+g==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -1209,7 +1209,7 @@ packages:
   /@types/bootstrap/4.5.0:
     resolution: {integrity: sha512-AWu7D+Cduyic75YptSRiXuCIy1c3SsmYk/9ixS68Ft2eAgg2wRj5U2M+7PK5zpakk4gTgfrWHeGxJqkSjttwyQ==}
     dependencies:
-      '@types/jquery': 3.5.12
+      '@types/jquery': 3.5.13
       popper.js: 1.16.1
     dev: true
 
@@ -1220,8 +1220,8 @@ packages:
       '@types/node': 17.0.8
     dev: true
 
-  /@types/jquery/3.5.12:
-    resolution: {integrity: sha512-AlX/K29WByFhZ3UbVVn8eywPFwhDZGc/qhDWgy5mu4VVr9b+OQZKBegtS6Tqi9pk8A1aXVrYXuLhnjFJX8Wc/w==}
+  /@types/jquery/3.5.13:
+    resolution: {integrity: sha512-ZxJrup8nz/ZxcU0vantG+TPdboMhB24jad2uSap50zE7Q9rUeYlCF25kFMSmHR33qoeOgqcdHEp3roaookC0Sg==}
     dependencies:
       '@types/sizzle': 2.3.3
     dev: true
@@ -1669,7 +1669,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001298
-      electron-to-chromium: 1.4.39
+      electron-to-chromium: 1.4.42
       escalade: 3.1.1
       node-releases: 2.0.1
       picocolors: 1.0.0
@@ -2394,8 +2394,8 @@ packages:
       object.defaults: 1.1.0
     dev: true
 
-  /electron-to-chromium/1.4.39:
-    resolution: {integrity: sha512-bFH3gdRq/l7WlzSleiO6dwpZH3RhiJ8vlMq0tOJMfT+5nb+x397eJn2RHF6Ho/9GCKv+BkimNlUMHl9+Yh+Qcg==}
+  /electron-to-chromium/1.4.42:
+    resolution: {integrity: sha512-JJLT8bjdswJzk8sNRnQjee0MGtO4zTn1t7eWwYPr8gPTadQgNRR/wFRKLGD6HZVZby39yHERkvuCVKNm10r7Dg==}
     dev: true
 
   /end-of-stream/1.4.4:
@@ -4406,8 +4406,8 @@ packages:
     dev: true
     optional: true
 
-  /nanoid/3.1.30:
-    resolution: {integrity: sha512-zJpuPDwOv8D2zq2WRoMe1HsfZthVewpel9CAvTfc/2mBD1uUT/agc5f7GHGWXlYkFvi1mVxe4IjvP2HNrop7nQ==}
+  /nanoid/3.1.31:
+    resolution: {integrity: sha512-ZivnJm0o9bb13p2Ot5CpgC2rQdzB9Uxm/mFZweqm5eMViqOJe3PV6LU2E30SiLgheesmcPrjquqraoolONSA0A==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
     dev: true
@@ -4960,7 +4960,7 @@ packages:
     resolution: {integrity: sha512-jBDboWM8qpaqwkMwItqTQTiFikhs/67OYVvblFFTM7MrZjt6yMKd6r2kgXizEbTTljacm4NldIlZnhbjr84QYg==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
-      nanoid: 3.1.30
+      nanoid: 3.1.31
       picocolors: 1.0.0
       source-map-js: 1.0.1
     dev: true
@@ -5484,6 +5484,7 @@ packages:
 
   /source-map-resolve/0.5.3:
     resolution: {integrity: sha512-Htz+RnsXWk5+P2slx5Jh3Q66vhQj1Cllm0zvnaY98+NFx+Dv2CF/f5O/t8x+KaNdrdIAsruNzoh/KpialbqAnw==}
+    deprecated: See https://github.com/lydell/source-map-resolve#deprecated
     dependencies:
       atob: 2.1.2
       decode-uri-component: 0.2.0
@@ -5501,6 +5502,7 @@ packages:
 
   /source-map-url/0.4.1:
     resolution: {integrity: sha512-cPiFOTLUKvJFIg4SKVScy4ilPPW6rFgMgfuZJPNoDuMs3nC1HbMUycBoJw77xFIp6z1UJQJOfx6C9GMH80DiTw==}
+    deprecated: See https://github.com/lydell/source-map-url#deprecated
     dev: true
 
   /source-map/0.5.7:
