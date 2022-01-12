@@ -1,7 +1,13 @@
 version: 2
 updates:
   - package-ecosystem: "nuget"
-    directory: "/PluginSamples"
+    directory: "/PluginSamples/ImageStore/ImageStore"
+    schedule:
+      interval: "daily"
+      time: "09:00"
+      timezone: "Asia/Tokyo"
+  - package-ecosystem: "nuget"
+    directory: "/PluginSamples/ScratchFilter/ScratchFilter"
     schedule:
       interval: "daily"
       time: "09:00"
