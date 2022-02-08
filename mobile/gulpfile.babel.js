@@ -43,7 +43,7 @@ export const build = () => {
 
     return gulp.src(config.src)
         .pipe(imageFilter)
-        .pipe($.imagemin())
+        .pipe($.libsquoosh())
         .pipe(imageFilter.restore)
         .pipe(htmlFilter)
         .pipe($.htmlmin({
