@@ -40,13 +40,11 @@ devDependencies:
 
 packages:
 
-  /@ampproject/remapping/2.0.1:
-    resolution: {integrity: sha512-EldHF4Ufj3NL9yCAmYrPzY+3/Yqrzxu24F4Mu4nRjK3w70AKYRmhuLwGZdA9JeoDsbIwkgGkbqUK2INuF582Og==}
+  /@ampproject/remapping/2.1.0:
+    resolution: {integrity: sha512-d5RysTlJ7hmw5Tw4UxgxcY3lkMe92n8sXCcuLPAyIAHK6j8DefDwtGnVVDgOnv+RnEosulDJ9NPKQL27bDId0g==}
     engines: {node: '>=6.0.0'}
     dependencies:
-      '@jridgewell/resolve-uri': 3.0.3
-      '@jridgewell/trace-mapping': 0.2.2
-      sourcemap-codec: 1.4.8
+      '@jridgewell/trace-mapping': 0.3.2
     dev: true
 
   /@babel/code-frame/7.16.7:
@@ -65,7 +63,7 @@ packages:
     resolution: {integrity: sha512-x/5Ea+RO5MvF9ize5DeVICJoVrNv0Mi2RnIABrZEKYvPEpldXwauPkgvYA17cKa6WpU3LoYvYbuEMFtSNFsarA==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@ampproject/remapping': 2.0.1
+      '@ampproject/remapping': 2.1.0
       '@babel/code-frame': 7.16.7
       '@babel/generator': 7.17.0
       '@babel/helper-compilation-targets': 7.16.7_@babel+core@7.17.0
@@ -121,8 +119,8 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /@babel/helper-create-class-features-plugin/7.17.0_@babel+core@7.17.0:
-    resolution: {integrity: sha512-S3+IHG72pJFb0RmJgeXg/TjVKt641ZsLla028haXJjdqCf9eccE5r1JsdO//L7nzTDzXjtC+hwV/lrkEb2+t0Q==}
+  /@babel/helper-create-class-features-plugin/7.17.1_@babel+core@7.17.0:
+    resolution: {integrity: sha512-JBdSr/LtyYIno/pNnJ75lBcqc3Z1XXujzPanHqjvvrhOA+DTceTFuJi8XjmWTZh4r3fsdfqaCMN0iZemdkxZHQ==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -383,7 +381,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.17.0
-      '@babel/helper-create-class-features-plugin': 7.17.0_@babel+core@7.17.0
+      '@babel/helper-create-class-features-plugin': 7.17.1_@babel+core@7.17.0
       '@babel/helper-plugin-utils': 7.16.7
     transitivePeerDependencies:
       - supports-color
@@ -396,7 +394,7 @@ packages:
       '@babel/core': ^7.12.0
     dependencies:
       '@babel/core': 7.17.0
-      '@babel/helper-create-class-features-plugin': 7.17.0_@babel+core@7.17.0
+      '@babel/helper-create-class-features-plugin': 7.17.1_@babel+core@7.17.0
       '@babel/helper-plugin-utils': 7.16.7
       '@babel/plugin-syntax-class-static-block': 7.14.5_@babel+core@7.17.0
     transitivePeerDependencies:
@@ -513,7 +511,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.17.0
-      '@babel/helper-create-class-features-plugin': 7.17.0_@babel+core@7.17.0
+      '@babel/helper-create-class-features-plugin': 7.17.1_@babel+core@7.17.0
       '@babel/helper-plugin-utils': 7.16.7
     transitivePeerDependencies:
       - supports-color
@@ -527,7 +525,7 @@ packages:
     dependencies:
       '@babel/core': 7.17.0
       '@babel/helper-annotate-as-pure': 7.16.7
-      '@babel/helper-create-class-features-plugin': 7.17.0_@babel+core@7.17.0
+      '@babel/helper-create-class-features-plugin': 7.17.1_@babel+core@7.17.0
       '@babel/helper-plugin-utils': 7.16.7
       '@babel/plugin-syntax-private-property-in-object': 7.14.5_@babel+core@7.17.0
     transitivePeerDependencies:
@@ -1188,16 +1186,20 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@jridgewell/resolve-uri/3.0.3:
-    resolution: {integrity: sha512-fuIOnc81C5iRNevb/XPiM8Khp9bVjreydRQ37rt0C/dY0PAW1DRvEM3WrKX/5rStS5lbgwS0FCgqSndh9tvK5w==}
-    engines: {node: '>=10.0.0'}
+  /@jridgewell/resolve-uri/3.0.4:
+    resolution: {integrity: sha512-cz8HFjOFfUBtvN+NXYSFMHYRdxZMaEl0XypVrhzxBgadKIXhIkRd8aMeHhmF56Sl7SuS8OnUpQ73/k9LE4VnLg==}
+    engines: {node: '>=6.0.0'}
     dev: true
 
-  /@jridgewell/trace-mapping/0.2.2:
-    resolution: {integrity: sha512-I9AGQzMPEzQNJgib2YSqciYWazGsXSyu1rEEeaPeM1764ZtnfNTxA5bofzG/POMI3QcvpBUxwecOPZM6ZhkEpg==}
+  /@jridgewell/sourcemap-codec/1.4.10:
+    resolution: {integrity: sha512-Ht8wIW5v165atIX1p+JvKR5ONzUyF4Ac8DZIQ5kZs9zrb6M8SJNXpx1zn04rn65VjBMygRoMXcyYwNK0fT7bEg==}
+    dev: true
+
+  /@jridgewell/trace-mapping/0.3.2:
+    resolution: {integrity: sha512-9KzzH4kMjA2XmBRHfqG2/Vtl7s92l6uNDd0wW7frDE+EUvQFGqNXhWp0UGJjSkt3v2AYjzOZn1QO9XaTNJIt1Q==}
     dependencies:
-      '@jridgewell/resolve-uri': 3.0.3
-      sourcemap-codec: 1.4.8
+      '@jridgewell/resolve-uri': 3.0.4
+      '@jridgewell/sourcemap-codec': 1.4.10
     dev: true
 
   /@nodelib/fs.scandir/2.1.5:
@@ -1433,8 +1435,8 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.19.1
-      caniuse-lite: 1.0.30001305
-      fraction.js: 4.1.2
+      caniuse-lite: 1.0.30001309
+      fraction.js: 4.1.3
       normalize-range: 0.1.2
       picocolors: 1.0.0
       postcss: 8.4.6
@@ -1563,8 +1565,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001305
-      electron-to-chromium: 1.4.62
+      caniuse-lite: 1.0.30001309
+      electron-to-chromium: 1.4.66
       escalade: 3.1.1
       node-releases: 2.0.1
       picocolors: 1.0.0
@@ -1617,8 +1619,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /caniuse-lite/1.0.30001305:
-    resolution: {integrity: sha512-p7d9YQMji8haf0f+5rbcv9WlQ+N5jMPfRAnUmZRlNxsNeBO3Yr7RYG6M2uTY1h9tCVdlkJg6YNNc4kiAiBLdWA==}
+  /caniuse-lite/1.0.30001309:
+    resolution: {integrity: sha512-Pl8vfigmBXXq+/yUz1jUwULeq9xhMJznzdc/xwl4WclDAuebcTHVefpz8lE/bMI+UN7TOkSSe7B7RnZd6+dzjA==}
     dev: true
 
   /chalk/2.4.2:
@@ -1935,8 +1937,8 @@ packages:
       object.defaults: 1.1.0
     dev: true
 
-  /electron-to-chromium/1.4.62:
-    resolution: {integrity: sha512-fWc/zAThqZzl7fbuLzar+x6bqZBWHrsBXQOqv//yrgdTLY/G3JGTPOWhPKIhbhynJJhqE9QNzKzlpCINUmUMoA==}
+  /electron-to-chromium/1.4.66:
+    resolution: {integrity: sha512-f1RXFMsvwufWLwYUxTiP7HmjprKXrqEWHiQkjAYa9DJeVIlZk5v8gBGcaV+FhtXLly6C1OTVzQY+2UQrACiLlg==}
     dev: true
 
   /end-of-stream/1.4.4:
@@ -2200,8 +2202,8 @@ packages:
       for-in: 1.0.2
     dev: true
 
-  /fraction.js/4.1.2:
-    resolution: {integrity: sha512-o2RiJQ6DZaR/5+Si0qJUIy637QMRudSi9kU/FFzx9EZazrIdnBgpU+3sEWCxAVhH2RtxW2Oz+T4p2o8uOPVcgA==}
+  /fraction.js/4.1.3:
+    resolution: {integrity: sha512-pUHWWt6vHzZZiQJcM6S/0PXfS+g6FM4BF5rj9wZyreivhQPdsh5PpE25VtSNxq80wHS5RfY51Ii+8Z0Zl/pmzg==}
     dev: true
 
   /fragment-cache/0.2.1:
@@ -2317,7 +2319,7 @@ packages:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.4
+      minimatch: 3.0.5
       once: 1.4.0
       path-is-absolute: 1.0.1
     dev: true
@@ -3051,8 +3053,8 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /minimatch/3.0.4:
-    resolution: {integrity: sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==}
+  /minimatch/3.0.5:
+    resolution: {integrity: sha512-tUpxzX0VAzJHjLu0xUfFv1gwVp9ba3IOuRAVH2EGuRW8a5emA2FlACLqiT/lDVtS1W+TGNwqz3sWaNyLgDJWuw==}
     dependencies:
       brace-expansion: 1.1.11
     dev: true
@@ -3085,7 +3087,7 @@ packages:
       array-differ: 3.0.0
       array-union: 2.1.0
       arrify: 2.0.1
-      minimatch: 3.0.4
+      minimatch: 3.0.5
     dev: true
 
   /mute-stdout/1.0.1:
@@ -3832,10 +3834,6 @@ packages:
   /source-map/0.7.3:
     resolution: {integrity: sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==}
     engines: {node: '>= 8'}
-    dev: true
-
-  /sourcemap-codec/1.4.8:
-    resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
     dev: true
 
   /sparkles/1.0.1:
