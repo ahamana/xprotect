@@ -17,7 +17,7 @@ specifiers:
   gulp-terser: 2.1.0
   gulp-typescript: 6.0.0-alpha.1
   gulp-zip: 5.1.0
-  typescript: 4.6.2
+  typescript: 4.6.3
 
 devDependencies:
   '@babel/core': 7.17.8
@@ -34,9 +34,9 @@ devDependencies:
   gulp-libsquoosh: 1.1.2
   gulp-load-plugins: 2.0.7
   gulp-terser: 2.1.0
-  gulp-typescript: 6.0.0-alpha.1_typescript@4.6.2
+  gulp-typescript: 6.0.0-alpha.1_typescript@4.6.3
   gulp-zip: 5.1.0_gulp@4.0.2
-  typescript: 4.6.2
+  typescript: 4.6.3
 
 packages:
 
@@ -1443,7 +1443,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.20.2
-      caniuse-lite: 1.0.30001319
+      caniuse-lite: 1.0.30001320
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -1573,8 +1573,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001319
-      electron-to-chromium: 1.4.89
+      caniuse-lite: 1.0.30001320
+      electron-to-chromium: 1.4.94
       escalade: 3.1.1
       node-releases: 2.0.2
       picocolors: 1.0.0
@@ -1627,8 +1627,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /caniuse-lite/1.0.30001319:
-    resolution: {integrity: sha512-xjlIAFHucBRSMUo1kb5D4LYgcN1M45qdKP++lhqowDpwJwGkpIRTt5qQqnhxjj1vHcI7nrJxWhCC1ATrCEBTcw==}
+  /caniuse-lite/1.0.30001320:
+    resolution: {integrity: sha512-MWPzG54AGdo3nWx7zHZTefseM5Y1ccM7hlQKHRqJkPozUaw3hNbBTMmLn16GG2FUzjR13Cr3NPfhIieX5PzXDA==}
     dev: true
 
   /chalk/2.4.2:
@@ -1945,8 +1945,8 @@ packages:
       object.defaults: 1.1.0
     dev: true
 
-  /electron-to-chromium/1.4.89:
-    resolution: {integrity: sha512-z1Axg0Fu54fse8wN4fd+GAINdU5mJmLtcl6bqIcYyzNVGONcfHAeeJi88KYMQVKalhXlYuVPzKkFIU5VD0raUw==}
+  /electron-to-chromium/1.4.94:
+    resolution: {integrity: sha512-CoOKsuACoa0PAG3hQXxbh/XDiFcjGuSyGKUi09cjMHOt6RCi7/EXgXhaFF3I+aC89Omudqmkzd0YOQKxwtf/Bg==}
     dev: true
 
   /end-of-stream/1.4.4:
@@ -2087,7 +2087,7 @@ packages:
       '@nodelib/fs.walk': 1.2.8
       glob-parent: 5.1.2
       merge2: 1.4.1
-      micromatch: 4.0.4
+      micromatch: 4.0.5
     dev: true
 
   /fast-levenshtein/1.1.4:
@@ -2173,7 +2173,7 @@ packages:
     dependencies:
       detect-file: 1.0.0
       is-glob: 4.0.3
-      micromatch: 4.0.4
+      micromatch: 4.0.5
       resolve-dir: 1.0.1
     dev: true
 
@@ -2478,7 +2478,7 @@ packages:
       findup-sync: 4.0.0
       gulplog: 1.0.0
       has-gulplog: 0.1.0
-      micromatch: 4.0.4
+      micromatch: 4.0.5
       resolve: 1.22.0
     dev: true
 
@@ -2492,7 +2492,7 @@ packages:
       vinyl-sourcemaps-apply: 0.2.1
     dev: true
 
-  /gulp-typescript/6.0.0-alpha.1_typescript@4.6.2:
+  /gulp-typescript/6.0.0-alpha.1_typescript@4.6.3:
     resolution: {integrity: sha512-KoT0TTfjfT7w3JItHkgFH1T/zK4oXWC+a8xxKfniRfVcA0Fa1bKrIhztYelYmb+95RB80OLMBreknYkdwzdi2Q==}
     engines: {node: '>= 8'}
     peerDependencies:
@@ -2502,7 +2502,7 @@ packages:
       plugin-error: 1.0.1
       source-map: 0.7.3
       through2: 3.0.2
-      typescript: 4.6.2
+      typescript: 4.6.3
       vinyl: 2.2.1
       vinyl-fs: 3.0.3
     dev: true
@@ -3051,8 +3051,8 @@ packages:
       to-regex: 3.0.2
     dev: true
 
-  /micromatch/4.0.4:
-    resolution: {integrity: sha512-pRmzw/XUcwXGpD9aI9q/0XOwLNygjETJ8y0ao0wdqprrzDa4YnxLcz7fQRZr8voh8V10kGhABbNcHVk5wHgWwg==}
+  /micromatch/4.0.5:
+    resolution: {integrity: sha512-DMy+ERcEW2q8Z2Po+WNXuw3c5YaUSFjAO5GsJqfEl7UjvtIuFKO6ZrKvcItdy98dwFI2N1tg3zNIdKaQT+aNdA==}
     engines: {node: '>=8.6'}
     dependencies:
       braces: 3.0.2
@@ -4066,8 +4066,8 @@ packages:
     resolution: {integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=}
     dev: true
 
-  /typescript/4.6.2:
-    resolution: {integrity: sha512-HM/hFigTBHZhLXshn9sN37H085+hQGeJHJ/X7LpBWLID/fbc2acUMfU+lGD98X81sKP+pFa9f0DZmCwB9GnbAg==}
+  /typescript/4.6.3:
+    resolution: {integrity: sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
