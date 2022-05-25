@@ -6,7 +6,7 @@ specifiers:
   '@babel/register': 7.17.7
   '@types/bootstrap': 4.5.0
   '@types/jquery': 3.5.14
-  del: 6.1.0
+  del: 6.1.1
   gulp: 4.0.2
   gulp-autoprefixer: 8.0.0
   gulp-clean-css: 4.3.0
@@ -17,7 +17,7 @@ specifiers:
   gulp-terser: 2.1.0
   gulp-typescript: 6.0.0-alpha.1
   gulp-zip: 5.1.0
-  typescript: 4.6.4
+  typescript: 4.7.2
 
 devDependencies:
   '@babel/core': 7.18.0
@@ -25,7 +25,7 @@ devDependencies:
   '@babel/register': 7.17.7_@babel+core@7.18.0
   '@types/bootstrap': 4.5.0
   '@types/jquery': 3.5.14
-  del: 6.1.0
+  del: 6.1.1
   gulp: 4.0.2
   gulp-autoprefixer: 8.0.0_gulp@4.0.2
   gulp-clean-css: 4.3.0
@@ -34,9 +34,9 @@ devDependencies:
   gulp-libsquoosh: 1.1.2
   gulp-load-plugins: 2.0.7
   gulp-terser: 2.1.0
-  gulp-typescript: 6.0.0-alpha.1_typescript@4.6.4
+  gulp-typescript: 6.0.0-alpha.1_typescript@4.7.2
   gulp-zip: 5.1.0_gulp@4.0.2
-  typescript: 4.6.4
+  typescript: 4.7.2
 
 packages:
 
@@ -1119,7 +1119,7 @@ packages:
       babel-plugin-polyfill-corejs2: 0.3.1_@babel+core@7.18.0
       babel-plugin-polyfill-corejs3: 0.5.2_@babel+core@7.18.0
       babel-plugin-polyfill-regenerator: 0.3.1_@babel+core@7.18.0
-      core-js-compat: 3.22.5
+      core-js-compat: 3.22.7
       semver: 6.3.0
     transitivePeerDependencies:
       - supports-color
@@ -1475,7 +1475,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.20.3
-      caniuse-lite: 1.0.30001341
+      caniuse-lite: 1.0.30001342
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -1509,7 +1509,7 @@ packages:
     dependencies:
       '@babel/core': 7.18.0
       '@babel/helper-define-polyfill-provider': 0.3.1_@babel+core@7.18.0
-      core-js-compat: 3.22.5
+      core-js-compat: 3.22.7
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1607,10 +1607,10 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001341
+      caniuse-lite: 1.0.30001342
       electron-to-chromium: 1.4.137
       escalade: 3.1.1
-      node-releases: 2.0.4
+      node-releases: 2.0.5
       picocolors: 1.0.0
     dev: true
 
@@ -1661,8 +1661,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /caniuse-lite/1.0.30001341:
-    resolution: {integrity: sha512-2SodVrFFtvGENGCv0ChVJIDQ0KPaS1cg7/qtfMaICgeMolDdo/Z2OD32F0Aq9yl6F4YFwGPBS5AaPqNYiW4PoA==}
+  /caniuse-lite/1.0.30001342:
+    resolution: {integrity: sha512-bn6sOCu7L7jcbBbyNhLg0qzXdJ/PMbybZTH/BA6Roet9wxYRm6Tr9D0s0uhLkOZ6MSG+QU6txUgdpr3MXIVqjA==}
     dev: true
 
   /chalk/2.4.2:
@@ -1852,8 +1852,8 @@ packages:
       is-plain-object: 5.0.0
     dev: true
 
-  /core-js-compat/3.22.5:
-    resolution: {integrity: sha512-rEF75n3QtInrYICvJjrAgV03HwKiYvtKHdPtaba1KucG+cNZ4NJnH9isqt979e67KZlhpbCOTwnsvnIr+CVeOg==}
+  /core-js-compat/3.22.7:
+    resolution: {integrity: sha512-uI9DAQKKiiE/mclIC5g4AjRpio27g+VMRhe6rQoz+q4Wm4L6A/fJhiLtBw+sfOpDG9wZ3O0pxIw7GbfOlBgjOA==}
     dependencies:
       browserslist: 4.20.3
       semver: 7.0.0
@@ -1945,8 +1945,8 @@ packages:
       isobject: 3.0.1
     dev: true
 
-  /del/6.1.0:
-    resolution: {integrity: sha512-OpcRktOt7G7HBfyxP0srBH4Djg4824EQORX8E1qvIhIzthNNArxxhrB/Mm7dRMiLi1nvFyUpDhzD2cTtbBhV8A==}
+  /del/6.1.1:
+    resolution: {integrity: sha512-ua8BhapfP0JUJKC/zV9yHHDW/rDoDxP4Zhn3AkA6/xT6gY7jYXJiaeyBZznYVujhZZET+UgcbZiQ7sN3WqcImg==}
     engines: {node: '>=10'}
     dependencies:
       globby: 11.1.0
@@ -2546,7 +2546,7 @@ packages:
       vinyl-sourcemaps-apply: 0.2.1
     dev: true
 
-  /gulp-typescript/6.0.0-alpha.1_typescript@4.6.4:
+  /gulp-typescript/6.0.0-alpha.1_typescript@4.7.2:
     resolution: {integrity: sha512-KoT0TTfjfT7w3JItHkgFH1T/zK4oXWC+a8xxKfniRfVcA0Fa1bKrIhztYelYmb+95RB80OLMBreknYkdwzdi2Q==}
     engines: {node: '>= 8'}
     peerDependencies:
@@ -2556,7 +2556,7 @@ packages:
       plugin-error: 1.0.1
       source-map: 0.7.3
       through2: 3.0.2
-      typescript: 4.6.4
+      typescript: 4.7.2
       vinyl: 2.2.1
       vinyl-fs: 3.0.3
     dev: true
@@ -3210,8 +3210,8 @@ packages:
       lower-case: 1.1.4
     dev: true
 
-  /node-releases/2.0.4:
-    resolution: {integrity: sha512-gbMzqQtTtDz/00jQzZ21PQzdI9PyLYqUSvD0p3naOhX4odFji0ZxYdnVwPTxmSwkmxhcFImpozceidSG+AgoPQ==}
+  /node-releases/2.0.5:
+    resolution: {integrity: sha512-U9h1NLROZTq9uE1SNffn6WuPDg8icmi3ns4rEl/oTfIle4iLjTliCzgTsbaIFMq/Xn078/lfY/BL0GWZ+psK4Q==}
     dev: true
 
   /normalize-package-data/2.5.0:
@@ -4162,8 +4162,8 @@ packages:
     resolution: {integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=}
     dev: true
 
-  /typescript/4.6.4:
-    resolution: {integrity: sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==}
+  /typescript/4.7.2:
+    resolution: {integrity: sha512-Mamb1iX2FDUpcTRzltPxgWMKy3fhg0TN378ylbktPGPK/99KbDtMQ4W1hwgsbPAsG3a0xKa1vmw4VKZQbkvz5A==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
