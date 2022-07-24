@@ -7,7 +7,7 @@
 import gulp from 'gulp';
 
 // ファイルを削除するためのプラグイン
-import del from 'del';
+import rimraf from 'rimraf';
 
 // Gulp 用のプラグインを一括で読み込むためのプラグイン
 import gulpLoadPlugins from 'gulp-load-plugins';
@@ -26,14 +26,14 @@ const $ = gulpLoadPlugins();
 //-----------------------------------------------------------------------------
 // クリーン
 export const clean = () => {
-    return del(config.buildDir.dist, { force: true });
+    return Promise.resolve(rimraf.sync(config.buildDir.dist));
 };
 
 // ビルド
 export const build = () => {
     const dest = config.buildDir.dist;
 
-    del.sync(`${dest}/${config.archiveName}`, { force: true });
+    rimraf.sync(`${dest}/${config.archiveName}`);
 
     const imageFilter = $.filter(config.filter.image.pattern, { restore: true });
     const htmlFilter = $.filter(config.filter.html.pattern, { restore: true });
