@@ -14,7 +14,7 @@
     "gulp-filter": "7.0.0",
     "gulp-htmlmin": "5.0.1",
     "gulp-libsquoosh": "1.1.2",
-    "gulp-load-plugins": "2.0.7",
+    "gulp-load-plugins": "2.0.8",
     "gulp-terser": "2.1.0",
     "gulp-typescript": "6.0.0-alpha.1",
     "gulp-zip": "5.1.0",
