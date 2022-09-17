@@ -41,7 +41,7 @@
     <PackageReference Include="Prism.Core" Version="8.1.97" />
     <PackageReference Include="ReactiveProperty" Version="8.1.2" />
     <PackageReference Include="System.Text.Json" Version="7.0.0-rc.1.22426.10" />
-    <PackageReference Include="ToString.Fody" Version="1.11.0" />
+    <PackageReference Include="ToString.Fody" Version="1.11.1" />
   </ItemGroup>
 
   <ItemGroup>
