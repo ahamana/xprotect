@@ -5,7 +5,7 @@ specifiers:
   '@babel/preset-env': 7.20.2
   '@babel/register': 7.18.9
   '@types/bootstrap': 4.5.0
-  '@types/jquery': 3.5.14
+  '@types/jquery': 3.5.16
   gulp: 4.0.2
   gulp-autoprefixer: 8.0.0
   gulp-clean-css: 4.3.0
@@ -24,7 +24,7 @@ devDependencies:
   '@babel/preset-env': 7.20.2_@babel+core@7.20.7
   '@babel/register': 7.18.9_@babel+core@7.20.7
   '@types/bootstrap': 4.5.0
-  '@types/jquery': 3.5.14
+  '@types/jquery': 3.5.16
   gulp: 4.0.2
   gulp-autoprefixer: 8.0.0_gulp@4.0.2
   gulp-clean-css: 4.3.0
@@ -77,7 +77,7 @@ packages:
       convert-source-map: 1.9.0
       debug: 4.3.4
       gensync: 1.0.0-beta.2
-      json5: 2.2.2
+      json5: 2.2.3
       semver: 6.3.0
     transitivePeerDependencies:
       - supports-color
@@ -1258,12 +1258,12 @@ packages:
   /@types/bootstrap/4.5.0:
     resolution: {integrity: sha512-AWu7D+Cduyic75YptSRiXuCIy1c3SsmYk/9ixS68Ft2eAgg2wRj5U2M+7PK5zpakk4gTgfrWHeGxJqkSjttwyQ==}
     dependencies:
-      '@types/jquery': 3.5.14
+      '@types/jquery': 3.5.16
       popper.js: 1.16.1
     dev: true
 
-  /@types/jquery/3.5.14:
-    resolution: {integrity: sha512-X1gtMRMbziVQkErhTQmSe2jFwwENA/Zr+PprCkF63vFq+Yt5PZ4AlKqgmeNlwgn7dhsXEK888eIW2520EpC+xg==}
+  /@types/jquery/3.5.16:
+    resolution: {integrity: sha512-bsI7y4ZgeMkmpG9OM710RRzDFp+w4P1RGiIt30C1mSBT+ExCleeh4HObwgArnDFELmRrOpXgSYN9VF1hj+f1lw==}
     dependencies:
       '@types/sizzle': 2.3.3
     dev: true
@@ -2863,8 +2863,8 @@ packages:
     resolution: {integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==}
     dev: true
 
-  /json5/2.2.2:
-    resolution: {integrity: sha512-46Tk9JiOL2z7ytNQWFLpj99RZkVgeHf87yGQKsIkaPz1qSH9UczKH1rO7K3wgRselo0tYMUNfecYpm/p1vC7tQ==}
+  /json5/2.2.3:
+    resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
     engines: {node: '>=6'}
     hasBin: true
     dev: true
