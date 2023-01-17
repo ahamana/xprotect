@@ -16,7 +16,7 @@ specifiers:
   gulp-terser: 2.1.0
   gulp-typescript: 6.0.0-alpha.1
   gulp-zip: 5.1.0
-  rimraf: 4.0.7
+  rimraf: 4.1.0
   typescript: 4.9.4
 
 devDependencies:
@@ -35,7 +35,7 @@ devDependencies:
   gulp-terser: 2.1.0
   gulp-typescript: 6.0.0-alpha.1_typescript@4.9.4
   gulp-zip: 5.1.0_gulp@4.0.2
-  rimraf: 4.0.7
+  rimraf: 4.1.0
   typescript: 4.9.4
 
 packages:
@@ -3658,8 +3658,8 @@ packages:
     engines: {node: '>=0.12'}
     dev: true
 
-  /rimraf/4.0.7:
-    resolution: {integrity: sha512-CUEDDrZvc0swDgVdXGiv3FcYYQMpJxjvSGt85Amj6yU+MCVWurrLCeLiJDdJPHCzNJnwuebBEdcO//eP11Xa7w==}
+  /rimraf/4.1.0:
+    resolution: {integrity: sha512-ZJdkUR5/dRrRJHdcSKJLrpRn6tVjl9ALxd4yrTCxFsMpjQNzwHF6GLqMsuEzEYIXxHlFPDSk21Vr8VPuFBEz0g==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
