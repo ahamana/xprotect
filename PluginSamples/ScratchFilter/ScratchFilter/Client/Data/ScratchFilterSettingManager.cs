@@ -51,7 +51,7 @@ internal sealed class ScratchFilterSettingManager
     /// 傷フィルタの設定ファイルです。
     /// </summary>
     private static readonly string SettingFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-                                                              @"Canon\WebView",
+                                                              @"Milestone XProtect\WebView",
                                                               FileVersionInfo.ProductName,
                                                               $"{nameof(ScratchFilterSetting)}.json");
 
