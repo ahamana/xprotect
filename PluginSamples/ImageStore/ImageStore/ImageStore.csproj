@@ -4,8 +4,8 @@
     <TargetFramework>net48</TargetFramework>
     <LangVersion>10</LangVersion>
     <Nullable>enable</Nullable>
-    <Authors>Canon Inc.</Authors>
-    <Company>Canon Inc.</Company>
+    <Authors>Akihiro Hamana</Authors>
+    <Company>Akihiro Hamana</Company>
     <Product>Image Store</Product>
     <Copyright>© 2020 Akihiro Hamana</Copyright>
     <Version>1.0.0.0</Version>

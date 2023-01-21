@@ -6,8 +6,8 @@
     <UseWPF>true</UseWPF>
     <LangVersion>10</LangVersion>
     <Nullable>enable</Nullable>
-    <Authors>Canon Inc.</Authors>
-    <Company>Canon Inc.</Company>
+    <Authors>Akihiro Hamana</Authors>
+    <Company>Akihiro Hamana</Company>
     <Product>Scratch Filter</Product>
     <Copyright>© 2020 Akihiro Hamana</Copyright>
     <Version>1.0.0.0</Version>
@@ -41,7 +41,9 @@
     <PackageReference Include="Prism.Core" Version="8.1.97" />
     <PackageReference Include="ReactiveProperty" Version="8.2.0" />
     <PackageReference Include="System.Text.Json" Version="7.0.1" />
-    <PackageReference Include="ToString.Fody" Version="1.11.1" PrivateAssets="All" />
+    <PackageReference Include="ToString.Fody" Version="1.11.1">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
