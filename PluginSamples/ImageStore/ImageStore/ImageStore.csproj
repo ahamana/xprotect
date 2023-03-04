@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
-    <LangVersion>10</LangVersion>
+    <UseWPF>true</UseWPF>
+    <LangVersion>11</LangVersion>
     <Nullable>enable</Nullable>
     <Authors>Akihiro Hamana</Authors>
     <Company>Akihiro Hamana</Company>
