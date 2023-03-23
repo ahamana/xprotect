@@ -18,8 +18,8 @@
     "gulp-terser": "2.1.0",
     "gulp-typescript": "6.0.0-alpha.1",
     "gulp-zip": "5.1.0",
-    "rimraf": "4.4.0",
-    "typescript": "4.9.5"
+    "rimraf": "4.4.1",
+    "typescript": "5.0.2"
   },
   "babel": {
     "presets": [
