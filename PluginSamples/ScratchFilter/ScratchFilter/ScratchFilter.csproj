@@ -37,7 +37,7 @@
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
     <PackageReference Include="MilestoneSystems.VideoOS.Platform" Version="23.1.1" />
     <PackageReference Include="NLog" Version="5.1.4" />
-    <PackageReference Include="NLog.Schema" Version="5.1.4" />
+    <PackageReference Include="NLog.Schema" Version="5.1.5" />
     <PackageReference Include="Prism.Core" Version="8.1.97" />
     <PackageReference Include="ReactiveProperty" Version="9.1.2" />
     <PackageReference Include="System.Text.Json" Version="7.0.2" />
