@@ -24,7 +24,7 @@
     </PackageReference>
     <PackageReference Include="MilestoneSystems.VideoOS.Platform" Version="23.1.1" />
     <PackageReference Include="NLog" Version="5.2.0" />
-    <PackageReference Include="NLog.Schema" Version="5.1.4" />
+    <PackageReference Include="NLog.Schema" Version="5.2.0" />
   </ItemGroup>
 
   <ItemGroup>
