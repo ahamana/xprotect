@@ -19,7 +19,7 @@
     "gulp-typescript": "6.0.0-alpha.1",
     "gulp-zip": "5.1.0",
     "rimraf": "5.0.1",
-    "typescript": "5.1.5"
+    "typescript": "5.1.6"
   },
   "babel": {
     "presets": [
