@@ -46,7 +46,7 @@ devDependencies:
     version: 2.1.0
   gulp-typescript:
     specifier: 6.0.0-alpha.1
-    version: 6.0.0-alpha.1(typescript@5.1.6)
+    version: 6.0.0-alpha.1(typescript@5.2.2)
   gulp-zip:
     specifier: 5.1.0
     version: 5.1.0(gulp@4.0.2)
@@ -54,8 +54,8 @@ devDependencies:
     specifier: 5.0.1
     version: 5.0.1
   typescript:
-    specifier: 5.1.6
-    version: 5.1.6
+    specifier: 5.2.2
+    version: 5.2.2
 
 packages:
 
@@ -359,7 +359,7 @@ packages:
       '@babel/core': 7.22.11
       '@babel/helper-plugin-utils': 7.22.5
       '@babel/helper-skip-transparent-expression-wrappers': 7.22.5
-      '@babel/plugin-transform-optional-chaining': 7.22.11(@babel/core@7.22.11)
+      '@babel/plugin-transform-optional-chaining': 7.22.12(@babel/core@7.22.11)
     dev: true
 
   /@babel/plugin-proposal-private-property-in-object@7.21.0-placeholder-for-preset-env.2(@babel/core@7.22.11):
@@ -901,8 +901,8 @@ packages:
       '@babel/plugin-syntax-optional-catch-binding': 7.8.3(@babel/core@7.22.11)
     dev: true
 
-  /@babel/plugin-transform-optional-chaining@7.22.11(@babel/core@7.22.11):
-    resolution: {integrity: sha512-7X2vGqH2ZKu7Imx0C+o5OysRwtF/wzdCAqmcD1N1v2Ww8CtOSC+p+VoV76skm47DLvBZ8kBFic+egqxM9S/p4g==}
+  /@babel/plugin-transform-optional-chaining@7.22.12(@babel/core@7.22.11):
+    resolution: {integrity: sha512-7XXCVqZtyFWqjDsYDY4T45w4mlx1rf7aOgkc/Ww76xkgBiOlmjPkx36PBLHa1k1rwWvVgYMPsbuVnIamx2ZQJw==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -1136,7 +1136,7 @@ packages:
       '@babel/plugin-transform-object-rest-spread': 7.22.11(@babel/core@7.22.11)
       '@babel/plugin-transform-object-super': 7.22.5(@babel/core@7.22.11)
       '@babel/plugin-transform-optional-catch-binding': 7.22.11(@babel/core@7.22.11)
-      '@babel/plugin-transform-optional-chaining': 7.22.11(@babel/core@7.22.11)
+      '@babel/plugin-transform-optional-chaining': 7.22.12(@babel/core@7.22.11)
       '@babel/plugin-transform-parameters': 7.22.5(@babel/core@7.22.11)
       '@babel/plugin-transform-private-methods': 7.22.5(@babel/core@7.22.11)
       '@babel/plugin-transform-private-property-in-object': 7.22.11(@babel/core@7.22.11)
@@ -1527,7 +1527,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.10
-      caniuse-lite: 1.0.30001522
+      caniuse-lite: 1.0.30001523
       fraction.js: 4.2.1
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -1659,8 +1659,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001522
-      electron-to-chromium: 1.4.500
+      caniuse-lite: 1.0.30001523
+      electron-to-chromium: 1.4.502
       node-releases: 2.0.13
       update-browserslist-db: 1.0.11(browserslist@4.21.10)
     dev: true
@@ -1712,8 +1712,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /caniuse-lite@1.0.30001522:
-    resolution: {integrity: sha512-TKiyTVZxJGhsTszLuzb+6vUZSjVOAhClszBr2Ta2k9IwtNBT/4dzmL6aywt0HCgEZlmwJzXJd8yNiob6HgwTRg==}
+  /caniuse-lite@1.0.30001523:
+    resolution: {integrity: sha512-I5q5cisATTPZ1mc588Z//pj/Ox80ERYDfR71YnvY7raS/NOk8xXlZcB0sF7JdqaV//kOaa6aus7lRfpdnt1eBA==}
     dev: true
 
   /chalk@2.4.2:
@@ -2033,8 +2033,8 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
-  /electron-to-chromium@1.4.500:
-    resolution: {integrity: sha512-P38NO8eOuWOKY1sQk5yE0crNtrjgjJj6r3NrbIKtG18KzCHmHE2Bt+aQA7/y0w3uYsHWxDa6icOohzjLJ4vJ4A==}
+  /electron-to-chromium@1.4.502:
+    resolution: {integrity: sha512-xqeGw3Gr6o3uyHy/yKjdnDQHY2RQvXcGC2cfHjccK1IGkH6cX1WQBN8EeC/YpwPhGkBaikDTecJ8+ssxSVRQlw==}
     dev: true
 
   /emoji-regex@8.0.0:
@@ -2599,7 +2599,7 @@ packages:
       vinyl-sourcemaps-apply: 0.2.1
     dev: true
 
-  /gulp-typescript@6.0.0-alpha.1(typescript@5.1.6):
+  /gulp-typescript@6.0.0-alpha.1(typescript@5.2.2):
     resolution: {integrity: sha512-KoT0TTfjfT7w3JItHkgFH1T/zK4oXWC+a8xxKfniRfVcA0Fa1bKrIhztYelYmb+95RB80OLMBreknYkdwzdi2Q==}
     engines: {node: '>= 8'}
     peerDependencies:
@@ -2609,7 +2609,7 @@ packages:
       plugin-error: 1.0.1
       source-map: 0.7.4
       through2: 3.0.2
-      typescript: 5.1.6
+      typescript: 5.2.2
       vinyl: 2.2.1
       vinyl-fs: 3.0.3
     dev: true
@@ -4244,8 +4244,8 @@ packages:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}
     dev: true
 
-  /typescript@5.1.6:
-    resolution: {integrity: sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==}
+  /typescript@5.2.2:
+    resolution: {integrity: sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==}
     engines: {node: '>=14.17'}
     hasBin: true
     dev: true
