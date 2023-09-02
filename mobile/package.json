@@ -7,7 +7,7 @@
     "@babel/preset-env": "7.22.14",
     "@babel/register": "7.22.5",
     "@types/bootstrap": "4.5.0",
-    "@types/jquery": "3.5.17",
+    "@types/jquery": "3.5.18",
     "gulp": "4.0.2",
     "gulp-autoprefixer": "8.0.0",
     "gulp-clean-css": "4.3.0",
