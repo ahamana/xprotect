@@ -1,29 +1,20 @@
 {
   "version": "1.0.0",
-  "main": "gulpfile.babel.js",
+  "main": "gulpfile.mjs",
   "license": "Unlicense",
   "devDependencies": {
-    "@babel/core": "7.23.7",
-    "@babel/preset-env": "7.23.7",
-    "@babel/register": "7.23.7",
     "@types/bootstrap": "4.5.0",
     "@types/jquery": "3.5.29",
     "gulp": "4.0.2",
-    "gulp-autoprefixer": "8.0.0",
+    "gulp-autoprefixer": "9.0.0",
     "gulp-clean-css": "4.3.0",
-    "gulp-filter": "7.0.0",
+    "gulp-filter": "9.0.1",
     "gulp-htmlmin": "5.0.1",
-    "gulp-libsquoosh": "1.1.2",
-    "gulp-load-plugins": "2.0.8",
+    "gulp-imagemin": "9.0.0",
     "gulp-terser": "2.1.0",
     "gulp-typescript": "6.0.0-alpha.1",
-    "gulp-zip": "5.1.0",
+    "gulp-zip": "6.0.0",
     "rimraf": "5.0.5",
     "typescript": "5.3.3"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ]
   }
 }
