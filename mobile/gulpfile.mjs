@@ -31,7 +31,7 @@ import typescript from 'gulp-typescript';
 import zip from 'gulp-zip';
 
 // ファイルを削除するためのプラグイン
-import { rimrafSync } from 'rimraf';
+import { rimraf } from 'rimraf';
 
 //-----------------------------------------------------------------------------
 //    Initialization
@@ -44,14 +44,14 @@ import config from './gulp-config.mjs';
 //-----------------------------------------------------------------------------
 // クリーン
 export const clean = () => {
-    return Promise.resolve(rimrafSync(config.buildDir.dist));
+    return Promise.resolve(rimraf.sync(config.buildDir.dist));
 };
 
 // ビルド
 export const build = () => {
     const dest = config.buildDir.dist;
 
-    rimrafSync(`${dest}/${config.archiveName}`);
+    rimraf.sync(`${dest}/${config.archiveName}`);
 
     const imageFilter = filter(config.filter.image.pattern, { restore: true });
     const htmlFilter = filter(config.filter.html.pattern, { restore: true });
