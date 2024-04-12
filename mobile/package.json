@@ -16,6 +16,6 @@
     "gulp-typescript": "6.0.0-alpha.1",
     "gulp-zip": "6.0.0",
     "rimraf": "5.0.5",
-    "typescript": "5.4.3"
+    "typescript": "5.4.5"
   }
 }
