@@ -1,10 +1,10 @@
 {
-    "compilerOptions": {
-        "moduleResolution": "node",
-        "module": "es6",
-        "target": "es6",
-        "alwaysStrict": true,
-        "forceConsistentCasingInFileNames": true,
-        "sourceMap": false
-    }
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "module": "es6",
+    "target": "es6",
+    "alwaysStrict": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": false
+  }
 }
