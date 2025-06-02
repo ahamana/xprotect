@@ -6,7 +6,7 @@
   "devDependencies": {
     "@types/bootstrap": "4.6.6",
     "@types/jquery": "3.5.32",
-    "gulp": "5.0.0",
+    "gulp": "5.0.1",
     "gulp-autoprefixer": "9.0.0",
     "gulp-clean-css": "4.3.0",
     "gulp-filter": "9.0.1",
