@@ -22,9 +22,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="MilestoneSystems.VideoOS.Platform" Version="25.1.2" />
-    <PackageReference Include="NLog" Version="5.4.0" />
-    <PackageReference Include="NLog.Schema" Version="5.4.0" />
+    <PackageReference Include="MilestoneSystems.VideoOS.Platform" Version="25.2.1" />
+    <PackageReference Include="NLog" Version="5.5.0" />
+    <PackageReference Include="NLog.Schema" Version="5.5.0" />
   </ItemGroup>
 
   <ItemGroup>
