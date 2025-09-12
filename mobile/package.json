@@ -15,7 +15,7 @@
     "@types/gulp-zip": "^4.0.4",
     "@types/jquery": "^3.5.33",
     "gulp": "^5.0.1",
-    "gulp-autoprefixer": "^9.0.0",
+    "gulp-autoprefixer": "^10.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-filter": "^9.0.1",
     "gulp-htmlmin": "^5.0.1",
