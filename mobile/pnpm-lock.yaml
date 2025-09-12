@@ -110,8 +110,8 @@ packages:
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
 
-  '@jridgewell/trace-mapping@0.3.30':
-    resolution: {integrity: sha512-GQ7Nw5G2lTu/BtHTKfXhKHok2WGetd4XYcVKGx00SjAk8GMwgJM3zr6zORiPGuOE+/vkc90KtTosSSvaCjKb2Q==}
+  '@jridgewell/trace-mapping@0.3.31':
+    resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -263,16 +263,16 @@ packages:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
     engines: {node: '>=8'}
 
-  ansi-regex@6.2.0:
-    resolution: {integrity: sha512-TKY5pyBkHyADOPYlRT9Lx6F544mPl0vS5Ew7BJ45hA08Q+t3GjbueLliBWN3sMICk6+y7HdyxSzC4bWS8baBdg==}
+  ansi-regex@6.2.2:
+    resolution: {integrity: sha512-Bq3SmSpyFHaWjPk8If9yc6svM8c56dB5BAtW4Qbw5jHTwwXXcTLoRMkpDJp6VL0XzlWaCHTXrkFURMYmD0sLqg==}
     engines: {node: '>=12'}
 
   ansi-styles@4.3.0:
     resolution: {integrity: sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==}
     engines: {node: '>=8'}
 
-  ansi-styles@6.2.1:
-    resolution: {integrity: sha512-bN798gFfQX+viw3R7yrGWRqnrN2oRkEkUjjl4JNn4E8GxxbjtG3FbrEIIY3l8/hrwUwIeCZvi4QuOTP4MErVug==}
+  ansi-styles@6.2.3:
+    resolution: {integrity: sha512-4Dj6M28JB+oAH8kFkTLUo+a2jwOFkuqb3yucU0CANcRRUbxS0cP0nZYCGjcc3BNXwRIsUVmDGgzawme7zvJHvg==}
     engines: {node: '>=12'}
 
   ansi-wrap@0.1.0:
@@ -345,8 +345,13 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  b4a@1.6.7:
-    resolution: {integrity: sha512-OnAYlL5b7LEkALw87fUVafQw5rVR9RjwGd4KUwNQ6DrrNmaVaUCgLipfVlzrPQ4tWOR9P0IXGNOx50jYCCdSJg==}
+  b4a@1.7.1:
+    resolution: {integrity: sha512-ZovbrBV0g6JxK5cGUF1Suby1vLfKjv4RWi8IxoaO/Mon8BDD9I21RxjHFtgQ+kskJqLAVyQZly3uMBui+vhc8Q==}
+    peerDependencies:
+      react-native-b4a: '*'
+    peerDependenciesMeta:
+      react-native-b4a:
+        optional: true
 
   bach@2.0.1:
     resolution: {integrity: sha512-A7bvGMGiTOxGMpNupYl9HQTf0FFDNF4VCmks4PJpFyN1AX2pdKuxuwdvUz2Hu388wcgp+OvGFNsumBfFNkR7eg==}
@@ -470,10 +475,6 @@ packages:
   chalk@4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
     engines: {node: '>=10'}
-
-  chalk@5.6.0:
-    resolution: {integrity: sha512-46QrSQFyVSEyYAgQ22hQ+zDa60YHA4fBstHmtSApj1Y5vKtG27fWowW03jCk5KcbXEWPZUIR894aARCA/G1kfQ==}
-    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
 
   chalk@5.6.2:
     resolution: {integrity: sha512-7NzBL0rN6fMUW+f7A6Io4h40qQlG+xGmtMxfbnH/K7TAtt8JQWVQK+6g0UXKMeVJoyV5EkkNsErQ8pVD3bLHbA==}
@@ -1159,8 +1160,8 @@ packages:
     resolution: {integrity: sha512-Hs59xBNfUIunMFgWAbGX5cq6893IbWg4KnrjbYwX3tx0ztorVgTDA6B2sxf8ejHJ4wz8BqGUMYlnzNBer5NvGg==}
     engines: {node: '>= 4'}
 
-  image-dimensions@2.4.0:
-    resolution: {integrity: sha512-0SscKWh1jtXJStcsQHRLrE4Sgxd1y+g3E/28hiY1JElNfYX54MLjilwlU1AsfCmr/EdQPET4fewtbzuYNutJsQ==}
+  image-dimensions@2.5.0:
+    resolution: {integrity: sha512-CKZPHjAEtSg9lBV9eER0bhNn/yrY7cFEQEhkwjLhqLY+Na8lcP1pEyWsaGMGc8t2qbKWA/tuqbhFQpOKGN72Yw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -2008,8 +2009,8 @@ packages:
     resolution: {integrity: sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==}
     engines: {node: '>=8'}
 
-  strip-ansi@7.1.0:
-    resolution: {integrity: sha512-iq6eVVI64nQQTRYq2KtEg2d2uU7LElhTJwsH4YzIHZshxlgZms/wIc4VoDQTlG/IvVIrBKG06CrZnp0qv7hkcQ==}
+  strip-ansi@7.1.2:
+    resolution: {integrity: sha512-gmBGslpoQJtgnMAvOVqGZpEz9dyoKTCzy2nfz/n8aIFhN/jCE/rCmcxabB6jOOHV+0WNnylOxaxBQPSvcWklhA==}
     engines: {node: '>=12'}
 
   strip-dirs@2.1.0:
@@ -2340,7 +2341,7 @@ snapshots:
     dependencies:
       string-width: 5.1.2
       string-width-cjs: string-width@4.2.3
-      strip-ansi: 7.1.0
+      strip-ansi: 7.1.2
       strip-ansi-cjs: strip-ansi@6.0.1
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
@@ -2348,18 +2349,18 @@ snapshots:
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
-      '@jridgewell/trace-mapping': 0.3.30
+      '@jridgewell/trace-mapping': 0.3.31
 
   '@jridgewell/resolve-uri@3.1.2': {}
 
   '@jridgewell/source-map@0.3.11':
     dependencies:
       '@jridgewell/gen-mapping': 0.3.13
-      '@jridgewell/trace-mapping': 0.3.30
+      '@jridgewell/trace-mapping': 0.3.31
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
 
-  '@jridgewell/trace-mapping@0.3.30':
+  '@jridgewell/trace-mapping@0.3.31':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -2543,13 +2544,13 @@ snapshots:
 
   ansi-regex@5.0.1: {}
 
-  ansi-regex@6.2.0: {}
+  ansi-regex@6.2.2: {}
 
   ansi-styles@4.3.0:
     dependencies:
       color-convert: 2.0.1
 
-  ansi-styles@6.2.1: {}
+  ansi-styles@6.2.3: {}
 
   ansi-wrap@0.1.0: {}
 
@@ -2616,7 +2617,7 @@ snapshots:
       possible-typed-array-names: 1.1.0
     optional: true
 
-  b4a@1.6.7: {}
+  b4a@1.7.1: {}
 
   bach@2.0.1:
     dependencies:
@@ -2786,8 +2787,6 @@ snapshots:
     dependencies:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
-
-  chalk@5.6.0: {}
 
   chalk@5.6.2: {}
 
@@ -3352,6 +3351,8 @@ snapshots:
     dependencies:
       graceful-fs: 4.2.11
       streamx: 2.22.1
+    transitivePeerDependencies:
+      - react-native-b4a
 
   fs.realpath@1.0.0: {}
 
@@ -3452,6 +3453,8 @@ snapshots:
       is-negated-glob: 1.0.0
       normalize-path: 3.0.0
       streamx: 2.22.1
+    transitivePeerDependencies:
+      - react-native-b4a
 
   glob-watcher@6.0.0:
     dependencies:
@@ -3599,7 +3602,7 @@ snapshots:
 
   gulp-imagemin@9.1.0(gulp@5.0.1):
     dependencies:
-      chalk: 5.6.0
+      chalk: 5.6.2
       gulp-plugin-extras: 1.1.0
       imagemin: 9.0.1
       plur: 5.1.0
@@ -3642,6 +3645,8 @@ snapshots:
       yazl: 3.3.1
     optionalDependencies:
       gulp: 5.0.1
+    transitivePeerDependencies:
+      - react-native-b4a
 
   gulp@5.0.1:
     dependencies:
@@ -3649,6 +3654,8 @@ snapshots:
       gulp-cli: 3.1.0
       undertaker: 2.0.0
       vinyl-fs: 4.0.2
+    transitivePeerDependencies:
+      - react-native-b4a
 
   gulplog@2.2.0:
     dependencies:
@@ -3716,7 +3723,7 @@ snapshots:
 
   ignore@7.0.5: {}
 
-  image-dimensions@2.4.0: {}
+  image-dimensions@2.5.0: {}
 
   imagemin-gifsicle@7.0.0:
     dependencies:
@@ -3751,7 +3758,7 @@ snapshots:
       environment: 1.1.0
       file-type: 19.6.0
       globby: 14.1.0
-      image-dimensions: 2.4.0
+      image-dimensions: 2.5.0
       junk: 4.0.1
       ow: 2.0.0
       p-pipe: 4.0.0
@@ -4505,6 +4512,8 @@ snapshots:
   stream-composer@1.0.2:
     dependencies:
       streamx: 2.22.1
+    transitivePeerDependencies:
+      - react-native-b4a
 
   stream-exhaust@1.0.2: {}
 
@@ -4520,6 +4529,8 @@ snapshots:
       text-decoder: 1.2.3
     optionalDependencies:
       bare-events: 2.6.1
+    transitivePeerDependencies:
+      - react-native-b4a
 
   strict-uri-encode@1.1.0:
     optional: true
@@ -4534,7 +4545,7 @@ snapshots:
     dependencies:
       eastasianwidth: 0.2.0
       emoji-regex: 9.2.2
-      strip-ansi: 7.1.0
+      strip-ansi: 7.1.2
 
   string_decoder@1.1.1:
     dependencies:
@@ -4548,9 +4559,9 @@ snapshots:
     dependencies:
       ansi-regex: 5.0.1
 
-  strip-ansi@7.1.0:
+  strip-ansi@7.1.2:
     dependencies:
-      ansi-regex: 6.2.0
+      ansi-regex: 6.2.2
 
   strip-dirs@2.1.0:
     dependencies:
@@ -4629,6 +4640,8 @@ snapshots:
   teex@1.0.1:
     dependencies:
       streamx: 2.22.1
+    transitivePeerDependencies:
+      - react-native-b4a
 
   temp-dir@1.0.0:
     optional: true
@@ -4655,7 +4668,9 @@ snapshots:
 
   text-decoder@1.2.3:
     dependencies:
-      b4a: 1.6.7
+      b4a: 1.7.1
+    transitivePeerDependencies:
+      - react-native-b4a
 
   through2-filter@3.0.0:
     dependencies:
@@ -4718,6 +4733,8 @@ snapshots:
   to-through@3.0.0:
     dependencies:
       streamx: 2.22.1
+    transitivePeerDependencies:
+      - react-native-b4a
 
   token-types@6.1.1:
     dependencies:
@@ -4815,6 +4832,8 @@ snapshots:
     dependencies:
       bl: 5.1.0
       vinyl: 3.0.1
+    transitivePeerDependencies:
+      - react-native-b4a
 
   vinyl-fs@3.0.3:
     dependencies:
@@ -4852,6 +4871,8 @@ snapshots:
       value-or-function: 4.0.0
       vinyl: 3.0.1
       vinyl-sourcemap: 2.0.0
+    transitivePeerDependencies:
+      - react-native-b4a
 
   vinyl-sourcemap@1.1.0:
     dependencies:
@@ -4871,6 +4892,8 @@ snapshots:
       streamx: 2.22.1
       vinyl: 3.0.1
       vinyl-contents: 2.0.0
+    transitivePeerDependencies:
+      - react-native-b4a
 
   vinyl-sourcemaps-apply@0.2.1:
     dependencies:
@@ -4891,6 +4914,8 @@ snapshots:
       remove-trailing-separator: 1.1.0
       replace-ext: 2.0.0
       teex: 1.0.1
+    transitivePeerDependencies:
+      - react-native-b4a
 
   which-typed-array@1.1.19:
     dependencies:
@@ -4919,9 +4944,9 @@ snapshots:
 
   wrap-ansi@8.1.0:
     dependencies:
-      ansi-styles: 6.2.1
+      ansi-styles: 6.2.3
       string-width: 5.1.2
-      strip-ansi: 7.1.0
+      strip-ansi: 7.1.2
 
   wrappy@1.0.2: {}
 
