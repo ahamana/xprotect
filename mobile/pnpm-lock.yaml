@@ -21,8 +21,8 @@ importers:
         specifier: ^4.3.4
         version: 4.3.4
       '@types/gulp-filter':
-        specifier: ^3.0.40
-        version: 3.0.40
+        specifier: ^3.0.41
+        version: 3.0.41
       '@types/gulp-htmlmin':
         specifier: ^1.3.36
         version: 1.3.36
@@ -168,8 +168,8 @@ packages:
   '@types/gulp-clean-css@4.3.4':
     resolution: {integrity: sha512-hhWlccgKESmVhT0a8PFI5R02pT9Mnyc8LlJScA5Z55XrG6dJs6vVEoPzPin7IR0YRaQOFuwlDOtzwx0WgxIahg==}
 
-  '@types/gulp-filter@3.0.40':
-    resolution: {integrity: sha512-wBfAXDJlE1R3ZdxnyCrU2TbeLV65yT7SOa1CiEm515UC2Wj+EE8XspBZmqKrTyr2La8ZEI0oMmQ45tPiFdf2Vg==}
+  '@types/gulp-filter@3.0.41':
+    resolution: {integrity: sha512-v+7p521daAT0lXbMqciybyAktHF8plxW5+OHez7cM2JZitJN7DPw0QaU6FQkeLjBTZHEhQS/1HeQOwMiBlRFEg==}
 
   '@types/gulp-htmlmin@1.3.36':
     resolution: {integrity: sha512-8n33l0jrVAGGLkKER+xWaqgbPKRf3Er1x4ZKx2lPlHEkGstqw4+mFOYlTfafCHfRzGyWUeD11/SP0xKqpBtrEw==}
@@ -215,6 +215,9 @@ packages:
 
   '@types/node@24.8.1':
     resolution: {integrity: sha512-alv65KGRadQVfVcG69MuB4IzdYVpRwMG/mq8KWOaoOdyY617P5ivaDiMCGOFDWD2sAn5Q0mR3mRtUOgm99hL9Q==}
+
+  '@types/node@24.9.1':
+    resolution: {integrity: sha512-QoiaXANRkSXK6p0Duvt56W208du4P9Uye9hWLWgGMDTEoKPhuenzNcC4vGUmrNkiOKTlIrBoyNQYNpSwfEZXSg==}
 
   '@types/picomatch@4.0.2':
     resolution: {integrity: sha512-qHHxQ+P9PysNEGbALT8f8YOSHW0KJu6l2xU8DYY0fu/EmGxXdVnuTLvFUvBgPJMSqXq29SYHveejeAha+4AYgA==}
@@ -2205,6 +2208,9 @@ packages:
   undici-types@7.14.0:
     resolution: {integrity: sha512-QQiYxHuyZ9gQUIrmPo3IA+hUl4KYk8uSA7cHrcKd/l3p1OTpZcM0Tbp9x7FAtXdAYhlasd60ncPpgu6ihG6TOA==}
 
+  undici-types@7.16.0:
+    resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
+
   unicorn-magic@0.3.0:
     resolution: {integrity: sha512-+QBBXBCvifc56fsbuxZQ6Sic3wqqc3WWaqxs58gvJrcOuN83HGTCwz3oS5phzU9LthRNE9VrJCFCLUgHeeFnfA==}
     engines: {node: '>=18'}
@@ -2410,14 +2416,14 @@ snapshots:
 
   '@types/clean-css@4.2.11':
     dependencies:
-      '@types/node': 24.8.1
+      '@types/node': 24.9.1
       source-map: 0.6.1
 
   '@types/expect@1.20.4': {}
 
   '@types/glob-stream@8.0.3':
     dependencies:
-      '@types/node': 24.8.1
+      '@types/node': 24.9.1
       '@types/picomatch': 4.0.2
       '@types/streamx': 2.9.5
 
@@ -2430,10 +2436,10 @@ snapshots:
       '@types/clean-css': 4.2.11
       '@types/node': 24.8.1
 
-  '@types/gulp-filter@3.0.40':
+  '@types/gulp-filter@3.0.41':
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 24.8.1
+      '@types/node': 24.9.1
       '@types/vinyl': 2.0.12
 
   '@types/gulp-htmlmin@1.3.36':
@@ -2491,7 +2497,7 @@ snapshots:
 
   '@types/imagemin@9.0.1':
     dependencies:
-      '@types/node': 24.8.1
+      '@types/node': 24.9.1
 
   '@types/jquery@3.5.33':
     dependencies:
@@ -2499,7 +2505,7 @@ snapshots:
 
   '@types/keyv@3.1.4':
     dependencies:
-      '@types/node': 24.8.1
+      '@types/node': 24.9.1
     optional: true
 
   '@types/minimatch@5.1.2': {}
@@ -2508,20 +2514,24 @@ snapshots:
     dependencies:
       undici-types: 7.14.0
 
+  '@types/node@24.9.1':
+    dependencies:
+      undici-types: 7.16.0
+
   '@types/picomatch@4.0.2': {}
 
   '@types/relateurl@0.2.33': {}
 
   '@types/responselike@1.0.3':
     dependencies:
-      '@types/node': 24.8.1
+      '@types/node': 24.9.1
     optional: true
 
   '@types/sizzle@2.3.10': {}
 
   '@types/streamx@2.9.5':
     dependencies:
-      '@types/node': 24.8.1
+      '@types/node': 24.9.1
 
   '@types/uglify-js@3.17.5':
     dependencies:
@@ -2544,7 +2554,7 @@ snapshots:
   '@types/vinyl@2.0.12':
     dependencies:
       '@types/expect': 1.20.4
-      '@types/node': 24.8.1
+      '@types/node': 24.9.1
 
   acorn@8.15.0: {}
 
@@ -4815,6 +4825,8 @@ snapshots:
       undertaker-registry: 2.0.0
 
   undici-types@7.14.0: {}
+
+  undici-types@7.16.0: {}
 
   unicorn-magic@0.3.0: {}
 
