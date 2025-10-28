@@ -5,7 +5,7 @@
   "packageManager": "pnpm@10.18.3",
   "devDependencies": {
     "@types/bootstrap": "^5.2.10",
-    "@types/gulp": "^4.0.17",
+    "@types/gulp": "^4.0.18",
     "@types/gulp-autoprefixer": "^0.0.37",
     "@types/gulp-clean-css": "^4.3.4",
     "@types/gulp-filter": "^3.0.41",
