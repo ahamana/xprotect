@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "main": "gulpfile.mjs",
   "license": "Unlicense",
-  "packageManager": "pnpm@10.18.3",
+  "packageManager": "pnpm@10.20.0",
   "devDependencies": {
     "@types/bootstrap": "^5.2.10",
     "@types/gulp": "^4.0.18",
@@ -23,7 +23,7 @@
     "gulp-terser": "^2.1.0",
     "gulp-typescript": "6.0.0-alpha.1",
     "gulp-zip": "^6.1.0",
-    "rimraf": "^6.0.1",
+    "rimraf": "^6.1.0",
     "typescript": "^5.9.3"
   }
 }
