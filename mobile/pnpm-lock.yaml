@@ -54,8 +54,8 @@ importers:
         specifier: ^5.0.1
         version: 5.0.1
       gulp-imagemin:
-        specifier: ^9.1.0
-        version: 9.1.0(gulp@5.0.1)
+        specifier: ^9.2.0
+        version: 9.2.0(gulp@5.0.1)
       gulp-terser:
         specifier: ^2.1.0
         version: 2.1.0
@@ -212,6 +212,9 @@ packages:
 
   '@types/minimatch@5.1.2':
     resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
+
+  '@types/node@24.10.1':
+    resolution: {integrity: sha512-GNWcUTRBgIRJD5zj+Tq0fKOJ5XZajIiBroOF0yvj2bSU1WvNdYS/dn9UxwsujGW4JX06dnHyjV2y9rRaybH0iQ==}
 
   '@types/node@24.9.2':
     resolution: {integrity: sha512-uWN8YqxXxqFMX2RqGOrumsKeti4LlmIMIyV0lgut4jx7KQBcBiW6vkDtIBvHnHIquwNfJhk8v2OtmO8zXWHfPA==}
@@ -1067,8 +1070,8 @@ packages:
     resolution: {integrity: sha512-ASlyDPZOSKjHYUifYV0rf9JPDflN9IRIb8lw2vRqtYMC4ljU3zAmnnaVXwFQ3H+CfXxZSUesZ2x7jrnPJu93jA==}
     engines: {node: '>= 6.0'}
 
-  gulp-imagemin@9.1.0:
-    resolution: {integrity: sha512-PmzTWoNrVMYVN4ObRdHyt6oer4mqxV53IbCDi3Q8EHeDZW0OzAuh6RlOtpd/R7PFmbDUk64q5P+L04fD9I5cVA==}
+  gulp-imagemin@9.2.0:
+    resolution: {integrity: sha512-y7yAHTUzfHHq6njHY2OIvLOcffF1I/ULSlfzunnIvPeNNpYDArwrlqCzPvnN4Le0p3H/1ERAAQJJPMhbnTRnFQ==}
     engines: {node: '>=18'}
     peerDependencies:
       gulp: '>=4'
@@ -1423,6 +1426,10 @@ packages:
   lru-cache@4.1.5:
     resolution: {integrity: sha512-sWZlbEP2OsHNkXrMl5GYk/jKk70MBng6UU4YI/qGDYbgf6YbP4EvmqISbXCoJiRKs+1bSpFHVgQxvJ17F2li5g==}
 
+  make-asynchronous@1.0.1:
+    resolution: {integrity: sha512-T9BPOmEOhp6SmV25SwLVcHK4E6JyG/coH3C6F1NjNXSziv/fd4GmsqMk8YR6qpPOswfaOCApSNkZv6fxoaYFcQ==}
+    engines: {node: '>=18'}
+
   make-dir@1.3.0:
     resolution: {integrity: sha512-2w31R7SJtieJJnQtGc7RVL2StM2vGYVfqUOvUDxH6bC6aJTxPxTF0GnIgCyu7tjockiUWAYQRbxa7vKn34s5sQ==}
     engines: {node: '>=4'}
@@ -1619,6 +1626,10 @@ packages:
     resolution: {integrity: sha512-NQCqOFhbpVTMX4qMe8PF8lbGtzZ+LCiN7pcNrb/413Na7+TRoe1xkKUzuWa/YEJdGQ0FvKtj35EEbDoVPO2kbA==}
     engines: {node: '>=6'}
 
+  p-event@6.0.1:
+    resolution: {integrity: sha512-Q6Bekk5wpzW5qIyUP4gdMEujObYstZl6DMMOSenwBvV0BlE5LkDwkjs5yHbZmdCEq2o4RJx4tE1vwxFVf2FG1w==}
+    engines: {node: '>=16.17'}
+
   p-finally@1.0.0:
     resolution: {integrity: sha512-LICb2p9CB7FS+0eR1oqWnHhp0FljGLZCWBE9aix0Uye9W8LTQPwMTYVGWQWIw9RdQiDg4+epXQODwIYJtSJaow==}
     engines: {node: '>=4'}
@@ -1646,6 +1657,10 @@ packages:
   p-timeout@2.0.1:
     resolution: {integrity: sha512-88em58dDVB/KzPEx1X0N3LwFfYZPyDc4B6eF38M1rk9VTZMbxXXgjugz8mmwpS9Ox4BDZ+t6t3QP5+/gazweIA==}
     engines: {node: '>=4'}
+
+  p-timeout@6.1.4:
+    resolution: {integrity: sha512-MyIV3ZA/PmyBN/ud8vV9XzwTrNtR4jFrObymZYnZqMmW0zA8Z17vnT0rBgFE/TlohB+YCHqXMgZzb3Csp49vqg==}
+    engines: {node: '>=14.16'}
 
   package-json-from-dist@1.0.1:
     resolution: {integrity: sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==}
@@ -2051,8 +2066,8 @@ packages:
     resolution: {integrity: sha512-FhwotcEqjr241ZbjFzjlIYg6c5/L/s4yBGWSMvJ9UoExiSqL+FnFA/CaeZx17WGaZMS/4SOZp8wH18jSS4R4lw==}
     engines: {node: '>=16'}
 
-  super-regex@1.0.0:
-    resolution: {integrity: sha512-CY8u7DtbvucKuquCmOFEKhr9Besln7n9uN8eFbwcoGYWXOMW07u2o8njWaiXt11ylS3qoGF55pILjRmPlbodyg==}
+  super-regex@1.1.0:
+    resolution: {integrity: sha512-WHkws2ZflZe41zj6AolvvmaTrWds/VuyeYr9iPVv/oQeaIoVxMKaushfFWpOGDT+GuBrM/sVqF8KUCYQlSSTdQ==}
     engines: {node: '>=18'}
 
   supports-color@7.2.0:
@@ -2169,6 +2184,10 @@ packages:
     resolution: {integrity: sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==}
     engines: {node: '>=14.16'}
 
+  type-fest@4.41.0:
+    resolution: {integrity: sha512-TeTSQ6H5YHvpqVwBRcnLDCBnDOHWYu7IvGbHT6N8AOymcr9PJGjc1GTtiWZTYg0NCgYwvnYWEkVChQAr9bjfwA==}
+    engines: {node: '>=16'}
+
   typed-array-buffer@1.0.3:
     resolution: {integrity: sha512-nAYYwfY3qnzX30IkA6AQZjVbtK6duGontcQm1WSG1MD94YLqK0515GNApXkoxKOWMusVssAHWLh9SeaoefYFGw==}
     engines: {node: '>= 0.4'}
@@ -2283,6 +2302,9 @@ packages:
   vinyl@3.0.1:
     resolution: {integrity: sha512-0QwqXteBNXgnLCdWdvPQBX6FXRHtIH3VhJPTd5Lwn28tJXc34YqSCWUmkOvtJHBmB3gGoPtrOKk3Ts8/kEZ9aA==}
     engines: {node: '>=10.13.0'}
+
+  web-worker@1.2.0:
+    resolution: {integrity: sha512-PgF341avzqyx60neE9DD+XS26MMNMoUQRz9NOZwW32nPQrF6p77f1htcnjBSEV8BGMKZ16choqUG4hyI0Hx7mA==}
 
   which-typed-array@1.1.19:
     resolution: {integrity: sha512-rEvr90Bck4WZt9HHFC4DJMsjvu7x+r6bImz0/BrbWb7A2djJ8hnZMrWnHo9F8ssv0OMErasDhftrfROTyqSDrw==}
@@ -2499,10 +2521,15 @@ snapshots:
 
   '@types/keyv@3.1.4':
     dependencies:
-      '@types/node': 24.9.2
+      '@types/node': 24.10.1
     optional: true
 
   '@types/minimatch@5.1.2': {}
+
+  '@types/node@24.10.1':
+    dependencies:
+      undici-types: 7.16.0
+    optional: true
 
   '@types/node@24.9.2':
     dependencies:
@@ -2514,7 +2541,7 @@ snapshots:
 
   '@types/responselike@1.0.3':
     dependencies:
-      '@types/node': 24.9.2
+      '@types/node': 24.10.1
     optional: true
 
   '@types/sizzle@2.3.10': {}
@@ -3622,7 +3649,7 @@ snapshots:
       plugin-error: 1.0.1
       through2: 2.0.5
 
-  gulp-imagemin@9.1.0(gulp@5.0.1):
+  gulp-imagemin@9.2.0(gulp@5.0.1):
     dependencies:
       chalk: 5.6.2
       gulp-plugin-extras: 1.1.0
@@ -3853,7 +3880,7 @@ snapshots:
   is-identifier@1.0.1:
     dependencies:
       identifier-regex: 1.0.1
-      super-regex: 1.0.0
+      super-regex: 1.1.0
 
   is-jpg@3.0.0:
     optional: true
@@ -3986,6 +4013,12 @@ snapshots:
       pseudomap: 1.0.2
       yallist: 2.1.2
     optional: true
+
+  make-asynchronous@1.0.1:
+    dependencies:
+      p-event: 6.0.1
+      type-fest: 4.41.0
+      web-worker: 1.2.0
 
   make-dir@1.3.0:
     dependencies:
@@ -4191,6 +4224,10 @@ snapshots:
       p-timeout: 2.0.1
     optional: true
 
+  p-event@6.0.1:
+    dependencies:
+      p-timeout: 6.1.4
+
   p-finally@1.0.0:
     optional: true
 
@@ -4216,6 +4253,8 @@ snapshots:
     dependencies:
       p-finally: 1.0.0
     optional: true
+
+  p-timeout@6.1.4: {}
 
   package-json-from-dist@1.0.1: {}
 
@@ -4615,9 +4654,10 @@ snapshots:
       '@tokenizer/token': 0.3.0
       peek-readable: 5.4.2
 
-  super-regex@1.0.0:
+  super-regex@1.1.0:
     dependencies:
       function-timeout: 1.0.2
+      make-asynchronous: 1.0.1
       time-span: 5.1.0
 
   supports-color@7.2.0:
@@ -4780,6 +4820,8 @@ snapshots:
     optional: true
 
   type-fest@3.13.1: {}
+
+  type-fest@4.41.0: {}
 
   typed-array-buffer@1.0.3:
     dependencies:
@@ -4947,6 +4989,8 @@ snapshots:
     transitivePeerDependencies:
       - bare-abort-controller
       - react-native-b4a
+
+  web-worker@1.2.0: {}
 
   which-typed-array@1.1.19:
     dependencies:
