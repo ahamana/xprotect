@@ -13,7 +13,7 @@
     "@types/gulp-imagemin": "^8.0.6",
     "@types/gulp-terser": "^1.2.6",
     "@types/gulp-zip": "^4.0.4",
-    "@types/jquery": "^3.5.33",
+    "@types/jquery": "^4.0.0",
     "gulp": "^5.0.1",
     "gulp-autoprefixer": "^10.0.0",
     "gulp-clean-css": "^4.3.0",

@@ -36,8 +36,8 @@ importers:
         specifier: ^4.0.4
         version: 4.0.4
       '@types/jquery':
-        specifier: ^3.5.33
-        version: 3.5.33
+        specifier: ^4.0.0
+        version: 4.0.0
       gulp:
         specifier: ^5.0.1
         version: 5.0.1
@@ -192,8 +192,8 @@ packages:
   '@types/imagemin@9.0.1':
     resolution: {integrity: sha512-xMWpvrUhtYxl6EeW+UhVH3rwUKhCRx21XddcoWByjDAasXZT5pQaCn0YVnXoTijX5hlTrGqV4TGQL/Htpp00+w==}
 
-  '@types/jquery@3.5.33':
-    resolution: {integrity: sha512-SeyVJXlCZpEki5F0ghuYe+L+PprQta6nRZqhONt9F13dWBtR/ftoaIbdRQ7cis7womE+X2LKhsDdDtkkDhJS6g==}
+  '@types/jquery@4.0.0':
+    resolution: {integrity: sha512-Z+to+A2VkaHq1DfI2oSwsoCdhCHMpTSgjWzNcbNlRGYzksDBpPUgEcAL+RQjOBJRaLoEAOHXxqDGBVP+BblBwg==}
 
   '@types/keyv@3.1.4':
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
@@ -212,9 +212,6 @@ packages:
 
   '@types/responselike@1.0.3':
     resolution: {integrity: sha512-H/+L+UkTV33uf49PH5pCAUBVPNj2nDBXTN+qS1dOwyyg24l3CcicicCA7ca+HMvJBZcFgl5r8e+RR6elsb4Lyw==}
-
-  '@types/sizzle@2.3.10':
-    resolution: {integrity: sha512-TC0dmN0K8YcWEAEfiPi5gJP14eJe30TTGjkvek3iM/1NdHHsdCA/Td6GvNndMOo/iSnIsZ4HuuhrYPDAmbxzww==}
 
   '@types/streamx@2.9.5':
     resolution: {integrity: sha512-IHYsa6jYrck8VEdSwpY141FTTf6D7boPeMq9jy4qazNrFMA4VbRz/sw5LSsfR7jwdDcx0QKWkUexZvsWBC2eIQ==}
@@ -2451,9 +2448,7 @@ snapshots:
     dependencies:
       '@types/node': 25.3.0
 
-  '@types/jquery@3.5.33':
-    dependencies:
-      '@types/sizzle': 2.3.10
+  '@types/jquery@4.0.0': {}
 
   '@types/keyv@3.1.4':
     dependencies:
@@ -2474,8 +2469,6 @@ snapshots:
     dependencies:
       '@types/node': 25.3.0
     optional: true
-
-  '@types/sizzle@2.3.10': {}
 
   '@types/streamx@2.9.5':
     dependencies:
