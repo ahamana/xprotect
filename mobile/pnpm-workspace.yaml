@@ -1,4 +1,4 @@
-onlyBuiltDependencies:
-  - gifsicle
-  - mozjpeg
-  - optipng-bin
+allowBuilds:
+  gifsicle: true
+  mozjpeg: true
+  optipng-bin: true
