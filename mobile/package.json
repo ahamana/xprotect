@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "main": "gulpfile.mjs",
   "license": "Unlicense",
-  "packageManager": "pnpm@11.7.0",
+  "packageManager": "pnpm@11.8.0",
   "devDependencies": {
     "@types/bootstrap": "^5.2.11",
     "@types/gulp": "^4.0.18",
