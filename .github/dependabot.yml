@@ -8,10 +8,3 @@ updates:
       interval: daily
       time: "09:00"
       timezone: Asia/Tokyo
-
-  - package-ecosystem: npm
-    directory: /mobile
-    schedule:
-      interval: daily
-      time: "09:00"
-      timezone: Asia/Tokyo

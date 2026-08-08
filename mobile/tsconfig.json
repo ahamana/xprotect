@@ -1,8 +1,0 @@
-{
-  "compilerOptions": {
-    "alwaysStrict": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "nodenext",
-    "sourceMap": false
-  }
-}
