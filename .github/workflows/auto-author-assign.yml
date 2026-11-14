@@ -1,18 +1,25 @@
 name: Auto Author Assign
 
 on:
-  pull_request_target:
+  pull_request:
     types:
       - opened
       - reopened
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   assign-author:
     name: Assign Author
     runs-on: ubuntu-slim
+    timeout-minutes: 15
     permissions:
       pull-requests: write
 
     steps:
       - name: Assign author
-        uses: toshimaru/auto-author-assign@3e19bfc990cb1cf0589dce95e9f75289bb1e22de # v3.0.3
+        uses: toshimaru/auto-author-assign@v3.1.1
